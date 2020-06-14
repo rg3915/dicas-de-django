@@ -1,8 +1,18 @@
+import uuid
 from django.db import models
 from autoslug import AutoSlugField
+from hashid_field import HashidAutoField
+
+
+class UuidModel(models.Model):
+    slug = models.UUIDField(unique=True, editable=False, default=uuid.uuid4)
+
+    class Meta:
+        abstract = True
 
 
 class Article(models.Model):
+    id = HashidAutoField(primary_key=True)
     title = models.CharField('título', max_length=200)
     subtitle = models.CharField('sub-título', max_length=200)
     slug = AutoSlugField(populate_from='title')
@@ -29,7 +39,7 @@ class Article(models.Model):
         return self.title
 
 
-class Category(models.Model):
+class Category(UuidModel):
     title = models.CharField('título', max_length=50, unique=True)
 
     class Meta:

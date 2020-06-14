@@ -26,7 +26,7 @@ class ArticleAdmin(admin.ModelAdmin):
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
-    # list_display = ('title', 'slug')
+    list_display = ('title', 'slug')
     actions = None
 
     def has_add_permission(self, request, obj=None):
