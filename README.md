@@ -1,20 +1,15 @@
-# dicas-de-django
+# Dicas de Django
 
-Várias dicas de Django - assuntos diversos
+Várias dicas de Django - assuntos diversos.
+
 
 # 1 - Django boilerplate e cookiecutter-django
 
-boilerplatesimple.sh
+[boilerplatesimple.sh](https://gist.github.com/rg3915/b363f5c4a998f42901705b23ccf4b8e8)
 
-https://gist.github.com/rg3915/b363f5c4a998f42901705b23ccf4b8e8
+[boilerplate2.sh](https://gist.github.com/rg3915/a264d0ade860d2f2b4bf)
 
-boilerplate2.sh
-
-https://gist.github.com/rg3915/a264d0ade860d2f2b4bf
-
-cookiecutter-django
-
-https://github.com/pydanny/cookiecutter-django
+[cookiecutter-django](https://github.com/pydanny/cookiecutter-django)
 
 ```
 python -m venv .venv
