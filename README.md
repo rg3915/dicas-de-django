@@ -7,7 +7,7 @@ Várias dicas de Django - assuntos diversos.
 3. [Django bulk_create e django-autoslug](#3---django-bulk_create-e-django-autoslug)
 4. [Django Admin personalizado](#4---django-admin-personalizado)
 5. [Django Admin Date Range filter](#5---django-admin-date-range-filter)
-6. [Geradores de senhas randômicas - uuid, hashids, secrets]()
+6. [Geradores de senhas randômicas - uuid, hashids, secrets](#6---geradores-de-senhas-rand%C3%B4micas---uuid-hashids-secrets)
 
 ## This project was done with:
 
@@ -309,7 +309,7 @@ uuid.uuid4()
 uuid.uuid4().hex
 ```
 
-```
+```python
 # models.py
 import uuid
 from django.db import models
@@ -362,7 +362,7 @@ https://pypi.org/project/hashids/
 pip install hashids
 ```
 
-```
+```python
 from hashids import Hashids
 hashids = Hashids()
 
@@ -402,7 +402,7 @@ https://pypi.org/project/django-hashid-field/1.0.0/
 pip install django-hashid-field==3.1.3
 ```
 
-```
+```python
 # models.py
 from hashid_field import HashidAutoField
 
@@ -413,7 +413,7 @@ class Article(models.Model):
 ```
 
 
-```
+```python
 # python manage.py shell_plus
 from hashid_field import Hashid
 
@@ -452,7 +452,7 @@ gpw 1 5
 
 #### com random
 
-```
+```python
 import random
 
 chars = "abcdefghijklmnopqrstuvwxyz01234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()?"
@@ -465,7 +465,7 @@ print(secret_key)
 
 https://pynative.com/python-generate-random-string/
 
-```
+```python
 # Generate a random string of specific letters only
 
 import random
@@ -486,7 +486,7 @@ https://docs.python.org/3/library/secrets.html
 
 *New in Python 3.6*
 
-```
+```python
 import secrets
 
 secrets.token_hex(16)
@@ -504,7 +504,7 @@ url = 'https://mydomain.com/reset=' + secrets.token_urlsafe()
 vim contrib/env_gen.py
 ```
 
-```
+```python
 """
 Django SECRET_KEY generator.
 """
