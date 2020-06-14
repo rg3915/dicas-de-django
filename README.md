@@ -2,6 +2,52 @@
 
 Várias dicas de Django - assuntos diversos.
 
+## This project was done with:
+
+* Python 3.8.2
+* Django 2.2.13
+
+## How to run project?
+
+* Clone this repository.
+* Create virtualenv with Python 3.
+* Active the virtualenv.
+* Install dependences.
+* Run the migrations.
+
+```
+git clone https://github.com/rg3915/dicas-de-django.git
+cd dicas-de-django
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+python contrib/env_gen.py
+python manage.py migrate
+```
+
+## Este projeto foi feito com:
+
+* Python 3.8.2
+* Django 2.2.13
+
+## Como rodar o projeto?
+
+* Clone esse repositório.
+* Crie um virtualenv com Python 3.
+* Ative o virtualenv.
+* Instale as dependências.
+* Rode as migrações.
+
+```
+git clone https://github.com/rg3915/dicas-de-django.git
+cd dicas-de-django
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+python contrib/env_gen.py
+python manage.py migrate
+```
+
 
 # 1 - Django boilerplate e cookiecutter-django
 
