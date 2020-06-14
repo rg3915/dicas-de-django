@@ -2,6 +2,13 @@
 
 Várias dicas de Django - assuntos diversos.
 
+1. [Django boilerplate e cookiecutter-django](#django-boilerplate-e-cookiecutter-django)
+2. [Django extensions](#django-extensions)
+3. [Django bulk_create e django-autoslug](#django-bulk-create-e-django-autoslug)
+4. [Django Admin personalizado](#django-admin-personalizado)
+5. [Django Admin Date Range filter](#django-admin-date-range-filter)
+
+
 ## This project was done with:
 
 * Python 3.8.2
