@@ -7,7 +7,7 @@ from .models import Article, Category
 
 @admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):
-    list_display = ('title', 'slug', 'get_published_date')
+    list_display = ('id', 'title', 'slug', 'get_published_date')
     search_fields = ('title',)
     list_filter = (
         ('published_date', DateRangeFilter),
@@ -26,6 +26,7 @@ class ArticleAdmin(admin.ModelAdmin):
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
+    # list_display = ('title', 'slug')
     actions = None
 
     def has_add_permission(self, request, obj=None):
