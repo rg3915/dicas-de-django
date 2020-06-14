@@ -498,8 +498,6 @@ url = 'https://mydomain.com/reset=' + secrets.token_urlsafe()
 
 ### Django
 
-# Django
-
 ```
 vim contrib/env_gen.py
 ```
