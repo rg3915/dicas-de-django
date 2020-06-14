@@ -2,11 +2,11 @@
 
 Várias dicas de Django - assuntos diversos.
 
-1. [Django boilerplate e cookiecutter-django](#django-boilerplate-e-cookiecutter-django)
-2. [Django extensions](#django-extensions)
-3. [Django bulk_create e django-autoslug](#django-bulk-create-e-django-autoslug)
-4. [Django Admin personalizado](#django-admin-personalizado)
-5. [Django Admin Date Range filter](#django-admin-date-range-filter)
+1. [Django boilerplate e cookiecutter-django](#1---django-boilerplate-e-cookiecutter-django)
+2. [Django extensions](#2---django-extensions)
+3. [Django bulk_create e django-autoslug](#3---django-bulk_create-e-django-autoslug)
+4. [Django Admin personalizado](#4---django-admin-personalizado)
+5. [Django Admin Date Range filter](#5---django-admin-date-range-filter)
 
 
 ## This project was done with:
