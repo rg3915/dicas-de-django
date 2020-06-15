@@ -86,7 +86,7 @@ https://django-extensions.readthedocs.io/en/latest/index.html
 pip install django-extensions
 ```
 
-```
+```python
 # settings.py
 INSTALLED_APPS = (
     ...
@@ -109,7 +109,7 @@ python manage.py shell_plus
 
 https://pypi.org/project/python-slugify/
 
-```
+```python
 from slugify import slugify
 text = 'Dicas de Django'
 print(slugify(text))
@@ -132,7 +132,7 @@ pip install django-autoslug
 
 #### models.py
 
-```
+```python
 from django.db import models
 from autoslug import AutoSlugField
 
@@ -179,7 +179,7 @@ class Category(models.Model):
 
 #### shell_plus
 
-```
+```python
 categories = [
     'dicas',
     'django',
@@ -241,7 +241,7 @@ Article.objects.bulk_create(aux)
 
 #### admin.py
 
-```
+```python
 from django.conf import settings
 from django.contrib import admin
 from .models import Article, Category
@@ -289,7 +289,7 @@ https://github.com/tzulberti/django-datefilterspec
 pip install django-daterange-filter
 ```
 
-```
+```python
 # settings.py
 INSTALLED_APPS = (
     ...
@@ -297,7 +297,7 @@ INSTALLED_APPS = (
 )
 ```
 
-```
+```python
 # admin.py
 from daterange_filter.filter import DateRangeFilter
 ...
