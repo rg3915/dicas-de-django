@@ -105,7 +105,23 @@ python manage.py shell_plus
 
 # 3 - Django bulk_create e django-autoslug
 
+### python-slugify
+
+https://pypi.org/project/python-slugify/
+
+```
+from slugify import slugify
+text = 'Dicas de Django'
+print(slugify(text))
+url = f'example.com/{slugify(text)}'
+```
+
+#### bulk-create
+
 https://docs.djangoproject.com/en/3.0/ref/models/querysets/#bulk-create
+
+
+#### django-autoslug
 
 https://pypi.org/project/django-autoslug/
 
