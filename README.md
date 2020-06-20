@@ -239,6 +239,8 @@ Article.objects.bulk_create(aux)
 
 # 4 - Django Admin personalizado
 
+https://docs.djangoproject.com/en/3.0/ref/contrib/admin/#modeladmin-options
+
 #### admin.py
 
 ```python
@@ -412,7 +414,7 @@ hashids = Hashids()
 
 ### django-hashid-field
 
-https://pypi.org/project/django-hashid-field/1.0.0/
+https://pypi.org/project/django-hashid-field/
 
 ```
 pip install django-hashid-field==3.1.3
