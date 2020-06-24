@@ -9,7 +9,9 @@ Várias dicas de Django - assuntos diversos.
 5. [Django Admin Date Range filter](#5---django-admin-date-range-filter)
 6. [Geradores de senhas randômicas - uuid, hashids, secrets](#6---geradores-de-senhas-rand%C3%B4micas---uuid-hashids-secrets)
 7. [Rodando o ORM do Django no Jupyter Notebook](#7---rodando-o-orm-do-django-no-jupyter-notebook)
-8. [Conhecendo o Django Debug Toolbar]()
+8. [Conhecendo o Django Debug Toolbar](#8---conhecendo-o-django-debug-toolbar)
+9. [Escondendo suas senhas python-decouple](#9---escondendo-suas-senhas-python-decouple)
+
 
 ## This project was done with:
 
@@ -608,4 +610,4 @@ if settings.DEBUG:
     ] + urlpatterns
 ```
 
-# 9 - Conhecendo o Django Debug Toolbar
+# 9 - Escondendo suas senhas python-decouple
