@@ -546,3 +546,16 @@ with open('.env', 'w') as configfile:
 python contrib/env_gen.py
 ```
 
+# 7 - Rodando o ORM do Django no Jupyter Notebook
+
+Instale
+
+```
+pip install ipython[notebook]
+```
+
+Rode
+
+```
+python manage.py shell_plus --notebook
+```
