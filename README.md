@@ -8,6 +8,8 @@ Várias dicas de Django - assuntos diversos.
 4. [Django Admin personalizado](#4---django-admin-personalizado)
 5. [Django Admin Date Range filter](#5---django-admin-date-range-filter)
 6. [Geradores de senhas randômicas - uuid, hashids, secrets](#6---geradores-de-senhas-rand%C3%B4micas---uuid-hashids-secrets)
+7. [Rodando o ORM do Django no Jupyter Notebook](#7---rodando-o-orm-do-django-no-jupyter-notebook)
+8. [Conhecendo o Django Debug Toolbar]()
 
 ## This project was done with:
 
@@ -559,3 +561,51 @@ Rode
 ```
 python manage.py shell_plus --notebook
 ```
+
+# 8 - Conhecendo o Django Debug Toolbar
+
+https://django-debug-toolbar.readthedocs.io/en/latest/
+
+```
+pip install django-debug-toolbar
+```
+
+#### Configurando o `settings.py`
+
+```
+INSTALLED_APPS = [
+    # ...
+    'django.contrib.staticfiles',
+    # ...
+    'debug_toolbar',
+]
+
+MIDDLEWARE = [
+    # ...
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
+    # Deve estar por último.
+]
+
+INTERNAL_IPS = [
+    # ...
+    '127.0.0.1',
+    # ...
+]
+
+STATIC_URL = '/static/'
+```
+
+#### Configurando o `urls.py`
+
+```
+from django.conf import settings
+from django.urls import include, path
+
+if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns = [
+        path('__debug__/', include(debug_toolbar.urls)),
+    ] + urlpatterns
+```
+
+# 9 - Conhecendo o Django Debug Toolbar
