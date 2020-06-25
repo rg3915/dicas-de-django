@@ -12,7 +12,8 @@ Várias dicas de Django - assuntos diversos.
 8. [Conhecendo o Django Debug Toolbar](#8---conhecendo-o-django-debug-toolbar)
 9. [Escondendo suas senhas python-decouple](#9---escondendo-suas-senhas-python-decouple)
 10. [Prototipagem de web design (Mockup)](#10---prototipagem-de-web-design-mockup)
-
+11. [Bootstrap e Bulma + Colorlib](#11---bootstrap-e-bulma--colorlib)
+12. [Imagens: pexels e unsplash](#12---imagens-pexels-e-unsplash)
 
 ## This project was done with:
 
@@ -685,6 +686,7 @@ DATABASES = {
 
 [mockflow.com](https://www.mockflow.com/)
 
+
 # 11 - Bootstrap e Bulma + Colorlib
 
 [getbootstrap.com](https://getbootstrap.com/)
@@ -698,4 +700,11 @@ DATABASES = {
 [bulmathemes.com](https://bulmathemes.com/)
 
 [colorlib.com](https://colorlib.com/)
+
+
+#12 - Imagens: pexels e unsplash
+
+[pexels.com](https://www.pexels.com/pt-br/)
+
+[unsplash.com](https://unsplash.com/)
 
