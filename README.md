@@ -15,7 +15,7 @@ Várias dicas de Django - assuntos diversos.
 11. [Bootstrap e Bulma + Colorlib](#11---bootstrap-e-bulma--colorlib)
 12. [Imagens: pexels e unsplash](#12---imagens-pexels-e-unsplash)
 13. [Cores](#13---cores)
-14. [Herança de Templates e Arquivos estáticos](#14---heranca-de-templates-e-arquivos-estaticos)
+14. [Herança de Templates e Arquivos estáticos](#14---herança-de-templates-e-arquivos-estáticos)
 
 ## This project was done with:
 
@@ -729,3 +729,5 @@ DATABASES = {
 ![diagrama](templates-diagram.png)
 
 ![templates-pyjamas](https://raw.githubusercontent.com/rg3915/pyjamas2019-django/master/img/final.png)
+
+[Video Introdução a Arquitetura do Django - Pyjamas 2019](https://www.youtube.com/watch?v=XjXpwZhOKOs)
