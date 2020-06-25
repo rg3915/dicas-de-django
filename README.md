@@ -726,8 +726,9 @@ DATABASES = {
 
 # 14 - Herança de Templates e Arquivos estáticos
 
+[Video Introdução a Arquitetura do Django - Pyjamas 2019](https://www.youtube.com/watch?v=XjXpwZhOKOs)
+
 ![diagrama](templates-diagram.png)
 
 ![templates-pyjamas](https://raw.githubusercontent.com/rg3915/pyjamas2019-django/master/img/final.png)
 
-[Video Introdução a Arquitetura do Django - Pyjamas 2019](https://www.youtube.com/watch?v=XjXpwZhOKOs)
