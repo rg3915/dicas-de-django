@@ -648,6 +648,7 @@ repare que não deve haver espaços e nem aspas.
 
 E em `settings.py` faça
 
+```
 SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', default=[], cast=Csv())
@@ -669,3 +670,4 @@ DATABASES = {
         'PORT': '5432',
     }
 }
+```
