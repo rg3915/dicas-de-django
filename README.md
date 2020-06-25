@@ -708,3 +708,16 @@ DATABASES = {
 
 [unsplash.com](https://unsplash.com/)
 
+
+# 13 - Cores
+
+[https://color.adobe.com/pt/create/color-wheel](color.adobe.com/pt/create/color-wheel)
+
+[https://coolors.co/](coolors.co)
+
+[https://materialuicolors.co/](materialuicolors.co)
+
+[https://htmlcolorcodes.com/](htmlcolorcodes.com)
+
+[http://clrs.cc/](clrs.cc)
+
