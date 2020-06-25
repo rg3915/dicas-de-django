@@ -14,6 +14,7 @@ Várias dicas de Django - assuntos diversos.
 10. [Prototipagem de web design (Mockup)](#10---prototipagem-de-web-design-mockup)
 11. [Bootstrap e Bulma + Colorlib](#11---bootstrap-e-bulma--colorlib)
 12. [Imagens: pexels e unsplash](#12---imagens-pexels-e-unsplash)
+13. [Cores](#13---cores)
 
 ## This project was done with:
 
