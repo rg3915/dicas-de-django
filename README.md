@@ -702,7 +702,7 @@ DATABASES = {
 [colorlib.com](https://colorlib.com/)
 
 
-#12 - Imagens: pexels e unsplash
+# 12 - Imagens: pexels e unsplash
 
 [pexels.com](https://www.pexels.com/pt-br/)
 
