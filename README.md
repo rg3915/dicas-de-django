@@ -63,6 +63,19 @@ python contrib/env_gen.py
 python manage.py migrate
 ```
 
+Teste
+
+<table>
+  <tbody>
+    <tr>
+      <th colspan="2">1XX Informational</th>
+    </tr>
+    <tr>
+      <th><span style="background-color: cyan">100</span></th>
+      <td style="background-color: #00FFFF;">Continue</td>
+    </tr>
+  </tbody>
+</table>
 
 # 1 - Django boilerplate e cookiecutter-django
 
