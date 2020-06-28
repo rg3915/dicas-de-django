@@ -567,6 +567,11 @@ Rode
 python manage.py shell_plus --notebook
 ```
 
+**Obs**: No Django 3.x talvez você precise dessa configuração [async-safety](https://docs.djangoproject.com/en/3.0/topics/async/#async-safety).
+
+`os.environ["DJANGO_ALLOW_ASYNC_UNSAFE"] = "true"`
+
+
 # 8 - Conhecendo o Django Debug Toolbar
 
 https://django-debug-toolbar.readthedocs.io/en/latest/
