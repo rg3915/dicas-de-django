@@ -717,15 +717,15 @@ DATABASES = {
 
 # 13 - Cores
 
-[https://color.adobe.com/pt/create/color-wheel](color.adobe.com/pt/create/color-wheel)
+[color.adobe.com/pt/create/color-wheel](https://color.adobe.com/pt/create/color-wheel)
 
-[https://coolors.co/](coolors.co)
+[coolors.co](https://coolors.co/)
 
-[https://materialuicolors.co/](materialuicolors.co)
+[materialuicolors.co](https://materialuicolors.co/)
 
-[https://htmlcolorcodes.com/](htmlcolorcodes.com)
+[htmlcolorcodes.com](https://htmlcolorcodes.com/)
 
-[http://clrs.cc/](clrs.cc)
+[clrs.cc](http://clrs.cc/)
 
 
 # 14 - Herança de Templates e Arquivos estáticos
