@@ -1,7 +1,20 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Lista de artigos</h1>
+  <div class="row">
+    <div class="col-md-4">
+      <h1>Lista de Artigos</h1>
+    </div>
+    <div class="col-md-8">
+      <form class="form-inline my-2 my-lg-0 pull-right">
+        <label>Data Inicial</label>
+        <input class="form-control ml-sm-2 mr-sm-2" name='start_date' type="date">
+        <label>Data Final</label>
+        <input class="form-control ml-sm-2 mr-sm-2" name='end_date' type="date">
+        <button class="btn btn-primary my-2 my-sm-0" type="submit">OK</button>
+      </form>
+    </div>
+  </div>
 
   <table class="table">
     <thead>

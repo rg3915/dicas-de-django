@@ -16,6 +16,7 @@ Várias dicas de Django - assuntos diversos.
 12. [Imagens: pexels e unsplash](#12---imagens-pexels-e-unsplash)
 13. [Cores](#13---cores)
 14. [Herança de Templates e Arquivos estáticos](#14---herança-de-templates-e-arquivos-estáticos)
+15. [Busca por data no frontend](#15---busca-por-data-no-frontend)
 
 ## This project was done with:
 
@@ -735,4 +736,32 @@ DATABASES = {
 ![diagrama](templates-diagram.png)
 
 ![templates-pyjamas](https://raw.githubusercontent.com/rg3915/pyjamas2019-django/master/img/final.png)
+
+# 15 - Busca por data no frontend
+
+Considere um template com os campos:
+
+```html
+<input class="form-control" name='start_date' type="date">
+<input class="form-control" name='end_date' type="date">
+```
+
+Em `views.py` basta fazer:
+
+```
+def article_list(request):
+    template_name = 'core/article_list.html'
+    object_list = Article.objects.all()
+
+    start_date = request.GET.get('start_date')
+    end_date = request.GET.get('end_date')
+
+    if start_date and end_date:
+        object_list = object_list.filter(
+            published_date__range=[start_date, end_date]
+        )
+
+    context = {'object_list': object_list}
+    return render(request, template_name, context)
+```
 

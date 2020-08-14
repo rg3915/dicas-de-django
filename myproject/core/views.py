@@ -15,5 +15,14 @@ def person_list(request):
 def article_list(request):
     template_name = 'core/article_list.html'
     object_list = Article.objects.all()
+
+    start_date = request.GET.get('start_date')
+    end_date = request.GET.get('end_date')
+
+    if start_date and end_date:
+        object_list = object_list.filter(
+            published_date__range=[start_date, end_date]
+        )
+
     context = {'object_list': object_list}
     return render(request, template_name, context)
