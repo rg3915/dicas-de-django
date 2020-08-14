@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'django_extensions',
     'daterange_filter',
+    'django_filters',
     'myproject.core'
 ]
 
