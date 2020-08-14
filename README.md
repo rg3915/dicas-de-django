@@ -17,7 +17,7 @@ Várias dicas de Django - assuntos diversos.
 13. [Cores](#13---cores)
 14. [Herança de Templates e Arquivos estáticos](#14---herança-de-templates-e-arquivos-estáticos)
 15. [Busca por data no frontend](#15---busca-por-data-no-frontend)
-16. [Filtros com django-filter](#16---filtros com django-filter)
+16. [Filtros com django-filter](#16---filtros-com-django-filter)
 
 ## This project was done with:
 
