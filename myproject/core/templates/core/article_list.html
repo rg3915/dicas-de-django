@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Lista de artigos</h1>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Título</th>
+        <th>Sub-título</th>
+        <th>Data de publicação</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for object in object_list %}
+        <tr>
+          <td>{{ object.title }}</td>
+          <td>{{ object.subtitle }}</td>
+          <td>{{ object.published_date }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock content %}
