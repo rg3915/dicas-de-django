@@ -19,6 +19,7 @@ Várias dicas de Django - assuntos diversos.
 15. [Busca por data no frontend](#15---busca-por-data-no-frontend)
 16. [Filtros com django-filter](#16---filtros-com-django-filter)
 17. [Criando comandos personalizados](#17---criando-comandos-personalizados)
+18. [bulk_create e bulk_update](#18---bulk_create e bulk_update)
 
 ## This project was done with:
 
@@ -903,7 +904,7 @@ class Command(BaseCommand):
 ```
 
 
-```
+```python
 # search.py
 from django.core.management.base import BaseCommand
 from myproject.core.models import Article
@@ -946,5 +947,52 @@ class Command(BaseCommand):
                 self.stdout.write("{0} {1}".format(
                     article.title, article.subtitle))
             self.stdout.write(f'\n{queryset.count()} artigos localizados.')
+```
+
+# 18 - bulk_create e bulk_update
+
+O [bulk_create](https://docs.djangoproject.com/en/3.0/ref/models/querysets/#bulk-create) serve para inserir uma grande quantidade de dados num banco de forma super rápida.
+
+Vamos usar o
+
+`python manage.py shell_plus`
+
+Primeiro vamos criar uns dados aleatórios
+
+```python
+import secrets
+import string
+
+N = 12
+list_items = []
+
+for i in range(100):
+    res = ''.join(secrets.choice(string.ascii_lowercase) for i in range(N))
+    list_items.append(res)
+```
+
+Agora vamos inserir os dados com bulk_create
+
+```python
+aux = []
+for item in list_items:
+    obj = Article(title=item, subtitle=item)
+    aux.append(obj)
+
+Article.objects.bulk_create(aux)
+```
+
+## bulk_update
+
+Como o nome já diz, o [bulk_update](https://docs.djangoproject.com/en/3.0/ref/models/querysets/#bulk-update) serve para atualizar os dados.
+
+
+```python
+articles = Article.objects.all()
+category = Category.objects.first()
+for article in articles:
+    article.category = category
+
+Article.objects.bulk_update(articles, ['category'])
 ```
 
