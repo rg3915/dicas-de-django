@@ -19,7 +19,7 @@ Várias dicas de Django - assuntos diversos.
 15. [Busca por data no frontend](#15---busca-por-data-no-frontend)
 16. [Filtros com django-filter](#16---filtros-com-django-filter)
 17. [Criando comandos personalizados](#17---criando-comandos-personalizados)
-18. [bulk_create e bulk_update](#18---bulk_create e bulk_update)
+18. [bulk_create e bulk_update](#18---bulk_create-e-bulk_update)
 
 ## This project was done with:
 
@@ -951,6 +951,8 @@ class Command(BaseCommand):
 
 # 18 - bulk_create e bulk_update
 
+## bulk_create
+
 O [bulk_create](https://docs.djangoproject.com/en/3.0/ref/models/querysets/#bulk-create) serve para inserir uma grande quantidade de dados num banco de forma super rápida.
 
 Vamos usar o
@@ -994,5 +996,61 @@ for article in articles:
     article.category = category
 
 Article.objects.bulk_update(articles, ['category'])
+```
+
+# 19 - Criando Issues por linha de comando com a api do github
+
+## [github cli](https://docs.github.com/en/rest/reference/issues#create-an-issue)
+
+pip install requests
+
+```python
+import json
+import requests
+from decouple import config
+
+# Autenticação
+REPO_USERNAME = config('REPO_USERNAME')
+REPO_PASSWORD = config('REPO_PASSWORD')
+
+# O repositório para adicionar a issue
+REPO_OWNER = config('REPO_OWNER')
+REPO_NAME = config('REPO_NAME')
+
+
+def make_github_issue(title, body=None, assignee=None, milestone=None, labels=None):
+    '''
+    Create an issue on github.com using the given parameters.
+    '''
+    url = 'https://api.github.com/repos/%s/%s/issues' % (REPO_OWNER, REPO_NAME)
+    session = requests.Session()
+    session.auth = (REPO_USERNAME, REPO_PASSWORD)
+    # Create our issue
+    issue = {
+        'title': title,
+        'body': body,
+        'assignee': assignee,
+        'milestone': milestone,
+        'labels': labels
+    }
+    # Add the issue to our repository
+    r = session.post(url, json.dumps(issue))
+    if r.status_code == 201:
+        print('Successfully created Issue "%s"' % title)
+    else:
+        print('Could not create Issue "%s"' % title)
+        print('Response:', r.content)
+
+
+if __name__ == '__main__':
+    title = 'Criar github cli'
+    body = 'API para criar issues por linha de comando.'
+    make_github_issue(
+        title=title,
+        body=body,
+        assignee='rg3915',
+        milestone=None,
+        labels=['enhancement']
+    )
 ```
 
