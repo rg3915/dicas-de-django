@@ -3,14 +3,7 @@ import json
 import requests
 from decouple import config
 
-'''
-https://docs.github.com/en/rest/reference/issues#create-an-issue
-
-Usage: python github_cli2.py --title='Your title' \
-            --body='Your description' \
-            --assignee='Assignee name' \
-            --labels='enhancement'
-'''
+# https://docs.github.com/en/rest/reference/issues#create-an-issue
 
 # Autenticação
 REPO_USERNAME = config('REPO_USERNAME')
@@ -20,11 +13,10 @@ REPO_PASSWORD = config('REPO_PASSWORD')
 REPO_OWNER = config('REPO_OWNER')
 REPO_NAME = config('REPO_NAME')
 
-
 @click.command()
 @click.option('--title', prompt='Title', help='Type the title.')
 @click.option('--body', prompt='Description', help='Type the description.')
-@click.option('--assignee', prompt='Assignee', help='Type the assignee name.')
+@click.option('--assignee', prompt='Assignee', help='Type the assignee.')
 @click.option('--labels', prompt='Labels', help='Type the labels.')
 def make_github_issue(title, body=None, assignee=None, milestone=None, labels=None):
     '''
