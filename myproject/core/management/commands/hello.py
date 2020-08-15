@@ -2,14 +2,14 @@ from django.core.management.base import BaseCommand
 
 
 class Command(BaseCommand):
-    help = 'Print hello world.'
+    help = 'Print hellor world.'
 
     def add_arguments(self, parser):
-        # Argumento nomeado (opcional)
+        # Argumento nomeado
         parser.add_argument(
             '--awards', '-a',
             action='store_true',
-            help='Print awards.'
+            help='Ajuda da opção awards.'
         )
 
     def handle(self, *args, **options):

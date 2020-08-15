@@ -3,7 +3,7 @@ from myproject.core.models import Article
 
 
 class Command(BaseCommand):
-    help = """Localiza um artigo pelo título ou sub-título."""
+    help = 'Localiza um artigo pelo título ou sub-título.'
 
     def add_arguments(self, parser):
         parser.add_argument(
@@ -36,6 +36,5 @@ class Command(BaseCommand):
 
         if self.verbosity > 0:
             for article in queryset:
-                self.stdout.write("{0} {1}".format(
-                    article.title, article.subtitle))
+                self.stdout.write(f"{article.title} {article.subtitle}")
             self.stdout.write(f'\n{queryset.count()} artigos localizados.')

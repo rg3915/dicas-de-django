@@ -764,6 +764,8 @@ def article_list(request):
     end_date = request.GET.get('end_date')
 
     if start_date and end_date:
+        # Converte em data e adiciona um dia.
+        end_date = parse(end_date) + timedelta(1)
         object_list = object_list.filter(
             published_date__range=[start_date, end_date]
         )
