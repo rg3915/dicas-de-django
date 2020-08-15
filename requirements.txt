@@ -10,5 +10,6 @@ django-widget-tweaks==1.4.8
 Django==2.2.13
 hashids==1.2.0
 python-decouple==3.3
+python-gitlab==2.4.0
 requests==2.24.0
 shortuuid==1.0.1
