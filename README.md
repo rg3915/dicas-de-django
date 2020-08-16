@@ -24,7 +24,7 @@ Várias dicas de Django - assuntos diversos.
 20. [api github e click](#20---api-github-e-click)
 21. [Criando issues por linha de comando com gitlab cli](#21---criando-issues-por-linha-de-comando-com-gitlab-cli)
 22. [Criando issues por linha de comando com bitbucket cli](#22---criando-issues-por-linha-de-comando-com-bitbucket-cli)
-23. [Diferença entre JSON dump, dumps, load e loads](#23---diferenca-entre-json-dump-dumps-load-e-loads)
+23. [Diferença entre JSON dump, dumps, load e loads](#23---diferença-entre-json-dump-dumps-load-e-loads)
 
 ## This project was done with:
 
@@ -1489,11 +1489,11 @@ if __name__ == '__main__':
 ```
 
 
-[JsonResponse](https://docs.djangoproject.com/en/2.2/ref/request-response/#jsonresponse-objects) [source](https://docs.djangoproject.com/en/2.2/_modules/django/http/response/#JsonResponse)
+[JsonResponse](https://docs.djangoproject.com/en/2.2/ref/request-response/#jsonresponse-objects) [[source](https://docs.djangoproject.com/en/2.2/_modules/django/http/response/#JsonResponse)]
 
 
 ```python
-# views.py
+# core/views.py
 import json
 from django.http import JsonResponse
 
@@ -1527,4 +1527,4 @@ path('articles/json/', v.article_json, name='article_json'),
 ...
 ```
 
-Leia mais em [Working With JSON Data in Python](https://realpython.com/python-json/)
+Leia mais em [Working With JSON Data in Python](https://realpython.com/python-json/).
