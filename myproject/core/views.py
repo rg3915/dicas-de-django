@@ -1,5 +1,8 @@
+import json
 from dateutil.parser import parse
 from datetime import timedelta
+from pprint import pprint
+from django.http import JsonResponse
 from django.shortcuts import render
 from .models import Article
 from .filters import ArticleFilter
@@ -43,3 +46,25 @@ def article_filter_list(request):
         'filter': article_list
     }
     return render(request, template_name, context)
+
+
+def article_json(request):
+    text = '''
+    {
+        "title": "JSON",
+        "subtitle": "Entendento JSON dumps e loads",
+        "slug": "entendento-json-dumps-e-loads",
+        "value": "42"
+    }
+    '''
+    data = json.loads(text)
+    pprint(data)
+    print(type(data))
+    print(data['value'], 'is', type(data['value']))
+
+    data['title'] = 'Introdução ao JSON'
+    data['value'] = int(data['value']) + 1
+    data['pi'] = 3.14
+    data['active'] = True
+    data['nulo'] = None
+    return JsonResponse(data)
