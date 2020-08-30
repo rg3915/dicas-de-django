@@ -777,11 +777,13 @@ def article_list(request):
 
 Pra não precisar fazer o
 
-`end_date = parse(end_date) + timedelta(1)`
+```python
+end_date = parse(end_date) + timedelta(1)
+```
 
 basta acrescentar `date` antes do `range`, dai fica assim:
 
-```
+```python
 object_list = object_list.filter(
     published_date__date__range=[start_date, end_date]
 )
