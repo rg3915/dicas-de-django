@@ -27,9 +27,10 @@ def article_list(request):
 
     if start_date and end_date:
         # Converte em data e adiciona um dia.
-        end_date = parse(end_date) + timedelta(1)
+        # end_date = parse(end_date) + timedelta(1)
+        # Usando date antes de range não precisa do timedelta.
         object_list = object_list.filter(
-            published_date__range=[start_date, end_date]
+            published_date__date__range=[start_date, end_date]
         )
 
     context = {'object_list': object_list}

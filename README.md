@@ -775,6 +775,21 @@ def article_list(request):
     return render(request, template_name, context)
 ```
 
+Pra não precisar fazer o
+
+`end_date = parse(end_date) + timedelta(1)`
+
+basta acrescentar `date` antes do `range`, dai fica assim:
+
+```
+object_list = object_list.filter(
+    published_date__date__range=[start_date, end_date]
+)
+```
+
+Agradecimentos a [@walisonfilipe](https://twitter.com/walisonfilipe)
+
+
 # 16 - Filtros com [django-filter](https://django-filter.readthedocs.io/en/stable/)
 
 Instale o [django-filter](https://django-filter.readthedocs.io/en/stable/)
