@@ -1322,7 +1322,7 @@ if __name__ == '__main__':
 
 ## [dumps](https://docs.python.org/3/library/json.html#json.dumps)
 
-Serializa um JSON para uma String.
+Serializa um objeto Python para uma string no formato JSON.
 
 `json.dumps(obj)`
 
@@ -1339,7 +1339,7 @@ json.dumps(my_dict)
 
 ## [dump](https://docs.python.org/3/library/json.html#json.dump)
 
-Serializa um JSON para um arquivo.
+Serializa um objeto Python para um arquivo no formato JSON.
 
 `json.dump(obj, fp)`
 
@@ -1359,7 +1359,7 @@ with open('/tmp/file.txt', 'w') as f:
 
 ## [loads](https://docs.python.org/3/library/json.html#json.loads)
 
-Deserializa uma String para um JSON.
+Deserializa uma string no formato JSON para um arquivo.
 
 `json.loads(s)`
 
@@ -1377,7 +1377,7 @@ json.loads(text)
 
 ## [load](https://docs.python.org/3/library/json.html#json.load)
 
-Deserializa um arquivo para um JSON.
+Deserializa um arquivo no formato JSON para um arquivo.
 
 `json.load(fp)`
 
@@ -1409,14 +1409,14 @@ from pprint import pprint
 
 def json_to_string_with_dumps(my_dict):
     '''
-    Serializa (encode) JSON para string.
+    Serializa (encode) objeto para string no formato JSON.
     '''
     return json.dumps(my_dict, indent=4)
 
 
 def json_to_string_with_dump_stringio(my_dict):
     '''
-    Serializa (encode) JSON para string usando StringIO.
+    Serializa (encode) objeto para string no formato JSON usando StringIO.
     '''
     io = StringIO()
     json.dump(my_dict, io, indent=4)
@@ -1425,7 +1425,7 @@ def json_to_string_with_dump_stringio(my_dict):
 
 def json_to_file_with_dump_open_file(filename, my_dict):
     '''
-    Serializa (encode) JSON para arquivo usando open.
+    Serializa (encode) objeto para arquivo no formato JSON usando open.
     '''
     with open(filename, 'w') as f:
         json.dump(my_dict, f, indent=4)
@@ -1433,14 +1433,14 @@ def json_to_file_with_dump_open_file(filename, my_dict):
 
 def string_to_json_with_loads(text):
     '''
-    Deserializa (decode) string para JSON.
+    Deserializa (decode) string no formato JSON para objeto.
     '''
     return json.loads(text)
 
 
 def string_to_json_with_load_stringio(text):
     '''
-    Deserializa (decode) string para JSON usando StringIO.
+    Deserializa (decode) string no formato JSON para objeto usando StringIO.
     '''
     io = StringIO(text)
     return json.load(io)
@@ -1448,7 +1448,7 @@ def string_to_json_with_load_stringio(text):
 
 def file_to_json_with_load_open_file(filename):
     '''
-    Deserializa (decode) arquivo para JSON usando open.
+    Deserializa (decode) string no formato JSON para arquivo usando open.
     '''
     with open(filename, 'r') as f:
         data = json.load(f)
@@ -1456,7 +1456,6 @@ def file_to_json_with_load_open_file(filename):
 
 
 if __name__ == '__main__':
-    # JSON to String
     # Serialize (encode)
 
     my_dict = {
@@ -1488,7 +1487,6 @@ if __name__ == '__main__':
     }
     json_to_file_with_dump_open_file(filename, my_dict)
 
-    # String to JSON
     # Deserialize (decode)
 
     text = """
