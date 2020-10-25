@@ -1314,10 +1314,11 @@ if __name__ == '__main__':
 
 **Documentação:** [JSON](https://docs.python.org/3/library/json.html)
 
-![json_string.png](json_string.png)
+![json_loads_dumps.png](json_loads_dumps.png)
 
-![json_file.png](json_file.png)
+--
 
+![json_load_dump.png](json_load_dump.png)
 
 ## [dumps](https://docs.python.org/3/library/json.html#json.dumps)
 
