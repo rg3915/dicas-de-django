@@ -1826,20 +1826,24 @@ $ python subprocess01.py
 
 Leia mais em:
 
-(http://grandeportal.github.io/shell/2016/shell-script1/)
-(http://grandeportal.github.io/shell/2016/shell-script2/)
-(http://grandeportal.github.io/shell/2016/shell-script3/)
+[Grande Portal - Shell script 1](http://grandeportal.github.io/shell/2016/shell-script1/)
+
+[Grande Portal - Shell script 2](http://grandeportal.github.io/shell/2016/shell-script2/)
+
+[Grande Portal - Shell script 3](http://grandeportal.github.io/shell/2016/shell-script3/)
+
 
 Assista também:
 
 [Mini-curso Shell script 1](https://www.youtube.com/watch?v=NoQW5CGAGNA)
+
 [Mini-curso Shell script 2](https://www.youtube.com/watch?v=aspwrDLSrPI)
 
 
 **Exemplo 1:**
 
 
-```bash
+```sh
 # running_python01.sh
 python -c "print('Rodando Python dentro do Shell script')"
 ```
@@ -1858,7 +1862,7 @@ $ ./running_python01.sh
 
 **Exemplo 2:**
 
-```bash
+```sh
 # ./running_python02.sh 1 2
 # ./running_python02.sh 2 1
 # ./running_python02.sh 2 2
