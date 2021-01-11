@@ -26,6 +26,7 @@ Várias dicas de Django - assuntos diversos.
 22. [Criando issues por linha de comando com bitbucket cli](#22---criando-issues-por-linha-de-comando-com-bitbucket-cli)
 23. [Diferença entre JSON dump, dumps, load e loads](#23---diferença-entre-json-dump-dumps-load-e-loads)
 24. [Barra de progresso](#24---barra-de-progresso)
+25. [Rodando Shell script dentro do Python](#25---rodando-shell-script-dentro-do-python)
 
 
 ## This project was done with:
@@ -1781,5 +1782,36 @@ with httpx.stream("GET", url) as response:
     with tqdm.tqdm(total=total) as progress:
         for chunk in response.iter_bytes():
             progress.update(len(chunk))
+```
+
+# 25 - Rodando Shell script dentro do Python
+
+Para rodar Shell script dentro do Python só precisamos do [subprocess](https://docs.python.org/3/library/subprocess.html).
+
+```python
+# subprocess01.py
+import subprocess
+from datetime import datetime
+
+
+subprocess.call('echo "Hello"', shell=True)
+
+subprocess.run('echo "Running"', shell=True)
+
+now = datetime.now()
+
+subprocess.run(f'notify-send --urgency=LOW "{now}"', shell=True)
+
+
+def write_numbers(n):
+    return ' '.join([str(i) for i in range(n)])
+
+
+# print(write_numbers(5))
+
+subprocess.run(f'echo {write_numbers(10)} > /tmp/numbers.txt', shell=True)
+subprocess.run('cat /tmp/numbers.txt', shell=True)
+
+subprocess.run('wc -l /tmp/out.log', shell=True)
 ```
 
