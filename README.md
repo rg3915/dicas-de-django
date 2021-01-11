@@ -1888,7 +1888,7 @@ chmod +x running_python02.sh
 
 **Exemplo 3:**
 
-```
+```sh
 # ./running_python03.sh 1 10
 # ./running_python03.sh 35 42
 
