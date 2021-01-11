@@ -28,6 +28,7 @@ Várias dicas de Django - assuntos diversos.
 24. [Barra de progresso](#24---barra-de-progresso)
 25. [Rodando Shell script dentro do Python](#25---rodando-shell-script-dentro-do-python)
 26. [Rodando Python dentro do Shell script](#26---rodando-python-dentro-do-shell-script)
+27. [Retornando os nomes dos campos do model](#27---retornando-os-nomes-dos-campos-do-model)
 
 
 ## This project was done with:
@@ -1942,3 +1943,32 @@ chmod +x running_python03.sh
 ./running_python03.sh 1 10
 ./running_python03.sh 35 42
 ```
+
+
+
+# 27 - Retornando os nomes dos campos do model
+
+```python
+$ python manage.py shell_plus
+
+>>> [field.name for field in User._meta.get_fields()]
+['logentry',
+ 'id',
+ 'password',
+ 'last_login',
+ 'is_superuser',
+ 'username',
+ 'first_name',
+ 'last_name',
+ 'email',
+ 'is_staff',
+ 'is_active',
+ 'date_joined',
+ 'groups',
+ 'user_permissions']
+
+>>> [field.name for field in Article._meta.get_fields()]
+['id', 'title', 'subtitle', 'slug', 'category', 'published_date']
+```
+
+
