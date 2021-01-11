@@ -27,6 +27,7 @@ Várias dicas de Django - assuntos diversos.
 23. [Diferença entre JSON dump, dumps, load e loads](#23---diferença-entre-json-dump-dumps-load-e-loads)
 24. [Barra de progresso](#24---barra-de-progresso)
 25. [Rodando Shell script dentro do Python](#25---rodando-shell-script-dentro-do-python)
+26. [Rodando Python dentro do Shell script](#26---rodando-python-dentro-do-shell-script)
 
 
 ## This project was done with:
@@ -1815,3 +1816,125 @@ subprocess.run('cat /tmp/numbers.txt', shell=True)
 subprocess.run('wc -l /tmp/out.log', shell=True)
 ```
 
+```
+$ python subprocess01.py
+```
+
+
+
+# 26 - Rodando Python dentro do Shell script
+
+Leia mais em:
+
+(http://grandeportal.github.io/shell/2016/shell-script1/)
+(http://grandeportal.github.io/shell/2016/shell-script2/)
+(http://grandeportal.github.io/shell/2016/shell-script3/)
+
+Assista também:
+
+[Mini-curso Shell script 1](https://www.youtube.com/watch?v=NoQW5CGAGNA)
+[Mini-curso Shell script 2](https://www.youtube.com/watch?v=aspwrDLSrPI)
+
+
+**Exemplo 1:**
+
+
+```bash
+# running_python01.sh
+python -c "print('Rodando Python dentro do Shell script')"
+```
+
+```
+$ source running_python01.sh
+```
+
+Ou
+
+```
+$ chmod +x running_python01.sh
+$ ./running_python01.sh
+```
+
+
+**Exemplo 2:**
+
+```bash
+# ./running_python02.sh 1 2
+# ./running_python02.sh 2 1
+# ./running_python02.sh 2 2
+
+a=${1}
+b=${2}
+
+if [[ $a -eq $b ]]; then
+    python -c "print('${a} é igual a ${b}')"
+elif [[ $a -lt $b ]]; then
+    python -c "print('${a} é menor que ${b}')"
+else
+    python -c "print('${a} é maior que ${b}')"
+fi
+```
+
+```
+chmod +x running_python02.sh
+./running_python02.sh 1 2
+./running_python02.sh 2 1
+./running_python02.sh 2 2
+```
+
+**Exemplo 3:**
+
+```
+# ./running_python03.sh 1 10
+# ./running_python03.sh 35 42
+
+start_value=${1}
+end_value=${2}
+
+function join { local IFS="$1"; shift; echo "$*"; }
+
+if [[ $start_value -gt $end_value ]]; then
+    python -c "print('O valor inicial não pode ser maior que o valor final.')"
+else
+    IDS=$(seq -s ' ' $start_value $end_value)
+
+    for id in $IDS; do
+        python -c "print('$id')"
+    done
+
+    python -c "print('$IDS')"
+    python -c "print('$IDS'.split())"
+    python -c "print([int(i) for i in '$IDS'.split()])"
+    python -c "print(sum([int(i) for i in '$IDS'.split()]))"
+    python -c "ids=[int(i) for i in '$IDS'.split()]; print(ids)"
+    # Não dá pra usar o laço for do Python na mesma linha, então façamos
+    echo "IDS:" $IDS
+    result=$(join , ${IDS[@]})
+    echo "result:" $result
+    python running_python03.py -ids $result
+fi
+```
+
+```python
+# running_python03.py
+import click
+
+
+@click.command()
+@click.option('-ids', prompt='Ids', help='Digite uma sequência de números separado por vírgula.')
+def get_numbers(ids):
+    print('>>>', ids)
+    for id in ids.split(','):
+        print(id)
+
+
+if __name__ == '__main__':
+    get_numbers()
+```
+
+
+```
+chmod +x running_python03.sh
+./running_python03.sh 1 10
+./running_python03.sh 35 42
+```

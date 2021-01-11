@@ -1,0 +1,1 @@
+python -c "print('Rodando Python dentro do Shell script')"
