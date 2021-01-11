@@ -25,7 +25,7 @@ Várias dicas de Django - assuntos diversos.
 21. [Criando issues por linha de comando com gitlab cli](#21---criando-issues-por-linha-de-comando-com-gitlab-cli)
 22. [Criando issues por linha de comando com bitbucket cli](#22---criando-issues-por-linha-de-comando-com-bitbucket-cli)
 23. [Diferença entre JSON dump, dumps, load e loads](#23---diferença-entre-json-dump-dumps-load-e-loads)
-24. [Barra de progresso]()
+24. [Barra de progresso](#24---barra-de-progresso)
 
 
 ## This project was done with:
