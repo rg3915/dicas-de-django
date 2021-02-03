@@ -1944,6 +1944,67 @@ chmod +x running_python03.sh
 ./running_python03.sh 35 42
 ```
 
+**Exemplo 4:** Não está no video.
+
+```sh
+# running_python04.sh
+# Como pegar o resultado do Python e usar numa variável no Shell script.
+
+result=$(python -c "result = 42; print(result)" | xargs echo $var1)
+echo 'Resultado:' $result
+echo 'Dobro:' $(( $result*2 ))
+
+result2=$(python -c "result = sum([i for i in range(11)]); print(result)" | xargs echo $var2)
+echo 'Resultado:' $result2
+echo 'Dobro:' $(( $result2*2 ))
+
+
+# Como usar comandos multilinha.
+
+result=$(python << EOF
+aux = []
+for i in range(1, 11):
+    aux.append(i)
+print(sum(aux))
+EOF
+)
+echo 'Resultado:' $result
+
+python << EOF
+aux = []
+for i in range(1, 11):
+    print(i)
+    aux.append(i)
+print(f'Total: {sum(aux)}')
+EOF
+
+result=$(python fibonacci.py | xargs echo $f)
+echo 'Fibonacci'
+echo $result
+```
+
+```python
+# fibonacci.py
+# Function for nth Fibonacci number
+
+def Fibonacci(n):
+    if n < 0:
+        print("Incorrect input")
+    # First Fibonacci number is 0
+    elif n == 0:
+        return 0
+    # Second Fibonacci number is 1
+    elif n == 1:
+        return 1
+    else:
+        return Fibonacci(n - 1) + Fibonacci(n - 2)
+
+
+print(Fibonacci(9))
+# This code is contributed by Saket Modi
+```
+
+https://www.geeksforgeeks.org/program-for-nth-fibonacci-number/
 
 
 # 27 - Retornando os nomes dos campos do model
