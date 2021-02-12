@@ -2,7 +2,7 @@ from django.core.management.base import BaseCommand
 
 
 class Command(BaseCommand):
-    help = 'Print hellor world.'
+    help = 'Print hello world.'
 
     def add_arguments(self, parser):
         # Argumento nomeado
