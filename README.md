@@ -29,6 +29,7 @@ Várias dicas de Django - assuntos diversos.
 25. [Rodando Shell script dentro do Python](#25---rodando-shell-script-dentro-do-python)
 26. [Rodando Python dentro do Shell script](#26---rodando-python-dentro-do-shell-script)
 27. [Retornando os nomes dos campos do model](#27---retornando-os-nomes-dos-campos-do-model)
+28. [Admin: Usando short description](#28---admin-usando-short-description)
 
 
 ## This project was done with:
@@ -2032,4 +2033,28 @@ $ python manage.py shell_plus
 ['id', 'title', 'subtitle', 'slug', 'category', 'published_date']
 ```
 
+
+# 28 - Admin: Usando short description
+
+Quando não conseguimos usar o `dunder` no `list_display` do admin, então usamos o `short_description`.
+
+
+```python
+@admin.register(Article)
+class ArticleAdmin(admin.ModelAdmin):
+    list_display = ('id', 'title', 'slug', 'get_published_date', 'get_category')
+    ...
+
+    def get_published_date(self, obj):
+        if obj.published_date:
+            return obj.published_date.strftime('%d/%m/%Y')
+
+    get_published_date.short_description = 'Data de Publicação'
+
+    def get_category(self, obj):
+        if obj.category:
+            return obj.category.title
+
+    get_category.short_description = 'Categoria'
+```
 

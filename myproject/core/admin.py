@@ -7,7 +7,7 @@ from .models import Article, Category
 
 @admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):
-    list_display = ('id', 'title', 'slug', 'get_published_date')
+    list_display = ('id', 'title', 'slug', 'get_published_date', 'get_category')
     search_fields = ('title',)
     list_filter = (
         ('published_date', DateRangeFilter),
@@ -22,6 +22,12 @@ class ArticleAdmin(admin.ModelAdmin):
             return obj.published_date.strftime('%d/%m/%Y')
 
     get_published_date.short_description = 'Data de Publicação'
+
+    def get_category(self, obj):
+        if obj.category:
+            return obj.category.title
+
+    get_category.short_description = 'Categoria'
 
 
 @admin.register(Category)

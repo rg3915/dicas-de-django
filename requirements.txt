@@ -13,6 +13,7 @@ Django==2.2.15
 hashids==1.2.0
 progress==1.5
 progressbar2==3.53.1
+python-dateutil==2.8.1
 python-decouple==3.3
 python-gitlab==2.4.0
 requests==2.24.0
