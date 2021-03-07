@@ -679,10 +679,15 @@ if settings.DEBUG:
     <img src="img/youtube.png">
 </a>
 
+[Video do Henrique Bastos na Live de Python #97](https://www.youtube.com/watch?v=zYJGpLw5Wv4)
+
+<a href="https://www.youtube.com/watch?v=zYJGpLw5Wv4">
+    <img src="img/youtube.png">
+</a>
+
 
 https://github.com/henriquebastos/python-decouple
 
-[Video do Henrique Bastos na Live de Python #97](https://www.youtube.com/watch?v=zYJGpLw5Wv4)
 
 ```
 pip install python-decouple
@@ -816,6 +821,11 @@ DATABASES = {
 
 
 [Video Introdução a Arquitetura do Django - Pyjamas 2019](https://www.youtube.com/watch?v=XjXpwZhOKOs)
+
+<a href="https://www.youtube.com/watch?v=XjXpwZhOKOs">
+    <img src="img/youtube.png">
+</a>
+
 
 ![diagrama](templates-diagram.png)
 
@@ -1967,7 +1977,15 @@ Leia mais em:
 
 Assista também:
 
+<a href="https://www.youtube.com/watch?v=NoQW5CGAGNA">
+    <img src="img/youtube.png">
+</a>
+
 [Mini-curso Shell script 1](https://www.youtube.com/watch?v=NoQW5CGAGNA)
+
+<a href="https://www.youtube.com/watch?v=aspwrDLSrPI">
+    <img src="img/youtube.png">
+</a>
 
 [Mini-curso Shell script 2](https://www.youtube.com/watch?v=aspwrDLSrPI)
 
