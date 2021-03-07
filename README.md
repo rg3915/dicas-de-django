@@ -35,7 +35,7 @@ Várias dicas de Django - assuntos diversos.
 ## This project was done with:
 
 * Python 3.8.2
-* Django 2.2.15
+* Django 2.2.19
 
 ## How to run project?
 
@@ -58,7 +58,7 @@ python manage.py migrate
 ## Este projeto foi feito com:
 
 * Python 3.8.2
-* Django 2.2.15
+* Django 2.2.19
 
 ## Como rodar o projeto?
 
