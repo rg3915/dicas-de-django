@@ -1,3 +1,10 @@
 p {
   color: red;
 }
+.footer {
+  position: fixed;
+  left: 10%;
+  bottom: 0;
+  width: 100%;
+  text-align: left;
+}
