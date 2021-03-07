@@ -80,7 +80,7 @@ python manage.py migrate
 
 # 1 - Django boilerplate e cookiecutter-django
 
-<a href="https://youtu.be/OYcOpcPcp8Y" target="_blank">
+<a href="https://youtu.be/OYcOpcPcp8Y" target="_blank" width="120px">
     <img src="img/youtube.png"> Dica 01
 </a>
 
