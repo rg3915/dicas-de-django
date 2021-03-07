@@ -136,6 +136,10 @@ python manage.py shell_plus
 
 # 3 - Django bulk_create e django-autoslug
 
+<a href="https://youtu.be/Py-AG6S_vJI">
+    <img src="img/youtube.png">
+</a>
+
 ### python-slugify
 
 https://pypi.org/project/python-slugify/
@@ -270,6 +274,10 @@ Article.objects.bulk_create(aux)
 
 # 4 - Django Admin personalizado
 
+<a href="https://youtu.be/jogkxIkCzI8">
+    <img src="img/youtube.png">
+</a>
+
 https://docs.djangoproject.com/en/3.0/ref/contrib/admin/#modeladmin-options
 
 #### admin.py
@@ -316,6 +324,10 @@ class CategoryAdmin(admin.ModelAdmin):
 
 # 5 - Django Admin Date Range filter
 
+<a href="https://youtu.be/s5QzePekrvQ">
+    <img src="img/youtube.png">
+</a>
+
 https://github.com/tzulberti/django-datefilterspec
 
 ```
@@ -345,6 +357,10 @@ class ArticleAdmin(admin.ModelAdmin):
 ```
 
 # 6 - Geradores de senhas randômicas - uuid, hashids, secrets
+
+<a href="https://youtu.be/-3znAePkMqY">
+    <img src="img/youtube.png">
+</a>
 
 ## 6.1 - uuid
 
@@ -376,6 +392,11 @@ class Category(UuidModel):
 ```
 
 ## 6.2 - shortuuid
+
+<a href="https://youtu.be/qsRefchlXlo">
+    <img src="img/youtube.png">
+</a>
+
 
 https://pypi.org/project/shortuuid/
 
@@ -579,6 +600,11 @@ python contrib/env_gen.py
 
 # 7 - Rodando o ORM do Django no Jupyter Notebook
 
+<a href="https://youtu.be/bXtmvu_O_sk">
+    <img src="img/youtube.png">
+</a>
+
+
 Instale
 
 ```
@@ -597,6 +623,11 @@ python manage.py shell_plus --notebook
 
 
 # 8 - Conhecendo o Django Debug Toolbar
+
+<a href="https://youtu.be/T23bEwMhD6A">
+    <img src="img/youtube.png">
+</a>
+
 
 https://django-debug-toolbar.readthedocs.io/en/latest/
 
@@ -643,6 +674,11 @@ if settings.DEBUG:
 ```
 
 # 9 - Escondendo suas senhas python-decouple
+
+<a href="https://youtu.be/eOwN7e0QBXo">
+    <img src="img/youtube.png">
+</a>
+
 
 https://github.com/henriquebastos/python-decouple
 
@@ -706,6 +742,11 @@ DATABASES = {
 
 # 10 - Prototipagem de web design (Mockup)
 
+<a href="https://youtu.be/Ypbj_d1oGuY">
+    <img src="img/youtube.png">
+</a>
+
+
 [excalidraw.com](https://excalidraw.com/)
 
 [moqups.com](https://moqups.com/)
@@ -718,6 +759,11 @@ DATABASES = {
 
 
 # 11 - Bootstrap e Bulma + Colorlib
+
+<a href="https://youtu.be/J86_rp0ibGI">
+    <img src="img/youtube.png">
+</a>
+
 
 [getbootstrap.com](https://getbootstrap.com/)
 
@@ -734,12 +780,22 @@ DATABASES = {
 
 # 12 - Imagens: pexels e unsplash
 
+<a href="https://youtu.be/g95YG5RGGmE">
+    <img src="img/youtube.png">
+</a>
+
+
 [pexels.com](https://www.pexels.com/pt-br/)
 
 [unsplash.com](https://unsplash.com/)
 
 
 # 13 - Cores
+
+<a href="https://youtu.be/EcwxPzgwE4I">
+    <img src="img/youtube.png">
+</a>
+
 
 [color.adobe.com/pt/create/color-wheel](https://color.adobe.com/pt/create/color-wheel)
 
@@ -754,13 +810,24 @@ DATABASES = {
 
 # 14 - Herança de Templates e Arquivos estáticos
 
+<a href="https://youtu.be/wSfuzUVnuzw">
+    <img src="img/youtube.png">
+</a>
+
+
 [Video Introdução a Arquitetura do Django - Pyjamas 2019](https://www.youtube.com/watch?v=XjXpwZhOKOs)
 
 ![diagrama](templates-diagram.png)
 
 ![templates-pyjamas](https://raw.githubusercontent.com/rg3915/pyjamas2019-django/master/img/final.png)
 
+
 # 15 - Busca por data no frontend
+
+<a href="https://youtu.be/sqhQM5KUFHE">
+    <img src="img/youtube.png">
+</a>
+
 
 Considere um template com os campos:
 
@@ -808,6 +875,11 @@ Agradecimentos a [@walisonfilipe](https://twitter.com/walisonfilipe)
 
 
 # 16 - Filtros com [django-filter](https://django-filter.readthedocs.io/en/stable/)
+
+<a href="https://youtu.be/LZJjSeJC09A">
+    <img src="img/youtube.png">
+</a>
+
 
 Instale o [django-filter](https://django-filter.readthedocs.io/en/stable/)
 
@@ -895,6 +967,11 @@ Em `article_list.html`
 ```
 
 # 17 - Criando comandos personalizados
+
+<a href="https://youtu.be/tqr23jPrqrw">
+    <img src="img/youtube.png">
+</a>
+
 
 Baseado em [Criando novos comandos no django-admin](http://pythonclub.com.br/criando-novos-comandos-no-django-admin.html) e na [Live 95 do Edu Live de Python](https://youtu.be/cyxky2QJlwg?t=3482).
 
@@ -990,6 +1067,11 @@ class Command(BaseCommand):
 
 # 18 - bulk_create e bulk_update
 
+<a href="https://youtu.be/U99VT4UwJ5k">
+    <img src="img/youtube.png">
+</a>
+
+
 ## bulk_create
 
 O [bulk_create](https://docs.djangoproject.com/en/3.0/ref/models/querysets/#bulk-create) serve para inserir uma grande quantidade de dados num banco de forma super rápida.
@@ -1038,6 +1120,11 @@ Article.objects.bulk_update(articles, ['category'])
 ```
 
 # 19 - Criando Issues por linha de comando com a api do github
+
+<a href="https://youtu.be/XwT2CMrGfiE">
+    <img src="img/youtube.png">
+</a>
+
 
 ## [github cli](https://docs.github.com/en/rest/reference/issues#create-an-issue)
 
@@ -1095,6 +1182,11 @@ if __name__ == '__main__':
 
 
 ## 20 - api github e click
+
+<a href="https://youtu.be/gwYpMKDAqBM">
+    <img src="img/youtube.png">
+</a>
+
 
 `pip install click`
 
@@ -1166,6 +1258,11 @@ python github_cli2.py --title='Your title' \
 
 
 # 21 - Criando issues por linha de comando com gitlab cli
+
+<a href="https://youtu.be/mZezRjHv4Xg">
+    <img src="img/youtube.png">
+</a>
+
 
 ## Configuração
 
@@ -1254,6 +1351,10 @@ if __name__ == '__main__':
 
 # 22 - Criando issues por linha de comando com bitbucket cli
 
+<a href="https://youtu.be/N2oYZxixcSU">
+    <img src="img/youtube.png">
+</a>
+
 
 ## Instalação
 
@@ -1326,6 +1427,11 @@ if __name__ == '__main__':
 
 
 # 23 - Diferença entre JSON dump, dumps, load e loads
+
+<a href="https://youtu.be/4AupIlLYkgE">
+    <img src="img/youtube.png">
+</a>
+
 
 **Documentação:** [JSON](https://docs.python.org/3/library/json.html)
 
@@ -1563,6 +1669,11 @@ Leia mais em [Working With JSON Data in Python](https://realpython.com/python-js
 
 # 24 - Barra de progresso
 
+<a href="https://youtu.be/YQlwWn48eTw">
+    <img src="img/youtube.png">
+</a>
+
+
 * [progress](https://pypi.org/project/progress/)
 * [tqdm](https://tqdm.github.io/)
 * [click](https://click.palletsprojects.com/en/7.x/) - [click progressbar](https://click.palletsprojects.com/en/7.x/utils/#showing-progress-bars)
@@ -1798,6 +1909,11 @@ with httpx.stream("GET", url) as response:
 
 # 25 - Rodando Shell script dentro do Python
 
+<a href="https://youtu.be/r3MIUX2QTEI">
+    <img src="img/youtube.png">
+</a>
+
+
 Para rodar Shell script dentro do Python só precisamos do [subprocess](https://docs.python.org/3/library/subprocess.html).
 
 ```python
@@ -1834,6 +1950,11 @@ $ python subprocess01.py
 
 
 # 26 - Rodando Python dentro do Shell script
+
+<a href="https://youtu.be/WjvVTqfUNMI">
+    <img src="img/youtube.png">
+</a>
+
 
 Leia mais em:
 
@@ -2019,6 +2140,11 @@ https://www.geeksforgeeks.org/program-for-nth-fibonacci-number/
 
 # 27 - Retornando os nomes dos campos do model
 
+<a href="https://youtu.be/lU2J5ZCJiyE">
+    <img src="img/youtube.png">
+</a>
+
+
 ```python
 $ python manage.py shell_plus
 
@@ -2044,6 +2170,11 @@ $ python manage.py shell_plus
 
 
 # 28 - Admin: Usando short description
+
+<a href="https://youtu.be/Uwwr77SR8EE">
+    <img src="img/youtube.png">
+</a>
+
 
 Quando não conseguimos usar o `dunder` no `list_display` do admin, então usamos o `short_description`.
 
