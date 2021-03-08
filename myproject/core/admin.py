@@ -7,15 +7,29 @@ from .models import Article, Category
 
 @admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):
-    list_display = ('id', 'title', 'slug', 'get_published_date', 'get_category')
+    list_display = ('id', 'title', 'slug', 'get_published_date', 'get_category', 'status')
     search_fields = ('title',)
     list_filter = (
         ('published_date', DateRangeFilter),
         'category',
+        'status',
     )
     readonly_fields = ('slug',)
     date_hierarchy = 'published_date'
     # form = ArticleAdminForm
+    actions = ('make_published',)
+
+    def make_published(self, request, queryset):
+        count = queryset.update(status='p')
+
+        if count == 1:
+            msg = '{} artigo foi publicado.'
+        else:
+            msg = '{} artigos foram publicados.'
+
+        self.message_user(request, msg.format(count))
+
+    make_published.short_description = "Publicar artigos"
 
     def get_published_date(self, obj):
         if obj.published_date:

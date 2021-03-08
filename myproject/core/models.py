@@ -11,6 +11,13 @@ class UuidModel(models.Model):
         abstract = True
 
 
+STATUS_CHOICES = (
+    ('d', 'Rascunho'),
+    ('p', 'Publicado'),
+    ('w', 'Retirado'),
+)
+
+
 class Article(models.Model):
     id = HashidAutoField(primary_key=True)
     title = models.CharField('título', max_length=200)
@@ -29,6 +36,7 @@ class Article(models.Model):
         auto_now_add=True,
         auto_now=False
     )
+    status = models.CharField(max_length=1, choices=STATUS_CHOICES)
 
     class Meta:
         ordering = ('title',)
