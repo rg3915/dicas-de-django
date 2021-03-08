@@ -32,6 +32,8 @@ Várias dicas de Django - assuntos diversos.
 28. [Admin: Usando short description](#28---admin-usando-short-description)
 29. [Django Admin: Criando actions no Admin](#29---django-admin-criando-actions-no-admin)
 30. [Django Admin: Editando direto na listview do Admin](#30---django-admin-editando-direto-na-listview-do-admin)
+31. [Django Admin: Pegando usuário logado no Admin](#31---django-admin-pegando-usuario-logado-no-admin)
+
 
 ## This project was done with:
 
@@ -2268,3 +2270,36 @@ class ArticleAdmin(admin.ModelAdmin):
 list_editable = ('title', 'status')
 ...
 ```
+
+
+# 31 - Django Admin: Pegando usuário logado no Admin
+
+Em `models.py` considere
+
+```python
+# models.py
+class Article(models.Model):
+    ...
+    user = models.ForeignKey(
+        User,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True
+    )
+```
+
+E em `admin.py`
+
+```python
+# admin.py
+@admin.register(Article)
+class ArticleAdmin(admin.ModelAdmin):
+    ...
+
+    def save_model(self, request, obj, form, change):
+        if not change:
+            obj.user = request.user
+            obj.save()
+        super(ArticleAdmin, self).save_model(request, obj, form, change)
+```
+

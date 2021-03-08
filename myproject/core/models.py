@@ -2,6 +2,7 @@ import uuid
 from django.db import models
 from autoslug import AutoSlugField
 from hashid_field import HashidAutoField
+from django.contrib.auth.models import User
 
 
 class UuidModel(models.Model):
@@ -37,6 +38,12 @@ class Article(models.Model):
         auto_now=False
     )
     status = models.CharField(max_length=1, choices=STATUS_CHOICES)
+    user = models.ForeignKey(
+        User,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True
+    )
 
     class Meta:
         ordering = ('title',)

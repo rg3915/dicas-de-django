@@ -20,6 +20,12 @@ class ArticleAdmin(admin.ModelAdmin):
     # form = ArticleAdminForm
     actions = ('make_published',)
 
+    def save_model(self, request, obj, form, change):
+        if not change:
+            obj.user = request.user
+            obj.save()
+        super(ArticleAdmin, self).save_model(request, obj, form, change)
+
     def make_published(self, request, queryset):
         count = queryset.update(status='p')
 
