@@ -32,7 +32,7 @@ Várias dicas de Django - assuntos diversos.
 28. [Admin: Usando short description](#28---admin-usando-short-description)
 29. [Django Admin: Criando actions no Admin](#29---django-admin-criando-actions-no-admin)
 30. [Django Admin: Editando direto na listview do Admin](#30---django-admin-editando-direto-na-listview-do-admin)
-31. [Django Admin: Pegando usuário logado no Admin](#31---django-admin-pegando-usuario-logado-no-admin)
+31. [Django Admin: Pegando usuário logado no Admin](#31---django-admin-pegando-usuário-logado-no-admin)
 
 
 ## This project was done with:
