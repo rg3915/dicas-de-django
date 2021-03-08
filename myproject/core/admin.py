@@ -14,6 +14,7 @@ class ArticleAdmin(admin.ModelAdmin):
         'category',
         'status',
     )
+    list_editable = ('title', 'status')
     readonly_fields = ('slug',)
     date_hierarchy = 'published_date'
     # form = ArticleAdminForm

@@ -31,6 +31,7 @@ Várias dicas de Django - assuntos diversos.
 27. [Retornando os nomes dos campos do model](#27---retornando-os-nomes-dos-campos-do-model)
 28. [Admin: Usando short description](#28---admin-usando-short-description)
 29. [Django Admin: Criando actions no Admin](#29---django-admin-criando-actions-no-admin)
+30. [Django Admin: Editando direto na listview do Admin](#30---django-admin-editando-direto-na-listview-do-admin)
 
 ## This project was done with:
 
@@ -2259,3 +2260,11 @@ class ArticleAdmin(admin.ModelAdmin):
 ```
 
 
+# 30 - Django Admin: Editando direto na listview do Admin
+
+```python
+# admin.py
+...
+list_editable = ('title', 'status')
+...
+```
