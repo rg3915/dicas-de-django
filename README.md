@@ -2278,6 +2278,9 @@ Em `models.py` considere
 
 ```python
 # models.py
+from django.contrib.auth.models import User
+
+
 class Article(models.Model):
     ...
     user = models.ForeignKey(
