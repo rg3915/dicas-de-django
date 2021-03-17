@@ -14,10 +14,10 @@ class ArticleAdmin(admin.ModelAdmin):
         'category',
         'status',
     )
-    list_editable = ('title', 'status')
     readonly_fields = ('slug',)
     date_hierarchy = 'published_date'
     # form = ArticleAdminForm
+    list_editable = ('title', 'status')
     actions = ('make_published',)
 
     def save_model(self, request, obj, form, change):
