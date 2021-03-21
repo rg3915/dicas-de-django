@@ -1,8 +1,13 @@
+from django.shortcuts import redirect
+from django.urls import path
 from django.conf import settings
-from django.contrib import admin
+from django.contrib import admin, messages
 from daterange_filter.filter import DateRangeFilter
 from .models import Article, Category
 # from .forms import ArticleAdminForm
+
+
+admin.site.login_template = 'myproject/core/templates/admin/login.html'
 
 
 @admin.register(Article)
@@ -50,6 +55,22 @@ class ArticleAdmin(admin.ModelAdmin):
 
     get_category.short_description = 'Categoria'
 
+    def get_urls(self):
+        urls = super().get_urls()
+        my_urls = [
+            path('botao-artigo/', self.admin_site.admin_view(self.minha_funcao, cacheable=True)),
+        ]
+        return my_urls + urls
+
+    def minha_funcao(self, request):
+        print('Ao clicar no botão, faz alguma coisa...')
+        messages.add_message(
+            request,
+            messages.INFO,
+            'Ação realizada com sucesso.'
+        )
+        return redirect('admin:core_article_changelist')
+
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
@@ -62,3 +83,19 @@ class CategoryAdmin(admin.ModelAdmin):
     if not settings.DEBUG:
         def has_delete_permission(self, request, obj=None):
             return False
+
+    def get_urls(self):
+        urls = super().get_urls()
+        my_urls = [
+            path('botao-da-app/', self.admin_site.admin_view(self.minha_funcao_category, cacheable=True)),
+        ]
+        return my_urls + urls
+
+    def minha_funcao_category(self, request):
+        print('Ao clicar no botão, faz alguma coisa em category...')
+        messages.add_message(
+            request,
+            messages.INFO,
+            'Ação realizada com sucesso.'
+        )
+        return redirect('admin:core_category_changelist')

@@ -1,0 +1,9 @@
+body.login {
+    background: url("../img/headset.jpg") no-repeat center center;
+    background-size: 100% auto;
+}
+
+html {
+    min-height: 100%;
+}
+

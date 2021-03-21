@@ -1,0 +1,10 @@
+{% extends "admin/base_site.html" %}
+{% load static %}
+
+{% block branding %}
+  <h1 id="site-name">
+    <a href="{% url 'admin:index' %}">
+      <img src="{% static 'img/django-logo-negative.png' %}" alt="django-logo-negative.png" width="70px">
+    </a>
+  </h1>
+{% endblock %}
