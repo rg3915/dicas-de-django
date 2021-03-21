@@ -2268,6 +2268,8 @@ class ArticleAdmin(admin.ModelAdmin):
 
 # 30 - Django Admin: Editando direto na listview do Admin
 
+![img/editar_admin.png](img/editar_admin.png)
+
 ```python
 # admin.py
 ...
@@ -2311,6 +2313,8 @@ class ArticleAdmin(admin.ModelAdmin):
 ```
 
 # 32 - Django Admin: Sobreescrevendo os templates do Admin
+
+![img/botao_admin.png](img/botao_admin.png)
 
 Se você olhar em 
 
