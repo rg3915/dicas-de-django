@@ -2544,7 +2544,6 @@ touch myproject/core/templates/admin/base_site.html
 
 ```python
 # settings.py
-# settings.py
 INSTALLED_APPS = [
     'myproject.core',
     'django.contrib.admin',
