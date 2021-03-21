@@ -2221,6 +2221,10 @@ class ArticleAdmin(admin.ModelAdmin):
 
 # 29 - Django Admin: Criando actions no Admin
 
+<a href="https://youtu.be/WofnItMvqKU">
+    <img src="img/youtube.png">
+</a>
+
 https://docs.djangoproject.com/en/3.1/ref/contrib/admin/actions/
 
 Em `models.py` considere
@@ -2459,6 +2463,8 @@ class CategoryAdmin(admin.ModelAdmin):
 
 ## Sobreescrevendo a tela de login do Admin
 
+![img/login.png](img/login.png)
+
 Em [AdminSite attributes](https://docs.djangoproject.com/en/2.2/ref/contrib/admin/#adminsite-attributes) nós temos o atributo [AdminSite.login_template](https://docs.djangoproject.com/en/2.2/ref/contrib/admin/#django.contrib.admin.AdminSite.login_template).
 
 A partir daí podemos fazer
@@ -2520,6 +2526,8 @@ https://www.djangoadmintutorials.com/how-to-customize-django-admin-login-page/
 
 
 ## Inserindo um logo no header do Admin
+
+![img/header_admin.png](img/header_admin.png)
 
 Basta criar `base_site.html`
 
