@@ -2403,6 +2403,12 @@ TEMPLATES = [
 Agora edite `admin.py`
 
 ```python
+# admin.py
+from django.shortcuts import redirect
+from django.urls import path
+from django.contrib import admin, messages
+
+
 @admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):
     ...
@@ -2410,7 +2416,10 @@ class ArticleAdmin(admin.ModelAdmin):
     def get_urls(self):
         urls = super().get_urls()
         my_urls = [
-            path('botao-artigo/', self.admin_site.admin_view(self.minha_funcao, cacheable=True)),
+            path(
+                'botao-artigo/',
+                self.admin_site.admin_view(self.minha_funcao, cacheable=True)
+            ),
         ]
         return my_urls + urls
 
@@ -2431,7 +2440,10 @@ class CategoryAdmin(admin.ModelAdmin):
     def get_urls(self):
         urls = super().get_urls()
         my_urls = [
-            path('botao-da-app/', self.admin_site.admin_view(self.minha_funcao_category, cacheable=True)),
+            path(
+                'botao-da-app/',
+                self.admin_site.admin_view(self.minha_funcao_category, cacheable=True)
+            ),
         ]
         return my_urls + urls
 
@@ -2444,3 +2456,101 @@ class CategoryAdmin(admin.ModelAdmin):
         )
         return redirect('admin:core_category_changelist')
 ```
+
+## Sobreescrevendo a tela de login do Admin
+
+Em [AdminSite attributes](https://docs.djangoproject.com/en/2.2/ref/contrib/admin/#adminsite-attributes) nós temos o atributo [AdminSite.login_template](https://docs.djangoproject.com/en/2.2/ref/contrib/admin/#django.contrib.admin.AdminSite.login_template).
+
+A partir daí podemos fazer
+
+```python
+# admin.py
+admin.site.login_template = 'myproject/core/templates/admin/login.html'
+```
+
+Vendo
+
+```
+cat .venv/lib/python3.8/site-packages/django/contrib/admin/templates/admin/login.html
+cat .venv/lib/python3.8/site-packages/django/contrib/admin/templates/admin/base_site.html
+```
+
+E nos templates
+
+```
+touch myproject/core/templates/admin/login.html
+```
+
+
+```html
+# myproject/core/templates/admin/login.html
+{% extends "admin/login.html" %}
+{% load static %}
+
+{% block branding %}
+  <h1 id="site-name">
+    <a href="{% url 'admin:index' %}">
+      <img src="{% static 'img/django-logo-negative.png' %}" alt="django-logo-negative.png" width="100px">
+    </a>
+  </h1>
+{% endblock %}
+
+{% block extrastyle %}
+  {{ block.super }}
+  <link rel="stylesheet" type="text/css" href="{% static "css/login.css" %}" />
+  {{ form.media }}
+{% endblock %}
+```
+
+E pra caprichar no CSS
+
+```css
+# core/static/login/css/login.css
+body.login {
+    background: url("../img/headset.jpg") no-repeat center center;
+    background-size: 100% auto;
+}
+
+html {
+    min-height: 100%;
+}
+```
+
+https://www.djangoadmintutorials.com/how-to-customize-django-admin-login-page/
+
+
+## Inserindo um logo no header do Admin
+
+Basta criar `base_site.html`
+
+```
+touch myproject/core/templates/admin/base_site.html
+```
+
+```html
+{% extends "admin/base_site.html" %}
+{% load static %}
+
+{% block branding %}
+  <h1 id="site-name">
+    <a href="{% url 'admin:index' %}">
+      <img src="{% static 'img/django-logo-negative.png' %}" alt="django-logo-negative.png" width="70px">
+    </a>
+  </h1>
+{% endblock %}
+```
+
+**Importante:** mude a ordem das `apps` em `settings.py`
+
+```python
+# settings.py
+# settings.py
+INSTALLED_APPS = [
+    'myproject.core',
+    'django.contrib.admin',
+    ...
+]
+```
+
+https://books.agiliq.com/projects/django-admin-cookbook/en/latest/logo.html
+

@@ -58,7 +58,10 @@ class ArticleAdmin(admin.ModelAdmin):
     def get_urls(self):
         urls = super().get_urls()
         my_urls = [
-            path('botao-artigo/', self.admin_site.admin_view(self.minha_funcao, cacheable=True)),
+            path(
+                'botao-artigo/',
+                self.admin_site.admin_view(self.minha_funcao, cacheable=True)
+            ),
         ]
         return my_urls + urls
 
@@ -87,7 +90,10 @@ class CategoryAdmin(admin.ModelAdmin):
     def get_urls(self):
         urls = super().get_urls()
         my_urls = [
-            path('botao-da-app/', self.admin_site.admin_view(self.minha_funcao_category, cacheable=True)),
+            path(
+                'botao-da-app/',
+                self.admin_site.admin_view(self.minha_funcao_category, cacheable=True)
+            ),
         ]
         return my_urls + urls
 
