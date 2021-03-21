@@ -2323,6 +2323,7 @@ cat .venv/lib/python3.8/site-packages/django/contrib/admin/templates/admin/chang
 
 Olhando na doc do Django em [Set up your projects admin template directories](https://docs.djangoproject.com/en/3.1/ref/contrib/admin/#set-up-your-projects-admin-template-directories) nós vemos que devemos ter a seguinte estrutura de pastas:
 
+```
 myproject
 ├── core
 │   ├── templates
@@ -2333,5 +2334,7 @@ myproject
 │   │   │   │   ├── article
 │   │   │   │   │   └── change_list.html
 │   │   │   │   └── change_list.html
+```
+
 
 
