@@ -33,7 +33,7 @@ Várias dicas de Django - assuntos diversos.
 29. [Django Admin: Criando actions no Admin](#29---django-admin-criando-actions-no-admin)
 30. [Django Admin: Editando direto na listview do Admin](#30---django-admin-editando-direto-na-listview-do-admin)
 31. [Django Admin: Pegando usuário logado no Admin](#31---django-admin-pegando-usuário-logado-no-admin)
-
+32. [Django Admin: Sobreescrevendo os templates do Admin](#32---django-admin-sobreescrevendo-os-templates-do-admin)
 
 ## This project was done with:
 
@@ -2305,4 +2305,33 @@ class ArticleAdmin(admin.ModelAdmin):
             obj.save()
         super(ArticleAdmin, self).save_model(request, obj, form, change)
 ```
+
+# 32 - Django Admin: Sobreescrevendo os templates do Admin
+
+Se você olhar em 
+
+https://github.com/django/django/tree/main/django/contrib/admin/templates/admin
+
+verá todos os templates usados no Admin.
+
+Na pasta da virtualenv do seu projeto também.
+
+```
+ls -l .venv/lib/python3.8/site-packages/django/contrib/admin/templates/admin/
+cat .venv/lib/python3.8/site-packages/django/contrib/admin/templates/admin/change_list.html
+```
+
+Olhando na doc do Django em [Set up your projects admin template directories](https://docs.djangoproject.com/en/3.1/ref/contrib/admin/#set-up-your-projects-admin-template-directories) nós vemos que devemos ter a seguinte estrutura de pastas:
+
+myproject
+├── core
+│   ├── templates
+│   │   ├── admin
+│   │   │   ├── base_site.html
+│   │   │   ├── login.html
+│   │   │   ├── core
+│   │   │   │   ├── article
+│   │   │   │   │   └── change_list.html
+│   │   │   │   └── change_list.html
+
 
