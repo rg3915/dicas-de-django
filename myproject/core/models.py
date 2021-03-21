@@ -20,7 +20,7 @@ STATUS_CHOICES = (
 
 
 class Article(models.Model):
-    id = HashidAutoField(primary_key=True)
+    id = HashidAutoField(primary_key=True, salt='dicas')
     title = models.CharField('título', max_length=200)
     subtitle = models.CharField('sub-título', max_length=200)
     slug = AutoSlugField(populate_from='title')
