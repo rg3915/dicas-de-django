@@ -2336,5 +2336,111 @@ myproject
 │   │   │   │   └── change_list.html
 ```
 
+Então vamos criar nossas pastas
+
+```
+mkdir -p myproject/core/templates/admin/core/article
+```
+
+Agora vamos criar o primeiro `change_list.html`
+
+```
+touch myproject/core/templates/admin/core/change_list.html
+```
+
+E seu conteúdo será:
+
+```html
+{% extends "admin/change_list.html" %}
+
+{% block object-tools-items %}
+  {{ block.super }}
+  <li>
+    <a href="botao-da-app/">
+      Novo botão
+    </a>
+  </li>
+{% endblock %}
+```
+
+Depois
+
+```
+touch myproject/core/templates/admin/core/article/change_list.html
+```
+
+Com o conteúdo:
+
+```html
+{% extends "admin/change_list.html" %}
+
+{% block object-tools-items %}
+  {{ block.super }}
+  <li>
+    <a href="botao-artigo/">
+      Botão do Artigo
+    </a>
+  </li>
+{% endblock %}
+```
+
+Para que o Django Admin reconheça esses templates precisamos configurar o `settings.py`
+
+```python
+# settings.py
+TEMPLATES = [
+    {
+        ...
+        'DIRS': [
+            BASE_DIR,
+            os.path.join(BASE_DIR, 'templates')
+        ],
+        ...
+    },
+]
+```
+
+Agora edite `admin.py`
+
+```python
+@admin.register(Article)
+class ArticleAdmin(admin.ModelAdmin):
+    ...
+
+    def get_urls(self):
+        urls = super().get_urls()
+        my_urls = [
+            path('botao-artigo/', self.admin_site.admin_view(self.minha_funcao, cacheable=True)),
+        ]
+        return my_urls + urls
+
+    def minha_funcao(self, request):
+        print('Ao clicar no botão, faz alguma coisa...')
+        messages.add_message(
+            request,
+            messages.INFO,
+            'Ação realizada com sucesso.'
+        )
+        return redirect('admin:core_article_changelist')
 
 
+@admin.register(Category)
+class CategoryAdmin(admin.ModelAdmin):
+    ...
+
+    def get_urls(self):
+        urls = super().get_urls()
+        my_urls = [
+            path('botao-da-app/', self.admin_site.admin_view(self.minha_funcao_category, cacheable=True)),
+        ]
+        return my_urls + urls
+
+    def minha_funcao_category(self, request):
+        print('Ao clicar no botão, faz alguma coisa em category...')
+        messages.add_message(
+            request,
+            messages.INFO,
+            'Ação realizada com sucesso.'
+        )
+        return redirect('admin:core_category_changelist')
+```
