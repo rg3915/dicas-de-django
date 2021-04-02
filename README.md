@@ -2515,7 +2515,7 @@ touch myproject/core/templates/admin/login.html
 E pra caprichar no CSS
 
 ```css
-/* core/static/login/css/login.css */
+/* myproject/core/static/css/login.css */
 body.login {
     background: url("../img/headset.jpg") no-repeat center center;
     background-size: 100% auto;
