@@ -109,16 +109,16 @@ python manage.py migrate
 
 # 1.1 - Django boilerplate
 
+<a href="https://youtu.be/eLKjL61HEbQ">
+    <img src="img/youtube.png">
+</a>
+
 Novo boilerplate com Django 3.1.8
 
 https://github.com/rg3915/django-boilerplate
 
-
 # 2 - Django extensions
 
-<a href="https://youtu.be/qUKzDSSuh2w">
-    <img src="img/youtube.png">
-</a>
 
 
 https://django-extensions.readthedocs.io/en/latest/index.html
