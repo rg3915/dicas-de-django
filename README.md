@@ -107,6 +107,13 @@ createdb myproject -U postgres
 python manage.py migrate
 ```
 
+# 1.1 - Django boilerplate
+
+Novo boilerplate com Django 3.1.8
+
+https://github.com/rg3915/django-boilerplate
+
+
 # 2 - Django extensions
 
 <a href="https://youtu.be/qUKzDSSuh2w">
