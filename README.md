@@ -2,7 +2,8 @@
 
 Várias dicas de Django - assuntos diversos.
 
-1. [Django boilerplate e cookiecutter-django](#1---django-boilerplate-e-cookiecutter-django)
+0. [Django boilerplate e cookiecutter-django](#1---django-boilerplate-e-cookiecutter-django)
+1. [Novo Django boilerplate](#11---django-boilerplate)
 2. [Django extensions](#2---django-extensions)
 3. [Django bulk_create e django-autoslug](#3---django-bulk_create-e-django-autoslug)
 4. [Django Admin personalizado](#4---django-admin-personalizado)
