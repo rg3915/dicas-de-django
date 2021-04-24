@@ -37,11 +37,12 @@ Várias dicas de Django - assuntos diversos.
 32. [Django Admin: Sobreescrevendo os templates do Admin](#32---django-admin-sobreescrevendo-os-templates-do-admin)
 33. [Github cli](#33---github-cli)
 34. [Django: custom template tags](#34---django-custom-template-tags)
+35. [Django: passando usuário logado no formulário](#35---django-passando-usuário-logado-no-formulário)
 
 ## This project was done with:
 
 * Python 3.8.2
-* Django 2.2.19
+* Django 2.2.20
 
 ## How to run project?
 
@@ -64,7 +65,7 @@ python manage.py migrate
 ## Este projeto foi feito com:
 
 * Python 3.8.2
-* Django 2.2.19
+* Django 2.2.20
 
 ## Como rodar o projeto?
 
@@ -2797,4 +2798,60 @@ Lista de {% model_name_plural model %}
 
 # 35 - Django: passando usuário logado no formulário
 
+```python
+# forms.py
+from django import forms
 
+from .models import Person
+
+
+class PersonForm(forms.ModelForm):
+
+    class Meta:
+        model = Person
+        fields = '__all__'
+
+    def __init__(self, user=None, *args, **kwargs):
+        super(PersonForm, self).__init__(*args, **kwargs)
+        # my_field = MyModel.objects.filter(user=user)
+        if user.is_authenticated:
+            print(user)
+        else:
+            print('Não')
+```
+
+
+```python
+# views.py
+def person_create(request):
+    template_name = 'core/person_form.html'
+    form = PersonForm(request.user, request.POST or None)
+
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('person:person_list')
+
+    context = {'form': form}
+    return render(request, template_name, context)
+```
+
+```python
+# models.py
+class Person(UuidModel):
+    first_name = models.CharField('nome', max_length=50)
+    last_name = models.CharField('sobrenome', max_length=50, null=True, blank=True)  # noqa E501
+    email = models.EmailField(null=True, blank=True)
+
+    class Meta:
+        ordering = ('first_name',)
+        verbose_name = 'pessoa'
+        verbose_name_plural = 'pessoas'
+
+    @property
+    def full_name(self):
+        return f'{self.first_name} {self.last_name or ""}'.strip()
+
+    def __str__(self):
+        return self.full_name
+```
