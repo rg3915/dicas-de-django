@@ -2277,6 +2277,10 @@ class ArticleAdmin(admin.ModelAdmin):
 
 # 30 - Django Admin: Editando direto na listview do Admin
 
+<a href="https://youtu.be/3skHZrRR1PE">
+    <img src="img/youtube.png">
+</a>
+
 ![img/editar_admin.png](img/editar_admin.png)
 
 ```python
@@ -2288,6 +2292,10 @@ list_editable = ('title', 'status')
 
 
 # 31 - Django Admin: Pegando usuário logado no Admin
+
+<a href="https://youtu.be/qP5-ZICzHyM">
+    <img src="img/youtube.png">
+</a>
 
 Em `models.py` considere
 
@@ -2322,6 +2330,10 @@ class ArticleAdmin(admin.ModelAdmin):
 ```
 
 # 32 - Django Admin: Sobreescrevendo os templates do Admin
+
+<a href="https://youtu.be/0d9VcL8ssTg">
+    <img src="img/youtube.png">
+</a>
 
 ![img/botao_admin.png](img/botao_admin.png)
 
@@ -2476,6 +2488,10 @@ class CategoryAdmin(admin.ModelAdmin):
 
 ## Sobreescrevendo a tela de login do Admin
 
+<a href="https://youtu.be/ci4LtLxDCRM">
+    <img src="img/youtube.png">
+</a>
+
 ![img/login.png](img/login.png)
 
 Em [AdminSite attributes](https://docs.djangoproject.com/en/2.2/ref/contrib/admin/#adminsite-attributes) nós temos o atributo [AdminSite.login_template](https://docs.djangoproject.com/en/2.2/ref/contrib/admin/#django.contrib.admin.AdminSite.login_template).
@@ -2539,6 +2555,10 @@ https://www.djangoadmintutorials.com/how-to-customize-django-admin-login-page/
 
 
 ## Inserindo um logo no header do Admin
+
+<a href="https://youtu.be/7NcghC_eySs">
+    <img src="img/youtube.png">
+</a>
 
 ![img/header_admin.png](img/header_admin.png)
 
