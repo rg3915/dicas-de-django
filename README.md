@@ -38,6 +38,7 @@ Várias dicas de Django - assuntos diversos.
 33. [Github cli](#33---github-cli)
 34. [Django: custom template tags](#34---django-custom-template-tags)
 35. [Django: passando usuário logado no formulário](#35---django-passando-usuário-logado-no-formulário)
+36. [Django: visualizando seus modelos com graph models]()
 
 ## This project was done with:
 
@@ -2855,3 +2856,29 @@ class Person(UuidModel):
     def __str__(self):
         return self.full_name
 ```
+
+# 36 - Django: visualizando seus modelos com graph models
+
+```
+sudo apt-get install -y graphviz libgraphviz-dev pkg-config
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+pip install pygraphviz
+pip uninstall pyparsing
+pip install -Iv https://pypi.python.org/packages/source/p/pyparsing/pyparsing-1.5.7.tar.gz#md5=9be0fcdcc595199c646ab317c1d9a709
+pip install pydot
+```
+
+```
+python manage.py graph_models -e -g -l dot -o core.png core # olny app core
+python manage.py graph_models -a -g -o models.png # all
+```
+
+### core
+
+![core.png](img/core.png)
+
+### models
+
+![models.png](img/models.png)
