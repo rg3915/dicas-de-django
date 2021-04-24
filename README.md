@@ -2826,6 +2826,7 @@ class PersonForm(forms.ModelForm):
 # views.py
 def person_create(request):
     template_name = 'core/person_form.html'
+    # Não esquecer do request.user como primeiro parâmetro.
     form = PersonForm(request.user, request.POST or None)
 
     if request.method == 'POST':
