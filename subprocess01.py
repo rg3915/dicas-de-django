@@ -1,7 +1,6 @@
 import subprocess
 from datetime import datetime
 
-
 subprocess.call('echo "Hello"', shell=True)
 
 subprocess.run('echo "Running"', shell=True)

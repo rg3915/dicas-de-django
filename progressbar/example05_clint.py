@@ -1,4 +1,5 @@
 from time import sleep
+
 from clint.textui import progress
 
 print('Clint - Regular Progress Bar')

@@ -1,5 +1,6 @@
-import click
 from time import sleep
+
+import click
 
 # Fill character is # by default, you can change it
 # for any other char you want, or even change the color.

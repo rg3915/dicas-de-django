@@ -159,6 +159,7 @@ https://pypi.org/project/python-slugify/
 
 ```python
 from slugify import slugify
+
 text = 'Dicas de Django'
 print(slugify(text))
 url = f'example.com/{slugify(text)}'
@@ -181,8 +182,8 @@ pip install django-autoslug
 #### models.py
 
 ```python
-from django.db import models
 from autoslug import AutoSlugField
+from django.db import models
 
 
 class Article(models.Model):
@@ -298,7 +299,9 @@ https://docs.djangoproject.com/en/3.0/ref/contrib/admin/#modeladmin-options
 ```python
 from django.conf import settings
 from django.contrib import admin
+
 from .models import Article, Category
+
 # from .forms import ArticleAdminForm
 
 
@@ -358,6 +361,7 @@ INSTALLED_APPS = (
 ```python
 # admin.py
 from daterange_filter.filter import DateRangeFilter
+
 ...
 
 @admin.register(Article)
@@ -390,6 +394,7 @@ uuid.uuid4().hex
 ```python
 # models.py
 import uuid
+
 from django.db import models
 
 
@@ -447,6 +452,7 @@ pip install hashids
 
 ```python
 from hashids import Hashids
+
 hashids = Hashids()
 
 >>> hashids.encode(42)
@@ -554,6 +560,7 @@ https://pynative.com/python-generate-random-string/
 import random
 import string
 
+
 def randString(length=5):
     # put your letters in the following string
     your_letters='abcdefghi'
@@ -590,7 +597,6 @@ vim contrib/env_gen.py
 Django SECRET_KEY generator.
 """
 from django.utils.crypto import get_random_string
-
 
 chars = 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)'
 
@@ -923,6 +929,7 @@ Crie um arquivo `filters.py`
 
 ```python
 import django_filters
+
 from .models import Article
 
 
@@ -1046,6 +1053,7 @@ class Command(BaseCommand):
 ```python
 # search.py
 from django.core.management.base import BaseCommand
+
 from myproject.core.models import Article
 
 
@@ -1155,6 +1163,7 @@ Article.objects.bulk_update(articles, ['category'])
 
 ```python
 import json
+
 import requests
 from decouple import config
 
@@ -1214,8 +1223,9 @@ if __name__ == '__main__':
 `pip install click`
 
 ```python
-import click
 import json
+
+import click
 import requests
 from decouple import config
 
@@ -1314,6 +1324,7 @@ api_version = 4
 
 ```python
 import gitlab
+
 gl = gitlab.Gitlab.from_config('somewhere', ['/etc/myfile.cfg'])
 
 issues = gl.issues.list()
@@ -1325,6 +1336,7 @@ for issue in issues:
 
 ```python
 import gitlab
+
 gl = gitlab.Gitlab.from_config('somewhere', ['/etc/myfile.cfg'])
 
 issues = gl.issues.list()
@@ -1345,7 +1357,6 @@ for issue in project.issues.list():
 import click
 import gitlab
 from decouple import config
-
 
 '''
 Usage: python glab-cli.py --title='Your title' --description='Your description'
@@ -1655,6 +1666,7 @@ if __name__ == '__main__':
 ```python
 # core/views.py
 import json
+
 from django.http import JsonResponse
 
 
@@ -1717,6 +1729,7 @@ Leia mais em [How to Easily Use a Progress Bar in Python](https://codingdose.inf
 ```python
 # example01_progress.py
 from time import sleep
+
 from progress.bar import Bar
 
 with Bar('Processing...') as bar:
@@ -1739,9 +1752,10 @@ pip install tqdm
 ```
 
 ```python
+from time import sleep
+
 # example02_tqdm.py
 from tqdm import tqdm
-from time import sleep
 
 for i in tqdm(range(100)):
     sleep(0.02)
@@ -1764,9 +1778,10 @@ pip install click
 ```
 
 ```python
+from time import sleep
+
 # example03_click.py
 import click
-from time import sleep
 
 # Fill character is # by default, you can change it
 # for any other char you want, or even change the color.
@@ -1791,6 +1806,7 @@ pip install progressbar2
 ```python
 # example04_progressbar2.py
 from time import sleep
+
 from progressbar import progressbar
 
 for i in progressbar(range(100)):
@@ -1812,6 +1828,7 @@ pip install clint
 ```python
 # example05_clint.py
 from time import sleep
+
 from clint.textui import progress
 
 print('Clint - Regular Progress Bar')
@@ -1832,9 +1849,9 @@ python example05_clint.py
 ### [with sys](https://stackoverflow.com/a/3160819)
 
 ```python
+import sys
 # example06_sys.py
 import time
-import sys
 
 toolbar_width = 40
 
@@ -1910,10 +1927,12 @@ $ jupyter notebook
 ```python
 # progressbar_jupyter.ipynb
 import sys
+
 if hasattr(sys.modules["__main__"], "get_ipython"):
     from tqdm import notebook as tqdm
 else:
     import tqdm
+
 from time import sleep
 
 n = 0
@@ -1923,6 +1942,7 @@ for i in tqdm.trange(100):
 
 url = "https://www.python.org/ftp/python/3.9.0/Python-3.9.0.tgz"
 import httpx
+
 with httpx.stream("GET", url) as response:
     total = int(response.headers["Content-Length"])
     with tqdm.tqdm(total=total) as progress:
@@ -1943,7 +1963,6 @@ Para rodar Shell script dentro do Python só precisamos do [subprocess](https://
 # subprocess01.py
 import subprocess
 from datetime import datetime
-
 
 subprocess.call('echo "Hello"', shell=True)
 
@@ -2433,10 +2452,10 @@ TEMPLATES = [
 Agora edite `admin.py`
 
 ```python
+from django.contrib import admin, messages
 # admin.py
 from django.shortcuts import redirect
 from django.urls import path
-from django.contrib import admin, messages
 
 
 @admin.register(Article)

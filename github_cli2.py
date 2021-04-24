@@ -1,5 +1,6 @@
-import click
 import json
+
+import click
 import requests
 from decouple import config
 

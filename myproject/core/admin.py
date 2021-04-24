@@ -1,9 +1,11 @@
-from django.shortcuts import redirect
-from django.urls import path
+from daterange_filter.filter import DateRangeFilter
 from django.conf import settings
 from django.contrib import admin, messages
-from daterange_filter.filter import DateRangeFilter
+from django.shortcuts import redirect
+from django.urls import path
+
 from .models import Article, Category
+
 # from .forms import ArticleAdminForm
 
 

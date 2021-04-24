@@ -1,5 +1,5 @@
-import time
 import sys
+import time
 
 toolbar_width = 40
 

@@ -2,7 +2,6 @@ import click
 import gitlab
 from decouple import config
 
-
 '''
 Usage: python gitlab_cli.py --title='Your title' --description='Your description'
 '''
