@@ -1,11 +1,14 @@
 import json
-from dateutil.parser import parse
 from datetime import timedelta
 from pprint import pprint
+
+from dateutil.parser import parse
 from django.http import JsonResponse
-from django.shortcuts import render
-from .models import Article
+from django.shortcuts import redirect, render
+
 from .filters import ArticleFilter
+from .forms import PersonForm
+from .models import Article
 
 
 def index(request):
@@ -69,3 +72,16 @@ def article_json(request):
     data['active'] = True
     data['nulo'] = None
     return JsonResponse(data)
+
+
+def person_create(request):
+    template_name = 'core/person_form.html'
+    form = PersonForm(request.user, request.POST or None)
+
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('person:person_list')
+
+    context = {'form': form}
+    return render(request, template_name, context)
