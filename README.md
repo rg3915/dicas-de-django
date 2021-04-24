@@ -35,6 +35,7 @@ Várias dicas de Django - assuntos diversos.
 30. [Django Admin: Editando direto na listview do Admin](#30---django-admin-editando-direto-na-listview-do-admin)
 31. [Django Admin: Pegando usuário logado no Admin](#31---django-admin-pegando-usuário-logado-no-admin)
 32. [Django Admin: Sobreescrevendo os templates do Admin](#32---django-admin-sobreescrevendo-os-templates-do-admin)
+33. [Github cli](#33---github-cli)
 
 ## This project was done with:
 
@@ -2572,4 +2573,19 @@ INSTALLED_APPS = [
 ```
 
 https://books.agiliq.com/projects/django-admin-cookbook/en/latest/logo.html
+
+
+# 33 - Github cli
+
+https://cli.github.com/
+
+```
+gh repo clone rg3915/dicas-de-django
+gh repo view
+gh pr checks
+gh pr create
+gh pr status
+gh pr merge
+gh issue list
+```
 
