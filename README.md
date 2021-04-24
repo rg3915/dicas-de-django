@@ -2775,3 +2775,7 @@ def model_name_plural(value):
 Lista de {% model_name_plural model %}
 ```
 
+
+# 35 - Django: passando usuário logado no formulário
+
+
