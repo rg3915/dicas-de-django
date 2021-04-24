@@ -2631,4 +2631,3 @@ Fechar issue
 git commit -m 'Usando o github cli. close #'
 git push
 ```
-
