@@ -38,7 +38,7 @@ Várias dicas de Django - assuntos diversos.
 33. [Github cli](#33---github-cli)
 34. [Django: custom template tags](#34---django-custom-template-tags)
 35. [Django: passando usuário logado no formulário](#35---django-passando-usuário-logado-no-formulário)
-36. [Django: visualizando seus modelos com graph models]()
+36. [Django: visualizando seus modelos com graph models](#36---django-visualizando-seus-modelos-com-graph-models)
 
 ## This project was done with:
 
