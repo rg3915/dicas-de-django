@@ -33,7 +33,7 @@ def article_list(request):
             published_date__date__range=[start_date, end_date]
         )
 
-    context = {'object_list': object_list}
+    context = {'object_list': object_list, 'model': Article}
     return render(request, template_name, context)
 
 

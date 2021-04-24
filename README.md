@@ -2629,7 +2629,7 @@ https://cli.github.com" \
 Fechar issue
 
 ```
-git commit -m 'Usando o github cli. close #'
+git commit -m 'Usando o github cli. close #34'
 git push
 ```
 
@@ -2718,8 +2718,10 @@ def name_group(user):
 @register.filter('has_group')
 def has_group(user, group_name):
     ''' Verifica se este usuário pertence a um grupo. '''
-    groups = user.groups.all().values_list('name', flat=True)
-    return True if group_name in groups else False
+    if user:
+        groups = user.groups.all().values_list('name', flat=True)
+        return True if group_name in groups else False
+    return False
 ```
 
 ```html

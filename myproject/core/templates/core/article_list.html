@@ -1,9 +1,11 @@
 {% extends "base.html" %}
+{% load usergroup_tags %}
+{% load model_name_tags %}
 
 {% block content %}
   <div class="row">
     <div class="col-md-4">
-      <h1>Lista de Artigos</h1>
+      <h1>Lista de {% model_name_plural model %}</h1>
     </div>
     <div class="col-md-8">
       <form class="form-inline my-2 my-lg-0 pull-right">
@@ -21,17 +23,33 @@
       <table class="table">
         <thead>
           <tr>
+            <th>Item</th>
+            <th>Título</th>
             <th>Título</th>
             <th>Sub-título</th>
             <th>Data de publicação</th>
+            <th>Categoria</th>
+            <th>Grupo</th>
           </tr>
         </thead>
         <tbody>
           {% for obj in object_list %}
             <tr>
-              <td>{{ obj.title }}</td>
-              <td>{{ obj.subtitle }}</td>
-              <td>{{ obj.published_date }}</td>
+              <td>{{ forloop.counter }}</td>
+              <td>{{ obj.title|slugify }}</td>
+              <td>{{ obj.title|truncatechars:13 }}</td>
+              <td>{{ obj.subtitle|safe|default:"---" }}</td>
+              <td>{{ obj.published_date|date:"d/m/Y" }}</td>
+              {% if obj.category.title == 'Django' %}
+                <td>{{ obj.category }}</td>
+              {% else %}
+                <td>{{ obj.category|default:"---" }}</td>
+              {% endif %}
+              <td>
+                {% if obj.user|has_group:"Autor" %}
+                  {{ obj.user|name_group }}
+                {% endif %}
+              </td>
             </tr>
           {% endfor %}
         </tbody>
