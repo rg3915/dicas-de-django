@@ -2951,7 +2951,53 @@ touch myproject/core/management/commands/create_data.py
 
 ```python
 # create_data.py
+from django.core.management.base import BaseCommand
+from django.utils.text import slugify
+from faker import Faker
 
+from myproject.core.models import Person
+from myproject.utils.progress_bar import progressbar
+
+fake = Faker()
+
+
+def gen_email(first_name: str, last_name: str):
+    first_name = slugify(first_name)
+    last_name = slugify(last_name)
+    email = f'{first_name}.{last_name}@email.com'
+    return email
+
+
+def get_person():
+    first_name = fake.first_name()
+    last_name = fake.first_name()
+    email = gen_email(first_name, last_name)
+    bio = fake.paragraph(nb_sentences=5)
+    birthday = fake.date()
+    data = dict(
+        first_name=first_name,
+        last_name=last_name,
+        email=email,
+        bio=bio,
+        birthday=birthday,
+    )
+    return data
+
+
+def create_persons():
+    aux_list = []
+    for _ in progressbar(range(100), 'Persons'):
+        data = get_person()
+        obj = Person(**data)
+        aux_list.append(obj)
+    Person.objects.bulk_create(aux_list)
+
+
+class Command(BaseCommand):
+    help = 'Create data.'
+
+    def handle(self, *args, **options):
+        create_persons()
 ```
 
 Editar `admin.py`
@@ -2965,6 +3011,27 @@ Criar `progress_bar.py`
 ```
 mkdir myproject/utils
 touch myproject/utils/progress_bar.py
+```
+
+```python
+# progress_bar.py
+import sys
+
+
+def progressbar(it, prefix="", size=60, file=sys.stdout):
+    count = len(it)
+
+    def show(j):
+        x = int(size * j / count)
+        file.write("%s[%s%s] %i/%i\r" %
+                   (prefix, "#" * x, "." * (size - x), j, count))
+        file.flush()
+    show(0)
+    for i, item in enumerate(it):
+        yield item
+        show(i + 1)
+    file.write("\n")
+    file.flush()
 ```
 
 Editar `views.py`
