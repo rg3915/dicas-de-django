@@ -2885,7 +2885,7 @@ INSTALLED_APPS = [
 Depois rode
 
 ```
-python manage.py graph_models -e -g -l dot -o core.png core # olny app core
+python manage.py graph_models -e -g -l dot -o core.png core # only app core
 python manage.py graph_models -a -g -o models.png # all
 ```
 
