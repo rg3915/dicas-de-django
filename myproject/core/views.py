@@ -8,6 +8,7 @@ from django.views.generic import ListView
 from .filters import ArticleFilter
 from .forms import PersonForm
 from .models import Article, Person
+from django.db.models import Q
 
 
 def index(request):
@@ -18,6 +19,23 @@ def index(request):
 class PersonListView(ListView):
     model = Person
     template_name = 'core/person_list.html'
+    paginate_by = 5
+
+    def get_queryset(self):
+        queryset = super(PersonListView, self).get_queryset()
+
+        data = self.request.GET
+        search = data.get('search')
+
+        if search:
+            queryset = queryset.filter(
+                Q(first_name__icontains=search) |
+                Q(last_name__icontains=search) |
+                Q(email__icontains=search) |
+                Q(bio__icontains=search)
+            )
+
+        return queryset
 
 
 def article_list(request):
