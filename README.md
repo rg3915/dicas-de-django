@@ -39,7 +39,7 @@ Várias dicas de Django - assuntos diversos.
 34. [Django: custom template tags](#34---django-custom-template-tags)
 35. [Django: passando usuário logado no formulário](#35---django-passando-usuário-logado-no-formulário)
 36. [Django: visualizando seus modelos com graph models](#36---django-visualizando-seus-modelos-com-graph-models)
-37. [Faker](#37-faker)
+37. [Faker](#37---faker)
 
 
 ## This project was done with:
