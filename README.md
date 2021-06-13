@@ -3229,6 +3229,7 @@ E finalmente edite `pagination.html` trocando todos os `href`
 
 ```html
 <!-- pagination.html -->
+{% load url_replace %}
 ...
 href="?{% url_replace page=page_obj.previous_page_number %}"
 ...
