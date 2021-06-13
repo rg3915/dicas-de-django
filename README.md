@@ -40,7 +40,7 @@ Várias dicas de Django - assuntos diversos.
 35. [Django: passando usuário logado no formulário](#35---django-passando-usuário-logado-no-formulário)
 36. [Django: visualizando seus modelos com graph models](#36---django-visualizando-seus-modelos-com-graph-models)
 37. [Faker](#37---faker)
-38. [Django: Paginação + Filtros](#38---django-paginacao-filtros)
+38. [Django: Paginação + Filtros](#38---django-paginação--filtros)
 
 ## This project was done with:
 
