@@ -1,14 +1,13 @@
 import json
-from datetime import timedelta
 from pprint import pprint
 
-from dateutil.parser import parse
 from django.http import JsonResponse
 from django.shortcuts import redirect, render
+from django.views.generic import ListView
 
 from .filters import ArticleFilter
 from .forms import PersonForm
-from .models import Article
+from .models import Article, Person
 
 
 def index(request):
@@ -16,9 +15,9 @@ def index(request):
     return render(request, template_name)
 
 
-def person_list(request):
+class PersonListView(ListView):
+    model = Person
     template_name = 'core/person_list.html'
-    return render(request, template_name)
 
 
 def article_list(request):
