@@ -71,6 +71,8 @@ class Person(UuidModel):
     first_name = models.CharField('nome', max_length=50)
     last_name = models.CharField('sobrenome', max_length=50, null=True, blank=True)  # noqa E501
     email = models.EmailField(null=True, blank=True)
+    bio = models.TextField('biografia', null=True, blank=True)
+    birthday = models.DateField('nascimento', null=True, blank=True)
 
     class Meta:
         ordering = ('first_name',)

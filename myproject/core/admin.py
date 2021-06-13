@@ -4,7 +4,7 @@ from django.contrib import admin, messages
 from django.shortcuts import redirect
 from django.urls import path
 
-from .models import Article, Category
+from .models import Article, Category, Person
 
 # from .forms import ArticleAdminForm
 
@@ -107,3 +107,6 @@ class CategoryAdmin(admin.ModelAdmin):
             'Ação realizada com sucesso.'
         )
         return redirect('admin:core_category_changelist')
+
+
+admin.site.register(Person)

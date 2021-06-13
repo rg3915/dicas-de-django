@@ -19,3 +19,4 @@ python-gitlab==2.4.0
 requests==2.24.0
 shortuuid==1.0.1
 tqdm==4.55.2
+Faker==8.7.0
