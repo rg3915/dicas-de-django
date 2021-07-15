@@ -2921,6 +2921,11 @@ python manage.py graph_models -a -g -o models.png # all
 
 # 37 - Faker
 
+<a href="https://youtu.be/ubgVHtLhubw">
+    <img src="img/youtube.png">
+</a>
+
+
 https://faker.readthedocs.io/en/master/
 
 O Faker é uma biblioteca ideal para popular o seu banco de dados com dados aleatórios.
@@ -3106,6 +3111,11 @@ Editar `person_list.html`
 
 
 # 38 - Django: Paginação + Filtros
+
+<a href="https://youtu.be/eXipSfa-HOQ">
+    <img src="img/youtube.png">
+</a>
+
 
 Primeiro vamos definir a paginação:
 
