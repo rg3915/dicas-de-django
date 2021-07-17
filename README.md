@@ -41,6 +41,7 @@ Várias dicas de Django - assuntos diversos.
 36. [Django: visualizando seus modelos com graph models](#36---django-visualizando-seus-modelos-com-graph-models)
 37. [Faker](#37---faker)
 38. [Django: Paginação + Filtros](#38---django-paginação--filtros)
+39. [Django Admin: display decorator (Django 3.2+)](#39---django-admin-display-decorator-django-32)
 
 ## This project was done with:
 
