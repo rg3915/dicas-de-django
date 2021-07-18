@@ -42,6 +42,7 @@ Várias dicas de Django - assuntos diversos.
 37. [Faker](#37---faker)
 38. [Django: Paginação + Filtros](#38---django-paginação--filtros)
 39. [Django Admin: display decorator (Django 3.2+)](#39---django-admin-display-decorator-django-32)
+40. [Formulários: date, datetime, duration e templatetags de data](#40---formulários-date-datetime-duration-e-templatetags-de-data)
 
 ## This project was done with:
 
@@ -3528,11 +3529,14 @@ Edite `myproject/core/templates/nav.html`
 
 Rode a aplicação e cadastre uma viagem com os seguintes dados:
 
+```
 Destino: Japão
 Data: 2021-07-18
 Data/hora: 2021-07-18 01:59
 Tempo: 23:01:58
 Duração: 26:01:02
+```
+
 
 Edite `travel/admin.py`
 
@@ -3650,5 +3654,15 @@ Edite `travel/templates/travel/travel_form.html` novamente
 
 {% endblock js %}
 ```
+
+Compare o formato do datetime no templatetags e no formulário:
+
+```
+d/m/Y H:i:s     # templatags
+%Y-%m-%dT%H:%M  # forms (ISOformat)
+```
+
+https://docs.djangoproject.com/en/3.2/ref/templates/builtins/#date
+
 
 
