@@ -3291,3 +3291,77 @@ class ArticleAdmin(admin.ModelAdmin):
     def is_published(self, obj):
         return obj.published_date is not None
 ```
+
+
+# 40 - Formulários: date, datetime, duration e templatetags de data
+
+Vamos falar sobre como trabalhar com date, datetime, duration. Para isso vamos usar os seguintes links como referência:
+
+https://docs.djangoproject.com/en/3.2/ref/forms/fields/
+
+https://docs.djangoproject.com/en/3.2/ref/utils/#django.utils.dateparse.parse_duration
+
+https://docs.djangoproject.com/en/3.2/ref/templates/builtins/#date
+
+https://github.com/igorescobar/jQuery-Mask-Plugin
+
+https://igorescobar.github.io/jQuery-Mask-Plugin/docs.html
+
+
+Lib JS via CDN.
+
+`<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>`
+
+
+Mas antes vamos criar uma nova app chamada `travel`.
+
+Entre na pasta `myproject` e crie a nova app.
+
+```
+cd myproject
+python ../manage.py startapp travel
+```
+
+Configure em `INSTALLED_APPS`.
+
+```python
+INSTALLED_APPS = [
+    ...
+    'myproject.travel',
+]
+```
+
+Em `models.py` crie uma classe `Travel`.
+
+```python
+cat << EOF > travel/models.py
+# travel/models.py
+from django.db import models
+
+
+class Travel(models.Model):
+    destination = models.CharField('destino', max_length=200)
+    date_travel = models.DateField('data', null=True, blank=True)
+    datetime_travel = models.DateTimeField('data/hora', null=True, blank=True)
+    time_travel = models.TimeField('tempo', null=True, blank=True)
+    duration_travel = models.DurationField('duração', null=True, blank=True)
+
+    class Meta:
+        ordering = ('destination',)
+        verbose_name = 'viagem'
+        verbose_name_plural = 'viagens'
+
+    def __str__(self):
+        return self.destination
+
+EOF
+```
+
+Em seguida rode o comando
+
+```
+cd ..
+python manage.py makemigrations
+python manage.py migrate
+```
+
