@@ -3658,8 +3658,8 @@ Edite `travel/templates/travel/travel_form.html` novamente
 Compare o formato do datetime no templatetags e no formulário:
 
 ```
-d/m/Y H:i:s     # templatags
-%Y-%m-%dT%H:%M  # forms (ISOformat)
+date:"d/m/Y H:i:s"       # templatags
+format='%Y-%m-%dT%H:%M'  # forms (ISOformat)
 ```
 
 https://docs.djangoproject.com/en/3.2/ref/templates/builtins/#date
