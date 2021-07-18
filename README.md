@@ -3366,3 +3366,131 @@ python manage.py makemigrations
 python manage.py migrate
 ```
 
+Agora vamos editar o `urls.py` principal.
+
+```python
+# urls.py
+urlpatterns = [
+    ...
+    path('travel/', include('myproject.travel.urls', namespace='travel')),
+    ...
+]
+
+```
+
+Edite `travel/urls.py`.
+
+```python
+# travel/urls.py
+cat << EOF > myproject/travel/urls.py
+from django.urls import path
+
+from myproject.travel import views as v
+
+app_name = 'travel'
+
+
+urlpatterns = [
+    path('', v.TravelListView.as_view(), name='travel_list'),
+    path('create/', v.TravelCreateView.as_view(), name='travel_create'),
+]
+
+EOF
+```
+
+Edite `travel/views.py`.
+
+```python
+# travel/views.py
+cat << EOF > myproject/travel/views.py
+from django.urls import reverse_lazy
+from django.views.generic import CreateView, ListView
+
+from .forms import TravelForm
+from .models import Travel
+
+
+class TravelListView(ListView):
+    model = Travel
+    paginate_by = 10
+
+
+class TravelCreateView(CreateView):
+    model = Travel
+    form_class = TravelForm
+    success_url = reverse_lazy('travel:travel_list')
+
+EOF
+```
+
+Crie a pasta
+
+```
+mkdir -p myproject/travel/templates/travel
+```
+
+
+Edite `travel/templates/travel/travel_list.html`
+
+```html
+cat << EOF > myproject/travel/templates/travel_list.html
+<!-- travel_list.html -->
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>
+    Lista
+    <a class="btn btn-primary" href="{% url 'travel:travel_create' %}">Adicionar</a>
+  </h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Destino</th>
+        <th>Data</th>
+        <th>Data e Hora</th>
+        <th>Time</th>
+        <th>Duração</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for object in object_list %}
+        <!-- https://docs.djangoproject.com/en/3.2/ref/templates/builtins/#date -->
+        <tr>
+          <td>{{ object.destination }}</td>
+          <td>{{ object.date_travel|default:'---' }}</td>
+          <td>{{ object.datetime_travel|default:'---' }}</td>
+          <td>{{ object.time_travel|default:'---' }}</td>
+          <td>{{ object.duration_travel|default:'---' }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% include "includes/pagination.html" %}
+{% endblock content %}
+
+EOF
+```
+
+Edite `travel/templates/travel_form.html`
+
+
+
+Edite `travel/forms.py`
+
+
+
+Edite `travel/templates/travel/travel_list.html`
+
+Os templatetags
+
+
+Edite `core/base.html`
+
+block js
+
+
+Edite `travel/templates/travel_form.html`
+
+A máscara
+
+
