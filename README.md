@@ -3433,13 +3433,13 @@ mkdir -p myproject/travel/templates/travel
 Edite `travel/templates/travel/travel_list.html`
 
 ```html
-cat << EOF > myproject/travel/templates/travel_list.html
+cat << EOF > myproject/travel/templates/travel/travel_list.html
 <!-- travel_list.html -->
 {% extends "base.html" %}
 
 {% block content %}
   <h1>
-    Lista
+    Viagens
     <a class="btn btn-primary" href="{% url 'travel:travel_create' %}">Adicionar</a>
   </h1>
   <table class="table">
@@ -3467,30 +3467,188 @@ cat << EOF > myproject/travel/templates/travel_list.html
   </table>
   {% include "includes/pagination.html" %}
 {% endblock content %}
-
 EOF
 ```
 
-Edite `travel/templates/travel_form.html`
+Edite `travel/templates/travel/travel_form.html`
 
+```html
+cat << EOF > myproject/travel/templates/travel/travel_form.html
+<!-- travel_form.html -->
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Formulário</h1>
+  <div class="cols-6">
+    <form class="form-horizontal" action="." method="POST">
+      <div class="col-sm-6">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary">Salvar</button>
+        </div>
+      </div>
+    </form>
+  </div>
+{% endblock content %}
+EOF
+```
 
 
 Edite `travel/forms.py`
 
+```python
+cat << EOF > myproject/travel/forms.py
+from django import forms
+
+from .models import Travel
 
 
-Edite `travel/templates/travel/travel_list.html`
+class TravelForm(forms.ModelForm):
+    required_css_class = 'required'
 
-Os templatetags
+    class Meta:
+        model = Travel
+        fields = '__all__'
+
+    def __init__(self, *args, **kwargs):
+        super(TravelForm, self).__init__(*args, **kwargs)
+        for field_name, field in self.fields.items():
+            field.widget.attrs['class'] = 'form-control'
+EOF
+```
+
+Edite `myproject/core/templates/nav.html`
+
+```html
+<li class="nav-item">
+    <a class="nav-link" href="{% url 'travel:travel_list' %}">Viagens</a>
+</li>
+```
+
+Rode a aplicação e cadastre uma viagem com os seguintes dados:
+
+Destino: Japão
+Data: 2021-07-18
+Data/hora: 2021-07-18 01:59
+Tempo: 23:01:58
+Duração: 26:01:02
+
+Edite `travel/admin.py`
+
+```python
+cat << EOF > myproject/travel/admin.py
+from django.contrib import admin
+
+from .models import Travel
+
+
+@admin.register(Travel)
+class TravelAdmin(admin.ModelAdmin):
+    list_display = (
+        'destination',
+        'date_travel',
+        'datetime_travel',
+        'time_travel',
+        'duration_travel',
+    )
+    search_fields = ('destination',)
+
+EOF
+```
+
+E abra o Admin.
+
+
+Edite `travel/templates/travel/travel_list.html` novamente
+
+Vejamos os templatetags.
+
+```html
+...
+<td>{{ object.date_travel|date:"d/m/Y"|default:'---' }}</td>
+<td>{{ object.datetime_travel|date:"d/m/Y H:i:s"|default:'---' }}</td>
+<td>{{ object.time_travel|time:"H:i:s"|default:'---' }}</td>
+...
+```
+
+
+Edite `travel/forms.py` novamente
+
+```python
+# travel/forms.py
+...
+class TravelForm(forms.ModelForm):
+
+    date_travel = forms.DateField(
+        label='Data',
+        widget=forms.DateInput(
+            format='%Y-%m-%d',
+            attrs={
+                'type': 'date',
+            }),
+        input_formats=('%Y-%m-%d',),
+    )
+    datetime_travel = forms.DateTimeField(
+        label='Data/Hora',
+        widget=forms.DateTimeInput(
+            format='%Y-%m-%dT%H:%M',
+            attrs={
+                'type': 'datetime-local',
+            }),
+        input_formats=('%Y-%m-%dT%H:%M',),
+    )
+    time_travel = forms.TimeField(
+        label='Tempo',
+        widget=forms.TimeInput(
+            format='%H:%M',
+            attrs={
+                'type': 'time',
+            }),
+        input_formats=('%H:%M',),
+    )
+...
+```
 
 
 Edite `core/base.html`
 
-block js
+```html
+{% block css %}{% endblock css %}
+...
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+{% block js %}{% endblock js %}
+```
 
 
-Edite `travel/templates/travel_form.html`
+Edite `travel/templates/travel/travel_form.html` novamente
 
-A máscara
+```html
+{% block css %}
+  <style>
+    p {
+      color: #000;
+    }
+    label.required:after {
+      content: "*";
+      color: red;
+    }
+  </style>
+{% endblock css %}
+...
+{% block js %}
+
+<!-- https://github.com/igorescobar/jQuery-Mask-Plugin -->
+<!-- https://igorescobar.github.io/jQuery-Mask-Plugin/docs.html -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+
+<script>
+  $('#id_duration_travel').mask('00:00:00');
+</script>
+
+{% endblock js %}
+```
 
 

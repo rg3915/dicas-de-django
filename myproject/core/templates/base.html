@@ -14,6 +14,8 @@
 
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
+  {% block css %}{% endblock css %}
+
   <style>
     body {
       margin-top: 60px;
@@ -31,7 +33,12 @@
 
   <!-- { include "footer.html" %} -->
 
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
 <script src="{% static 'js/main.js' %}"></script>
+
+{% block js %}{% endblock js %}
 
 </body>
 
