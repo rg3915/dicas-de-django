@@ -3192,6 +3192,7 @@ Editar novamente `views.py`
 # views.py
 from django.db.models import Q
 
+
 class PersonListView(ListView):
     model = Person
     template_name = 'core/person_list.html'
@@ -3334,8 +3335,8 @@ INSTALLED_APPS = [
 Em `models.py` crie uma classe `Travel`.
 
 ```python
-cat << EOF > travel/models.py
 # travel/models.py
+cat << EOF > travel/models.py
 from django.db import models
 
 
