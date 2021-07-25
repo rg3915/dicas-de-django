@@ -3254,6 +3254,10 @@ href="?{% url_replace page=page_obj.next_page_number %}"
 
 # 39 - Django Admin: display decorator (Django 3.2+)
 
+<a href="https://youtu.be/lKEPuwBjHss">
+    <img src="img/youtube.png">
+</a>
+
 https://docs.djangoproject.com/en/3.2/ref/contrib/admin/#the-display-decorator
 
 **IMPORTANTE:** Usei um [boilerplate](https://github.com/rg3915/dicas-de-django#11---django-boilerplate) para mostrar essa feature num projeto separado. Assista o video no YouTube.
