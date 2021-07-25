@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'django_extensions',
     'daterange_filter',
     'django_filters',
+    'myproject.travel',
 ]
 
 MIDDLEWARE = [
