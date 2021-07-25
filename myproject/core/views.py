@@ -1,6 +1,7 @@
 import json
 from pprint import pprint
 
+from django.db.models import Q
 from django.http import JsonResponse
 from django.shortcuts import redirect, render
 from django.views.generic import ListView
@@ -8,7 +9,6 @@ from django.views.generic import ListView
 from .filters import ArticleFilter
 from .forms import PersonForm
 from .models import Article, Person
-from django.db.models import Q
 
 
 def index(request):
