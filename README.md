@@ -2,47 +2,11 @@
 
 Várias dicas de Django - assuntos diversos.
 
-0. [Django boilerplate e cookiecutter-django](#1---django-boilerplate-e-cookiecutter-django)
-1. [Novo Django boilerplate](#11---django-boilerplate)
-2. [Django extensions](#2---django-extensions)
-3. [Django bulk_create e django-autoslug](#3---django-bulk_create-e-django-autoslug)
-4. [Django Admin personalizado](#4---django-admin-personalizado)
-5. [Django Admin Date Range filter](#5---django-admin-date-range-filter)
-6. [Geradores de senhas randômicas - uuid, hashids, secrets](#6---geradores-de-senhas-rand%C3%B4micas---uuid-hashids-secrets)
-7. [Rodando o ORM do Django no Jupyter Notebook](#7---rodando-o-orm-do-django-no-jupyter-notebook)
-8. [Conhecendo o Django Debug Toolbar](#8---conhecendo-o-django-debug-toolbar)
-9. [Escondendo suas senhas python-decouple](#9---escondendo-suas-senhas-python-decouple)
-10. [Prototipagem de web design (Mockup)](#10---prototipagem-de-web-design-mockup)
-11. [Bootstrap e Bulma + Colorlib](#11---bootstrap-e-bulma--colorlib)
-12. [Imagens: pexels e unsplash](#12---imagens-pexels-e-unsplash)
-13. [Cores](#13---cores)
-14. [Herança de Templates e Arquivos estáticos](#14---herança-de-templates-e-arquivos-estáticos)
-15. [Busca por data no frontend](#15---busca-por-data-no-frontend)
-16. [Filtros com django-filter](#16---filtros-com-django-filter)
-17. [Criando comandos personalizados](#17---criando-comandos-personalizados)
-18. [bulk_create e bulk_update](#18---bulk_create-e-bulk_update)
-19. [Criando Issues por linha de comando com a api do github](#19---criando-issues-por-linha-de-comando-com-a-api-do-github)
-20. [api github e click](#20---api-github-e-click)
-21. [Criando issues por linha de comando com gitlab cli](#21---criando-issues-por-linha-de-comando-com-gitlab-cli)
-22. [Criando issues por linha de comando com bitbucket cli](#22---criando-issues-por-linha-de-comando-com-bitbucket-cli)
-23. [Diferença entre JSON dump, dumps, load e loads](#23---diferença-entre-json-dump-dumps-load-e-loads)
-24. [Barra de progresso](#24---barra-de-progresso)
-25. [Rodando Shell script dentro do Python](#25---rodando-shell-script-dentro-do-python)
-26. [Rodando Python dentro do Shell script](#26---rodando-python-dentro-do-shell-script)
-27. [Retornando os nomes dos campos do model](#27---retornando-os-nomes-dos-campos-do-model)
-28. [Admin: Usando short description](#28---admin-usando-short-description)
-29. [Django Admin: Criando actions no Admin](#29---django-admin-criando-actions-no-admin)
-30. [Django Admin: Editando direto na listview do Admin](#30---django-admin-editando-direto-na-listview-do-admin)
-31. [Django Admin: Pegando usuário logado no Admin](#31---django-admin-pegando-usuário-logado-no-admin)
-32. [Django Admin: Sobreescrevendo os templates do Admin](#32---django-admin-sobreescrevendo-os-templates-do-admin)
-33. [Github cli](#33---github-cli)
-34. [Django: custom template tags](#34---django-custom-template-tags)
-35. [Django: passando usuário logado no formulário](#35---django-passando-usuário-logado-no-formulário)
-36. [Django: visualizando seus modelos com graph models](#36---django-visualizando-seus-modelos-com-graph-models)
-37. [Faker](#37---faker)
-38. [Django: Paginação + Filtros](#38---django-paginação--filtros)
-39. [Django Admin: display decorator (Django 3.2+)](#39---django-admin-display-decorator-django-32)
-40. [Formulários: date, datetime, duration e templatetags de data](#40---formulários-date-datetime-duration-e-templatetags-de-data)
+
+## Dicas
+
+Vejas as dicas em [Sumário](SUMMARY.md)
+
 
 ## This project was done with:
 
