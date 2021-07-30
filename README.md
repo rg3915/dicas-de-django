@@ -52,33 +52,6 @@ python manage.py migrate
 ```
 
 
-# 2 - Django extensions
-
-
-
-https://django-extensions.readthedocs.io/en/latest/index.html
-
-```
-pip install django-extensions
-```
-
-```python
-# settings.py
-INSTALLED_APPS = (
-    ...
-    'django_extensions',
-)
-```
-
-```
-python manage.py show_urls
-```
-
-```
-python manage.py shell_plus
-```
-
-
 # 3 - Django bulk_create e django-autoslug
 
 <a href="https://youtu.be/Py-AG6S_vJI">
