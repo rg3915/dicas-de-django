@@ -1,7 +1,7 @@
 # 1 - Django boilerplate e cookiecutter-django
 
 <a href="https://youtu.be/OYcOpcPcp8Y">
-    <img src="img/youtube.png">
+    <img src="../../img/youtube.png">
 </a>
 
 [boilerplatesimple.sh](https://gist.github.com/rg3915/b363f5c4a998f42901705b23ccf4b8e8)
