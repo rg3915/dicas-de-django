@@ -52,16 +52,6 @@ python manage.py migrate
 ```
 
 
-# 1.1 - Django boilerplate
-
-<a href="https://youtu.be/eLKjL61HEbQ">
-    <img src="img/youtube.png">
-</a>
-
-Novo boilerplate com Django 3.1.8
-
-https://github.com/rg3915/django-boilerplate
-
 # 2 - Django extensions
 
 
@@ -92,7 +82,7 @@ python manage.py shell_plus
 # 3 - Django bulk_create e django-autoslug
 
 <a href="https://youtu.be/Py-AG6S_vJI">
-    <img src="img/youtube.png">
+    <img src="../../img/youtube.png">
 </a>
 
 ### python-slugify
@@ -231,7 +221,7 @@ Article.objects.bulk_create(aux)
 # 4 - Django Admin personalizado
 
 <a href="https://youtu.be/jogkxIkCzI8">
-    <img src="img/youtube.png">
+    <img src="../../img/youtube.png">
 </a>
 
 https://docs.djangoproject.com/en/3.0/ref/contrib/admin/#modeladmin-options
@@ -283,7 +273,7 @@ class CategoryAdmin(admin.ModelAdmin):
 # 5 - Django Admin Date Range filter
 
 <a href="https://youtu.be/s5QzePekrvQ">
-    <img src="img/youtube.png">
+    <img src="../../img/youtube.png">
 </a>
 
 https://github.com/tzulberti/django-datefilterspec
@@ -318,7 +308,7 @@ class ArticleAdmin(admin.ModelAdmin):
 # 6 - Geradores de senhas randômicas - uuid, hashids, secrets
 
 <a href="https://youtu.be/-3znAePkMqY">
-    <img src="img/youtube.png">
+    <img src="../../img/youtube.png">
 </a>
 
 ## 6.1 - uuid
@@ -354,7 +344,7 @@ class Category(UuidModel):
 ## 6.2 - shortuuid
 
 <a href="https://youtu.be/qsRefchlXlo">
-    <img src="img/youtube.png">
+    <img src="../../img/youtube.png">
 </a>
 
 
@@ -562,7 +552,7 @@ python contrib/env_gen.py
 # 7 - Rodando o ORM do Django no Jupyter Notebook
 
 <a href="https://youtu.be/bXtmvu_O_sk">
-    <img src="img/youtube.png">
+    <img src="../../img/youtube.png">
 </a>
 
 
@@ -586,7 +576,7 @@ python manage.py shell_plus --notebook
 # 8 - Conhecendo o Django Debug Toolbar
 
 <a href="https://youtu.be/T23bEwMhD6A">
-    <img src="img/youtube.png">
+    <img src="../../img/youtube.png">
 </a>
 
 
@@ -637,13 +627,13 @@ if settings.DEBUG:
 # 9 - Escondendo suas senhas python-decouple
 
 <a href="https://youtu.be/eOwN7e0QBXo">
-    <img src="img/youtube.png">
+    <img src="../../img/youtube.png">
 </a>
 
 [Video do Henrique Bastos na Live de Python #97](https://www.youtube.com/watch?v=zYJGpLw5Wv4)
 
 <a href="https://www.youtube.com/watch?v=zYJGpLw5Wv4">
-    <img src="img/youtube.png">
+    <img src="../../img/youtube.png">
 </a>
 
 
@@ -709,7 +699,7 @@ DATABASES = {
 # 10 - Prototipagem de web design (Mockup)
 
 <a href="https://youtu.be/Ypbj_d1oGuY">
-    <img src="img/youtube.png">
+    <img src="../../img/youtube.png">
 </a>
 
 
@@ -727,7 +717,7 @@ DATABASES = {
 # 11 - Bootstrap e Bulma + Colorlib
 
 <a href="https://youtu.be/J86_rp0ibGI">
-    <img src="img/youtube.png">
+    <img src="../../img/youtube.png">
 </a>
 
 
@@ -747,7 +737,7 @@ DATABASES = {
 # 12 - Imagens: pexels e unsplash
 
 <a href="https://youtu.be/g95YG5RGGmE">
-    <img src="img/youtube.png">
+    <img src="../../img/youtube.png">
 </a>
 
 
@@ -759,7 +749,7 @@ DATABASES = {
 # 13 - Cores
 
 <a href="https://youtu.be/EcwxPzgwE4I">
-    <img src="img/youtube.png">
+    <img src="../../img/youtube.png">
 </a>
 
 
@@ -777,14 +767,14 @@ DATABASES = {
 # 14 - Herança de Templates e Arquivos estáticos
 
 <a href="https://youtu.be/wSfuzUVnuzw">
-    <img src="img/youtube.png">
+    <img src="../../img/youtube.png">
 </a>
 
 
 [Video Introdução a Arquitetura do Django - Pyjamas 2019](https://www.youtube.com/watch?v=XjXpwZhOKOs)
 
 <a href="https://www.youtube.com/watch?v=XjXpwZhOKOs">
-    <img src="img/youtube.png">
+    <img src="../../img/youtube.png">
 </a>
 
 
@@ -796,7 +786,7 @@ DATABASES = {
 # 15 - Busca por data no frontend
 
 <a href="https://youtu.be/sqhQM5KUFHE">
-    <img src="img/youtube.png">
+    <img src="../../img/youtube.png">
 </a>
 
 
@@ -848,7 +838,7 @@ Agradecimentos a [@walisonfilipe](https://twitter.com/walisonfilipe)
 # 16 - Filtros com [django-filter](https://django-filter.readthedocs.io/en/stable/)
 
 <a href="https://youtu.be/LZJjSeJC09A">
-    <img src="img/youtube.png">
+    <img src="../../img/youtube.png">
 </a>
 
 
@@ -941,7 +931,7 @@ Em `article_list.html`
 # 17 - Criando comandos personalizados
 
 <a href="https://youtu.be/tqr23jPrqrw">
-    <img src="img/youtube.png">
+    <img src="../../img/youtube.png">
 </a>
 
 
@@ -1041,7 +1031,7 @@ class Command(BaseCommand):
 # 18 - bulk_create e bulk_update
 
 <a href="https://youtu.be/U99VT4UwJ5k">
-    <img src="img/youtube.png">
+    <img src="../../img/youtube.png">
 </a>
 
 
@@ -1095,7 +1085,7 @@ Article.objects.bulk_update(articles, ['category'])
 # 19 - Criando Issues por linha de comando com a api do github
 
 <a href="https://youtu.be/XwT2CMrGfiE">
-    <img src="img/youtube.png">
+    <img src="../../img/youtube.png">
 </a>
 
 
@@ -1158,7 +1148,7 @@ if __name__ == '__main__':
 ## 20 - api github e click
 
 <a href="https://youtu.be/gwYpMKDAqBM">
-    <img src="img/youtube.png">
+    <img src="../../img/youtube.png">
 </a>
 
 
@@ -1235,7 +1225,7 @@ python github_cli2.py --title='Your title' \
 # 21 - Criando issues por linha de comando com gitlab cli
 
 <a href="https://youtu.be/mZezRjHv4Xg">
-    <img src="img/youtube.png">
+    <img src="../../img/youtube.png">
 </a>
 
 
@@ -1328,7 +1318,7 @@ if __name__ == '__main__':
 # 22 - Criando issues por linha de comando com bitbucket cli
 
 <a href="https://youtu.be/N2oYZxixcSU">
-    <img src="img/youtube.png">
+    <img src="../../img/youtube.png">
 </a>
 
 
@@ -1405,7 +1395,7 @@ if __name__ == '__main__':
 # 23 - Diferença entre JSON dump, dumps, load e loads
 
 <a href="https://youtu.be/4AupIlLYkgE">
-    <img src="img/youtube.png">
+    <img src="../../img/youtube.png">
 </a>
 
 
@@ -1647,7 +1637,7 @@ Leia mais em [Working With JSON Data in Python](https://realpython.com/python-js
 # 24 - Barra de progresso
 
 <a href="https://youtu.be/YQlwWn48eTw">
-    <img src="img/youtube.png">
+    <img src="../../img/youtube.png">
 </a>
 
 
@@ -1895,7 +1885,7 @@ with httpx.stream("GET", url) as response:
 # 25 - Rodando Shell script dentro do Python
 
 <a href="https://youtu.be/r3MIUX2QTEI">
-    <img src="img/youtube.png">
+    <img src="../../img/youtube.png">
 </a>
 
 
@@ -1936,7 +1926,7 @@ $ python subprocess01.py
 # 26 - Rodando Python dentro do Shell script
 
 <a href="https://youtu.be/WjvVTqfUNMI">
-    <img src="img/youtube.png">
+    <img src="../../img/youtube.png">
 </a>
 
 
@@ -1952,13 +1942,13 @@ Leia mais em:
 Assista também:
 
 <a href="https://www.youtube.com/watch?v=NoQW5CGAGNA">
-    <img src="img/youtube.png">
+    <img src="../../img/youtube.png">
 </a>
 
 [Mini-curso Shell script 1](https://www.youtube.com/watch?v=NoQW5CGAGNA)
 
 <a href="https://www.youtube.com/watch?v=aspwrDLSrPI">
-    <img src="img/youtube.png">
+    <img src="../../img/youtube.png">
 </a>
 
 [Mini-curso Shell script 2](https://www.youtube.com/watch?v=aspwrDLSrPI)
@@ -2133,7 +2123,7 @@ https://www.geeksforgeeks.org/program-for-nth-fibonacci-number/
 # 27 - Retornando os nomes dos campos do model
 
 <a href="https://youtu.be/lU2J5ZCJiyE">
-    <img src="img/youtube.png">
+    <img src="../../img/youtube.png">
 </a>
 
 
@@ -2164,7 +2154,7 @@ $ python manage.py shell_plus
 # 28 - Admin: Usando short description
 
 <a href="https://youtu.be/Uwwr77SR8EE">
-    <img src="img/youtube.png">
+    <img src="../../img/youtube.png">
 </a>
 
 
@@ -2193,7 +2183,7 @@ class ArticleAdmin(admin.ModelAdmin):
 # 29 - Django Admin: Criando actions no Admin
 
 <a href="https://youtu.be/WofnItMvqKU">
-    <img src="img/youtube.png">
+    <img src="../../img/youtube.png">
 </a>
 
 https://docs.djangoproject.com/en/3.1/ref/contrib/admin/actions/
@@ -2240,7 +2230,7 @@ class ArticleAdmin(admin.ModelAdmin):
 # 30 - Django Admin: Editando direto na listview do Admin
 
 <a href="https://youtu.be/3skHZrRR1PE">
-    <img src="img/youtube.png">
+    <img src="../../img/youtube.png">
 </a>
 
 ![img/editar_admin.png](img/editar_admin.png)
@@ -2256,7 +2246,7 @@ list_editable = ('title', 'status')
 # 31 - Django Admin: Pegando usuário logado no Admin
 
 <a href="https://youtu.be/qP5-ZICzHyM">
-    <img src="img/youtube.png">
+    <img src="../../img/youtube.png">
 </a>
 
 Em `models.py` considere
@@ -2294,7 +2284,7 @@ class ArticleAdmin(admin.ModelAdmin):
 # 32 - Django Admin: Sobreescrevendo os templates do Admin
 
 <a href="https://youtu.be/0d9VcL8ssTg">
-    <img src="img/youtube.png">
+    <img src="../../img/youtube.png">
 </a>
 
 ![img/botao_admin.png](img/botao_admin.png)
@@ -2451,7 +2441,7 @@ class CategoryAdmin(admin.ModelAdmin):
 ## Sobreescrevendo a tela de login do Admin
 
 <a href="https://youtu.be/ci4LtLxDCRM">
-    <img src="img/youtube.png">
+    <img src="../../img/youtube.png">
 </a>
 
 ![img/login.png](img/login.png)
@@ -2519,7 +2509,7 @@ https://www.djangoadmintutorials.com/how-to-customize-django-admin-login-page/
 ## Inserindo um logo no header do Admin
 
 <a href="https://youtu.be/7NcghC_eySs">
-    <img src="img/youtube.png">
+    <img src="../../img/youtube.png">
 </a>
 
 ![img/header_admin.png](img/header_admin.png)
@@ -2560,7 +2550,7 @@ https://books.agiliq.com/projects/django-admin-cookbook/en/latest/logo.html
 # 33 - Github cli
 
 <a href="https://youtu.be/Y5VO3u2hp10">
-    <img src="img/youtube.png">
+    <img src="../../img/youtube.png">
 </a>
 
 
@@ -2603,7 +2593,7 @@ git push
 # 34 - Django: custom template tags
 
 <a href="https://youtu.be/ldMf8AW2h4Y">
-    <img src="img/youtube.png">
+    <img src="../../img/youtube.png">
 </a>
 
 
@@ -2750,7 +2740,7 @@ Lista de {% model_name_plural model %}
 # 35 - Django: passando usuário logado no formulário
 
 <a href="https://youtu.be/69jPO_v6ldI">
-    <img src="img/youtube.png">
+    <img src="../../img/youtube.png">
 </a>
 
 
@@ -2816,7 +2806,7 @@ class Person(UuidModel):
 # 36 - Django: visualizando seus modelos com graph models
 
 <a href="https://youtu.be/99dOVsDBUxg">
-    <img src="img/youtube.png">
+    <img src="../../img/youtube.png">
 </a>
 
 ```
@@ -2860,7 +2850,7 @@ python manage.py graph_models -a -g -o models.png # all
 # 37 - Faker
 
 <a href="https://youtu.be/ubgVHtLhubw">
-    <img src="img/youtube.png">
+    <img src="../../img/youtube.png">
 </a>
 
 
@@ -3051,7 +3041,7 @@ Editar `person_list.html`
 # 38 - Django: Paginação + Filtros
 
 <a href="https://youtu.be/eXipSfa-HOQ">
-    <img src="img/youtube.png">
+    <img src="../../img/youtube.png">
 </a>
 
 
@@ -3191,7 +3181,7 @@ href="?{% url_replace page=page_obj.next_page_number %}"
 # 39 - Django Admin: display decorator (Django 3.2+)
 
 <a href="https://youtu.be/lKEPuwBjHss">
-    <img src="img/youtube.png">
+    <img src="../../img/youtube.png">
 </a>
 
 https://docs.djangoproject.com/en/3.2/ref/contrib/admin/#the-display-decorator
