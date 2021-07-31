@@ -64,24 +64,6 @@ python manage.py migrate
 
 
 
-# 10 - Prototipagem de web design (Mockup)
-
-<a href="https://youtu.be/Ypbj_d1oGuY">
-    <img src="../../img/youtube.png">
-</a>
-
-
-[excalidraw.com](https://excalidraw.com/)
-
-[moqups.com](https://moqups.com/)
-
-[balsamiq.com](https://balsamiq.com/)
-
-[marvelapp.com](https://marvelapp.com/)
-
-[mockflow.com](https://www.mockflow.com/)
-
-
 # 11 - Bootstrap e Bulma + Colorlib
 
 <a href="https://youtu.be/J86_rp0ibGI">
