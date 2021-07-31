@@ -51,25 +51,6 @@ python contrib/env_gen.py
 python manage.py migrate
 ```
 
-# 14 - Herança de Templates e Arquivos estáticos
-
-<a href="https://youtu.be/wSfuzUVnuzw">
-    <img src="../../img/youtube.png">
-</a>
-
-
-[Video Introdução a Arquitetura do Django - Pyjamas 2019](https://www.youtube.com/watch?v=XjXpwZhOKOs)
-
-<a href="https://www.youtube.com/watch?v=XjXpwZhOKOs">
-    <img src="../../img/youtube.png">
-</a>
-
-
-![diagrama](templates-diagram.png)
-
-![templates-pyjamas](https://raw.githubusercontent.com/rg3915/pyjamas2019-django/master/img/final.png)
-
-
 # 15 - Busca por data no frontend
 
 <a href="https://youtu.be/sqhQM5KUFHE">
