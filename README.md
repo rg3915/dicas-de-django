@@ -9,7 +9,7 @@ Clique aqui para ver as [dicas de Django](SUMMARY.md).
 * Django 2.2.20
 
 
-## How to run project?
+### How to run project?
 
 * Clone this repository.
 * Create virtualenv with Python 3.
@@ -33,7 +33,7 @@ python manage.py migrate
 * Django 2.2.20
 
 
-## Como rodar o projeto?
+### Como rodar o projeto?
 
 * Clone esse repositório.
 * Crie um virtualenv com Python 3.
