@@ -51,24 +51,6 @@ python contrib/env_gen.py
 python manage.py migrate
 ```
 
-# 13 - Cores
-
-<a href="https://youtu.be/EcwxPzgwE4I">
-    <img src="../../img/youtube.png">
-</a>
-
-
-[color.adobe.com/pt/create/color-wheel](https://color.adobe.com/pt/create/color-wheel)
-
-[coolors.co](https://coolors.co/)
-
-[materialuicolors.co](https://materialuicolors.co/)
-
-[htmlcolorcodes.com](https://htmlcolorcodes.com/)
-
-[clrs.cc](http://clrs.cc/)
-
-
 # 14 - Herança de Templates e Arquivos estáticos
 
 <a href="https://youtu.be/wSfuzUVnuzw">
