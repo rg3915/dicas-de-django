@@ -8,7 +8,7 @@
 [Video Introdução a Arquitetura do Django - Pyjamas 2019](https://www.youtube.com/watch?v=XjXpwZhOKOs)
 
 <a href="https://www.youtube.com/watch?v=XjXpwZhOKOs">
-    <img src="../../img/youtube.png">
+    <img src="../.gitbook/assets/youtube.png">
 </a>
 
 
