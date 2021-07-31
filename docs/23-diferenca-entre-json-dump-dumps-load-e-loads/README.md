@@ -7,11 +7,11 @@
 
 **Documentação:** [JSON](https://docs.python.org/3/library/json.html)
 
-![json_loads_dumps.png](json_loads_dumps.png)
+![json_loads_dumps.png](../../img/json_loads_dumps.png)
 
 --
 
-![json_load_dump.png](json_load_dump.png)
+![json_load_dump.png](../../img/json_load_dump.png)
 
 ## [dumps](https://docs.python.org/3/library/json.html#json.dumps)
 

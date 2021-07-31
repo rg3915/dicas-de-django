@@ -4,7 +4,7 @@
     <img src="../../img/youtube.png">
 </a>
 
-![img/botao_admin.png](img/botao_admin.png)
+![img/botao_admin.png](../../img/botao_admin.png)
 
 Se você olhar em 
 
@@ -161,7 +161,7 @@ class CategoryAdmin(admin.ModelAdmin):
     <img src="../../img/youtube.png">
 </a>
 
-![img/login.png](img/login.png)
+![img/login.png](../../img/login.png)
 
 Em [AdminSite attributes](https://docs.djangoproject.com/en/2.2/ref/contrib/admin/#adminsite-attributes) nós temos o atributo [AdminSite.login_template](https://docs.djangoproject.com/en/2.2/ref/contrib/admin/#django.contrib.admin.AdminSite.login_template).
 
@@ -229,7 +229,7 @@ https://www.djangoadmintutorials.com/how-to-customize-django-admin-login-page/
     <img src="../../img/youtube.png">
 </a>
 
-![img/header_admin.png](img/header_admin.png)
+![img/header_admin.png](../../img/header_admin.png)
 
 Basta criar `base_site.html`
 

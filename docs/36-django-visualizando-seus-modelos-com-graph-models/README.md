@@ -35,8 +35,8 @@ python manage.py graph_models -a -g -o models.png # all
 
 ### core
 
-![core.png](img/core.png)
+![core.png](../../img/core.png)
 
 ### models
 
-![models.png](img/models.png)
+![models.png](../../img/models.png)

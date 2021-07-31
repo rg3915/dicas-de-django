@@ -4,7 +4,7 @@
     <img src="../../img/youtube.png">
 </a>
 
-![img/editar_admin.png](img/editar_admin.png)
+![img/editar_admin.png](../../img/editar_admin.png)
 
 ```python
 # admin.py

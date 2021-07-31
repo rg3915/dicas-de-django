@@ -24,7 +24,7 @@
 * [Dica 20: api github e click](docs/20-api-github-e-click/README.md)
 * [Dica 21: Criando issues por linha de comando com gitlab cli](docs/21-criando-issues-por-linha-de-comando-com-gitlab-cli/README.md)
 * [Dica 22: Criando issues por linha de comando com bitbucket cli](docs/22-criando-issues-por-linha-de-comando-com-bitbucket-cli/README.md)
-* [Dica 23: Diferença entre JSON dump, dumps, load e loads](docs/23-diferença-entre-json-dump-dumps-load-e-loads/README.md)
+* [Dica 23: Diferença entre JSON dump, dumps, load e loads](docs/23-diferenca-entre-json-dump-dumps-load-e-loads/README.md)
 * [Dica 24: Barra de progresso](docs/24-barra-de-progresso/README.md)
 * [Dica 25: Rodando Shell script dentro do Python](docs/25-rodando-shell-script-dentro-do-python/README.md)
 * [Dica 26: Rodando Python dentro do Shell script](docs/26-rodando-python-dentro-do-shell-script/README.md)
