@@ -4,10 +4,12 @@ description: Dicas de Django com videos no YouTube.
 
 # Dicas de Django
 
+<img src="./.gitbook/assets/base.png">
+
 Veja o projeto no [Github](https://github.com/rg3915/dicas-de-django).
 
 <a href="https://github.com/rg3915/dicas-de-django">
-    <img src="./.gitbook/assets/github.png" width="200px">
+    <img src="./.gitbook/assets/github.png" width="120px">
 </a>
 
 Veja os videos no [YouTube](https://www.youtube.com/regis-do-python).
