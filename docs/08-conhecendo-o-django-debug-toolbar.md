@@ -13,7 +13,7 @@ pip install django-debug-toolbar
 
 #### Configurando o `settings.py`
 
-```
+```python
 INSTALLED_APPS = [
     # ...
     'django.contrib.staticfiles',
@@ -38,7 +38,7 @@ STATIC_URL = '/static/'
 
 #### Configurando o `urls.py`
 
-```
+```python
 from django.conf import settings
 from django.urls import include, path
 

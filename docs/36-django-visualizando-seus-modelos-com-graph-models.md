@@ -6,7 +6,7 @@
 
 ```
 sudo apt-get install -y graphviz libgraphviz-dev pkg-config
-python3 -m venv .venv
+python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 pip install pygraphviz

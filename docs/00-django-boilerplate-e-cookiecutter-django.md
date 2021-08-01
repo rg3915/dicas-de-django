@@ -4,7 +4,7 @@
     <img src="../.gitbook/assets/youtube.png">
 </a>
 
-[boilerplatesimple.sh](https://gist.github.com/rg3915/b363f5c4a998f42901705b23ccf4b8e8)
+[django-boilerplate](https://github.com/rg3915/django-boilerplate)
 
 [boilerplate2.sh](https://gist.github.com/rg3915/a264d0ade860d2f2b4bf)
 
