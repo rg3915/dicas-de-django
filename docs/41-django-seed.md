@@ -1,5 +1,8 @@
 # 41 - django-seed
 
+<a href="https://youtu.be/9IVp4mLsrdc">
+    <img src="../.gitbook/assets/youtube.png">
+</a>
 
 O [django-seed](https://github.com/Brobin/django-seed) é uma lib para que gera dados aleatórios para o seu modelo de uma forma rápida e simples.
 
