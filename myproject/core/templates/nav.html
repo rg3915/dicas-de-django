@@ -22,7 +22,10 @@
                 <a class="nav-link" href="{% url 'core:article_filter_list' %}">Artigos com filtros</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'travel:travel_list' %}">Viagens</a>
+                <a class="nav-link" href="{% url 'travel:travel_list' %}">
+                    Viagens
+                    <span class="badge badge-warning">{{ total_travel }}</span>
+                </a>
             </li>
             <!-- <li class="nav-item">
                 <a class="nav-link disabled" href="#">Disabled</a>
