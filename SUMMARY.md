@@ -43,3 +43,4 @@
 * [Dica 39 - Django Admin: display decorator (Django 3.2+)](docs/39-django-admin-display-decorator-django-32.md)
 * [Dica 40 - Formulários: date, datetime, duration e templatetags de data](docs/40-formularios-date-datetime-duration-e-templatetags-de-data.md)
 * [Dica 41 - django-seed](docs/41-django-seed.md)
+* [Dica 42 - Custom context processors](docs/42-custom-context-processors.md)
