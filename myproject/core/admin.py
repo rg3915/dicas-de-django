@@ -1,8 +1,8 @@
-from daterange_filter.filter import DateRangeFilter
 from django.conf import settings
 from django.contrib import admin, messages
 from django.shortcuts import redirect
 from django.urls import path
+from rangefilter.filters import DateRangeFilter, DateTimeRangeFilter
 
 from .models import Article, Category, Person
 
@@ -14,14 +14,21 @@ admin.site.login_template = 'myproject/core/templates/admin/login.html'
 
 @admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):
-    list_display = ('id', 'title', 'slug', 'get_published_date', 'get_category', 'status')
+    list_display = (
+        'id',
+        'title',
+        'get_published_date',
+        'get_category',
+        'status'
+    )
     search_fields = ('title',)
     list_filter = (
         ('published_date', DateRangeFilter),
+        ('modified', DateTimeRangeFilter),
         'category',
         'status',
     )
-    readonly_fields = ('slug',)
+    # readonly_fields = ('slug',)
     date_hierarchy = 'published_date'
     # form = ArticleAdminForm
     list_editable = ('title', 'status')
@@ -94,7 +101,8 @@ class CategoryAdmin(admin.ModelAdmin):
         my_urls = [
             path(
                 'botao-da-app/',
-                self.admin_site.admin_view(self.minha_funcao_category, cacheable=True)
+                self.admin_site.admin_view(
+                    self.minha_funcao_category, cacheable=True)
             ),
         ]
         return my_urls + urls

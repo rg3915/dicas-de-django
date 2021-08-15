@@ -1,9 +1,25 @@
 import uuid
 
-from autoslug import AutoSlugField
+# from autoslug import AutoSlugField
 from django.contrib.auth.models import User
 from django.db import models
 from hashid_field import HashidAutoField
+
+
+class TimeStampedModel(models.Model):
+    created = models.DateTimeField(
+        'criado em',
+        auto_now_add=True,
+        auto_now=False
+    )
+    modified = models.DateTimeField(
+        'modificado em',
+        auto_now_add=False,
+        auto_now=True
+    )
+
+    class Meta:
+        abstract = True
 
 
 class UuidModel(models.Model):
@@ -20,11 +36,11 @@ STATUS_CHOICES = (
 )
 
 
-class Article(models.Model):
+class Article(TimeStampedModel):
     id = HashidAutoField(primary_key=True, salt='dicas')
     title = models.CharField('título', max_length=200)
     subtitle = models.CharField('sub-título', max_length=200)
-    slug = AutoSlugField(populate_from='title')
+    # slug = AutoSlugField(populate_from='title')
     category = models.ForeignKey(
         'Category',
         related_name='categories',
