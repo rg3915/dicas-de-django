@@ -5,8 +5,8 @@ Clique aqui para ver as [dicas de Django](SUMMARY.md).
 
 ## This project was done with:
 
-* Python 3.8.2
-* Django 2.2.20
+* Python 3.9.6
+* Django 3.2.*
 
 
 #### How to run project?
@@ -29,8 +29,8 @@ python manage.py migrate
 
 ## Este projeto foi feito com:
 
-* Python 3.8.2
-* Django 2.2.20
+* Python 3.9.6
+* Django 3.2.*
 
 
 #### Como rodar o projeto?
