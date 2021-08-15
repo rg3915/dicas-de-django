@@ -44,3 +44,4 @@
 * [Dica 40 - Formulários: date, datetime, duration e templatetags de data](docs/40-formularios-date-datetime-duration-e-templatetags-de-data.md)
 * [Dica 41 - django-seed](docs/41-django-seed.md)
 * [Dica 42 - Custom context processors](docs/42-custom-context-processors.md)
+* [Dica 43 - django-admin-rangefilter](docs/43-django-admin-rangefilter.md)
