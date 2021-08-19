@@ -54,6 +54,9 @@ INSTALLED_APPS = [
     'django_seed',
     # my apps
     'myproject.travel',
+    'myproject.ecommerce',
+    'myproject.event',
+    'myproject.product',
 ]
 
 MIDDLEWARE = [
