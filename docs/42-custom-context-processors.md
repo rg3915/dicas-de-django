@@ -1,5 +1,9 @@
 # 42 - Custom context processors
 
+<a href="https://youtu.be/VidyZ5gqSRY">
+    <img src="../.gitbook/assets/youtube.png">
+</a>
+
 O **Custom context processors** é um recurso que nos fornece objetos globais que podemos usar em qualquer parte da nossa aplicação.
 
 ```python
