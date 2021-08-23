@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import F, Sum
 
 from myproject.core.models import TimeStampedModel
 from myproject.product.models import Product
@@ -14,6 +15,9 @@ class Order(TimeStampedModel):
 
     def __str__(self):
         return self.nf
+
+    def total(self):
+        return round(self.order_items.aggregate(total=Sum(F('quantity') * F('price')))['total'] or 0, 2)  # noqa E501
 
 
 class OrderItems(models.Model):
@@ -42,3 +46,5 @@ class OrderItems(models.Model):
     def __str__(self):
         return f'{self.pk} - {self.order.pk} - {self.product}'
 
+    def get_subtotal(self):
+        return self.quantity * self.price
