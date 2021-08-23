@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Ordem de compra</h1>
+
+<h4>NF: {{ object.nf }}</h4>
+
+<div>
+  <table class="table table-hover">
+    <thead>
+      <th>Produto</th>
+      <th class="text-right">Preço</th>
+      <th class="text-center">Quantidade</th>
+      <th class="text-right">Subtotal</th>
+    </thead>
+    <tbody>
+      {% for item in object.order_items.all %}
+        <tr>
+          <td>{{ item.product }}</td>
+          <td class="text-right">{{ item.price }}</td>
+          <td class="text-center">{{ item.quantity }}</td>
+          <td class="text-right">{{ item.get_subtotal }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+    <tfoot>
+      <td colspan="3" class="text-right lead font-weight-bold">Total</td>
+      <td class="text-right">
+        <span class="badge badge-info" style="font-size: 20px">{{ object.total }}</span>
+      </td>
+    </tfoot>
+  </table>
+</div>
+
+{% endblock content %}

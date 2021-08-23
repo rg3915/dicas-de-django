@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Ordem de compra</h1>
+
+<div>
+  <form action="." method="POST">
+    {% csrf_token %}
+    <label>NF</label>
+    <input id="id_nf" name="nf" class="form-control" type="number" />
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Produto</th>
+          <th>Preço</th>
+          <th>Quantidade</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody id="orderBody">
+        <tr>
+          <td>
+            <select
+              id="id_product"
+              name="product"
+              class="form-control"
+              hx-get="{% url 'ecommerce:product_price' %}"
+              hx-target="#id_price"
+              hx-swap="outerHTML"
+            >
+              <option value="">-------</option>
+              {% for product in products %}
+                <option value="{{product.pk}}">{{ product.title }}</option>
+              {% endfor %}
+            </select>
+          </td>
+          <td>
+            <input id="id_price" name="price" class="form-control" type="number" step="0.01">
+          </td>
+          <td>
+            <input id="id_quantity" name="quantity" class="form-control" type="number" step="0.01">
+          </td>
+          <td>
+            <span class="span-is-link no" onclick="removeRow()">
+              <i class="fa fa-close"></i>
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <button
+      class="btn btn-primary"
+      hx-get="{% url 'ecommerce:add_row' %}"
+      hx-target="#orderBody"
+      hx-swap="beforeend"
+    >
+      <i class="fa fa-plus"></i> Adicionar
+    </button>
+
+    <button class="btn btn-primary float-right" type="submit">
+      Salvar
+    </button>
+  </form>
+
+</div>
+
+{% endblock content %}
+
+{% block js %}
+  <script>
+    function removeRow() {
+      const span = event.target.parentNode;
+      const td = span.parentNode;
+      const tr = td.parentNode;
+      tr.parentNode.removeChild(tr);
+    }
+  </script>
+{% endblock js %}

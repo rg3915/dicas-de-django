@@ -1,0 +1,28 @@
+<tr>
+  <td>
+    <select
+      id="id_product"
+      name="product"
+      class="form-control"
+      hx-get="{% url 'ecommerce:product_price' %}?code={{code}}"
+      hx-target="#id_price{{code}}"
+      hx-swap="outerHTML"
+    >
+      <option value="">-------</option>
+      {% for product in products %}
+        <option value="{{product.pk}}">{{ product.title }}</option>
+      {% endfor %}
+    </select>
+  </td>
+  <td>
+    <input id="id_price{{code}}" name="price" class="form-control price" type="number" step="0.01">
+  </td>
+  <td>
+    <input id="id_quantity" name="quantity" class="form-control" type="number" step="0.01">
+  </td>
+  <td>
+    <span class="span-is-link no" onclick="removeRow()">
+      <i class="fa fa-close"></i>
+    </span>
+  </td>
+</tr>
