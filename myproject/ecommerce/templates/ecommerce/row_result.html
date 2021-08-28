@@ -7,6 +7,7 @@
       hx-get="{% url 'ecommerce:product_price' %}?code={{code}}"
       hx-target="#id_price{{code}}"
       hx-swap="outerHTML"
+      required
     >
       <option value="">-------</option>
       {% for product in products %}
@@ -15,10 +16,10 @@
     </select>
   </td>
   <td>
-    <input id="id_price{{code}}" name="price" class="form-control price" type="number" step="0.01">
+    <input id="id_price{{code}}" name="price" class="form-control price" type="number" step="0.01" required>
   </td>
   <td>
-    <input id="id_quantity" name="quantity" class="form-control" type="number" step="0.01">
+    <input id="id_quantity" name="quantity" class="form-control" type="number" step="0.01" required>
   </td>
   <td>
     <span class="span-is-link no" onclick="removeRow()">

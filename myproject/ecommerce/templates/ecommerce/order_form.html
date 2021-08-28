@@ -8,7 +8,7 @@
   <form action="." method="POST">
     {% csrf_token %}
     <label>NF</label>
-    <input id="id_nf" name="nf" class="form-control" type="number" />
+    <input id="id_nf" name="nf" class="form-control" type="number" required />
 
     <table class="table">
       <thead>
@@ -29,6 +29,7 @@
               hx-get="{% url 'ecommerce:product_price' %}"
               hx-target="#id_price"
               hx-swap="outerHTML"
+              required
             >
               <option value="">-------</option>
               {% for product in products %}
@@ -37,10 +38,10 @@
             </select>
           </td>
           <td>
-            <input id="id_price" name="price" class="form-control" type="number" step="0.01">
+            <input id="id_price" name="price" class="form-control" type="number" step="0.01" required>
           </td>
           <td>
-            <input id="id_quantity" name="quantity" class="form-control" type="number" step="0.01">
+            <input id="id_quantity" name="quantity" class="form-control" type="number" step="0.01" required>
           </td>
           <td>
             <span class="span-is-link no" onclick="removeRow()">
