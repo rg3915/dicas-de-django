@@ -6,6 +6,7 @@ class Product(models.Model):
     price = models.DecimalField('preço', max_digits=7, decimal_places=2)
     manufacturing_date = models.DateField('data de fabricação', null=True, blank=True)  # noqa E501
     due_date = models.DateField('data de vencimento', null=True, blank=True)
+    slug = models.SlugField(blank=True, null=True)
 
     class Meta:
         ordering = ('title',)

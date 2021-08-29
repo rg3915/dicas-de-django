@@ -56,8 +56,8 @@ INSTALLED_APPS = [
     'myproject.travel',
     'myproject.ecommerce',
     'myproject.event',
-    'myproject.product',
-    'myproject.profiles',
+    'myproject.product.apps.ProductConfig',
+    'myproject.profiles.apps.ProfilesConfig',
 ]
 
 MIDDLEWARE = [
