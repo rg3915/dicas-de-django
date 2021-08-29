@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'myproject.ecommerce',
     'myproject.event',
     'myproject.product',
+    'myproject.profiles',
 ]
 
 MIDDLEWARE = [
