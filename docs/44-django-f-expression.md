@@ -1,5 +1,9 @@
 # 44 - Django: F() expression
 
+<a href="https://youtu.be/YDCeA3rNcno">
+    <img src="../.gitbook/assets/youtube.png">
+</a>
+
 O [F() expression](https://docs.djangoproject.com/en/3.2/ref/models/expressions/#f-expressions) é uma expressão que retorna a representação do valor do campo, ou seja, é o valor do campo propriamente dito.
 
 Vamos criar 3 novas apps:
