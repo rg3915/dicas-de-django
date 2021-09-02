@@ -12,7 +12,7 @@ def name_group(user):
 
     {% load usergroup_tags %}
 
-    {{ obj.user|name_group }}
+    {{ user|name_group }}
     '''
     _groups = user.groups.first()
     if _groups:
@@ -29,8 +29,8 @@ def has_group(user, group_name):
 
     {% load usergroup_tags %}
 
-    {% if obj.user|has_group:"Nome do grupo" %}
-        {{ obj.user|name_group }}
+    {% if user|has_group:"Nome do grupo" %}
+        {{ user|name_group }}
     {% endif %}
     '''
     if user:
