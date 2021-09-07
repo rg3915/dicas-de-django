@@ -47,3 +47,4 @@
 * [Dica 43 - django-admin-rangefilter](docs/43-django-admin-rangefilter.md)
 * [Dica 44 - Django: F() expression](docs/44-django-f-expression.md)
 * [Dica 45 - DRF: Scaffold django apis - Django REST framework](docs/45-drf-scaffold.md)
+* [Dica 46 - DRF: drf-yasg](docs/46-drf-yasg.md)
