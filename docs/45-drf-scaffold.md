@@ -1,5 +1,9 @@
 # 45 - DRF: Scaffold django apis - Django REST framework
 
+<a href="https://youtu.be/UOW0CaFayFo">
+    <img src="../.gitbook/assets/youtube.png">
+</a>
+
 Github: https://github.com/rg3915/drf-example
 
 https://github.com/Abdenasser/dr_scaffold
