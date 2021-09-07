@@ -3,6 +3,7 @@
 Github: https://github.com/rg3915/drf-example
 
 Doc: https://drf-yasg.readthedocs.io/en/stable/
+
 Doc: https://github.com/axnsan12/drf-yasg/
 
 [drf-yasg](https://github.com/axnsan12/drf-yasg/) é uma outra biblioteca para gerar a documentação com Swagger e reDoc.
