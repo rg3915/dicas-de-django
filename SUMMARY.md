@@ -48,3 +48,4 @@
 * [Dica 44 - Django: F() expression](docs/44-django-f-expression.md)
 * [Dica 45 - DRF: Scaffold django apis - Django REST framework](docs/45-drf-scaffold.md)
 * [Dica 46 - DRF: drf-yasg](docs/46-drf-yasg.md)
+* [Dica 47 - DRF: djoser](docs/47-djoser.md)
