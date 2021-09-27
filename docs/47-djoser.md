@@ -1,5 +1,9 @@
 # 47 - DRF: djoser - Django REST framework
 
+<a href="https://youtu.be/HUtG2Eg47Gw">
+    <img src="../.gitbook/assets/youtube.png">
+</a>
+
 https://djoser.readthedocs.io/en/latest/
 
 ```

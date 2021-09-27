@@ -1,5 +1,9 @@
 # 46 - DRF: drf-yasg - Yet another Swagger generator
 
+<a href="https://youtu.be/TytDfV3PVFU">
+    <img src="../.gitbook/assets/youtube.png">
+</a>
+
 Github: https://github.com/rg3915/drf-example
 
 Doc: https://drf-yasg.readthedocs.io/en/stable/
