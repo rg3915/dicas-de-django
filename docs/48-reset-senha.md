@@ -19,7 +19,7 @@ Endpoints
 /api/v1/users/reset_password_confirm/
 ```
 
-![reset_password](img/reset_password.png)
+![reset_password](../img/reset_password.png)
 
 
 Edite `settings.py`
