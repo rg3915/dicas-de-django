@@ -11,7 +11,7 @@ JSON Web Token Authentication: https://djoser.readthedocs.io/en/latest/authentic
 
 `pip install djoser djangorestframework-simplejwt`
 
-![jwt.png](img/jwt.png)
+![jwt.png](../img/jwt.png)
 
 
 ```python
