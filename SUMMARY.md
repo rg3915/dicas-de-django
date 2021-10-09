@@ -50,3 +50,4 @@
 * [Dica 46 - DRF: drf-yasg](docs/46-drf-yasg.md)
 * [Dica 47 - DRF: djoser](docs/47-djoser.md)
 * [Dica 48 - DRF: Reset de Senha com djoser](docs/48-reset-senha.md)
+* [Dica 49 - DRF: Autenticação via JWT com djoser](docs/49-jwt.md)
