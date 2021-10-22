@@ -52,3 +52,4 @@
 * [Dica 48 - DRF: Reset de Senha com djoser](docs/48-reset-senha.md)
 * [Dica 49 - DRF: Autenticação via JWT com djoser](docs/49-jwt.md)
 * [Dica 50 - DRF: Django CORS headers](docs/50-django-cors-headers.md)
+* [Dica 51 - DRF: Paginação](docs/51-drf-paginacao.md)
