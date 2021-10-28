@@ -4,6 +4,8 @@
     <img src="../.gitbook/assets/youtube.png">
 </a>
 
+Github: [https://github.com/rg3915/drf-example](https://github.com/rg3915/drf-example)
+
 https://djoser.readthedocs.io/en/latest/
 
 ```

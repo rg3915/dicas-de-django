@@ -4,11 +4,11 @@
     <img src="../.gitbook/assets/youtube.png">
 </a>
 
-Github: https://github.com/rg3915/drf-example
+Github: [https://github.com/rg3915/drf-example](https://github.com/rg3915/drf-example)
 
-Doc: https://drf-yasg.readthedocs.io/en/stable/
+Doc: [https://drf-yasg.readthedocs.io/en/stable/](https://drf-yasg.readthedocs.io/en/stable/)
 
-Doc: https://github.com/axnsan12/drf-yasg/
+Doc: [https://github.com/axnsan12/drf-yasg/](https://github.com/axnsan12/drf-yasg/)
 
 [drf-yasg](https://github.com/axnsan12/drf-yasg/) é uma outra biblioteca para gerar a documentação com Swagger e reDoc.
 

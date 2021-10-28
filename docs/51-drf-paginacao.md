@@ -1,10 +1,12 @@
 # 51 - DRF: paginação
 
-<a href="">
+<a href="https://youtu.be/UqES8tphzsQ">
     <img src="../.gitbook/assets/youtube.png">
 </a>
 
-Doc: https://www.django-rest-framework.org/api-guide/pagination
+Github: [https://github.com/rg3915/drf-example](https://github.com/rg3915/drf-example)
+
+Doc: [https://www.django-rest-framework.org/api-guide/pagination](https://www.django-rest-framework.org/api-guide/pagination)
 
 Vamos precisar do [django-seed](https://www.dicas-de-django.com.br/41-django-seed)
 
