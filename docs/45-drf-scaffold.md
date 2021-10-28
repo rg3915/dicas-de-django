@@ -6,9 +6,9 @@
 
 Github: [https://github.com/rg3915/drf-example](https://github.com/rg3915/drf-example)
 
-https://github.com/Abdenasser/dr_scaffold
+[https://github.com/Abdenasser/dr_scaffold](https://github.com/Abdenasser/dr_scaffold)
 
-https://www.abdenasser.com/scaffold-django-apis
+[https://www.abdenasser.com/scaffold-django-apis](https://www.abdenasser.com/scaffold-django-apis)
 
 
 dr-scaffold é uma lib para criar models e uma API simples em Django REST framework.

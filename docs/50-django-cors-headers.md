@@ -6,9 +6,9 @@
 
 Github: [https://github.com/rg3915/drf-example](https://github.com/rg3915/drf-example)
 
-https://pt.wikipedia.org/wiki/Cross-origin_resource_sharing
+[https://pt.wikipedia.org/wiki/Cross-origin_resource_sharing](https://pt.wikipedia.org/wiki/Cross-origin_resource_sharing)
 
-https://github.com/adamchainz/django-cors-headers
+[https://github.com/adamchainz/django-cors-headers](https://github.com/adamchainz/django-cors-headers)
 
 
 ```

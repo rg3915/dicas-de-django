@@ -6,7 +6,7 @@
 
 Github: [https://github.com/rg3915/drf-example](https://github.com/rg3915/drf-example)
 
-https://djoser.readthedocs.io/en/latest/
+[https://djoser.readthedocs.io/en/latest/](https://djoser.readthedocs.io/en/latest/)
 
 ```
 pip install -U djoser

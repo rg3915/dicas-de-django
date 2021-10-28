@@ -6,9 +6,9 @@
 
 Github: [https://github.com/rg3915/drf-example](https://github.com/rg3915/drf-example)
 
-https://djoser.readthedocs.io/en/latest/jwt_endpoints.html
+[https://djoser.readthedocs.io/en/latest/jwt_endpoints.html](https://djoser.readthedocs.io/en/latest/jwt_endpoints.html)
 
-JSON Web Token Authentication: https://djoser.readthedocs.io/en/latest/authentication_backends.html#json-web-token-authentication
+JSON Web Token Authentication: [https://djoser.readthedocs.io/en/latest/authentication_backends.html#json-web-token-authentication](https://djoser.readthedocs.io/en/latest/authentication_backends.html#json-web-token-authentication)
 
 
 `pip install djoser djangorestframework-simplejwt`
