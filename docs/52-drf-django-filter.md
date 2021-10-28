@@ -51,7 +51,7 @@ class Post(models.Model):
         verbose_name_plural = "Posts"
 
     def __str__(self):
-        return self.body
+        return self.title
 ```
 
 Editar `blog/admin.py`
