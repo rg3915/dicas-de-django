@@ -1,6 +1,6 @@
 # 52 - DRF: django-filter
 
-<a href="">
+<a href="https://youtu.be/J8mKLw_Txok">
     <img src="../.gitbook/assets/youtube.png">
 </a>
 
