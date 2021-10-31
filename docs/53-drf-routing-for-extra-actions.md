@@ -75,7 +75,7 @@ Editar `blog/admin.py`
 ```python
 class PostAdmin(admin.ModelAdmin):
     list_display = ('title', 'author', 'created_by', 'like')
-    filter_list = ('like',)
+    list_filter = ('like',)
 ```
 
 As novas rotas são:
