@@ -4,6 +4,8 @@
     <img src="../.gitbook/assets/youtube.png">
 </a>
 
+Doc: [https://python-gitlab.readthedocs.io/en/stable/](https://python-gitlab.readthedocs.io/en/stable/)
+
 
 ## Configuração
 
