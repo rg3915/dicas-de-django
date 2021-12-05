@@ -55,3 +55,5 @@
 * [Dica 51 - DRF: Paginação](docs/51-drf-paginacao.md)
 * [Dica 52 - DRF: django-filter](docs/52-drf-django-filter.md)
 * [Dica 53 - DRF: Criando subrota com action](docs/53-drf-routing-for-extra-actions.md)
+* [Dica 53 - DRF: Criando subrota com action](docs/53-drf-routing-for-extra-actions.md)
+* [Dica 54 - django-extensions - mais comandos](docs/54-django-extensions-mais-comandos.md)
