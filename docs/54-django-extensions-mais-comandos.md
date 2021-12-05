@@ -14,7 +14,7 @@ Doc: [https://django-extensions.readthedocs.io/en/latest/](https://django-extens
 Veremos mais comandos do django-extensions.
 
 ```
-pip install django-extensions
+pip install -U django-extensions
 ```
 
 ```python
