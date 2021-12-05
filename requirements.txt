@@ -5,7 +5,7 @@ dj-database-url==0.5.0
 django-autoslug==1.9.7
 django-admin-rangefilter==0.8.1
 django-debug-toolbar==2.2.1
-django-extensions==2.2.9
+django-extensions==3.1.*
 django-filter==2.3.0
 django-hashid-field==3.1.3
 django-seed==0.2.2
