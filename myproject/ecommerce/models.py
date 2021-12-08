@@ -41,4 +41,3 @@ class OrderItems(models.Model):
 
     def __str__(self):
         return f'{self.pk} - {self.order.pk} - {self.product}'
-
