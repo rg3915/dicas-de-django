@@ -1,6 +1,6 @@
 # Dica 55 - Rodando Django em https localmente com runserver_plus
 
-<a href="">
+<a href="https://youtu.be/4nI3lcUAeC4">
     <img src="../.gitbook/assets/youtube.png">
 </a>
 

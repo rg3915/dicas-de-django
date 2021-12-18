@@ -58,3 +58,4 @@
 * [Dica 53 - DRF: Criando subrota com action](docs/53-drf-routing-for-extra-actions.md)
 * [Dica 54 - django-extensions - mais comandos](docs/54-django-extensions-mais-comandos.md)
 * [Dica 55 - Rodando Django em https localmente com runserver_plus](docs/55-runserver_plus.md)
+* [Dica 56 - Django inlineformset_factory + HTMX](docs/56-inlineformset_factory.md)
