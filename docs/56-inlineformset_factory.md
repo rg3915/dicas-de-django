@@ -1,6 +1,6 @@
 # Dica 56 - Django inlineformset_factory + HTMX
 
-<a href="">
+<a href="https://youtu.be/66_FQxopiBY">
     <img src="../.gitbook/assets/youtube.png">
 </a>
 
