@@ -59,4 +59,5 @@
 * [Dica 54 - django-extensions - mais comandos](docs/54-django-extensions-mais-comandos.md)
 * [Dica 55 - Rodando Django em https localmente com runserver_plus](docs/55-runserver_plus.md)
 * [Dica 56 - Django inlineformset_factory + HTMX](docs/56-inlineformset_factory.md)
+* [Dica 57 - Criando API com Django SEM DRF](docs/57-criando-api-com-django-sem-drf.md)
 * [Dica 60 - Django: Adicionando atributos extras no formulário](docs/60-atributos-extra-no-formulario.md)
