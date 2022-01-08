@@ -1,10 +1,10 @@
-Dica #59 - Django: Busca por palavras acentuadas ou sem acento
+# Dica 59 - Django: Busca por palavras acentuadas ou sem acento
 
-Github do projeto: https://github.com/rg3915/django-postgresql-docker
+Github do projeto: [https://github.com/rg3915/django-postgresql-docker](https://github.com/rg3915/django-postgresql-docker)
 
 Busca sem acento
 
-https://docs.djangoproject.com/en/3.2/ref/contrib/postgres/lookups/
+[https://docs.djangoproject.com/en/3.2/ref/contrib/postgres/lookups/](https://docs.djangoproject.com/en/3.2/ref/contrib/postgres/lookups/)
 
 ## Rodar o PostgreSQL via Docker
 
