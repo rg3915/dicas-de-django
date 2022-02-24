@@ -1,5 +1,9 @@
 # Dica 59 - Django: Busca por palavras acentuadas ou sem acento
 
+<a href="https://youtu.be/rMW562J6tGE">
+    <img src="../.gitbook/assets/youtube.png">
+</a>
+
 Github do projeto: [https://github.com/rg3915/django-postgresql-docker](https://github.com/rg3915/django-postgresql-docker)
 
 Busca sem acento

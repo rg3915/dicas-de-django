@@ -1,5 +1,9 @@
 # Dica 60 - Django: Adicionando atributos extras no formulário
 
+<a href="https://youtu.be/s8U_YBExsQ0">
+    <img src="../.gitbook/assets/youtube.png">
+</a>
+
 Repo: [https://gitlab.com/rg3915/exame-inline](https://gitlab.com/rg3915/exame-inline)
 
 Veja como adicionar atributos extras no formulário.
