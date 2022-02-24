@@ -4,7 +4,7 @@
     <img src="../.gitbook/assets/youtube.png">
 </a>
 
-Novo boilerplate com Django 3.2.5
+Novo boilerplate com Django 4.0.2
 
 https://github.com/rg3915/django-boilerplate
 
