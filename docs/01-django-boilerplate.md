@@ -6,5 +6,5 @@
 
 Novo boilerplate com Django 4.0.2
 
-https://github.com/rg3915/django-boilerplate
+[https://github.com/rg3915/django-boilerplate](https://github.com/rg3915/django-boilerplate)
 
