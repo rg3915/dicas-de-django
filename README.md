@@ -46,3 +46,5 @@ python manage.py runserver
 ```
 
 ## Leia o passo a passo em [doc](doc/)
+
+E as [dicas-de-django antigas aqui](https://github.com/rg3915/dicas-de-django/tree/master/docs)
