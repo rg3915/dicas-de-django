@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # <<<
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -74,13 +75,33 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': config('POSTGRES_DB', 'dicas_de_django_db'),
+        'USER': config('POSTGRES_USER', 'postgres'),
+        'PASSWORD': config('POSTGRES_PASSWORD', 'postgres'),
+        'HOST': config('DB_HOST', 'localhost'),
+        'PORT': config('DB_PORT', 5431, cast=int),
     }
 }
 
+# Email config
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL', 'webmaster@localhost')
+EMAIL_HOST = config('EMAIL_HOST', 'localhost')
+EMAIL_PORT = config('EMAIL_PORT', 1025, cast=int)
+EMAIL_HOST_USER = config('EMAIL_HOST_USER', '')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', '')
+EMAIL_USE_TLS = config('EMAIL_USE_TLS', default=False, cast=bool)
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators

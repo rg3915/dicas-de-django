@@ -1,0 +1,83 @@
+version: "3.8"
+
+services:
+  db:
+    container_name: dicas_de_django_db
+    image: postgres:14-alpine
+    restart: always
+    user: postgres  # importante definir o usuário
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    environment:
+      - LC_ALL=C.UTF-8
+      - POSTGRES_PASSWORD=postgres  # senha padrão
+      - POSTGRES_USER=postgres  # usuário padrão
+      - POSTGRES_DB=dicas_de_django_db  # necessário porque foi configurado assim no settings
+    ports:
+      - 5431:5432  # repare na porta externa 5431
+    networks:
+      - dicas-de-django-network
+
+  pgadmin:
+    container_name: dicas_de_django_pgadmin
+    image: dpage/pgadmin4
+    restart: unless-stopped
+    volumes:
+       - pgadmin:/var/lib/pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    ports:
+      - 5051:80
+    networks:
+      - dicas-de-django-network
+
+  mailhog:
+    container_name: dicas_de_django_mailhog
+    image: mailhog/mailhog
+    restart: always
+    logging:
+      driver: 'none'
+    ports:
+      - 1025:1025
+      - 8025:8025
+    networks:
+      - dicas-de-django-network
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: dicas_de_django_app
+    hostname: app
+    stdin_open: true
+    expose:
+      - '8000'
+    volumes:
+      - .env.docker:/app/.env
+    command: bash -c "gunicorn backend.wsgi:application -b 0.0.0.0:8000"
+    depends_on:
+      - db
+    networks:
+      - dicas-de-django-network
+
+  nginx:
+    container_name: dicas_de_django_nginx
+    image: nginx
+    hostname: nginx
+    ports:
+      - '80:8000'
+    volumes:
+      - ./docker/config/nginx/:/etc/nginx/conf.d/
+    depends_on:
+      - app
+    networks:
+      - dicas-de-django-network
+
+volumes:
+  pgdata:  # mesmo nome do volume externo definido na linha 10
+  pgadmin:
+
+networks:
+  dicas-de-django-network:
