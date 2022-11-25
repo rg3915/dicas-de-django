@@ -9,3 +9,5 @@ whitenoise==6.2.0
 autopep8==2.0.0
 isort==5.10.1
 djhtml==1.5.2
+django-widget-tweaks==1.4.12
+six==1.16.0
