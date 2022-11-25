@@ -8,3 +8,4 @@ gunicorn==20.1.0
 whitenoise==6.2.0
 autopep8==2.0.0
 isort==5.10.1
+djhtml==1.5.2
