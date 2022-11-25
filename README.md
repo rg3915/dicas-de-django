@@ -1,39 +1,13 @@
 # Dicas de Django
 
-Clique aqui para ver as [dicas de Django](SUMMARY.md).
-
-
-## This project was done with:
-
-* Python 3.9.6
-* Django 3.2.*
-
-
-#### How to run project?
-
-* Clone this repository.
-* Create virtualenv with Python 3.
-* Active the virtualenv.
-* Install dependences.
-* Run the migrations.
-
-```
-git clone https://github.com/rg3915/dicas-de-django.git
-cd dicas-de-django
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-python contrib/env_gen.py
-python manage.py migrate
-```
-
 ## Este projeto foi feito com:
 
-* Python 3.9.6
-* Django 3.2.*
+* [Python 3.10.6](https://www.python.org/)
+* [Django 4.1.3](https://www.djangoproject.com/)
+* [TailwindCSS](https://tailwindcss.com/)
+* [htmx](https://htmx.org)
 
-
-#### Como rodar o projeto?
+## Como rodar o projeto?
 
 * Clone esse repositório.
 * Crie um virtualenv com Python 3.
@@ -44,9 +18,31 @@ python manage.py migrate
 ```
 git clone https://github.com/rg3915/dicas-de-django.git
 cd dicas-de-django
-python3 -m venv .venv
+python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 python contrib/env_gen.py
+
+# crie .env.docker
+
+cat << EOF > .env.docker
+POSTGRES_DB=dicas_de_django_db
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=postgres
+DB_HOST=db
+DB_PORT=5432
+EOF
+
+docker-compose up --build -d
+
+docker container exec -it dicas_de_django_app python manage.py migrate
+docker container exec -it dicas_de_django_app python manage.py createsuperuser --email="admin@email.com"
+
+# Django local
 python manage.py migrate
+python manage.py createsuperuser --email="admin@email.com"
+python manage.py test
+python manage.py runserver
 ```
+
+## Leia o passo a passo em [doc](doc/)
