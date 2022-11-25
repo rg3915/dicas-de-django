@@ -6,3 +6,5 @@ django-extensions==3.2.1
 psycopg2-binary==2.9.5
 gunicorn==20.1.0
 whitenoise==6.2.0
+autopep8==2.0.0
+isort==5.10.1
