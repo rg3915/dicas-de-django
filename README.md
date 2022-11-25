@@ -1,5 +1,8 @@
 # Dicas de Django
 
+https://www.dicas-de-django.com.br/
+
+
 ## Este projeto foi feito com:
 
 * [Python 3.10.6](https://www.python.org/)
@@ -44,6 +47,10 @@ python manage.py createsuperuser --email="admin@email.com"
 python manage.py test
 python manage.py runserver
 ```
+
+## branch antiga
+
+[Dicas 1 a 60](https://github.com/rg3915/dicas-de-django/tree/main_old)
 
 ## Leia o passo a passo
 
