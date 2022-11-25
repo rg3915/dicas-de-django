@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django_extensions',
     # minhas apps
     'backend.core',
+    'backend.crm',
 ]
 
 MIDDLEWARE = [

@@ -385,7 +385,7 @@
             <h3 class="text-2xl font-extrabold mb-4">Fale Conosco</h3>
             <p class="mb-4 leading-relaxed">Envie uma mensagem e diga como podemos te ajudar.</p>
             <div>
-              <form action="." method="POST">
+              <form action="{% url 'crm:send_contact' %}" method="POST">
                 {% csrf_token %}
                 <input
                   id="id_name"
