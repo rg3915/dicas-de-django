@@ -45,6 +45,9 @@ python manage.py test
 python manage.py runserver
 ```
 
-## Leia o passo a passo em [doc](doc/)
+## Leia o passo a passo
 
-E as [dicas-de-django antigas aqui](https://github.com/rg3915/dicas-de-django/tree/master/docs)
+[Dicas de Django antigas](https://github.com/rg3915/dicas-de-django/tree/master/docs)
+
+[Dicas de Django novas](doc/)
+
