@@ -50,6 +50,8 @@ python manage.py runserver
 
 ## branch antiga
 
+branch: `main_old`
+
 [Dicas 1 a 60](https://github.com/rg3915/dicas-de-django/tree/main_old)
 
 ## Leia o passo a passo
