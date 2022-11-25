@@ -1,0 +1,29 @@
+{% load static %}
+<!-- base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <link rel="shortcut icon" href="https://www.djangoproject.com/favicon.ico">
+  <title>Django</title>
+
+  <!-- TailwindCSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+<body class="flex flex-col min-h-screen">
+  {% include "includes/menu.html" %}
+
+  <main class="flex-auto">
+    {% block content %}{% endblock content %}
+  </main>
+
+  {% include "includes/footer.html" %}
+
+  <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
