@@ -11,3 +11,5 @@ isort==5.10.1
 djhtml==1.5.2
 django-widget-tweaks==1.4.12
 six==1.16.0
+openpyxl==3.0.10
+rich==12.6.0

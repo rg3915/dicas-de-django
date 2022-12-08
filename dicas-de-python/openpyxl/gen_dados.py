@@ -41,7 +41,7 @@ for i in range(15):
 
 
 def escreve_planilha_cliente(filename, worksheet):
-    wb = openpyxl.load_workbook(filename)
+    wb = openpyxl.Workbook()
 
     # Deleta o worksheet, caso exista.
     if worksheet in wb.sheetnames:
