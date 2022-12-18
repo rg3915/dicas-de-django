@@ -89,7 +89,8 @@ class ContactForm(forms.Form):
 Edite `crm/views.py`
 
 
-# crm/views.py`
+# crm/views.py
+
 ```python
 from django.core.mail import send_mail
 from django.shortcuts import redirect
