@@ -107,11 +107,11 @@ https://github.com/sunscrapers/djoser/blob/master/djoser/templates/email/passwor
 Edite `password_reset.html`
 
 ```html
-{% block text_body %}
+{\% block text_body %}
 Olá {{ user.first_name }},
 ...
 
-{% block html_body %}
+{\% block html_body %}
 Olá {{ user.first_name }},
 ...
 ```

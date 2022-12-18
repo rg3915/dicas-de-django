@@ -78,13 +78,13 @@ Em `article_list.html`
           </tr>
         </thead>
         <tbody>
-          {% for obj in filter.qs %}
+          {\% for obj in filter.qs %}
             <tr>
               <td>{{ obj.title }}</td>
               <td>{{ obj.subtitle }}</td>
               <td>{{ obj.published_date }}</td>
             </tr>
-          {% endfor %}
+          {\% endfor %}
         </tbody>
       </table>
     </div>

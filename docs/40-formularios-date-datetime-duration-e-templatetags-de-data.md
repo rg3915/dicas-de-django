@@ -149,7 +149,7 @@ cat << EOF > myproject/travel/templates/travel/travel_list.html
 {\% block content %}
   <h1>
     Viagens
-    <a class="btn btn-primary" href="{% url 'travel:travel_create' %}">Adicionar</a>
+    <a class="btn btn-primary" href="{\% url 'travel:travel_create' %}">Adicionar</a>
   </h1>
   <table class="table">
     <thead>
@@ -171,7 +171,7 @@ cat << EOF > myproject/travel/templates/travel/travel_list.html
           <td>{{ object.time_travel|default:'---' }}</td>
           <td>{{ object.duration_travel|default:'---' }}</td>
         </tr>
-      {% endfor %}
+      {\% endfor %}
     </tbody>
   </table>
   {\% include "includes/pagination.html" %}
@@ -191,7 +191,7 @@ cat << EOF > myproject/travel/templates/travel/travel_form.html
   <div class="cols-6">
     <form class="form-horizontal" action="." method="POST">
       <div class="col-sm-6">
-        {% csrf_token %}
+        {\% csrf_token %}
         {{ form.as_p }}
         <div class="form-group">
           <button type="submit" class="btn btn-primary">Salvar</button>
@@ -231,7 +231,7 @@ Edite `myproject/core/templates/nav.html`
 
 ```html
 <li class="nav-item">
-    <a class="nav-link" href="{% url 'travel:travel_list' %}">Viagens</a>
+    <a class="nav-link" href="{\% url 'travel:travel_list' %}">Viagens</a>
 </li>
 ```
 
@@ -326,12 +326,12 @@ class TravelForm(forms.ModelForm):
 Edite `core/base.html`
 
 ```html
-{\% block css %}{% endblock css %}
+{\% block css %}{\% endblock css %}
 ...
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
-{\% block js %}{% endblock js %}
+{\% block js %}{\% endblock js %}
 ```
 
 

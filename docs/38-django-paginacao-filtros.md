@@ -22,7 +22,7 @@ Edite `person_list.html`
 ```html
 <!-- person_list.html -->
 ...
-{% include "includes/pagination.html" %}
+{\% include "includes/pagination.html" %}
 ```
 
 Criar `includes/pagination.html`
@@ -40,34 +40,34 @@ touch myproject/core/templates/includes/pagination.html
 <div class="row text-center">
   <div class="col-lg-12">
     <ul class="pagination">
-      {% if page_obj.has_previous %}
+      {\% if page_obj.has_previous %}
         <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
-      {% endif %}
+      {\% endif %}
 
-      {% for pg in page_obj.paginator.page_range %}
+      {\% for pg in page_obj.paginator.page_range %}
         <!-- Sempre mostra as 3 primeiras e 3 últimas páginas -->
-          {% if pg == 1 or pg == 2 or pg == 3 or pg == page_obj.paginator.num_pages or pg == page_obj.paginator.num_pages|add:'-1' or pg == page_obj.paginator.num_pages|add:'-2' %}
-            {% if page_obj.number == pg %}
+          {\% if pg == 1 or pg == 2 or pg == 3 or pg == page_obj.paginator.num_pages or pg == page_obj.paginator.num_pages|add:'-1' or pg == page_obj.paginator.num_pages|add:'-2' %}
+            {\% if page_obj.number == pg %}
               <li class="page-item active"><a class="page-link" href="?page={{ pg }}">{{ pg }}</a></li>
-            {% else %}
+            {\% else %}
               <li class="page-item"><a class="page-link" href="?page={{ pg }}">{{ pg }}</a></li>
-            {% endif %}
+            {\% endif %}
 
-          {% else %}
+          {\% else %}
 
-            {% if page_obj.number == pg %}
+            {\% if page_obj.number == pg %}
               <li class="page-item active"><a class="page-link" href="?page={{ pg }}">{{ pg }}</a></li>
-            {% elif pg > page_obj.number|add:'-4' and pg < page_obj.number|add:'4' %} <!-- Mostra 3 páginas antes e 3 páginas depois da atual -->
+            {\% elif pg > page_obj.number|add:'-4' and pg < page_obj.number|add:'4' %} <!-- Mostra 3 páginas antes e 3 páginas depois da atual -->
               <li class="page-item"><a class="page-link" href="?page={{ pg }}">{{ pg }}</a></li>
-            {% elif pg == page_obj.number|add:'-4' or pg == page_obj.number|add:'4' %}
+            {\% elif pg == page_obj.number|add:'-4' or pg == page_obj.number|add:'4' %}
               <li class="page-item"><a class="page-link" href="">...</a></li>
-            {% endif %}
-          {% endif %}
-        {% endfor %}
+            {\% endif %}
+          {\% endif %}
+        {\% endfor %}
 
-        {% if page_obj.has_next %}
+        {\% if page_obj.has_next %}
           <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
-        {% endif %}
+        {\% endif %}
     </ul>
   </div>
 </div>
@@ -128,11 +128,11 @@ E finalmente edite `pagination.html` trocando todos os `href`
 
 ```html
 <!-- pagination.html -->
-{% load url_replace %}
+{\% load url_replace %}
 ...
-href="?{% url_replace page=page_obj.previous_page_number %}"
+href="?{\% url_replace page=page_obj.previous_page_number %}"
 ...
-href="?{% url_replace page=pg %}"
+href="?{\% url_replace page=pg %}"
 ...
-href="?{% url_replace page=page_obj.next_page_number %}"
+href="?{\% url_replace page=page_obj.next_page_number %}"
 ```

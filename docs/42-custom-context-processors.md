@@ -40,7 +40,7 @@ E em `nav.html`
 
 ```html
 <li class="nav-item">
-    <a class="nav-link" href="{% url 'travel:travel_list' %}">
+    <a class="nav-link" href="{\% url 'travel:travel_list' %}">
         Viagens
         <span class="badge badge-warning">{{ total_travel }}</span>
     </a>

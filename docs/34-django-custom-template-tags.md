@@ -10,15 +10,15 @@ https://docs.djangoproject.com/en/3.2/ref/templates/builtins/
 ### Built-in tags
 
 ```html
-{% for obj in object_list %}
+{\% for obj in object_list %}
   <tr>
     <td>{{ forloop.counter }}</td>
     ...
-    {% if obj.category.title == 'Django' %}
+    {\% if obj.category.title == 'Django' %}
       <td>{{ obj.category }}</td>
-    {% endif %}
+    {\% endif %}
   </tr>
-{% endfor %}
+{\% endfor %}
 ```
 
 
@@ -94,11 +94,11 @@ def has_group(user, group_name):
 ```
 
 ```html
-{% load usergroup_tags %}
+{\% load usergroup_tags %}
 
-{% if request.user|has_group:"Autor" %}
+{\% if request.user|has_group:"Autor" %}
 É Autor.
-{% endif %}
+{\% endif %}
 ```
 
 ### Writing custom template tags
@@ -139,7 +139,7 @@ def model_name_plural(value):
 ```
 
 ```html
-{% load model_name_tags %}
+{\% load model_name_tags %}
 
-Lista de {% model_name_plural model %}
+Lista de {\% model_name_plural model %}
 ```

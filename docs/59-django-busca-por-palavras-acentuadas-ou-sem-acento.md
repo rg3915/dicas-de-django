@@ -63,7 +63,7 @@ Article.objects.bulk_create(aux_list)
 Edite `core/article_list.html`
 
 ```html
-<h1>Lista de {% model_name_plural model %}</h1>
+<h1>Lista de {\% model_name_plural model %}</h1>
 
 <form class="form-inline my-2">
   <label>Busca</label>

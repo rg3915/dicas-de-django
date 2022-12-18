@@ -193,15 +193,15 @@ touch myproject/core/templates/admin/login.html
 
 {\% block branding %}
   <h1 id="site-name">
-    <a href="{% url 'admin:index' %}">
-      <img src="{% static 'img/django-logo-negative.png' %}" alt="django-logo-negative.png" width="100px">
+    <a href="{\% url 'admin:index' %}">
+      <img src="{\% static 'img/django-logo-negative.png' %}" alt="django-logo-negative.png" width="100px">
     </a>
   </h1>
 {\% endblock %}
 
 {\% block extrastyle %}
   {{ block.super }}
-  <link rel="stylesheet" type="text/css" href="{% static "css/login.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{\% static "css/login.css" %}" />
   {{ form.media }}
 {\% endblock %}
 ```
@@ -243,8 +243,8 @@ touch myproject/core/templates/admin/base_site.html
 
 {\% block branding %}
   <h1 id="site-name">
-    <a href="{% url 'admin:index' %}">
-      <img src="{% static 'img/django-logo-negative.png' %}" alt="django-logo-negative.png" width="70px">
+    <a href="{\% url 'admin:index' %}">
+      <img src="{\% static 'img/django-logo-negative.png' %}" alt="django-logo-negative.png" width="70px">
     </a>
   </h1>
 {\% endblock %}

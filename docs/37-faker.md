@@ -174,7 +174,7 @@ Editar `person_list.html`
       </tr>
     </thead>
     <tbody>
-      {% for object in object_list %}
+      {\% for object in object_list %}
         <tr>
           <td>{{ object.first_name }}</td>
           <td>{{ object.last_name }}</td>
@@ -182,7 +182,7 @@ Editar `person_list.html`
           <td>{{ object.bio }}</td>
           <td>{{ object.birthday|date:"d/m/Y" }}</td>
         </tr>
-      {% endfor %}
+      {\% endfor %}
     </tbody>
   </table>
 {\% endblock content %}
