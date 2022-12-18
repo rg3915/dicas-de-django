@@ -157,6 +157,9 @@ python manage.py makemigrations
 python manage.py migrate
 ```
 
+> Mostrar as tabelas no pgAdmin4.
+
+
 ### Jupyter Notebook
 
 ```python
