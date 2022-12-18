@@ -1,4 +1,4 @@
-# Dica 3 - Criando um template com Bulma CSS
+# Dica 03 - Criando um template com Bulma CSS
 
 VIDEO EM BREVE.
 

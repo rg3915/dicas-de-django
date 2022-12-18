@@ -1,4 +1,4 @@
-# Dica 7 - PostgreSQL, pgAdmin e MailHog com docker-compose
+# Dica 07 - PostgreSQL, pgAdmin e MailHog com docker-compose
 
 VIDEO EM BREVE.
 

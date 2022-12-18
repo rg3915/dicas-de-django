@@ -1,4 +1,4 @@
-# Dica 8 - Aplicando isort e autopep8
+# Dica 08 - Aplicando isort e autopep8
 
 VIDEO EM BREVE.
 

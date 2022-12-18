@@ -1,4 +1,4 @@
-# Dica 6 - Criando o projeto Django
+# Dica 06 - Criando o projeto Django
 
 VIDEO EM BREVE.
 

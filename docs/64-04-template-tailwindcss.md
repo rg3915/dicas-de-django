@@ -1,4 +1,4 @@
-# Dica 4 - Criando um template com Tailwind CSS
+# Dica 04 - Criando um template com Tailwind CSS
 
 VIDEO EM BREVE.
 
