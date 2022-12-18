@@ -70,16 +70,16 @@ touch myproject/core/templates/admin/core/article/change_list.html
 Com o conteúdo:
 
 ```html
-\{% extends "admin/change_list.html" %}
+{\% extends "admin/change_list.html" %}
 
-\{% block object-tools-items %}
+{\% block object-tools-items %}
   {{ block.super }}
   <li>
     <a href="botao-artigo/">
       Botão do Artigo
     </a>
   </li>
-\{% endblock %}
+{\% endblock %}
 ```
 
 Para que o Django Admin reconheça esses templates precisamos configurar o `settings.py`
