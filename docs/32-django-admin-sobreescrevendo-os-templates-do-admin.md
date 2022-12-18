@@ -48,17 +48,17 @@ touch myproject/core/templates/admin/core/change_list.html
 
 E seu conteúdo será:
 
-```
-{% extends "admin/change_list.html" %}
+```html
+\{\% extends "admin/change_list.html" \%\}
 
-{% block object-tools-items %}
+\{\% block object-tools-items \%\}
   {{ block.super }}
   <li>
     <a href="botao-da-app/">
       Novo botão
     </a>
   </li>
-{% endblock %}
+\{\% endblock \%\}
 ```
 
 Depois
