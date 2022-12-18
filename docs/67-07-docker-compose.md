@@ -1,6 +1,6 @@
 # 7 - PostgreSQL, pgAdmin e MailHog com docker-compose
 
-![](../img/docker-compose.png)
+![](../.gitbook/assets/docker-compose.png)
 
 ## portainer
 
@@ -24,7 +24,7 @@ docker run -d \
 portainer/portainer
 ```
 
-![](../img/portainer.png)
+![](../.gitbook/assets/portainer.png)
 
 
 ## docker-compose
@@ -153,7 +153,7 @@ python manage.py runserver
 
 Conectar no pgAdmin
 
-![](../img/pgadmin.png)
+![](../.gitbook/assets/pgadmin.png)
 
 ## Rodando o Django dentro do container
 
