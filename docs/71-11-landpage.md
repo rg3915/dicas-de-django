@@ -1,4 +1,11 @@
-# 11 - Criando Landpage de produtos
+# Dica 11 - Criando Landpage de produtos
+
+VIDEO EM BREVE.
+
+**Importante:** remova a `\` no meio das tags.
+
+![](../.gitbook/assets/tags.png)
+
 
 Com destaque para
 
@@ -18,6 +25,6 @@ Com destaque para
 
 ## Links
 
-https://github.com/itzpradip/tailwind-eshop-static-html
+[https://github.com/itzpradip/tailwind-eshop-static-html](https://github.com/itzpradip/tailwind-eshop-static-html)
 
-https://youtu.be/iNDvh7O2WZM
+[https://youtu.be/iNDvh7O2WZM](https://youtu.be/iNDvh7O2WZM)

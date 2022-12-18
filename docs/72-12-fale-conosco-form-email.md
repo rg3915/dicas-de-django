@@ -1,4 +1,11 @@
-# 12 - Fale conosco com formulário para enviar mensagem
+# Dica 12 - Fale conosco com formulário para enviar mensagem
+
+VIDEO EM BREVE.
+
+**Importante:** remova a `\` no meio das tags.
+
+![](../.gitbook/assets/tags.png)
+
 
 Criar app `crm`
 

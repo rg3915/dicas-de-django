@@ -1,24 +1,26 @@
-# 14 - Django Custom User com e-mail
+# Dica 14 - Django Custom User com e-mail
+
+VIDEO EM BREVE.
 
 User
 
-https://github.com/django/django/blob/70c945d6b31b41b320e57088702077864428fdc0/django/contrib/auth/models.py#L405
+[https://github.com/django/django/blob/70c945d6b31b41b320e57088702077864428fdc0/django/contrib/auth/models.py#L405](https://github.com/django/django/blob/70c945d6b31b41b320e57088702077864428fdc0/django/contrib/auth/models.py#L405)
 
 AbstractUser
 
-https://github.com/django/django/blob/70c945d6b31b41b320e57088702077864428fdc0/django/contrib/auth/models.py#L334
+[https://github.com/django/django/blob/70c945d6b31b41b320e57088702077864428fdc0/django/contrib/auth/models.py#L334](https://github.com/django/django/blob/70c945d6b31b41b320e57088702077864428fdc0/django/contrib/auth/models.py#L334)
 
 AbstractBaseUser
 
-https://github.com/django/django/blob/70c945d6b31b41b320e57088702077864428fdc0/django/contrib/auth/base_user.py#L56
+[https://github.com/django/django/blob/70c945d6b31b41b320e57088702077864428fdc0/django/contrib/auth/base_user.py#L56](https://github.com/django/django/blob/70c945d6b31b41b320e57088702077864428fdc0/django/contrib/auth/base_user.py#L56)
 
 Extending User Model Using a Custom Model Extending AbstractBaseUser
 
-https://simpleisbetterthancomplex.com/tutorial/2016/07/22/how-to-extend-django-user-model.html#abstractbaseuser
+[https://simpleisbetterthancomplex.com/tutorial/2016/07/22/how-to-extend-django-user-model.html#abstractbaseuser](https://simpleisbetterthancomplex.com/tutorial/2016/07/22/how-to-extend-django-user-model.html#abstractbaseuser)
 
 Django autenticação e login com email - Django login email
 
-https://youtu.be/dXdMD3LBUvA
+[https://youtu.be/dXdMD3LBUvA](https://youtu.be/dXdMD3LBUvA)
 
 Crie a app `accounts`
 

@@ -1,4 +1,11 @@
-# 17 - Cadastro de Usuários no Django
+# Dica 17 - Cadastro de Usuários no Django
+
+VIDEO EM BREVE.
+
+**Importante:** remova a `\` no meio das tags.
+
+![](../.gitbook/assets/tags.png)
+
 
 Vamos editar os arquivos:
 
@@ -11,9 +18,9 @@ Vamos editar os arquivos:
 * accounts/urls.py
 * accounts/views.py
 
-https://docs.djangoproject.com/en/4.1/topics/auth/default/#django.contrib.auth.views.PasswordResetConfirmView
+[https://docs.djangoproject.com/en/4.1/topics/auth/default/#django.contrib.auth.views.PasswordResetConfirmView](https://docs.djangoproject.com/en/4.1/topics/auth/default/#django.contrib.auth.views.PasswordResetConfirmView)
 
-https://docs.djangoproject.com/en/4.1/topics/auth/default/#django.contrib.auth.views.PasswordResetCompleteView
+[https://docs.djangoproject.com/en/4.1/topics/auth/default/#django.contrib.auth.views.PasswordResetCompleteView](https://docs.djangoproject.com/en/4.1/topics/auth/default/#django.contrib.auth.views.PasswordResetCompleteView)
 
 
 Edite `login.html`

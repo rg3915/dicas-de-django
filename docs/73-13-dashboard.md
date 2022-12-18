@@ -1,4 +1,11 @@
-# 13 - Dashboard com Django e Tailwind CSS
+# Dica 13 - Dashboard com Django e Tailwind CSS
+
+VIDEO EM BREVE.
+
+**Importante:** remova a `\` no meio das tags.
+
+![](../.gitbook/assets/tags.png)
+
 
 Edite `index.html`
 
@@ -696,6 +703,6 @@ Baixar
 
 ## Links
 
-https://demo.themesberg.com/windster/
+[https://demo.themesberg.com/windster/](https://demo.themesberg.com/windster/)
 
-https://github.com/themesberg/tailwind-dashboard-windster
+[https://github.com/themesberg/tailwind-dashboard-windster](https://github.com/themesberg/tailwind-dashboard-windster)

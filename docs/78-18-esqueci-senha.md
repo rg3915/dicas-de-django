@@ -1,8 +1,15 @@
-# 18 - Esqueci a senha
+# Dica 18 - Esqueci a senha
 
-https://docs.djangoproject.com/en/4.1/topics/auth/default/#django.contrib.auth.views.PasswordResetView
+VIDEO EM BREVE.
 
-https://docs.djangoproject.com/en/4.1/topics/auth/default/#django.contrib.auth.views.PasswordResetDoneView
+[https://docs.djangoproject.com/en/4.1/topics/auth/default/#django.contrib.auth.views.PasswordResetView](https://docs.djangoproject.com/en/4.1/topics/auth/default/#django.contrib.auth.views.PasswordResetView)
+
+[https://docs.djangoproject.com/en/4.1/topics/auth/default/#django.contrib.auth.views.PasswordResetDoneView](https://docs.djangoproject.com/en/4.1/topics/auth/default/#django.contrib.auth.views.PasswordResetDoneView)
+
+
+**Importante:** remova a `\` no meio das tags.
+
+![](../.gitbook/assets/tags.png)
 
 
 Edite `login.html`

@@ -1,4 +1,11 @@
-# 6 - Criando o projeto Django
+# Dica 6 - Criando o projeto Django
+
+VIDEO EM BREVE.
+
+**Importante:** remova a `\` no meio das tags.
+
+![](../.gitbook/assets/tags.png)
+
 
 ```
 python -m venv .venv

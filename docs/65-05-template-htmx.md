@@ -1,5 +1,7 @@
-# 5 - htmx simples
+# Dica 5 - htmx simples
 
+
+VIDEO EM BREVE.
 
 ```
 mkdir -p src/pages/htmx
@@ -158,4 +160,4 @@ python -m http.server 8000
 
 ## Links
 
-https://htmx.org/
+[https://htmx.org/](https://htmx.org/)

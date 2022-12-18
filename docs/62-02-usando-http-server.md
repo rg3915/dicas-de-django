@@ -1,4 +1,6 @@
-# 2 - Usando http.server
+# Dica 2 - Usando http.server
+
+VIDEO EM BREVE.
 
 Crie um `public/index.html`.
 
@@ -31,7 +33,7 @@ python -m http.server 8000
 
 ## Links
 
-http://getskeleton.com/
+[http://getskeleton.com/](http://getskeleton.com/)
 
-https://cdnjs.com/libraries/skeleton
+[https://cdnjs.com/libraries/skeleton](https://cdnjs.com/libraries/skeleton)
 

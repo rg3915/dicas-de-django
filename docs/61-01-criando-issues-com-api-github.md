@@ -1,5 +1,7 @@
 # Dica 01 - Criando Issues com API do Github (Linux)
 
+VIDEO EM BREVE.
+
 ```
 mkdir cli
 touch cli/create_issue.py

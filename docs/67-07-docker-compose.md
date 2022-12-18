@@ -1,4 +1,6 @@
-# 7 - PostgreSQL, pgAdmin e MailHog com docker-compose
+# Dica 7 - PostgreSQL, pgAdmin e MailHog com docker-compose
+
+VIDEO EM BREVE.
 
 ![](../.gitbook/assets/docker-compose.png)
 

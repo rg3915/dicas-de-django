@@ -1,6 +1,13 @@
-# 9 - Aplicando djhtml
+# Dica 9 - Aplicando djhtml
+
+VIDEO EM BREVE.
 
 [djhtml](https://github.com/rtts/djhtml)
+
+**Importante:** remova a `\` no meio das tags.
+
+![](../.gitbook/assets/tags.png)
+
 
 ```
 pip install djhtml

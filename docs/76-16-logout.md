@@ -1,4 +1,11 @@
-# 16 - Logout
+# Dica 16 - Logout
+
+VIDEO EM BREVE.
+
+**Importante:** remova a `\` no meio das tags.
+
+![](../.gitbook/assets/tags.png)
+
 
 Edite `accounts/urls.py`
 

@@ -1,4 +1,6 @@
-# 4 - Criando um template com Tailwind CSS
+# Dica 4 - Criando um template com Tailwind CSS
+
+VIDEO EM BREVE.
 
 ```
 mkdir -p src/pages/tailwind
@@ -65,12 +67,12 @@ python -m http.server 8000
 
 ## Links
 
-https://tailwindcss.com/
+[https://tailwindcss.com/](https://tailwindcss.com/)
 
-https://merakiui.com
+[https://merakiui.com](https://merakiui.com)
 
-https://tailwind-elements.com/
+[https://tailwind-elements.com/](https://tailwind-elements.com/)
 
-https://www.tailwindtoolbox.com/starter-templates
+[https://www.tailwindtoolbox.com/starter-templates](https://www.tailwindtoolbox.com/starter-templates)
 
-https://flowbite.com/
+[https://flowbite.com/](https://flowbite.com/)

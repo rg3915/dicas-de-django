@@ -1,4 +1,11 @@
-# 15 - Login com e-mail no Django
+# Dica 15 - Login com e-mail no Django
+
+VIDEO EM BREVE.
+
+**Importante:** remova a `\` no meio das tags.
+
+![](../.gitbook/assets/tags.png)
+
 
 ```
 mkdir -p backend/accounts/templates/registration

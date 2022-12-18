@@ -1,4 +1,6 @@
-# 3 - Criando um template com Bulma CSS
+# Dica 3 - Criando um template com Bulma CSS
+
+VIDEO EM BREVE.
 
 ```
 mkdir -p src/pages/bulma
@@ -47,10 +49,10 @@ python -m http.server 8000
 
 ## Links
 
-https://bulma.io/
+[https://bulma.io/](https://bulma.io/)
 
-https://bulma.io/documentation/components/card/
+[https://bulma.io/documentation/components/card/](https://bulma.io/documentation/components/card/)
 
-https://bulma.io/documentation/form/general/#complete-form-example
+[https://bulma.io/documentation/form/general/#complete-form-example](https://bulma.io/documentation/form/general/#complete-form-example)
 
-https://bulma.io/documentation/elements/button/#colors
+[https://bulma.io/documentation/elements/button/#colors](https://bulma.io/documentation/elements/button/#colors)
