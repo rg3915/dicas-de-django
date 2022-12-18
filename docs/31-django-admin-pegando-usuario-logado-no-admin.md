@@ -1,4 +1,4 @@
-# 31 - Django Admin: Pegando usuário logado no Admin
+# Dica 31 - Django Admin: Pegando usuário logado no Admin
 
 <a href="https://youtu.be/qP5-ZICzHyM">
     <img src="../.gitbook/assets/youtube.png">

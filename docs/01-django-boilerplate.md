@@ -1,4 +1,4 @@
-# 1.1 - Django boilerplate
+# Dica 1.1 - Django boilerplate
 
 <a href="https://youtu.be/eLKjL61HEbQ">
     <img src="../.gitbook/assets/youtube.png">

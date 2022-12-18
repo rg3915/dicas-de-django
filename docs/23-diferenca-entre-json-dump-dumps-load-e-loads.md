@@ -1,4 +1,4 @@
-# 23 - Diferença entre JSON dump, dumps, load e loads
+# Dica 23 - Diferença entre JSON dump, dumps, load e loads
 
 <a href="https://youtu.be/4AupIlLYkgE">
     <img src="../.gitbook/assets/youtube.png">

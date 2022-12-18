@@ -1,4 +1,4 @@
-# 49 - DRF: Autenticação via JWT com djoser - Django REST framework
+# Dica 49 - DRF: Autenticação via JWT com djoser - Django REST framework
 
 <a href="https://youtu.be/dOomllYxj9E">
     <img src="../.gitbook/assets/youtube.png">

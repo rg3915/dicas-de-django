@@ -1,4 +1,4 @@
-# 1 - Criando Issues com API do Github (Linux)
+# Dica 01 - Criando Issues com API do Github (Linux)
 
 ```
 mkdir cli

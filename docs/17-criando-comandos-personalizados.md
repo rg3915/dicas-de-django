@@ -1,4 +1,4 @@
-# 17 - Criando comandos personalizados
+# Dica 17 - Criando comandos personalizados
 
 <a href="https://youtu.be/tqr23jPrqrw">
     <img src="../.gitbook/assets/youtube.png">

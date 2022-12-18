@@ -1,4 +1,4 @@
-# 34 - Django: custom template tags
+# Dica 34 - Django: custom template tags
 
 <a href="https://youtu.be/ldMf8AW2h4Y">
     <img src="../.gitbook/assets/youtube.png">

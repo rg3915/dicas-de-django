@@ -1,4 +1,4 @@
-# 12 - Imagens: pexels e unsplash
+# Dica 12 - Imagens: pexels e unsplash
 
 <a href="https://youtu.be/g95YG5RGGmE">
     <img src="../.gitbook/assets/youtube.png">

@@ -1,4 +1,4 @@
-# 18 - bulk_create e bulk_update
+# Dica 18 - bulk_create e bulk_update
 
 <a href="https://youtu.be/U99VT4UwJ5k">
     <img src="../.gitbook/assets/youtube.png">

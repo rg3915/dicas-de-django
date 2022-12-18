@@ -1,4 +1,4 @@
-# 5 - Django Admin Date Range filter
+# Dica 5 - Django Admin Date Range filter
 
 <a href="https://youtu.be/s5QzePekrvQ">
     <img src="../.gitbook/assets/youtube.png">

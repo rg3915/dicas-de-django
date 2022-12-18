@@ -1,4 +1,4 @@
-# 50 - DRF: Django CORS headers
+# Dica 50 - DRF: Django CORS headers
 
 <a href="https://youtu.be/2SyQ9xXdMvw">
     <img src="../.gitbook/assets/youtube.png">

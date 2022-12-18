@@ -1,4 +1,4 @@
-# 36 - Django: visualizando seus modelos com graph models
+# Dica 36 - Django: visualizando seus modelos com graph models
 
 <a href="https://youtu.be/99dOVsDBUxg">
     <img src="../.gitbook/assets/youtube.png">

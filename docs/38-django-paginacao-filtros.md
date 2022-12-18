@@ -1,4 +1,4 @@
-# 38 - Django: Paginação + Filtros
+# Dica 38 - Django: Paginação + Filtros
 
 <a href="https://youtu.be/eXipSfa-HOQ">
     <img src="../.gitbook/assets/youtube.png">

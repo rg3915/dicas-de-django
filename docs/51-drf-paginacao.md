@@ -1,4 +1,4 @@
-# 51 - DRF: paginação
+# Dica 51 - DRF: paginação
 
 <a href="https://youtu.be/UqES8tphzsQ">
     <img src="../.gitbook/assets/youtube.png">

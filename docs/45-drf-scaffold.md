@@ -1,4 +1,4 @@
-# 45 - DRF: Scaffold django apis - Django REST framework
+# Dica 45 - DRF: Scaffold django apis - Django REST framework
 
 <a href="https://youtu.be/UOW0CaFayFo">
     <img src="../.gitbook/assets/youtube.png">

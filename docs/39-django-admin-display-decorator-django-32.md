@@ -1,4 +1,4 @@
-# 39 - Django Admin: display decorator (Django 3.2+)
+# Dica 39 - Django Admin: display decorator (Django 3.2+)
 
 <a href="https://youtu.be/lKEPuwBjHss">
     <img src="../.gitbook/assets/youtube.png">

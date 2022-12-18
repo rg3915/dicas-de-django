@@ -1,4 +1,4 @@
-# 41 - django-seed
+# Dica 41 - django-seed
 
 <a href="https://youtu.be/9IVp4mLsrdc">
     <img src="../.gitbook/assets/youtube.png">

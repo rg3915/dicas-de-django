@@ -1,4 +1,4 @@
-# 27 - Retornando os nomes dos campos do model
+# Dica 27 - Retornando os nomes dos campos do model
 
 <a href="https://youtu.be/lU2J5ZCJiyE">
     <img src="../.gitbook/assets/youtube.png">

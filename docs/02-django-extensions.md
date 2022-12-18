@@ -1,4 +1,4 @@
-# 2 - Django extensions
+# Dica 2 - Django extensions
 
 <a href="https://youtu.be/qUKzDSSuh2w">
     <img src="../.gitbook/assets/youtube.png">

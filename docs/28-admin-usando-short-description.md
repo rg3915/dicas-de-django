@@ -1,4 +1,4 @@
-# 28 - Admin: Usando short description
+# Dica 28 - Admin: Usando short description
 
 <a href="https://youtu.be/Uwwr77SR8EE">
     <img src="../.gitbook/assets/youtube.png">

@@ -1,4 +1,4 @@
-# 4 - Django Admin personalizado
+# Dica 4 - Django Admin personalizado
 
 <a href="https://youtu.be/jogkxIkCzI8">
     <img src="../.gitbook/assets/youtube.png">

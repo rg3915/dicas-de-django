@@ -1,4 +1,4 @@
-# 44 - Django: F() expression
+# Dica 44 - Django: F() expression
 
 <a href="https://youtu.be/YDCeA3rNcno">
     <img src="../.gitbook/assets/youtube.png">

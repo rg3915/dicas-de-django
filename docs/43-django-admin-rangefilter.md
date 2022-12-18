@@ -1,4 +1,4 @@
-# 43 - django-admin-rangefilter
+# Dica 43 - django-admin-rangefilter
 
 <a href="https://youtu.be/GalpHaLJK3Q">
     <img src="../.gitbook/assets/youtube.png">

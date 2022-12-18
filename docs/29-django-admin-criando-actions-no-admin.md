@@ -1,4 +1,4 @@
-# 29 - Django Admin: Criando actions no Admin
+# Dica 29 - Django Admin: Criando actions no Admin
 
 <a href="https://youtu.be/WofnItMvqKU">
     <img src="../.gitbook/assets/youtube.png">

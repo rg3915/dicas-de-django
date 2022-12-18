@@ -1,4 +1,4 @@
-# 14 - Herança de Templates e Arquivos estáticos
+# Dica 14 - Herança de Templates e Arquivos estáticos
 
 <a href="https://youtu.be/wSfuzUVnuzw">
     <img src="../.gitbook/assets/youtube.png">

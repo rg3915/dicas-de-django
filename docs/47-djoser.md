@@ -1,4 +1,4 @@
-# 47 - DRF: djoser - Django REST framework
+# Dica 47 - DRF: djoser - Django REST framework
 
 <a href="https://youtu.be/HUtG2Eg47Gw">
     <img src="../.gitbook/assets/youtube.png">

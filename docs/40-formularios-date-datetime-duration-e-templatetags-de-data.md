@@ -1,4 +1,4 @@
-# 40 - Formulários: date, datetime, duration e templatetags de data
+# Dica 40 - Formulários: date, datetime, duration e templatetags de data
 
 <a href="https://youtu.be/RxECiVYUh5U">
     <img src="../.gitbook/assets/youtube.png">

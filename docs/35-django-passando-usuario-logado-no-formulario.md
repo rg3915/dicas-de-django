@@ -1,4 +1,4 @@
-# 35 - Django: passando usuário logado no formulário
+# Dica 35 - Django: passando usuário logado no formulário
 
 <a href="https://youtu.be/69jPO_v6ldI">
     <img src="../.gitbook/assets/youtube.png">

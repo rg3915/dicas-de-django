@@ -1,4 +1,4 @@
-# 13 - Cores
+# Dica 13 - Cores
 
 <a href="https://youtu.be/EcwxPzgwE4I">
     <img src="../.gitbook/assets/youtube.png">

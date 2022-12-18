@@ -1,4 +1,4 @@
-# 52 - DRF: django-filter
+# Dica 52 - DRF: django-filter
 
 <a href="https://youtu.be/J8mKLw_Txok">
     <img src="../.gitbook/assets/youtube.png">

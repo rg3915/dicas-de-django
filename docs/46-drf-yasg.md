@@ -1,4 +1,4 @@
-# 46 - DRF: drf-yasg - Yet another Swagger generator
+# Dica 46 - DRF: drf-yasg - Yet another Swagger generator
 
 <a href="https://youtu.be/TytDfV3PVFU">
     <img src="../.gitbook/assets/youtube.png">

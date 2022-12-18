@@ -1,4 +1,4 @@
-# 9 - Escondendo suas senhas python-decouple
+# Dica 9 - Escondendo suas senhas python-decouple
 
 <a href="https://youtu.be/eOwN7e0QBXo">
     <img src="../.gitbook/assets/youtube.png">

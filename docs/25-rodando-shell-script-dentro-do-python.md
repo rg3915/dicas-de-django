@@ -1,4 +1,4 @@
-# 25 - Rodando Shell script dentro do Python
+# Dica 25 - Rodando Shell script dentro do Python
 
 <a href="https://youtu.be/r3MIUX2QTEI">
     <img src="../.gitbook/assets/youtube.png">

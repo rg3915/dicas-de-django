@@ -1,4 +1,4 @@
-# 32 - Django Admin: Sobreescrevendo os templates do Admin
+# Dica 32 - Django Admin: Sobreescrevendo os templates do Admin
 
 <a href="https://youtu.be/0d9VcL8ssTg">
     <img src="../.gitbook/assets/youtube.png">
@@ -48,7 +48,7 @@ touch myproject/core/templates/admin/core/change_list.html
 
 E seu conteúdo será:
 
-```html
+```
 {% extends "admin/change_list.html" %}
 
 {% block object-tools-items %}
@@ -69,7 +69,7 @@ touch myproject/core/templates/admin/core/article/change_list.html
 
 Com o conteúdo:
 
-```html
+```
 {% extends "admin/change_list.html" %}
 
 {% block object-tools-items %}

@@ -1,4 +1,4 @@
-# 24 - Barra de progresso
+# Dica 24 - Barra de progresso
 
 <a href="https://youtu.be/YQlwWn48eTw">
     <img src="../.gitbook/assets/youtube.png">

@@ -1,4 +1,4 @@
-# 1 - Django boilerplate e cookiecutter-django
+# Dica 1 - Django boilerplate e cookiecutter-django
 
 <a href="https://youtu.be/OYcOpcPcp8Y">
     <img src="../.gitbook/assets/youtube.png">

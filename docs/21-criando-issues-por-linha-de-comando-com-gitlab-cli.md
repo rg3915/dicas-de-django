@@ -1,4 +1,4 @@
-# 21 - Criando issues por linha de comando com gitlab cli
+# Dica 21 - Criando issues por linha de comando com gitlab cli
 
 <a href="https://youtu.be/mZezRjHv4Xg">
     <img src="../.gitbook/assets/youtube.png">

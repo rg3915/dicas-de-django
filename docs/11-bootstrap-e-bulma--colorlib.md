@@ -1,4 +1,4 @@
-# 11 - Bootstrap e Bulma + Colorlib
+# Dica 11 - Bootstrap e Bulma + Colorlib
 
 <a href="https://youtu.be/J86_rp0ibGI">
     <img src="../.gitbook/assets/youtube.png">

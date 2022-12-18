@@ -1,4 +1,4 @@
-# 33 - Github cli
+# Dica 33 - Github cli
 
 <a href="https://youtu.be/Y5VO3u2hp10">
     <img src="../.gitbook/assets/youtube.png">

@@ -1,4 +1,4 @@
-# 8 - Conhecendo o Django Debug Toolbar
+# Dica 8 - Conhecendo o Django Debug Toolbar
 
 <a href="https://youtu.be/T23bEwMhD6A">
     <img src="../.gitbook/assets/youtube.png">

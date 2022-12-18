@@ -1,4 +1,4 @@
-# 6 - Geradores de senhas randômicas - uuid, hashids, secrets
+# Dica 6 - Geradores de senhas randômicas - uuid, hashids, secrets
 
 <a href="https://youtu.be/-3znAePkMqY">
     <img src="../.gitbook/assets/youtube.png">

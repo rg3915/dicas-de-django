@@ -1,4 +1,4 @@
-# 53 - DRF: Criando subrota com action
+# Dica 53 - DRF: Criando subrota com action
 
 <a href="https://youtu.be/6IS8KfzvD74">
     <img src="../.gitbook/assets/youtube.png">

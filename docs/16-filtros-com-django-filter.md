@@ -1,4 +1,4 @@
-# 16 - Filtros com django-filter
+# Dica 16 - Filtros com django-filter
 
 <a href="https://youtu.be/LZJjSeJC09A">
     <img src="../.gitbook/assets/youtube.png">

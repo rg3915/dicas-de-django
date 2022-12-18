@@ -1,4 +1,4 @@
-# 7 - Rodando o ORM do Django no Jupyter Notebook
+# Dica 7 - Rodando o ORM do Django no Jupyter Notebook
 
 <a href="https://youtu.be/bXtmvu_O_sk">
     <img src="../.gitbook/assets/youtube.png">

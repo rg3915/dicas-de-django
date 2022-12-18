@@ -1,4 +1,4 @@
-# 54 - django-extensions - mais comandos
+# Dica 54 - django-extensions - mais comandos
 
 <a href="https://youtu.be/pguupq-s70M">
     <img src="../.gitbook/assets/youtube.png">

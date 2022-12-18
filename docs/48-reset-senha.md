@@ -1,4 +1,4 @@
-# 48 - DRF: Reset de Senha com djoser - Django REST framework
+# Dica 48 - DRF: Reset de Senha com djoser - Django REST framework
 
 <a href="https://youtu.be/BilRdaQXX8U">
     <img src="../.gitbook/assets/youtube.png">

@@ -1,4 +1,4 @@
-# 3 - Django bulk_create e django-autoslug
+# Dica 3 - Django bulk_create e django-autoslug
 
 <a href="https://youtu.be/Py-AG6S_vJI">
     <img src="../.gitbook/assets/youtube.png">

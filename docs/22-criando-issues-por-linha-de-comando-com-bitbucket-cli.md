@@ -1,4 +1,4 @@
-# 22 - Criando issues por linha de comando com bitbucket cli
+# Dica 22 - Criando issues por linha de comando com bitbucket cli
 
 <a href="https://youtu.be/N2oYZxixcSU">
     <img src="../.gitbook/assets/youtube.png">

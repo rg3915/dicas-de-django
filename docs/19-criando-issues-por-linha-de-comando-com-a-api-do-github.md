@@ -1,4 +1,4 @@
-# 19 - Criando Issues por linha de comando com a api do github
+# Dica 19 - Criando Issues por linha de comando com a api do github
 
 <a href="https://youtu.be/XwT2CMrGfiE">
     <img src="../.gitbook/assets/youtube.png">
