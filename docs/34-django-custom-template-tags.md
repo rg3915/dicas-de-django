@@ -4,6 +4,10 @@
     <img src="../.gitbook/assets/youtube.png">
 </a>
 
+**Importante:** remova a `\` no meio das tags.
+
+![](../.gitbook/assets/tags.png)
+
 
 https://docs.djangoproject.com/en/3.2/ref/templates/builtins/
 

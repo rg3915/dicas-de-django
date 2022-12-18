@@ -5,6 +5,11 @@
 </a>
 
 
+**Importante:** remova a `\` no meio das tags.
+
+![](../.gitbook/assets/tags.png)
+
+
 Primeiro vamos definir a paginação:
 
 Edite `views.py`

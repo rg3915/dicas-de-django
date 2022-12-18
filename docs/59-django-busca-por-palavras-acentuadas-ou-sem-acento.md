@@ -4,6 +4,11 @@
     <img src="../.gitbook/assets/youtube.png">
 </a>
 
+**Importante:** remova a `\` no meio das tags.
+
+![](../.gitbook/assets/tags.png)
+
+
 Github do projeto: [https://github.com/rg3915/django-postgresql-docker](https://github.com/rg3915/django-postgresql-docker)
 
 Busca sem acento

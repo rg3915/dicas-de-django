@@ -4,6 +4,11 @@
     <img src="../.gitbook/assets/youtube.png">
 </a>
 
+**Importante:** remova a `\` no meio das tags.
+
+![](../.gitbook/assets/tags.png)
+
+
 O **Custom context processors** é um recurso que nos fornece objetos globais que podemos usar em qualquer parte da nossa aplicação.
 
 ```python

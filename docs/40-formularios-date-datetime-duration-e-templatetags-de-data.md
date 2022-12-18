@@ -5,6 +5,11 @@
 </a>
 
 
+**Importante:** remova a `\` no meio das tags.
+
+![](../.gitbook/assets/tags.png)
+
+
 Vamos falar sobre como trabalhar com date, datetime, duration. Para isso vamos usar os seguintes links como referência:
 
 https://docs.djangoproject.com/en/3.2/ref/forms/fields/

@@ -4,6 +4,11 @@
     <img src="../.gitbook/assets/youtube.png">
 </a>
 
+**Importante:** remova a `\` no meio das tags.
+
+![](../.gitbook/assets/tags.png)
+
+
 Github: [https://github.com/rg3915/drf-example](https://github.com/rg3915/drf-example)
 
 ### MailHog

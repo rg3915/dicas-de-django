@@ -5,6 +5,11 @@
 </a>
 
 
+**Importante:** remova a `\` no meio das tags.
+
+![](../.gitbook/assets/tags.png)
+
+
 https://faker.readthedocs.io/en/master/
 
 O Faker é uma biblioteca ideal para popular o seu banco de dados com dados aleatórios.

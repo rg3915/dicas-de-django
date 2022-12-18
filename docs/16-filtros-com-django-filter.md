@@ -5,6 +5,11 @@
 </a>
 
 
+**Importante:** remova a `\` no meio das tags.
+
+![](../.gitbook/assets/tags.png)
+
+
 Instale o [django-filter](https://django-filter.readthedocs.io/en/stable/)
 
 ```

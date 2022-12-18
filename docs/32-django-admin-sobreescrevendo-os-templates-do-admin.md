@@ -4,6 +4,10 @@
     <img src="../.gitbook/assets/youtube.png">
 </a>
 
+**Importante:** remova a `\` no meio das tags.
+
+![](../.gitbook/assets/tags.png)
+
 ![img/botao_admin.png](../.gitbook/assets/botao_admin.png)
 
 Se você olhar em 
