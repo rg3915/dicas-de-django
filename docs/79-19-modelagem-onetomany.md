@@ -130,18 +130,12 @@ Crie `bookstore/urls.py`
 
 ```python
 # bookstore/urls.py
-from django.urls import include, path
-from rest_framework import routers
+from django.urls import path
 
 app_name = 'bookstore'
 
-router = routers.DefaultRouter()
-
-# router.register(r'books', BookViewSet, basename='book')
-# Lição de casa: completar a parte do viewsets e serializers.
-
 urlpatterns = [
-    path('api/v1/', include(router.urls)),
+
 ]
 ```
 
@@ -255,6 +249,8 @@ python manage.py migrate
 
 ```
 pip install django-seed
+
+pip freeze | grep django-seed >> requirements.txt
 ```
 
 Edite `settings.py`
@@ -304,13 +300,13 @@ docker-compose up -d
 Podemos ver tudo pelo pgAdmin, ou
 
 ```
-docker container exec -it db psql
+docker container exec -it dicas_de_django_db psql
 ```
 
 #### As tabelas
 
 ```
-\c db  # conecta no banco db
+\c dicas_de_django_db  # conecta no banco dicas_de_django_db
 \dt    # mostra todas as tabelas
 ```
 
@@ -351,14 +347,14 @@ Edite o `docker-compose.yml`
 
 ```
   cloudbeaver:
-    container_name: cloudbeaver
+    container_name: dicas_de_django_cloudbeaver
     image: dbeaver/cloudbeaver:latest
     volumes:
        - /var/cloudbeaver/workspace:/opt/cloudbeaver/workspace
     ports:
-      - 5051:8978
+      - 5052:8978
     networks:
-      - postgres
+      - dicas-de-django-network
 
 ```
 
@@ -368,6 +364,8 @@ E rode
 docker-compose up -d
 ```
 
+Entre no Portainer e entre no CloudBeaver.
+
 Login e senha
 
 ```
@@ -375,12 +373,28 @@ Login: cbadmin
 Pass: admin
 ```
 
+Conexão com `dicas_de_django_db`.
+
+### pgAdmin 4
+
+```
+User: admin
+Password: admin
+```
+
+```
+Port: 5432
+Database: localhost
+Username: postgres
+Password: postgres
+```
+
 ### DBeaver
 
 ```
-Host: localhost
-Port: 5433
-Database: db
+Host: 0.0.0.0
+Port: 5431
+Database: dicas_de_django_db
 Username: postgres
 Password: postgres
 ```
