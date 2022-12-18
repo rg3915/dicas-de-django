@@ -144,9 +144,9 @@ Edite `travel/templates/travel/travel_list.html`
 ```html
 cat << EOF > myproject/travel/templates/travel/travel_list.html
 <!-- travel_list.html -->
-{% extends "base.html" %}
+{\% extends "base.html" %}
 
-{% block content %}
+{\% block content %}
   <h1>
     Viagens
     <a class="btn btn-primary" href="{% url 'travel:travel_create' %}">Adicionar</a>
@@ -162,7 +162,7 @@ cat << EOF > myproject/travel/templates/travel/travel_list.html
       </tr>
     </thead>
     <tbody>
-      {% for object in object_list %}
+      {\% for object in object_list %}
         <!-- https://docs.djangoproject.com/en/3.2/ref/templates/builtins/#date -->
         <tr>
           <td>{{ object.destination }}</td>
@@ -174,8 +174,8 @@ cat << EOF > myproject/travel/templates/travel/travel_list.html
       {% endfor %}
     </tbody>
   </table>
-  {% include "includes/pagination.html" %}
-{% endblock content %}
+  {\% include "includes/pagination.html" %}
+{\% endblock content %}
 EOF
 ```
 
@@ -184,9 +184,9 @@ Edite `travel/templates/travel/travel_form.html`
 ```html
 cat << EOF > myproject/travel/templates/travel/travel_form.html
 <!-- travel_form.html -->
-{% extends "base.html" %}
+{\% extends "base.html" %}
 
-{% block content %}
+{\% block content %}
   <h1>Formulário</h1>
   <div class="cols-6">
     <form class="form-horizontal" action="." method="POST">
@@ -199,7 +199,7 @@ cat << EOF > myproject/travel/templates/travel/travel_form.html
       </div>
     </form>
   </div>
-{% endblock content %}
+{\% endblock content %}
 EOF
 ```
 
@@ -326,19 +326,19 @@ class TravelForm(forms.ModelForm):
 Edite `core/base.html`
 
 ```html
-{% block css %}{% endblock css %}
+{\% block css %}{% endblock css %}
 ...
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
-{% block js %}{% endblock js %}
+{\% block js %}{% endblock js %}
 ```
 
 
 Edite `travel/templates/travel/travel_form.html` novamente
 
 ```html
-{% block css %}
+{\% block css %}
   <style>
     p {
       color: #000;
@@ -348,9 +348,9 @@ Edite `travel/templates/travel/travel_form.html` novamente
       color: red;
     }
   </style>
-{% endblock css %}
+{\% endblock css %}
 ...
-{% block js %}
+{\% block js %}
 
 <!-- https://github.com/igorescobar/jQuery-Mask-Plugin -->
 <!-- https://igorescobar.github.io/jQuery-Mask-Plugin/docs.html -->
@@ -360,7 +360,7 @@ Edite `travel/templates/travel/travel_form.html` novamente
   $('#id_duration_travel').mask('00:00:00');
 </script>
 
-{% endblock js %}
+{\% endblock js %}
 ```
 
 Compare o formato do datetime no templatetags e no formulário:

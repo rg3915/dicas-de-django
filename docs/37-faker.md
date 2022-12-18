@@ -142,9 +142,9 @@ Editar `person_list.html`
 
 ```html
 # person_list.html
-{% extends "base.html" %}
+{\% extends "base.html" %}
 
-{% block content %}
+{\% block content %}
   <h1>Lista de pessoas</h1>
 
   <div class="row">
@@ -185,5 +185,5 @@ Editar `person_list.html`
       {% endfor %}
     </tbody>
   </table>
-{% endblock content %}
+{\% endblock content %}
 ```
