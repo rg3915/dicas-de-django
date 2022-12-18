@@ -49,16 +49,16 @@ touch myproject/core/templates/admin/core/change_list.html
 E seu conteúdo será:
 
 ```html
-\{\% extends "admin/change_list.html" \%\}
+{\% extends "admin/change_list.html" %}
 
-\{\% block object-tools-items \%\}
+{\% block object-tools-items %}
   {{ block.super }}
   <li>
     <a href="botao-da-app/">
       Novo botão
     </a>
   </li>
-\{\% endblock \%\}
+{\% endblock %}
 ```
 
 Depois
@@ -188,22 +188,22 @@ touch myproject/core/templates/admin/login.html
 
 ```html
 <!-- myproject/core/templates/admin/login.html -->
-{% extends "admin/login.html" %}
-{% load static %}
+{\% extends "admin/login.html" %}
+{\% load static %}
 
-{% block branding %}
+{\% block branding %}
   <h1 id="site-name">
     <a href="{% url 'admin:index' %}">
       <img src="{% static 'img/django-logo-negative.png' %}" alt="django-logo-negative.png" width="100px">
     </a>
   </h1>
-{% endblock %}
+{\% endblock %}
 
-{% block extrastyle %}
+{\% block extrastyle %}
   {{ block.super }}
   <link rel="stylesheet" type="text/css" href="{% static "css/login.css" %}" />
   {{ form.media }}
-{% endblock %}
+{\% endblock %}
 ```
 
 E pra caprichar no CSS
@@ -238,16 +238,16 @@ touch myproject/core/templates/admin/base_site.html
 ```
 
 ```html
-{% extends "admin/base_site.html" %}
-{% load static %}
+{\% extends "admin/base_site.html" %}
+{\% load static %}
 
-{% block branding %}
+{\% block branding %}
   <h1 id="site-name">
     <a href="{% url 'admin:index' %}">
       <img src="{% static 'img/django-logo-negative.png' %}" alt="django-logo-negative.png" width="70px">
     </a>
   </h1>
-{% endblock %}
+{\% endblock %}
 ```
 
 **Importante:** mude a ordem das `apps` em `settings.py`
