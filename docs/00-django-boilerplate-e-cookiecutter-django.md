@@ -4,6 +4,12 @@
     <img src="../.gitbook/assets/youtube.png">
 </a>
 
+**Importante:** nas próximas dicas, troque
+
+![](../.gitbook/assets/tags.png)
+
+Ou seja, remova a `\` no meio das tags.
+
 [django-boilerplate](https://github.com/rg3915/django-boilerplate)
 
 [boilerplate2.sh](https://gist.github.com/rg3915/a264d0ade860d2f2b4bf)
