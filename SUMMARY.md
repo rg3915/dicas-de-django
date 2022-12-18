@@ -73,7 +73,7 @@
 * [Dica 09 - Aplicando djhtml](docs/69-09-djhtml.md)
 * [Dica 10 - Criando Makefile](docs/70-10-makefile.md)
 * [Dica 11 - Criando Landpage de produtos](docs/71-11-landpage.md)
-* [Dica 12 - Fale conosco com formulário para enviar mensagem](docs/72-12-fale-conosco-form-email.md)
+* [Dica 12 - Fale conosco com formulário para enviar mensagem](docs/72-012-fale-co-nosco-form-email.md)
 * [Dica 13 - Dashboard com Django e Tailwind CSS](docs/73-13-dashboard.md)
 * [Dica 14 - Django Custom User com e-mail](docs/74-14-django-custom-user-email.md)
 * [Dica 15 - Login com e-mail no Django](docs/75-15-login-com-email.md)
