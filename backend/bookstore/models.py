@@ -53,3 +53,39 @@ class Ordered(models.Model):
             return f'{str(self.pk).zfill(3)}-{self.customer}'
 
         return f'{str(self.pk).zfill(3)}'
+
+
+METHOD_PAYMENT = (
+    ('di', 'dinheiro'),
+    ('de', 'débito'),
+    ('cr', 'crédito'),
+    ('pix', 'Pix'),
+)
+
+
+class Sale(models.Model):
+    ordered = models.OneToOneField(
+        Ordered,
+        on_delete=models.CASCADE,
+        verbose_name='ordem de compra'
+    )
+    paid = models.BooleanField('pago', default=False)
+    date_paid = models.DateTimeField('data de pagamento', null=True, blank=True)
+    method = models.CharField('forma de pagamento', max_length=3, choices=METHOD_PAYMENT)  # noqa E501
+    deadline = models.PositiveSmallIntegerField('prazo de entrega', default=15)
+    created = models.DateTimeField(
+        'criado em',
+        auto_now_add=True,
+        auto_now=False
+    )
+
+    class Meta:
+        ordering = ('-pk',)
+        verbose_name = 'venda'
+        verbose_name_plural = 'vendas'
+
+    def __str__(self):
+        if self.ordered:
+            return f'{str(self.pk).zfill(3)}-{self.ordered}'
+
+        return f'{str(self.pk).zfill(3)}'

@@ -1,7 +1,7 @@
 # bookstore/admin.py
 from django.contrib import admin
 
-from .models import Customer, Ordered
+from .models import Customer, Ordered, Sale
 
 
 @admin.register(Customer)
@@ -20,4 +20,11 @@ class OrderedAdmin(admin.ModelAdmin):
         'customer__email',
     )
     list_filter = ('status',)
+    date_hierarchy = 'created'
+
+
+@admin.register(Sale)
+class SaleAdmin(admin.ModelAdmin):
+    list_display = ('__str__', 'paid', 'date_paid', 'method', 'deadline')
+    list_filter = ('paid', 'method')
     date_hierarchy = 'created'
