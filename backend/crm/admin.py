@@ -1,8 +1,7 @@
 # crm/admin.py
-from .models import Pessoa, PF, PJ
 from django.contrib import admin
 
-from .models import Customer, Seller
+from .models import PF, PJ, Customer, Pessoa, Seller
 
 
 @admin.register(Customer)
