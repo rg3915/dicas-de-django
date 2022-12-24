@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 from decouple import Csv, config
@@ -26,6 +26,8 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', default=[], cast=Csv())
 
 AUTH_USER_MODEL = 'accounts.User'
 
+os.environ['DJANGO_ALLOW_ASYNC_UNSAFE'] = 'true'
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -39,9 +41,12 @@ INSTALLED_APPS = [
     # apps de terceiros
     'django_extensions',
     'widget_tweaks',
+    'django_seed',
     # minhas apps
     'backend.core',
+    'backend.bookstore',
     'backend.crm',
+    'backend.expense',
 ]
 
 MIDDLEWARE = [

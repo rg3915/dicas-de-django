@@ -75,6 +75,16 @@ services:
     networks:
       - dicas-de-django-network
 
+  cloudbeaver:
+    container_name: dicas_de_django_cloudbeaver
+    image: dbeaver/cloudbeaver:latest
+    volumes:
+       - /var/cloudbeaver/workspace:/opt/cloudbeaver/workspace
+    ports:
+      - 5052:8978
+    networks:
+      - dicas-de-django-network
+
 volumes:
   pgdata:  # mesmo nome do volume externo definido na linha 10
   pgadmin:

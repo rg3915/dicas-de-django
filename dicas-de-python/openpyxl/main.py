@@ -8,11 +8,10 @@ https://rich.readthedocs.io/en/stable/
 '''
 from decimal import Decimal
 
-from rich.console import Console
-from rich.table import Table
-
 import openpyxl
 from openpyxl.styles import Font
+from rich.console import Console
+from rich.table import Table
 
 console = Console()
 
