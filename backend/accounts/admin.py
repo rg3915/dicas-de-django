@@ -3,7 +3,7 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.utils.translation import gettext_lazy as _
 
-from .models import User
+from .models import Document, Profile, User
 
 
 class UserAdmin(BaseUserAdmin):
@@ -37,6 +37,24 @@ class UserAdmin(BaseUserAdmin):
     search_fields = ('email', 'first_name', 'last_name')
     ordering = ('email',)
     filter_horizontal = ('groups', 'user_permissions',)
+
+
+@admin.register(Profile)
+class ProfileAdmin(admin.ModelAdmin):
+    list_display = ('__str__', 'birthday', 'linkedin', 'rg', 'cpf')
+    search_fields = (
+        'customer__first_name',
+        'customer__last_name',
+        'customer__email',
+        'linkedin',
+        'rg',
+        'cpf'
+    )
+
+
+@admin.register(Document)
+class DocumentAdmin(admin.ModelAdmin):
+    list_display = ('__str__', 'user')
 
 
 admin.site.register(User, UserAdmin)

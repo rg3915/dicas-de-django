@@ -47,6 +47,8 @@ INSTALLED_APPS = [
     'backend.bookstore',
     'backend.crm',
     'backend.expense',
+    'backend.product',
+    'backend.realty',
 ]
 
 MIDDLEWARE = [
