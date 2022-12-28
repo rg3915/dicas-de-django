@@ -7,6 +7,7 @@ from django.core.mail import send_mail
 from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
 
 from backend.core.models import TimeStampedModel
@@ -73,6 +74,9 @@ class User(AbstractBaseUser, PermissionsMixin):
         "Is the user a member of staff?"
         # Simplest possible answer: All admins are staff
         return self.is_admin
+
+    def get_absolute_url(self):
+        return reverse_lazy('user_detail', kwargs={'pk': self.pk})
 
 
 class Profile(models.Model):

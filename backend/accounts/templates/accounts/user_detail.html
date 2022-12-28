@@ -1,0 +1,115 @@
+<!-- user_detail.html -->
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="bg-white shadow rounded-lg p-4 sm:p-6 xl:p-8 ">
+    <div class="mb-4">
+      {% include "./includes/breadcrumb.html" %}
+      <h1 class="text-xl sm:text-2xl font-semibold text-gray-900">Detalhes: {{ object.get_full_name }}</h1>
+    </div>
+    <div class="mb-5">
+      <a href="javascript: history.go(-1)" class="text-base font-medium text-cyan-600 hover:bg-gray-100 rounded-lg">Voltar</a>
+    </div>
+
+    <div class="block w-full overflow-x-auto">
+      <img class="h-20 w-20 rounded-lg" src="https://via.placeholder.com/500" alt="">
+    </div>
+
+    <!-- Nome -->
+    <div class="block w-full overflow-x-auto">
+      <div class="mt-2">
+        <div class="text-sm font-normal text-gray-500">Nome</div>
+        <div class="text-base font-semibold text-gray-900">{{ object.get_full_name }}</div>
+      </div>
+    </div>
+
+    <!-- E-mail -->
+    <div class="block w-full overflow-x-auto">
+      <div class="mt-2">
+        <div class="text-sm font-normal text-gray-500">E-mail</div>
+        <div class="text-base font-semibold text-gray-900">{{ object.email }}</div>
+      </div>
+    </div>
+
+    <!-- Nascimento -->
+    <div class="block w-full overflow-x-auto">
+      <div class="mt-2">
+        <div class="text-sm font-normal text-gray-500">Nascimento</div>
+        {% if object.profile.birthday %}
+          <div class="text-base font-semibold text-gray-900">{{ object.profile.birthday|date:"l" }}, {{ object.profile.birthday }}</div>
+        {% else %}
+          <div class="text-base font-semibold text-gray-900">---</div>
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- LinkedIn -->
+    <div class="block w-full overflow-x-auto">
+      <div class="mt-2">
+        <div class="text-sm font-normal text-gray-500">LinkedIn</div>
+        <div class="text-base font-semibold text-gray-900">{{ object.profile.linkedin|default:"---" }}</div>
+      </div>
+    </div>
+
+    <!-- CPF -->
+    <div class="block w-full overflow-x-auto">
+      <div class="mt-2">
+        <div class="text-sm font-normal text-gray-500">CPF</div>
+        <div class="text-base font-semibold text-gray-900">{{ object.profile.cpf|default:"---" }}</div>
+      </div>
+    </div>
+
+    <!-- RG -->
+    <div class="block w-full overflow-x-auto">
+      <div class="mt-2">
+        <div class="text-sm font-normal text-gray-500">RG</div>
+        <div class="text-base font-semibold text-gray-900">{{ object.profile.rg|default:"---" }}</div>
+      </div>
+    </div>
+
+    <!-- Inscrito -->
+    <div class="block w-full overflow-x-auto">
+      <div class="mt-2">
+        <div class="text-sm font-normal text-gray-500">Inscrito</div>
+        <div class="text-base font-semibold text-gray-900">{{ object.date_joined|date:"d/m/Y H:i" }}</div>
+      </div>
+    </div>
+
+    <!-- Ativo -->
+    <div class="block w-full overflow-x-auto">
+      <div class="mt-2">
+        <div class="text-sm font-normal text-gray-500">Ativo</div>
+        <div class="text-base font-semibold text-gray-900">
+          {% if object.is_active %}
+            <div class="flex items-center">
+              <div class="h-2.5 w-2.5 rounded-full bg-green-400 mr-2"></div>  Ativo
+            </div>
+          {% else %}
+            <div class="flex items-center">
+              <div class="h-2.5 w-2.5 rounded-full bg-red-500 mr-2"></div>  Inativo
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    <!-- Admin -->
+    <div class="block w-full overflow-x-auto">
+      <div class="mt-2">
+        <div class="text-sm font-normal text-gray-500">Admin</div>
+        <div class="text-base font-semibold text-gray-900">
+          {% if object.is_admin %}
+            <div class="flex items-center">
+              <div class="h-2.5 w-2.5 rounded-full bg-green-400 mr-2"></div>  Sim
+            </div>
+          {% else %}
+            <div class="flex items-center">
+              <div class="h-2.5 w-2.5 rounded-full bg-red-500 mr-2"></div>  Não
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+  </div>
+{% endblock content %}
