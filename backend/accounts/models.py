@@ -14,7 +14,7 @@ from django.contrib.auth.signals import user_logged_in, user_logged_out
 from backend.core.models import TimeStampedModel
 
 from .managers import UserManager
-# from .signals import user_login_password_failed
+from .signals import user_login_password_failed
 
 # https://stackoverflow.com/a/37620866/802542
 
@@ -163,10 +163,10 @@ def user_logged_out_callback(sender, request, user, **kwargs):
     )
 
 
-# @receiver(user_login_password_failed)
-# def user_login_password_failed_callback(sender, **kwargs):
-#     user = kwargs['user']
-#     AuditEntry.objects.create(
-#         action='user_logged_out',
-#         email=user.email
-#     )
+@receiver(user_login_password_failed)
+def user_login_password_failed_callback(sender, **kwargs):
+    user = kwargs['user']
+    AuditEntry.objects.create(
+        action='user_logged_out',
+        email=user.email
+    )
