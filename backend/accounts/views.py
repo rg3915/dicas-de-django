@@ -14,6 +14,7 @@ from backend.accounts.services import send_mail_to_user
 
 from .forms import CustomUserForm, MyAuthenticationForm
 from .models import AuditEntry, User
+from .services import send_mail_to_user_reset_password
 from .signals import user_login_password_failed
 
 
@@ -114,6 +115,12 @@ class MyLoginView(LoginView):
         if email:
             try:
                 user = User.objects.get(email=email)
+
+                for error in form.errors.as_data()['__all__']:
+                    if error.code == 'max_attempt':
+                        # Envia email para o usuário resetar a senha.
+                        send_mail_to_user_reset_password(self.request, user)
+
             except User.DoesNotExist:
                 pass
             else:

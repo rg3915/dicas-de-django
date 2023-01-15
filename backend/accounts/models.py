@@ -3,13 +3,13 @@ from __future__ import unicode_literals
 
 from django.contrib.auth.base_user import AbstractBaseUser
 from django.contrib.auth.models import PermissionsMixin
+from django.contrib.auth.signals import user_logged_in, user_logged_out
 from django.core.mail import send_mail
 from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
-from django.contrib.auth.signals import user_logged_in, user_logged_out
 
 from backend.core.models import TimeStampedModel
 
@@ -164,9 +164,9 @@ def user_logged_out_callback(sender, request, user, **kwargs):
 
 
 @receiver(user_login_password_failed)
-def user_login_password_failed_callback(sender, **kwargs):
+def user_login_password_failed(sender, **kwargs):
     user = kwargs['user']
     AuditEntry.objects.create(
-        action='user_logged_out',
+        action='user_login_password_failed',
         email=user.email
     )

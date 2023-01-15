@@ -122,7 +122,7 @@ class MyAuthenticationForm(AuthenticationForm):
         Verifica se excedeu o número de tentativas de login.
         '''
         return ValidationError(
-            self.error_messages['max_attempts'],
-            code='max_attempts',
+            self.error_messages['max_attempt'],
+            code='max_attempt',
             params={'username': self.username_field.verbose_name},
         )
