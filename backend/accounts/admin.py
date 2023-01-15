@@ -3,7 +3,7 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.utils.translation import gettext_lazy as _
 
-from .models import Document, Profile, User
+from .models import Document, Profile, User, AuditEntry
 
 
 class UserAdmin(BaseUserAdmin):
@@ -55,6 +55,12 @@ class ProfileAdmin(admin.ModelAdmin):
 @admin.register(Document)
 class DocumentAdmin(admin.ModelAdmin):
     list_display = ('__str__', 'user')
+
+
+@admin.register(AuditEntry)
+class AuditEntryAdmin(admin.ModelAdmin):
+    list_display = ('action', 'email', 'ip', 'created')
+    list_filter = ('action',)
 
 
 admin.site.register(User, UserAdmin)
