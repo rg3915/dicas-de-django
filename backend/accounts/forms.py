@@ -31,6 +31,40 @@ class CustomUserForm(forms.ModelForm):
             'email',
         )
 
+    error_messages = {
+        'invalid_first_character': _('O primeiro caractere deve ser uma letra.'),
+    }
+
+    def clean(self):
+        cleaned_data = super().clean()
+        first_name = self.data.get('first_name')
+        last_name = cleaned_data['last_name']
+
+        if first_name == last_name:
+            raise ValidationError(_('Nome e Sobrenome não podem ser iguais.'))
+
+        # return self.cleaned_data
+
+    def clean_first_name(self):
+        data = self.cleaned_data['first_name']
+
+        if data[0].islower():
+            raise ValidationError(_('A primeira letra deve ser maiúscula.'))
+
+        if data[0].isdigit():
+            raise self.get_invalid_first_character_error()
+
+        return data
+
+    def get_invalid_first_character_error(self):
+        '''
+        O primeiro caractere deve ser uma letra.
+        '''
+        return ValidationError(
+            self.error_messages['invalid_first_character'],
+            code='invalid_first_character'
+        )
+
 
 class MyAuthenticationForm(AuthenticationForm):
 
