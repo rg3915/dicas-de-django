@@ -1,0 +1,56 @@
+<!-- product_form.html -->
+{% extends "base.html" %}
+{% load widget_tweaks %}
+
+{% block content %}
+  <div class="mx-auto md:h-screen flex flex-col px-6 pt-8 pt:mt-0">
+    <!-- Card -->
+    <div class="bg-white shadow rounded-lg md:mt-0 w-full sm:max-w-screen-sm xl:p-0">
+      <div class="p-6 sm:p-8 lg:p-16 space-y-8">
+        <h2 class="text-2xl lg:text-3xl font-bold text-gray-900">
+          {% if object.pk %}
+            Editar
+          {% else %}
+            Adicionar
+          {% endif %}
+          Produto
+        </h2>
+
+        {% if form.errors %}
+          {% for error in form.non_field_errors %}
+            <p class="text-red-500">{{ error }}</p>
+          {% endfor %}
+        {% endif %}
+
+        <form class="mt-8 space-y-6" action="." method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          {% for field in form.visible_fields %}
+            <div>
+              <label class="text-sm font-medium text-gray-900 block mb-2">{{ field.label }}</label>
+              {% render_field field class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" %}
+            </div>
+            <span class="text-sm font-medium text-gray-500">{{ field.help_text }}</span>
+            {% for error in field.errors %}
+              <span class="text-red-500">{{ error }}</span> <br>
+            {% endfor %}
+          {% endfor %}
+
+          <!-- <div class="flex items-start">
+              <div class="flex items-center h-5">
+                <input id="remember" aria-describedby="remember" name="remember" type="checkbox" class="bg-gray-50 border-gray-300 focus:ring-3 focus:ring-cyan-200 h-4 w-4 rounded">
+              </div>
+              <div class="text-sm ml-3">
+                <label for="remember" class="font-medium text-gray-900">Remember me</label>
+              </div>
+            </div> -->
+          <div class="flex flex-col sm:flex-row">
+            <button type="submit" class="text-white bg-cyan-600 hover:bg-cyan-700 focus:ring-4 focus:ring-cyan-200 font-medium rounded-lg text-base px-5 py-3 w-full sm:w-auto text-center">Salvar</button>
+            <a href="{% url 'product:product_list' %}" class="text-gray-900 bg-white border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:ring-cyan-200 font-medium rounded-lg text-sm px-5 py-3 mt-2 sm:mt-0 sm:ml-2 w-full sm:w-auto text-center">
+              Cancelar
+            </a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

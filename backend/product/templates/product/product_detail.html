@@ -1,0 +1,43 @@
+<!-- product_detail.html -->
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="bg-white shadow rounded-lg p-4 sm:p-6 xl:p-8 ">
+    <div class="mb-4">
+      {% include "./includes/breadcrumb.html" %}
+      <h1 class="text-xl sm:text-2xl font-semibold text-gray-900">Detalhes: {{ object }}</h1>
+    </div>
+    <div class="mb-5">
+      <a href="javascript: history.go(-1)" class="text-base font-medium text-cyan-600 hover:bg-gray-100 rounded-lg">Voltar</a>
+    </div>
+
+    <div class="block w-full overflow-x-auto">
+      <img class="h-20 w-20 rounded-lg" src="https://via.placeholder.com/500" alt="">
+    </div>
+
+    <!-- Título -->
+    <div class="block w-full overflow-x-auto">
+      <div class="mt-2">
+        <div class="text-sm font-normal text-gray-500">Título</div>
+        <div class="text-base font-semibold text-gray-900">{{ object.title }}</div>
+      </div>
+    </div>
+
+    <!-- Descrição -->
+    <div class="block w-full overflow-x-auto">
+      <div class="mt-2">
+        <div class="text-sm font-normal text-gray-500">Descrição</div>
+        <div class="text-base font-semibold text-gray-900">{{ object.description }}</div>
+      </div>
+    </div>
+
+    <!-- Categoria -->
+    <div class="block w-full overflow-x-auto">
+      <div class="mt-2">
+        <div class="text-sm font-normal text-gray-500">Categoria</div>
+        <div class="text-base font-semibold text-gray-900">{{ object.category|default:"---" }}</div>
+      </div>
+    </div>
+
+  </div>
+{% endblock content %}
