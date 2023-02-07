@@ -1,6 +1,8 @@
 # Dica 06 - Criando o projeto Django
 
-VIDEO EM BREVE.
+<a href="https://youtu.be/9U9MLXFqjlk">
+    <img src="../.gitbook/assets/youtube.png">
+</a>
 
 **Importante:** remova a `\` no meio das tags.
 

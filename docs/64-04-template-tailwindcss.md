@@ -1,6 +1,8 @@
 # Dica 04 - Criando um template com Tailwind CSS
 
-VIDEO EM BREVE.
+<a href="https://youtu.be/1aNSwcv5jIM">
+    <img src="../.gitbook/assets/youtube.png">
+</a>
 
 ```
 mkdir -p src/pages/tailwind

@@ -1,6 +1,8 @@
 # Dica 03 - Criando um template com Bulma CSS
 
-VIDEO EM BREVE.
+<a href="https://youtu.be/AmzQJm0jPrA">
+    <img src="../.gitbook/assets/youtube.png">
+</a>
 
 ```
 mkdir -p src/pages/bulma

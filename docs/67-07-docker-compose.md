@@ -1,6 +1,8 @@
 # Dica 07 - PostgreSQL, pgAdmin e MailHog com docker-compose
 
-VIDEO EM BREVE.
+<a href="https://youtu.be/eOMTjETFCko">
+    <img src="../.gitbook/assets/youtube.png">
+</a>
 
 ![](../.gitbook/assets/docker-compose.png)
 

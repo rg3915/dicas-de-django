@@ -1,7 +1,9 @@
 # Dica 05 - htmx simples
 
 
-VIDEO EM BREVE.
+<a href="https://youtu.be/GioIXTokrA8">
+    <img src="../.gitbook/assets/youtube.png">
+</a>
 
 ```
 mkdir -p src/pages/htmx

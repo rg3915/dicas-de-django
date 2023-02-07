@@ -1,6 +1,8 @@
 # Dica 01 - Criando Issues com API do Github (Linux)
 
-VIDEO EM BREVE.
+<a href="https://youtu.be/P0PCq3dF3cs">
+    <img src="../.gitbook/assets/youtube.png">
+</a>
 
 ```
 mkdir cli

@@ -1,6 +1,8 @@
 # Dica 02 - Usando http.server
 
-VIDEO EM BREVE.
+<a href="https://youtu.be/D4FeNPq8UTY">
+    <img src="../.gitbook/assets/youtube.png">
+</a>
 
 Crie um `public/index.html`.
 
