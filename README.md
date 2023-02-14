@@ -6,7 +6,7 @@ https://www.dicas-de-django.com.br/
 ## Este projeto foi feito com:
 
 * [Python 3.10.6](https://www.python.org/)
-* [Django 4.1.3](https://www.djangoproject.com/)
+* [Django 4.1.6](https://www.djangoproject.com/)
 * [TailwindCSS](https://tailwindcss.com/)
 * [htmx](https://htmx.org)
 
