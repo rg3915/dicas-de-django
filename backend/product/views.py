@@ -45,4 +45,6 @@ def product_update(request, pk):
 
 
 def product_delete(request, pk):
-    ...
+    instance = get_object_or_404(Product, pk=pk)
+    instance.delete()
+    return redirect('product:product_list')
