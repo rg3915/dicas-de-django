@@ -1,6 +1,8 @@
 # Dica 08 - Aplicando isort e autopep8
 
-VIDEO EM BREVE.
+<a href="https://youtu.be/A3RRHIJ0514">
+    <img src="../.gitbook/assets/youtube.png">
+</a>
 
 O [isort](https://pycqa.github.io/isort/#installing-isort) serve para ordenar os imports.
 

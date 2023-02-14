@@ -1,6 +1,8 @@
 # Dica 09 - Aplicando djhtml
 
-VIDEO EM BREVE.
+<a href="https://youtu.be/23mdIXcUp_o">
+    <img src="../.gitbook/assets/youtube.png">
+</a>
 
 [djhtml](https://github.com/rtts/djhtml)
 
