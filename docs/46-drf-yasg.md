@@ -32,7 +32,6 @@ INSTALLED_APPS = [
 Edite `urls.py`
 
 ```python
-from django.conf.urls import url
 from django.contrib import admin
 from django.urls import include, path
 from drf_yasg import openapi
@@ -61,8 +60,7 @@ urlpatterns = [
 
 # swagger
 urlpatterns += [
-    url(r'^swagger(?P<format>\.json|\.yaml)$', schema_view.without_ui(cache_timeout=0), name='schema-json'),  # noqa E501
-    url(r'^swagger/$', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),  # noqa E501
-    url(r'^redoc/$', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),  # noqa E501
+   path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),  # noqa E501
+   path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),  # noqa E501
 ]
 ```
