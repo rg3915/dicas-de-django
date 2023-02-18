@@ -91,3 +91,4 @@
 * [Dica 21 - Tentativas de Login](docs/87-21-tentativas-de-login.md)
 * [Dica 22 - Validação de Formulários](docs/88-22-validacao.md)
 * [Dica 23 - CRUD de Produtos](docs/89-23-crud-produtos.md)
+* [Dica 24 - Alpine.js e Django](docs/90-24-alpinejs-django.md)
