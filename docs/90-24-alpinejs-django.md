@@ -1,4 +1,4 @@
-# Alpine.js e Django
+# Dica 24 - Alpine.js e Django
 
 ```
 cd backend
