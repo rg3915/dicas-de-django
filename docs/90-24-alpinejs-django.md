@@ -1,3 +1,5 @@
+# Dica 24 - Alpine.js e Django
+
 ```
 cd backend
 python ../manage.py todo
