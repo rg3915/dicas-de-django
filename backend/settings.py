@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'backend.expense',
     'backend.product',
     'backend.realty',
+    'backend.todo',
 ]
 
 MIDDLEWARE = [

@@ -8,5 +8,6 @@ urlpatterns = [
     path('crm/', include('backend.crm.urls', namespace='crm')),  # noqa E501
     path('expense/', include('backend.expense.urls', namespace='expense')),  # noqa E501
     path('product/', include('backend.product.urls', namespace='product')),  # noqa E501
+    path('todo/', include('backend.todo.urls', namespace='todo')),  # noqa E501
     path('admin/', admin.site.urls),  # noqa E501
 ]
