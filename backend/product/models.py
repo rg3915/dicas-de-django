@@ -16,7 +16,7 @@ class Category(models.Model):
         return f'{self.title}'
 
 
-class Product(models.Model):
+class Product(TimeStampedModel):
     title = models.CharField('título', max_length=255, unique=True)
     description = models.TextField('descrição', null=True, blank=True)
     category = models.ForeignKey(

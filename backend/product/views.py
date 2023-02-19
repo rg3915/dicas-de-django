@@ -1,3 +1,4 @@
+from django.db.models import Q
 from django.shortcuts import get_object_or_404, redirect, render
 
 from .forms import ProductForm
@@ -7,6 +8,16 @@ from .models import Product
 def product_list(request):
     template_name = 'product/product_list.html'
     object_list = Product.objects.all()
+
+    search = request.GET.get('search')
+
+    if search:
+        object_list = object_list.filter(
+            Q(title__icontains=search)
+            | Q(description__icontains=search)
+            | Q(category__title__icontains=search)
+        )
+
     context = {'object_list': object_list}
     return render(request, template_name, context)
 
