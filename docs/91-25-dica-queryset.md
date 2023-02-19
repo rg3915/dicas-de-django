@@ -309,7 +309,7 @@ Product.objects.all().values_list('id', flat=True)
 Para usar o `AND` basta separar os parâmetros do filtro com vírgula.
 
 ```python
-products = Product.objects.filter(title__icontains='camera', category__icontains='feminina')
+products = Product.objects.filter(title__icontains='camera', category__title__icontains='feminina')
 products.count()
 products
 ```
@@ -351,7 +351,7 @@ category.title
 O `filter` retorna **uma lista**.
 
 ```python
-categories = Category.objects.all()
+categories = Category.objects.filter(title__icontains='Roupa')
 type(categories)
 categories
 ```
