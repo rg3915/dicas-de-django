@@ -1,4 +1,4 @@
-# Dica 25 - Criando Filtros poderosos no Django | Segredos do ORM
+# Dica 25 - Criando Filtros poderosos no Django - Segredos do ORM
 
 http://pythonclub.com.br/django-introducao-queries.html
 
