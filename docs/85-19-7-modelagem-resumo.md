@@ -2,6 +2,7 @@
 
 VIDEO EM BREVE.
 
+
 ![](../.gitbook/assets/03_many_to_many.png)
 
 ![](../.gitbook/assets/06_proxy.png)

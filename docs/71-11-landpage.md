@@ -1,6 +1,8 @@
 # Dica 11 - Criando Landpage de produtos
 
-VIDEO EM BREVE.
+<a href="https://youtu.be/zpC5qH8-iT8">
+    <img src="../.gitbook/assets/youtube.png">
+</a>
 
 **Importante:** remova a `\` no meio das tags.
 

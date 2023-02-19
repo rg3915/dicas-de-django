@@ -2,6 +2,7 @@
 
 VIDEO EM BREVE.
 
+
 ![](../.gitbook/assets/13_proxy_model.png)
 
 ![](../.gitbook/assets/13_proxy_model_er.png)

@@ -2,6 +2,7 @@
 
 VIDEO EM BREVE.
 
+
 ## Abstract Inheritance - Herança Abstrata
 
 ![](../.gitbook/assets/10_abstract.png)

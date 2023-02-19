@@ -1,6 +1,8 @@
 # Dica 10 - Criando Makefile
 
-VIDEO EM BREVE.
+<a href="https://youtu.be/HdsDqWXNHSc">
+    <img src="../.gitbook/assets/youtube.png">
+</a>
 
 ```
 touch Makefile
