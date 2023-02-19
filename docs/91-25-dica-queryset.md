@@ -314,6 +314,29 @@ products.count()
 products
 ```
 
+## O Operador `OR`
+
+### Método `Q()`
+
+Para usar o `OR` vamos precisar do método `Q()`.
+
+```python
+from django.db.models import Q
+
+search = 'camera'
+
+# depois com
+# search = 'artigos'
+
+products = Product.objects.filter(
+    Q(title__icontains=search)
+    | Q(description__icontains=search)
+    | Q(category__title__icontains=search)
+)
+products.count()
+products
+```
+
 ## Diferença entre `get` e `filter`.
 
 O `get` retorna **um objeto**.
@@ -369,29 +392,6 @@ obj, created = Category.objects.get_or_create(title='Eletrônicos')
 
 Na primeira teremos `created=True`. Na segunda teremos `created=False`.
 
-
-## O Operador `OR`
-
-### Método `Q()`
-
-Para usar o `OR` vamos precisar do método `Q()`.
-
-```python
-from django.db.models import Q
-
-search = 'camera'
-
-# depois com
-# search = 'artigos'
-
-products = Product.objects.filter(
-    Q(title__icontains=search)
-    | Q(description__icontains=search)
-    | Q(category__title__icontains=search)
-)
-products.count()
-products
-```
 
 # Criando o campo de busca
 
