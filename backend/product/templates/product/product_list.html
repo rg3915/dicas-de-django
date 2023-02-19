@@ -43,8 +43,6 @@
                   </div>
                 </th>
                 <th scope="col" class="p-4 text-left text-xs font-medium text-gray-500 uppercase">
-                </th>
-                <th scope="col" class="p-4 text-left text-xs font-medium text-gray-500 uppercase">
                   Título
                 </th>
                 <th scope="col" class="p-4 text-left text-xs font-medium text-gray-500 uppercase">
@@ -73,11 +71,10 @@
                       <div class="text-base font-semibold text-gray-900">
                         <a href="{{ object.get_absolute_url }}" class="text-sm font-medium text-cyan-600 hover:bg-gray-100 rounded-lg">{{ object }}</a>
                       </div>
-                      <div class="text-sm font-normal text-gray-500">{{ object }}</div>
+                      <div class="text-sm font-normal text-gray-500">{{ object.category }}</div>
                     </div>
                   </td>
-                  <td class="p-4 whitespace-nowrap text-base font-medium text-gray-900">{{ object.title }}</td>
-                  <td class="p-4 whitespace-nowrap text-base font-medium text-gray-900">{{ object.description|default:"---" }}</td>
+                  <td class="p-4 whitespace-nowrap text-base font-medium text-gray-900">{{ object.description|truncatechars:"50"|default:"---" }}</td>
                   <td class="p-4 whitespace-nowrap text-base font-medium text-gray-900">{{ object.category|default:"---" }}</td>
                   <td class="p-4 whitespace-nowrap space-x-2">
                     <a href="{% url 'product:product_update' object.pk %}" class="text-white bg-cyan-600 hover:bg-cyan-700 focus:ring-4 focus:ring-cyan-200 font-medium rounded-lg text-sm inline-flex items-center px-3 py-2 text-center">
