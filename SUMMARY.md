@@ -93,3 +93,4 @@
 * [Dica 23 - CRUD de Produtos](docs/89-23-crud-produtos.md)
 * [Dica 24 - Alpine.js e Django](docs/90-24-alpinejs-django.md)
 * [Dica 25 - Criando Filtros poderosos no Django | Segredos do ORM](docs/91-25-dica-queryset.md)
+* [Dica 26 - Paginação e breadcrumb](docs/92-26-paginacao-breadcrumb.md)
