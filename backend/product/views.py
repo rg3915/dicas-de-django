@@ -1,8 +1,14 @@
+# from django.views.generic import ListView
+from django.core.paginator import Paginator
 from django.db.models import Q
 from django.shortcuts import get_object_or_404, redirect, render
 
 from .forms import ProductForm
 from .models import Product
+
+# class ProductListView(ListView):
+#     model = Product
+#     paginate_by = 5
 
 
 def product_list(request):
@@ -18,7 +24,16 @@ def product_list(request):
             | Q(category__title__icontains=search)
         )
 
-    context = {'object_list': object_list}
+    # https://docs.djangoproject.com/en/4.1/topics/pagination/#using-paginator-in-a-view-function
+    items_per_page = 10
+    paginator = Paginator(object_list, items_per_page)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    context = {
+        'page_obj': page_obj,
+        'items_count': page_obj.object_list.count(),
+    }
     return render(request, template_name, context)
 
 
@@ -38,7 +53,11 @@ def product_create(request):
         form.save()
         return redirect('product:product_list')
 
-    context = {'form': form}
+    verbose_name_plural = form.instance._meta.verbose_name_plural
+    context = {
+        'form': form,
+        'verbose_name_plural': verbose_name_plural,
+    }
     return render(request, template_name, context)
 
 

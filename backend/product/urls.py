@@ -7,6 +7,7 @@ app_name = 'product'
 
 # A ordem das urls é importante por causa do slug, quando existir.
 product_patterns = [
+    # path('', v.ProductListView.as_view(), name='product_list'),  # noqa E501
     path('', v.product_list, name='product_list'),  # noqa E501
     path('create/', v.product_create, name='product_create'),  # noqa E501
     path('<int:pk>/', v.product_detail, name='product_detail'),  # noqa E501

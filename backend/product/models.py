@@ -39,6 +39,17 @@ class Product(TimeStampedModel):
     def get_absolute_url(self):
         return reverse_lazy('product:product_detail', kwargs={'pk': self.pk})
 
+    def list_url(self):
+        return reverse_lazy('product:product_list')
+
+    @property
+    def verbose_name(self):
+        return self._meta.verbose_name
+
+    @property
+    def verbose_name_plural(self):
+        return self._meta.verbose_name_plural
+
 
 class Photo(TimeStampedModel):
     photo = models.ImageField(upload_to='')
