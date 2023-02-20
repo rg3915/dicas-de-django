@@ -191,8 +191,8 @@ Edite core/includes/breadcrumb.html
             {{ verbose_name_plural }}
           </a>
         {\% else %}
-          <a href="{{ object_list.0.list_url }}" class="text-gray-700 hover:text-gray-900 ml-1 md:ml-2 text-sm font-medium">
-            {{ object_list.0.verbose_name_plural }}
+          <a href="{{ page_obj.0.list_url }}" class="text-gray-700 hover:text-gray-900 ml-1 md:ml-2 text-sm font-medium">
+            {{ page_obj.0.verbose_name_plural }}
           </a>
         {\% endif %}
       </div>
