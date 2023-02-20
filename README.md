@@ -50,14 +50,18 @@ python manage.py runserver
 ```
 
 ### Makefile
-Para veirifcar os comando disponiveis no Makefile no terminal, basta informar ```make help```
-###### Obs: Deve ter o ```rich``` instalado (pip install rich). Ele ja está contido no requirements.txt instalado na venv, basta ativa-la ```source .venv/bin/activate```
+
+Para verifcar os comando disponiveis no Makefile no terminal, basta informar `make help`
+
+**Obs:** Deve ter o `rich` instalado (`pip install rich`). Ele já está contido no `requirements.txt` instalado na venv, basta ativa-la `source .venv/bin/activate`
+
 
 ## branch antiga
 
 branch: `main_old`
 
 [Dicas 1 a 60](https://github.com/rg3915/dicas-de-django/tree/main_old)
+
 
 ## Leia o passo a passo
 
