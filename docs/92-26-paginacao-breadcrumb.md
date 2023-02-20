@@ -134,27 +134,7 @@ Edite `product/models.py`
 
 ```python
 class Product(TimeStampedModel):
-    title = models.CharField('título', max_length=255, unique=True)
-    description = models.TextField('descrição', null=True, blank=True)
-    category = models.ForeignKey(
-        Category,
-        on_delete=models.SET_NULL,
-        verbose_name='categoria',
-        related_name='products',
-        null=True,
-        blank=True,
-    )
-
-    class Meta:
-        ordering = ('title',)
-        verbose_name = 'Produto'
-        verbose_name_plural = 'Produtos'
-
-    def __str__(self):
-        return f'{self.title}'
-
-    def get_absolute_url(self):
-        return reverse_lazy('product:product_detail', kwargs={'pk': self.pk})
+    ...
 
     def list_url(self):
         return reverse_lazy('product:product_list')
