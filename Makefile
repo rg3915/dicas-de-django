@@ -15,7 +15,7 @@ autopep8: ## Automatically formats Python code to conform to the PEP 8 style gui
 	find backend -name "*.py" | xargs autopep8 --max-line-length 120 --in-place
 
 isort: ## Organizing the imports
-	isort -m 3 *
+	isort -m 3 . --skip .venv
 
 lint: autopep8 isort indenter ## Run isort, autopep8 and indenter
 
