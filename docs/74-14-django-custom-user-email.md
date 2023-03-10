@@ -1,6 +1,8 @@
 # Dica 14 - Django Custom User com e-mail
 
-VIDEO EM BREVE.
+<a href="https://youtu.be/8Hg9ALsxz4c">
+    <img src="../.gitbook/assets/youtube.png">
+</a>
 
 User
 

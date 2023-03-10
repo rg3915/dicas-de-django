@@ -1,6 +1,8 @@
 # Dica 17 - Cadastro de Usuários no Django
 
-VIDEO EM BREVE.
+<a href="https://youtu.be/JKUYdjIfugU">
+    <img src="../.gitbook/assets/youtube.png">
+</a>
 
 **Importante:** remova a `\` no meio das tags.
 

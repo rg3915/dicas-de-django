@@ -1,6 +1,8 @@
 # Dica 18 - Esqueci a senha
 
-VIDEO EM BREVE.
+<a href="https://youtu.be/_mYTRnPD8PQ">
+    <img src="../.gitbook/assets/youtube.png">
+</a>
 
 [https://docs.djangoproject.com/en/4.1/topics/auth/default/#django.contrib.auth.views.PasswordResetView](https://docs.djangoproject.com/en/4.1/topics/auth/default/#django.contrib.auth.views.PasswordResetView)
 

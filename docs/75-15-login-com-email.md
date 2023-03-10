@@ -1,6 +1,8 @@
 # Dica 15 - Login com e-mail no Django
 
-VIDEO EM BREVE.
+<a href="https://youtu.be/5F4uQeTmOLg">
+    <img src="../.gitbook/assets/youtube.png">
+</a>
 
 **Importante:** remova a `\` no meio das tags.
 

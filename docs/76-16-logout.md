@@ -1,6 +1,8 @@
 # Dica 16 - Logout
 
-VIDEO EM BREVE.
+<a href="https://youtu.be/SPnFqVRAows">
+    <img src="../.gitbook/assets/youtube.png">
+</a>
 
 **Importante:** remova a `\` no meio das tags.
 

@@ -1,6 +1,8 @@
 # Dica 13 - Dashboard com Django e Tailwind CSS
 
-VIDEO EM BREVE.
+<a href="https://youtu.be/mTpJx4_rTJQ">
+    <img src="../.gitbook/assets/youtube.png">
+</a>
 
 **Importante:** remova a `\` no meio das tags.
 
