@@ -33,9 +33,9 @@ for i in range(15):
         # print(ambiente)
         produto = choice(produtos)
         if produto == 'piso paginado' or produto == 'parede':
-            descricao = f'{str(round(randint(1,60)* random(), 2)).replace(".", ",")} m² {produto}'
+            descricao = f'{str(round(randint(1,60)* random(), 2)).replace(".", ",")} m² {produto}'  # noqa: E501
         else:
-            descricao = f'{str(round(randint(1,60)* random(), 2)).replace(".", ",")}m x {randint(1,20)}cm {produto}'
+            descricao = f'{str(round(randint(1,60)* random(), 2)).replace(".", ",")}m x {randint(1,20)}cm {produto}'  # noqa: E501
         # print(descricao)
         quantidade = randint(1, 15)
 
@@ -59,7 +59,7 @@ def escreve_planilha_cliente(filename, worksheet):
 
             produto = choice(produtos)
             if produto == 'piso paginado' or produto == 'parede':
-                descricao = f'{str(round(randint(1,60)* random(), 2)).replace(".", ",")} m² {produto}'
+                descricao = f'{str(round(randint(1,60)* random(), 2)).replace(".", ",")} m² {produto}'  # noqa: E501
             else:
                 descricao = f'{str(round(randint(1,60)* random(), 2)).replace(".", ",")}m x {randint(1,20)}cm {produto}'  # noqa E501
 

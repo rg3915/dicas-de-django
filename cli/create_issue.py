@@ -21,20 +21,20 @@ TOKEN = config('TOKEN')
 def write_file(filename, number, title, description, labels):
     labels = ', '.join(labels).strip()
     with open(filename, 'a') as f:
-        f.write(f'\n---\n\n')
+        f.write('\n---\n\n')
         f.write(f'[ ] {number} - {title}\n')
         f.write(f'    {labels}\n\n')
 
         if description:
             f.write(f'    {description}\n\n')
 
-        f.write(f"    make lint; g add . ; g co -m '{title}. close #{number}'; g push\n")
+        f.write(f"    make lint; g add . ; g co -m '{title}. close #{number}'; g push\n")  # noqa: E501
 
 
 @click.command()
 @click.option('--title', prompt='Title', help='Digite o título.')
 @click.option('--body', prompt='Description', help='Digite a descrição.')
-# @click.option('--assignee', prompt='Assignee', help='Digite o nome da pessoa a ser associada.')
+# @click.option('--assignee', prompt='Assignee', help='Digite o nome da pessoa a ser associada.')  # noqa: E501
 @click.option('--labels', prompt='Labels', help='Digite as labels.')
 def make_github_issue(title, body=None, assignee=None, milestone=None, labels=None):
     '''

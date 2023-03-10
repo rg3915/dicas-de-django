@@ -216,7 +216,7 @@ def insere_formulas(filename, worksheet):
         _id = row[0].value
         if _id:
             ws[f'F{i}'] = 'm² unit' if i == 1 else f'=D{i}*E{i}'  # metro quadrado
-            ws[f'H{i}'] = 'm² total' if i == 1 else f'=G{i}*F{i}'  # metro quadrado total
+            ws[f'H{i}'] = 'm² total' if i == 1 else f'=G{i}*F{i}'  # metro quadrado total  # noqa: E501
             ws[f'I{i}'] = 'valor unitário' if i == 1 else f'=K$2*F{i}'
             ws[f'J{i}'] = 'subtotal' if i == 1 else f'=K$2*H{i}'
 
@@ -283,7 +283,7 @@ def escreve_planilha_cliente_final(filename, worksheet_in, worksheet_out):
         ws_out[f'B{i}'] = row[1].value
         ws_out[f'C{i}'] = row[2].value
         ws_out[f'D{i}'] = row[3].value
-        ws_out[f'E{i}'] = 'valor unitário' if i == 1 else f'=VLOOKUP($A{i},planilha_orcamento!A:I,9,FALSE)'
+        ws_out[f'E{i}'] = 'valor unitário' if i == 1 else f'=VLOOKUP($A{i},planilha_orcamento!A:I,9,FALSE)'  # noqa: E501
         ws_out[f'F{i}'] = 'subtotal' if i == 1 else f'=E{i}*D{i}'
 
     # Calcula total geral

@@ -2,7 +2,7 @@ import click
 
 
 @click.command()
-@click.option('-ids', prompt='Ids', help='Digite uma sequência de números separado por vírgula.')
+@click.option('-ids', prompt='Ids', help='Digite uma sequência de números separado por vírgula.')  # noqa: E501
 def get_numbers(ids):
     print('>>>', ids)
     for id in ids.split(','):
