@@ -18,7 +18,8 @@ class PhotoInline(admin.TabularInline):
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
     inlines = (PhotoInline,)
-    list_display = ('__str__', 'category')
+    list_display = ('__str__', 'slug', 'category')
+    readonly_fields = ('slug',)
     search_fields = ('title',)
     list_filter = ('category',)
     # date_hierarchy = 'created'

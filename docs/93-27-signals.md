@@ -2,6 +2,8 @@
 
 Doc: [https://docs.djangoproject.com/en/4.1/topics/signals/](https://docs.djangoproject.com/en/4.1/topics/signals/)
 
+[https://docs.djangoproject.com/en/4.1/ref/signals/](https://docs.djangoproject.com/en/4.1/ref/signals/)
+
 ## Problema
 
 Suponha que você queira enviar um e-mail de boas-vindas para um novo usuário.
@@ -130,7 +132,7 @@ Ao deletar temos os signals `pre_delete` e `post_delete`.
 Agora vamos ao código
 
 ```python
-accounts/models.py
+# accounts/models.py
 
 from django.db.models.signals import post_save
 from django.dispatch import receiver
@@ -260,7 +262,7 @@ touch backend/product/signals.py
 ```
 
 ```python
-product/signals.py
+# product/signals.py
 from django.utils.text import slugify
 
 
@@ -289,7 +291,7 @@ class ProductConfig(AppConfig):
 Para finalizar vamos colocar o `slug` como `read_only` no Admin.
 
 ```python
-product/admin.py
+# product/admin.py
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):

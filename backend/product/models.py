@@ -27,6 +27,7 @@ class Product(TimeStampedModel):
         null=True,
         blank=True,
     )
+    slug = models.SlugField(null=True, blank=True)
 
     class Meta:
         ordering = ('title',)

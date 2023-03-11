@@ -83,6 +83,18 @@ class User(AbstractBaseUser, PermissionsMixin):
         return reverse_lazy('user_detail', kwargs={'pk': self.pk})
 
 
+@receiver(post_save, sender=User)
+def send_email_on_user_creation(sender, instance, created, **kwargs):
+    if created:
+        send_mail(
+            'Novo usuário criado',
+            f'Um novo usuário com email {instance.email} foi criado.',
+            'from@example.com',
+            ['to@example.com'],
+            fail_silently=False,
+        )
+
+
 class Profile(models.Model):
     user = models.OneToOneField(
         User,
@@ -105,6 +117,29 @@ class Profile(models.Model):
 
     def __str__(self):
         return self.full_name
+
+
+# @receiver(pre_save, sender=User)
+# def user_pre_save_handler(sender, instance, *args, **kwargs):
+#     print(instance.email, instance.id)
+#     # NÃO FAÇA ISSO -> instance.save()  # Loop infinito
+
+
+# @receiver(post_save, sender=User)
+# def user_created_handler(sender, instance, created, *args, **kwargs):
+#     if created:
+#         print('Envia e-mail para', instance.email)
+#     else:
+#         print(instance.email, 'foi salvo.')
+
+# post_save.connect(user_created_handler, sender=User)
+
+# Exemplo
+# @receiver(post_save, sender=User)
+# def update_user_profile(sender, instance, created, **kwargs):
+#     if created:
+#         Profile.objects.create(user=instance)
+#     instance.profile.save()
 
 
 @receiver(post_save, sender=User)
