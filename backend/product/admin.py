@@ -1,7 +1,9 @@
 # product/admin.py
 from django.contrib import admin
+from import_export.admin import ImportExportModelAdmin
 
 from .models import Category, Photo, Product
+from import_export import resources
 
 
 @admin.register(Category)
@@ -15,8 +17,15 @@ class PhotoInline(admin.TabularInline):
     extra = 0
 
 
+class ProductResource(resources.ModelResource):
+
+    class Meta:
+        model = Product
+
+
 @admin.register(Product)
-class ProductAdmin(admin.ModelAdmin):
+class ProductAdmin(ImportExportModelAdmin):
+    resource_classes = [ProductResource]
     inlines = (PhotoInline,)
     list_display = ('__str__', 'slug', 'category')
     readonly_fields = ('slug',)

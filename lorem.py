@@ -1,8 +1,8 @@
 # lorem.py
-import json   # noqa
+import json  # noqa
 
-import click   # noqa
-import requests   # noqa
+import click  # noqa
+import requests  # noqa
 
 
 def long_function_name(

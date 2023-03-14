@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django_extensions',
     'widget_tweaks',
     'django_seed',
+    'import_export',
     # minhas apps
     'backend.core',
     'backend.bookstore',

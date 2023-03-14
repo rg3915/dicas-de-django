@@ -2,9 +2,11 @@
 from django.core.paginator import Paginator
 from django.db.models import Q
 from django.shortcuts import get_object_or_404, redirect, render
+from django.views.decorators.http import require_http_methods
 
 from .forms import ProductForm
 from .models import Product
+from .services import csv_to_list_in_memory, save_data
 
 # class ProductListView(ListView):
 #     model = Product
@@ -77,4 +79,12 @@ def product_update(request, pk):
 def product_delete(request, pk):
     instance = get_object_or_404(Product, pk=pk)
     instance.delete()
+    return redirect('product:product_list')
+
+
+@require_http_methods(['POST'])
+def import_csv(request):
+    csv_file = request.FILES.get('csv_file')
+    data = csv_to_list_in_memory(csv_file)
+    save_data(data)
     return redirect('product:product_list')

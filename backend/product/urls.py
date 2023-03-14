@@ -13,6 +13,7 @@ product_patterns = [
     path('<int:pk>/', v.product_detail, name='product_detail'),  # noqa E501
     path('<int:pk>/update/', v.product_update, name='product_update'),  # noqa E501
     path('<int:pk>/delete/', v.product_delete, name='product_delete'),  # noqa E501
+    path('import-csv/', v.import_csv, name='import_csv'),  # noqa E501
 ]
 
 urlpatterns = [
