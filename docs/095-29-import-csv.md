@@ -1,5 +1,7 @@
 # Dica 29 - Importando CSV
 
+VIDEO EM BREVE.
+
 ## Criando um novo comando no Django
 
 ```

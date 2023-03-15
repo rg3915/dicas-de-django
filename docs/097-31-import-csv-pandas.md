@@ -1,5 +1,7 @@
 # Dica 31 - Importando CSV com Pandas
 
+VIDEO EM BREVE.
+
 [https://towardsdatascience.com/pandas-vs-dask-vs-datatable-a-performance-comparison-for-processing-csv-files-3b0e0e98215e](https://towardsdatascience.com/pandas-vs-dask-vs-datatable-a-performance-comparison-for-processing-csv-files-3b0e0e98215e)
 
 

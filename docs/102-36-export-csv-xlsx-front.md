@@ -1,5 +1,11 @@
 # Dica 36 - Exportando CSV e XLSX pelo front no projeto
 
+VIDEO EM BREVE.
+
+**Importante:** remova a `\` no meio das tags.
+
+![](../.gitbook/assets/tags.png)
+
 ## Exportar CSV ou XLSX pelo front
 
 Edite `product/product_list.html`
@@ -10,9 +16,9 @@ Edite `product/product_list.html`
   Exportar
 </button>
 
-  {% include "./includes/export_modal.html" %}
+  {\% include "./includes/export_modal.html" %}
 
-{% block js %}
+{\% block js %}
   <script>
     // ...
 
@@ -26,7 +32,7 @@ Edite `product/product_list.html`
       exportModal.hide()
     }
   </script>
-{% endblock js %}
+{\% endblock js %}
 ```
 
 Edite `product/includes/export_modal.html`
@@ -49,11 +55,11 @@ Edite `product/includes/export_modal.html`
         <h3 class="text-xl font-normal text-gray-500 mt-5">Exportar dados</h3>
         <p class="text-base font-normal text-gray-500 mb-6">Escolha uma opção:</p>
 
-        <a href="{% url 'product:export_csv' %}" class="text-white bg-cyan-600 hover:bg-cyan-800 focus:ring-4 focus:ring-cyan-300 font-medium rounded-lg text-base inline-flex items-center px-3 py-2.5 text-center mr-2">
+        <a href="{\% url 'product:export_csv' %}" class="text-white bg-cyan-600 hover:bg-cyan-800 focus:ring-4 focus:ring-cyan-300 font-medium rounded-lg text-base inline-flex items-center px-3 py-2.5 text-center mr-2">
           CSV
         </a>
 
-        <a href="{% url 'product:export_xlsx' %}" class="text-white bg-cyan-600 hover:bg-cyan-800 focus:ring-4 focus:ring-cyan-300 font-medium rounded-lg text-base inline-flex items-center px-3 py-2.5 text-center mr-2">
+        <a href="{\% url 'product:export_xlsx' %}" class="text-white bg-cyan-600 hover:bg-cyan-800 focus:ring-4 focus:ring-cyan-300 font-medium rounded-lg text-base inline-flex items-center px-3 py-2.5 text-center mr-2">
           XLSX
         </a>
 

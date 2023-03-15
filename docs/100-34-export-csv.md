@@ -1,5 +1,7 @@
 # Dica 34 - Exportando CSV
 
+VIDEO EM BREVE.
+
 ## Exportando CSV
 
 ```python
