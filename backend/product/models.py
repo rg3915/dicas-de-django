@@ -19,6 +19,7 @@ class Category(models.Model):
 class Product(TimeStampedModel):
     title = models.CharField('título', max_length=255, unique=True)
     description = models.TextField('descrição', null=True, blank=True)
+    price = models.DecimalField('preço', max_digits=9, decimal_places=2, null=True, blank=True)
     category = models.ForeignKey(
         Category,
         on_delete=models.SET_NULL,

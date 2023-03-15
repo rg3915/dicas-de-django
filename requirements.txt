@@ -17,3 +17,8 @@ django-seed==0.3.1
 Pillow==9.3.0
 ipdb
 ruff==0.0.254
+faker-commerce==1.0.3
+django-import-export==3.1.0
+pandas==1.5.3
+dask==2023.3.1
+PyExcelerate==0.10.0
