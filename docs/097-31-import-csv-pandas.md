@@ -1,22 +1,27 @@
-# Importando CSV com Dask
+# Dica 31 - Importando CSV com Pandas
+
+VIDEO EM BREVE.
 
 [https://towardsdatascience.com/pandas-vs-dask-vs-datatable-a-performance-comparison-for-processing-csv-files-3b0e0e98215e](https://towardsdatascience.com/pandas-vs-dask-vs-datatable-a-performance-comparison-for-processing-csv-files-3b0e0e98215e)
 
-```
-python -m pip install "dask[dataframe]"
-pip freeze | grep dask >> requirements.txt
-```
 
-No Notebook digite
+```
+pip install pandas
+pip freeze | grep pandas >> requirements.txt
+
+python manage.py shell_plus --notebook
+```
 
 ```python
-import dask.dataframe as dd
+import pandas as pd
 
-df = dd.read_csv('/tmp/products.csv')
+df = pd.read_csv('/tmp/products.csv')
 
-df.head()
+df
 
-df.tail()
+df.max()
+
+df.min()
 
 Product.objects.all().delete()
 
@@ -38,11 +43,15 @@ def save_data(data):
 
 data = []
 
-for index, row in df.iterrows():
+for row in df.itertuples():
     _dict = dict(title=row.title, price=row.price)
     data.append(_dict)
+
+data
 
 save_data(data)
 
 Product.objects.all().count()
 ```
+
+

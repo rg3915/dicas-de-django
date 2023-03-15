@@ -1,4 +1,10 @@
-# Importando XLSX com OpenPyXL
+# Dica 33 - Importando XLSX com OpenPyXL
+
+VIDEO EM BREVE.
+
+**Importante:** remova a `\` no meio das tags.
+
+![](../.gitbook/assets/tags.png)
 
 ```python
 import openpyxl
@@ -46,7 +52,7 @@ Product.objects.all().count()
 
 ```html
 <!-- import_modal.html -->
-<form action="{% url 'product:import_view' %}" method="POST" enctype="multipart/form-data">
+<form action="{\% url 'product:import_view' %}" method="POST" enctype="multipart/form-data">
 
 <input type="file" name="filename">
 ```

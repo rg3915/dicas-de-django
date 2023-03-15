@@ -1,4 +1,10 @@
-# Importando CSV InMemoryUploadedFile
+# Dica 30 - Importando CSV InMemoryUploadedFile
+
+VIDEO EM BREVE.
+
+**Importante:** remova a `\` no meio das tags.
+
+![](../.gitbook/assets/tags.png)
 
 Edite `product/product_list.html`
 
@@ -19,9 +25,9 @@ Edite `product/product_list.html`
   <!-- body -->
   <td class="p-4 whitespace-nowrap text-base font-medium text-gray-900">R$ {{ object.price|default:"---" }}</td>
 
-  {% include "./includes/import_modal.html" %}
+  {\% include "./includes/import_modal.html" %}
 
-{% block js %}
+{\% block js %}
   <script>
     // ...
 
@@ -35,7 +41,7 @@ Edite `product/product_list.html`
       importModal.hide()
     }
   </script>
-{% endblock js %}
+{\% endblock js %}
 ```
 
 Edite `product/product_detail.html`
@@ -67,8 +73,8 @@ Edite `product/includes/import_modal.html`
       </div>
       <!-- Modal body -->
       <div class="p-6 pt-0 text-center">
-        <form action="{% url 'product:import_csv' %}" method="POST" enctype="multipart/form-data">
-          {% csrf_token %}
+        <form action="{\% url 'product:import_csv' %}" method="POST" enctype="multipart/form-data">
+          {\% csrf_token %}
 
           <h3 class="text-xl font-normal text-gray-500 mt-5 mb-6">Importar dados de um CSV ou XLSX</h3>
 
