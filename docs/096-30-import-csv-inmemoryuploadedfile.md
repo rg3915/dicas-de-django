@@ -1,4 +1,4 @@
-# Importando CSV InMemoryUploadedFile
+# Dica 30 - Importando CSV InMemoryUploadedFile
 
 Edite `product/product_list.html`
 
