@@ -1,8 +1,13 @@
 # from django.views.generic import ListView
+import csv
+
+import openpyxl
+from django.contrib import messages
 from django.core.paginator import Paginator
 from django.db.models import Q
 from django.shortcuts import get_object_or_404, redirect, render
 from django.views.decorators.http import require_http_methods
+from pyexcelerate import Workbook
 
 from .forms import ProductForm
 from .models import Product
@@ -83,8 +88,46 @@ def product_delete(request, pk):
 
 
 @require_http_methods(['POST'])
-def import_csv(request):
-    csv_file = request.FILES.get('csv_file')
-    data = csv_to_list_in_memory(csv_file)
+def import_view(request):
+    filename = request.FILES.get('filename')
+
+    if filename.name.endswith('.csv'):
+        data = csv_to_list_in_memory(filename)
+    else:
+        wb = openpyxl.load_workbook(filename, data_only=True)
+        ws = wb.active
+
+        max_row = ws.max_row
+        max_col = ws.max_column
+
+        data = []
+
+        for row in ws.iter_rows(min_row=2, max_row=max_row, max_col=max_col):
+            _dict = dict(title=row[0].value, price=row[1].value)
+            data.append(_dict)
+
     save_data(data)
+    return redirect('product:product_list')
+
+
+def export_csv(request):
+    with open('/tmp/products_out.csv', 'w') as f:
+        csv_writer = csv.writer(f)
+        products = Product.objects.all()
+
+        csv_writer.writerow(['title', 'price'])
+        for product in products:
+            csv_writer.writerow([product.title, product.price])
+
+    return redirect('product:product_list')
+
+
+def export_xlsx(request):
+    products = Product.objects.all()
+    data = [(product.title, product.price) for product in products]
+    data.insert(0, ('title', 'price'))
+
+    wb = Workbook()
+    wb.new_sheet("sheet name", data=data)
+    wb.save("/tmp/products_out.xlsx")
     return redirect('product:product_list')

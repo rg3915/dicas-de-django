@@ -1,9 +1,9 @@
 # product/admin.py
 from django.contrib import admin
-from import_export.admin import ImportExportModelAdmin
+from import_export import resources
+from import_export.admin import ExportActionModelAdmin, ImportExportModelAdmin
 
 from .models import Category, Photo, Product
-from import_export import resources
 
 
 @admin.register(Category)
@@ -24,7 +24,7 @@ class ProductResource(resources.ModelResource):
 
 
 @admin.register(Product)
-class ProductAdmin(ImportExportModelAdmin):
+class ProductAdmin(ImportExportModelAdmin, ExportActionModelAdmin):
     resource_classes = [ProductResource]
     inlines = (PhotoInline,)
     list_display = ('__str__', 'slug', 'category')

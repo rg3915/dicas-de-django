@@ -13,7 +13,9 @@ product_patterns = [
     path('<int:pk>/', v.product_detail, name='product_detail'),  # noqa E501
     path('<int:pk>/update/', v.product_update, name='product_update'),  # noqa E501
     path('<int:pk>/delete/', v.product_delete, name='product_delete'),  # noqa E501
-    path('import-csv/', v.import_csv, name='import_csv'),  # noqa E501
+    path('import/', v.import_view, name='import_view'),  # noqa E501
+    path('export/csv/', v.export_csv, name='export_csv'),  # noqa E501
+    path('export/xlsx/', v.export_xlsx, name='export_xlsx'),  # noqa E501
 ]
 
 urlpatterns = [

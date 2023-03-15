@@ -11,12 +11,12 @@
       </div>
       <!-- Modal body -->
       <div class="p-6 pt-0 text-center">
-        <form action="{% url 'product:import_csv' %}" method="POST" enctype="multipart/form-data">
+        <form action="{% url 'product:import_view' %}" method="POST" enctype="multipart/form-data">
           {% csrf_token %}
 
-          <h3 class="text-xl font-normal text-gray-500 mt-5 mb-6">Importar dados de um CSV</h3>
+          <h3 class="text-xl font-normal text-gray-500 mt-5 mb-6">Importar dados de um CSV ou XLSX</h3>
 
-          <input type="file" name="csv_file">
+          <input type="file" name="filename">
 
           <button type="submit" class="text-white bg-cyan-600 hover:bg-cyan-800 focus:ring-4 focus:ring-cyan-300 font-medium rounded-lg text-base inline-flex items-center px-3 py-2.5 text-center mr-2">
             Sim, importar
