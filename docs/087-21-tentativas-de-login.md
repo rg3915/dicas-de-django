@@ -1,15 +1,22 @@
 # Dica 21 - Tentativas de Login
 
-VIDEO EM BREVE.
+<a href="https://youtu.be/WLnJskC17PQ">
+    <img src="../.gitbook/assets/youtube.png">
+</a>
+
+**Importante:** remova a `\` no meio das tags.
+
+![](../.gitbook/assets/tags.png)
+
 
 Edite `registration/login.html`
 
 ```html
-{% if form.errors %}
-  {% for error in form.non_field_errors %}
+{\% if form.errors %}
+  {\% for error in form.non_field_errors %}
     <p class="text-red-500">{{ error }}</p>
-  {% endfor %}
-{% endif %}
+  {\% endfor %}
+{\% endif %}
 ```
 
 ## accounts/models.py

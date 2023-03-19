@@ -1,6 +1,13 @@
 # Dica 20 - Templates
 
-VIDEO EM BREVE.
+<a href="https://youtu.be/uQ4OMkzoBvY">
+    <img src="../.gitbook/assets/youtube.png">
+</a>
+
+**Importante:** remova a `\` no meio das tags.
+
+![](../.gitbook/assets/tags.png)
+
 
 O básico sobre templates é:
 
@@ -37,9 +44,9 @@ touch accounts/templates/accounts/user_form.html
 ### user_list.html
 
 ```html
-{% extends "base.html" %}
+{\% extends "base.html" %}
 
-{% block content %}
+{\% block content %}
   <table>
     <thead>
       <tr>
@@ -47,22 +54,22 @@ touch accounts/templates/accounts/user_form.html
       </tr>
     </thead>
     <tbody>
-      {% for object in object_list %}
+      {\% for object in object_list %}
         <tr>
           <td>{{ object }}</td>
         </tr>
-      {% endfor %}
+      {\% endfor %}
     </tbody>
   </table>
-{% endblock content %}
+{\% endblock content %}
 ```
 
 ### user_detail.html
 
 ```html
-{% extends "base.html" %}
+{\% extends "base.html" %}
 
-{% block content %}
+{\% block content %}
   <div>
     <div>
       <h1>Detalhes: {{ object }}</h1>
@@ -92,48 +99,48 @@ touch accounts/templates/accounts/user_form.html
     </div>
 
   </div>
-{% endblock content %}
+{\% endblock content %}
 ```
 
 ### user_form.html
 
 ```html
-{% extends "base.html" %}
-{% load widget_tweaks %}
+{\% extends "base.html" %}
+{\% load widget_tweaks %}
 
-{% block content %}
+{\% block content %}
   <div>
     <div>
       <div>
         <h2>
-          {% if object.pk %}
+          {\% if object.pk %}
             Editar
-          {% else %}
+          {\% else %}
             Adicionar
-          {% endif %}
+          {\% endif %}
           Usuário
         </h2>
 
-        {% if form.errors %}
-          {% for error in form.non_field_errors %}
+        {\% if form.errors %}
+          {\% for error in form.non_field_errors %}
             <p class="text-red-500">{{ error }}</p>
-          {% endfor %}
-        {% endif %}
+          {\% endfor %}
+        {\% endif %}
 
         <form action="." method="POST" enctype="multipart/form-data">
-          {% csrf_token %}
+          {\% csrf_token %}
 
-          {% for field in form.visible_fields %}
+          {\% for field in form.visible_fields %}
             <div>
               <label>{{ field.label }}</label>
-              {% render_field field class="" %}
+              {\% render_field field class="" %}
             </div>
             <span>{{ field.help_text }}</span>
 
-            {% for error in field.errors %}
+            {\% for error in field.errors %}
               <span class="text-red-500">{{ error }}</span> <br>
-            {% endfor %}
-          {% endfor %}
+            {\% endfor %}
+          {\% endfor %}
 
           <div class="flex flex-col sm:flex-row">
             <button type="submit">Salvar</button>
@@ -145,7 +152,7 @@ touch accounts/templates/accounts/user_form.html
       </div>
     </div>
   </div>
-{% endblock content %}
+{\% endblock content %}
 ```
 
 ## urls.py
