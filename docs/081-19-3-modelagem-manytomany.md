@@ -1,6 +1,8 @@
 # Dica 19.3 - Modelagem - ManyToMany - Muitos pra Muitos
 
-VIDEO EM BREVE.
+<a href="https://youtu.be/nbynxIa8RNs">
+    <img src="../.gitbook/assets/youtube.png">
+</a>
 
 
 ![](../.gitbook/assets/06_m2m_author_book.png)

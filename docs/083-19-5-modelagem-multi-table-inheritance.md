@@ -1,6 +1,8 @@
 # Dica 19.5 - Modelagem - Multi-table Inheritance - Herança Multi-tabela
 
-VIDEO EM BREVE.
+<a href="https://youtu.be/p_BQe6tWhxY">
+    <img src="../.gitbook/assets/youtube.png">
+</a>
 
 
 ![](../.gitbook/assets/12_mti.png)

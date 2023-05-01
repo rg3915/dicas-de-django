@@ -1,6 +1,8 @@
 # Dica 19.4 - Modelagem - Abstract Inheritance - Herança Abstrata
 
-VIDEO EM BREVE.
+<a href="https://youtu.be/0o-Zy1TgI0E">
+    <img src="../.gitbook/assets/youtube.png">
+</a>
 
 
 ## Abstract Inheritance - Herança Abstrata

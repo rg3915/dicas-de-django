@@ -1,6 +1,8 @@
 # Dica 12 - Fale conosco com formulário para enviar mensagem
 
-VIDEO EM BREVE.
+<a href="https://youtu.be/XXSAalrmtxI">
+    <img src="../.gitbook/assets/youtube.png">
+</a>
 
 **Importante:** remova a `\` no meio das tags.
 

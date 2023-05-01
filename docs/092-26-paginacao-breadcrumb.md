@@ -1,5 +1,9 @@
 # Dica 26 - Paginação e Breadcrumb
 
+<a href="https://youtu.be/wuTJQSwF9gw">
+    <img src="../.gitbook/assets/youtube.png">
+</a>
+
 **Importante:** remova a `\` no meio das tags.
 
 ![](../.gitbook/assets/tags.png)

@@ -1,6 +1,8 @@
 # Dica 19.7 - Modelagem - Resumo
 
-VIDEO EM BREVE.
+<a href="https://youtu.be/m8RqKi47wf4">
+    <img src="../.gitbook/assets/youtube.png">
+</a>
 
 
 ![](../.gitbook/assets/03_many_to_many.png)

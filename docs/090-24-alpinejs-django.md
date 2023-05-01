@@ -1,5 +1,9 @@
 # Dica 24 - Alpine.js e Django
 
+<a href="https://youtu.be/jTvfN0DctnQ">
+    <img src="../.gitbook/assets/youtube.png">
+</a>
+
 **Importante:** remova a `\` no meio das tags.
 
 ![](../.gitbook/assets/tags.png)

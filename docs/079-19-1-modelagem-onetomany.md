@@ -1,7 +1,8 @@
 # Dica 19.1 - Modelagem - OneToMany - Um pra Muitos - ForeignKey - Chave Estrangeira
 
-VIDEO EM BREVE.
-
+<a href="https://youtu.be/wGTgSa1EFMw">
+    <img src="../.gitbook/assets/youtube.png">
+</a>
 
 ## Leia
 

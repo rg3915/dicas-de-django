@@ -1,5 +1,9 @@
 # Dica 27 - Signals
 
+<a href="https://youtu.be/CZ7vUBLpoZc">
+    <img src="../.gitbook/assets/youtube.png">
+</a>
+
 Doc: [https://docs.djangoproject.com/en/4.1/topics/signals/](https://docs.djangoproject.com/en/4.1/topics/signals/)
 
 [https://docs.djangoproject.com/en/4.1/ref/signals/](https://docs.djangoproject.com/en/4.1/ref/signals/)

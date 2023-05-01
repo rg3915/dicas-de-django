@@ -1,5 +1,9 @@
 # Dica 25 - Criando Filtros poderosos no Django - Segredos do ORM
 
+<a href="https://youtu.be/jrqd_zNMhFk">
+    <img src="../.gitbook/assets/youtube.png">
+</a>
+
 [http://pythonclub.com.br/django-introducao-queries.html](http://pythonclub.com.br/django-introducao-queries.html)
 
 [https://docs.djangoproject.com/en/4.1/ref/models/querysets/](https://docs.djangoproject.com/en/4.1/ref/models/querysets/)

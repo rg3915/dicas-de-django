@@ -1,6 +1,8 @@
 # Dica 19.2 - Modelagem - OneToOne - Um pra Um
 
-VIDEO EM BREVE.
+<a href="https://youtu.be/uqgy9MjOClQ">
+    <img src="../.gitbook/assets/youtube.png">
+</a>
 
 
 ## OneToOne - Um pra Um

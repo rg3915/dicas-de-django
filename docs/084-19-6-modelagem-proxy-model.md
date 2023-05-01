@@ -1,6 +1,8 @@
 # Dica 19.6 - Modelagem - Proxy Model
 
-VIDEO EM BREVE.
+<a href="https://youtu.be/jjxuoC_uoiU">
+    <img src="../.gitbook/assets/youtube.png">
+</a>
 
 
 ![](../.gitbook/assets/13_proxy_model.png)

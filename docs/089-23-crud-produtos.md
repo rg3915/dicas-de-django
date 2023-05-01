@@ -1,6 +1,8 @@
 # Dica 23 - CRUD de produtos
 
-VIDEO EM BREVE.
+<a href="https://youtu.be/TfC_1EcRBss">
+    <img src="../.gitbook/assets/youtube.png">
+</a>
 
 ```python
 # product/views.py

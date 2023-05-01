@@ -1,6 +1,9 @@
 # Dica 28 - Gerando dados aleatórios com Faker - faker-commerce
 
-VIDEO EM BREVE.
+<a href="https://youtu.be/otT4fVdsECc">
+    <img src="../.gitbook/assets/youtube.png">
+</a>
+
 
 Crie um arquivo `gen_products.py` em `backend/product`.
 

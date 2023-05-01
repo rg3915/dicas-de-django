@@ -1,6 +1,8 @@
 # Dica 22 - Validação
 
-VIDEO EM BREVE.
+<a href="https://youtu.be/l47Y4bMJj24">
+    <img src="../.gitbook/assets/youtube.png">
+</a>
 
 ```python
 # accounts/forms.py
