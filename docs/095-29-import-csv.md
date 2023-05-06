@@ -1,6 +1,8 @@
 # Dica 29 - Importando CSV
 
-VIDEO EM BREVE.
+<a href="https://youtu.be/jHCK_izrQa0">
+    <img src="../.gitbook/assets/youtube.png">
+</a>
 
 ## Criando um novo comando no Django
 
