@@ -1,6 +1,8 @@
 # Dica 30 - Importando CSV InMemoryUploadedFile
 
-VIDEO EM BREVE.
+<a href="https://youtu.be/9JnJHDGt5BI">
+    <img src="../.gitbook/assets/youtube.png">
+</a>
 
 **Importante:** remova a `\` no meio das tags.
 

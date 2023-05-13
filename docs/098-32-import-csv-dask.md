@@ -1,6 +1,9 @@
 # Dica 32 - Importando CSV com Dask
 
-VIDEO EM BREVE.
+<a href="https://youtu.be/xQIIaUrxUzY">
+    <img src="../.gitbook/assets/youtube.png">
+</a>
+
 
 [https://towardsdatascience.com/pandas-vs-dask-vs-datatable-a-performance-comparison-for-processing-csv-files-3b0e0e98215e](https://towardsdatascience.com/pandas-vs-dask-vs-datatable-a-performance-comparison-for-processing-csv-files-3b0e0e98215e)
 
