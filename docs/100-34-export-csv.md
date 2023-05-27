@@ -1,6 +1,8 @@
 # Dica 34 - Exportando CSV
 
-VIDEO EM BREVE.
+<a href="https://youtu.be/eS4U_kBNWu8">
+    <img src="../.gitbook/assets/youtube.png">
+</a>
 
 ## Exportando CSV
 

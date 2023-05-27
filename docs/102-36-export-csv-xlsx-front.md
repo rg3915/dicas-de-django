@@ -1,6 +1,8 @@
 # Dica 36 - Exportando CSV e XLSX pelo front no projeto
 
-VIDEO EM BREVE.
+<a href="https://youtu.be/-5ygHedHzow">
+    <img src="../.gitbook/assets/youtube.png">
+</a>
 
 **Importante:** remova a `\` no meio das tags.
 

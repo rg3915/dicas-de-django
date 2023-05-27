@@ -1,6 +1,8 @@
 # Dica 35 - Exportando XLSX mais rápido com pyexcelerate
 
-VIDEO EM BREVE.
+<a href="https://youtu.be/0DuLOvnJTMw">
+    <img src="../.gitbook/assets/youtube.png">
+</a>
 
 [https://pypi.org/project/PyExcelerate/](https://pypi.org/project/PyExcelerate/)
 

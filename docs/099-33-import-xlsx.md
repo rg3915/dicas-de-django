@@ -1,6 +1,8 @@
 # Dica 33 - Importando XLSX com OpenPyXL
 
-VIDEO EM BREVE.
+<a href="https://youtu.be/_5pjqup_F64">
+    <img src="../.gitbook/assets/youtube.png">
+</a>
 
 **Importante:** remova a `\` no meio das tags.
 
