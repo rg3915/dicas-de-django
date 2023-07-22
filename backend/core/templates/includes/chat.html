@@ -1,0 +1,262 @@
+<!-- chat -->
+<div x-data="{ showChat: false }">
+  <div
+    x-show="showChat"
+    class="fixed bottom-4 right-8 border border-gray-200 rounded-lg shadow-md"
+  >
+    <!-- close -->
+    <div class="flex">
+      <span
+        class="mr-2 mt-2 ml-auto cursor-pointer"
+        @click="showChat=false"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-x"
+        >
+          <path d="M18 6 6 18" />
+          <path d="m6 6 12 12" /></svg>
+      </span>
+    </div>
+
+    <div class="container mx-auto">
+      <!-- Chat container -->
+      <div class="container mx-auto">
+        <!-- Flex container -->
+        <div class="flex">
+          <!-- First div -->
+          <div class="w-1/2 bg-white p-4">
+            <!-- lista de contatos -->
+            <div class="container mx-auto p-4">
+              <!-- Contact list -->
+              <ul class="divide-y divide-gray-300">
+                <!-- Contact item -->
+                <li class="flex items-center py-2">
+
+                  <div class="ml-9 px-4 py-3 bg-cyan-600 text-white rounded-lg">
+                    <p class="font-semibold">Todos</p>
+                  </div>
+                </li>
+
+                <li class="flex items-center py-2">
+                  <div class="w-7 h-7 rounded-full overflow-hidden">
+                    <img
+                      src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                      alt="Profile"
+                      class="object-cover w-full h-full"
+                    >
+                  </div>
+                  <div>
+                    <div class="ml-3">
+                      <p class="font-semibold">Deborah Sean</p>
+
+                    </div>
+                  </li>
+
+                  <!-- Another contact item -->
+                  <li class="flex items-center py-2">
+
+                    <div class="w-7 h-7 rounded-full overflow-hidden">
+                      <img
+                        src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                        alt="Profile"
+                        class="object-cover w-full h-full"
+                      >
+                    </div>
+                    <div>
+                      <img
+                        src=""
+                        alt=""
+                      >
+                    </div>
+                    <div class="ml-4">
+                      <p class="font-semibold">Daniel Miller</p>
+
+                    </div>
+                  </li>
+
+                  <!-- Another contact item -->
+                  <li class="flex items-center py-2">
+                    <div class="w-7 h-7 rounded-full overflow-hidden">
+                      <img
+                        src="https://images.pexels.com/photos/3763188/pexels-photo-3763188.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                        alt="Profile"
+                        class="object-cover w-full h-full"
+                      >
+                    </div>
+                    <div>
+                      <div class="ml-4">
+                        <p class="font-semibold">Olivia Thompson</p>
+
+                      </div>
+                    </li>
+
+                    <!-- Another contact item -->
+                    <li class="flex items-center py-2">
+                      <div class="w-7 h-7 rounded-full overflow-hidden">
+                        <img
+                          src="https://images.pexels.com/photos/697509/pexels-photo-697509.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                          alt="Profile"
+                          class="object-cover w-full h-full"
+                        >
+                      </div>
+                      <div>
+                        <div class="ml-4">
+                          <p class="font-semibold">Alexander Hughes</p>
+
+                        </div>
+                      </li>
+
+                      <!-- Add more contact items as needed -->
+
+                    </ul>
+                  </div>
+                </div>
+                <!-- Second div -->
+                <div class="w-96 bg-white p-4">
+                  <div class="bg-white shadow-md border rounded-lg max-w-md mx-auto">
+                    <!-- Messages -->
+                    <div class="p-4 space-y-4">
+                      <!-- Message bubble -->
+                      <div class="flex space-x-2 items-start">
+
+                        <div class="w-7 h-7 rounded-full overflow-hidden">
+                          <img
+                            src="https://images.pexels.com/photos/3763188/pexels-photo-3763188.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                            alt="Profile"
+                            class="object-cover w-full h-full"
+                          >
+                        </div>
+
+                        <div class="flex-1 bg-teal-400 text-white p-2 rounded-lg">
+                          <p>Ola tudo bem?</p>
+                        </div>
+                      </div>
+
+                      <!-- Another message bubble -->
+                      <div class="flex space-x-2 items-start">
+                        <div class="flex-1 bg-orange-300 p-2 rounded-lg">
+                          <p>Olá, como posso ajudá-la?</p>
+                        </div>
+                        <div class="w-7 h-7 rounded-full overflow-hidden">
+                          <img
+                            src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                            alt="Profile"
+                            class="object-cover w-full h-full"
+                          >
+                        </div>
+                      </div>
+
+                      <!-- Add more message bubbles as needed -->
+                      <div class="flex space-x-2 items-start">
+
+                        <div class="w-7 h-7 rounded-full overflow-hidden">
+                          <img
+                            src="https://images.pexels.com/photos/3763188/pexels-photo-3763188.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                            alt="Profile"
+                            class="object-cover w-full h-full"
+                          >
+                        </div>
+
+                        <div class="flex-1 bg-teal-400 text-white p-2 rounded-lg">
+                          <p>Você tem roupas de verão?
+
+                          </p>
+                        </div>
+                      </div>
+                      <!-- message buble -->
+                      <div class="flex space-x-2 items-start">
+
+                        <div class="w-7 h-7 rounded-full overflow-hidden">
+                          <img
+                            src="https://images.pexels.com/photos/3763188/pexels-photo-3763188.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                            alt="Profile"
+                            class="object-cover w-full h-full"
+                          >
+                        </div>
+
+                        <div class="flex-1 bg-teal-400 text-white p-2 rounded-lg">
+                          <p>E faz entrega?</p>
+                        </div>
+                      </div>
+
+                      <!-- Another message bubble -->
+                      <div class="flex space-x-2 items-start">
+                        <div class="flex-1 bg-orange-300 p-2 rounded-lg">
+                          <p>Temos roupas de verão sim. E fazemos entrega sim.</p>
+                        </div>
+                        <div class="w-7 h-7 rounded-full overflow-hidden">
+                          <img
+                            src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                            alt="Profile"
+                            class="object-cover w-full h-full"
+                          >
+                        </div>
+                      </div>
+
+                    </div>
+
+                    <!-- Input box -->
+
+                    <div class="p-4 border-t border-gray-300 flex">
+                      <input
+                        type="text"
+                        class="flex-1 px-3 py-2 rounded-lg border border-gray-300"
+                        placeholder="Digite sua mensagem..."
+                      >
+                      <button class="w-10 h-10 ml-2 px-2 py-4 bg-cyan-600 text-white rounded-full flex items-center">
+                        <i class="mx-auto">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-send-horizonal"
+                          >
+                            <path d="m3 3 3 9-3 9 19-9Z" />
+                            <path d="M6 12h16" /></svg>
+                        </i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div
+            x-show="!showChat"
+            class="fixed bottom-4 right-8 p-4 bg-cyan-600 text-white rounded-lg shadow-md flex items-center cursor-pointer"
+            @click="showChat=true"
+          >
+            <span class="mr-2">Participe do nosso chat!</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-message-circle"
+            >
+              <path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z" /></svg>
+          </div>
+        </div>
