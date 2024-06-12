@@ -22,3 +22,5 @@ django-import-export==3.1.0
 pandas==1.5.3
 dask==2023.3.1
 PyExcelerate==0.10.0
+ipython>=7.16.3 # not directly required, pinned by Snyk to avoid a vulnerability
+pygments>=2.15.0 # not directly required, pinned by Snyk to avoid a vulnerability
