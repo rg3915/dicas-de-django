@@ -104,3 +104,4 @@
 * [Dica 34 - Exportando CSV](docs/100-34-export-csv.md)
 * [Dica 35 - Exportando XLSX mais rápido com pyexcelerate](docs/101-35-export-xlsx.md)
 * [Dica 36 - Exportando CSV e XLSX pelo frontend](docs/102-36-export-csv-xlsx-front.md)
+* [Dica 37 - Novidades do Django 5.1](docs/103-django-51.md)
