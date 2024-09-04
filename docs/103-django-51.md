@@ -1,13 +1,18 @@
 # Novidades do Django 5.1
 
-Doc: https://docs.djangoproject.com/en/5.1/releases/5.1/
+Doc: [https://docs.djangoproject.com/en/5.1/releases/5.1/](https://docs.djangoproject.com/en/5.1/releases/5.1/)
 
-Github: https://github.com/rg3915/django51
+Github: [https://github.com/rg3915/django51](https://github.com/rg3915/django51)
+
+
+**Importante:** remova a `\` no meio das tags.
+
+![](../.gitbook/assets/tags.png)
 
 
 ## Middleware de autenticação requerido por padrão
 
-https://docs.djangoproject.com/en/5.1/ref/middleware/#django.contrib.auth.middleware.LoginRequiredMiddleware
+[https://docs.djangoproject.com/en/5.1/ref/middleware/#django.contrib.auth.middleware.LoginRequiredMiddleware](https://docs.djangoproject.com/en/5.1/ref/middleware/#django.contrib.auth.middleware.LoginRequiredMiddleware)
 
 O novo **LoginRequiredMiddleware** redireciona todas as solicitações não autenticadas para uma página de login. As views podem permitir solicitações não autenticadas usando o novo decorator **login_not_required()**.
 
@@ -75,7 +80,7 @@ MIDDLEWARE = [
 LOGOUT_REDIRECT_URL = 'index'
 ```
 
-## `{% querystring %}` template tag
+## `{\% querystring %}` template tag
 
 
 Vamos criar uma nova app
@@ -109,9 +114,9 @@ def get_context_data(self, *args, **kwargs):
 Então, em `pagination.html`, podemos escrever
 
 ```html
-<a href="{% querystring page=page|add:-1 %}">Previous page is {{ page|add:-1 }}</a>
+<a href="{\% querystring page=page|add:-1 %}">Previous page is {{ page|add:-1 }}</a>
 
-<a href="{% querystring page=page|add:1 %}">Next page is {{ page|add:1 }}</a>
+<a href="{\% querystring page=page|add:1 %}">Next page is {{ page|add:1 }}</a>
 ```
 
 Isso significa que se escrevermos a url
@@ -149,7 +154,7 @@ Para isso façamos
 ... voltando em `pagination.html`, antes escrevia assim
 
 ```html
-<a href="?{% if request.GET.search %}search={{ request.GET.search }}{% endif %}&page={{ pg }}">
+<a href="?{\% if request.GET.search %}search={{ request.GET.search }}{\% endif %}&page={{ pg }}">
 ```
 
 Agora podemos escrever
@@ -157,29 +162,29 @@ Agora podemos escrever
 ```html
 <nav aria-label="Pagination">
   <ul class="pagination">
-    {% if page_obj.has_previous %}
-      <li><a href="{% querystring page=1 %}">&laquo;</a></li>
-      <li><a href="{% querystring page=page_obj.previous_page_number %}">&lsaquo;</a></li>
-    {% endif %}
+    {\% if page_obj.has_previous %}
+      <li><a href="{\% querystring page=1 %}">&laquo;</a></li>
+      <li><a href="{\% querystring page=page_obj.previous_page_number %}">&lsaquo;</a></li>
+    {\% endif %}
 
-    {% for pg in page_obj.paginator.page_range %}
-      {% if pg <= 3 or pg >= page_obj.paginator.num_pages|add:'-2' %}
-        <li class="{% if page_obj.number == pg %}active{% endif %}">
-          <a href="{% querystring page=pg %}">{{ pg }}</a>
+    {\% for pg in page_obj.paginator.page_range %}
+      {\% if pg <= 3 or pg >= page_obj.paginator.num_pages|add:'-2' %}
+        <li class="{\% if page_obj.number == pg %}active{\% endif %}">
+          <a href="{\% querystring page=pg %}">{{ pg }}</a>
         </li>
-      {% elif pg >= page_obj.number|add:'-3' and pg <= page_obj.number|add:'3' %}
-        <li class="{% if page_obj.number == pg %}active{% endif %}">
-          <a href="{% querystring page=pg %}">{{ pg }}</a>
+      {\% elif pg >= page_obj.number|add:'-3' and pg <= page_obj.number|add:'3' %}
+        <li class="{\% if page_obj.number == pg %}active{\% endif %}">
+          <a href="{\% querystring page=pg %}">{{ pg }}</a>
         </li>
-      {% elif pg == page_obj.number|add:'-4' or pg == page_obj.number|add:'4' %}
+      {\% elif pg == page_obj.number|add:'-4' or pg == page_obj.number|add:'4' %}
         <li><a href="#">...</a></li>
-      {% endif %}
-    {% endfor %}
+      {\% endif %}
+    {\% endfor %}
 
-    {% if page_obj.has_next %}
-      <li><a href="{% querystring page=page_obj.next_page_number %}">&rsaquo;</a></li>
-      <li><a href="{% querystring page=page_obj.paginator.num_pages %}">&raquo;</a></li>
-    {% endif %}
+    {\% if page_obj.has_next %}
+      <li><a href="{\% querystring page=page_obj.next_page_number %}">&rsaquo;</a></li>
+      <li><a href="{\% querystring page=page_obj.paginator.num_pages %}">&raquo;</a></li>
+    {\% endif %}
   </ul>
 </nav>
 ```
