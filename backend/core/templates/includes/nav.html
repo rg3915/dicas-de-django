@@ -34,7 +34,10 @@
           <div class="-mb-1">
             <a class="github-button" href="https://github.com/themesberg/windster-tailwind-css-dashboard" data-color-scheme="no-preference: dark; light: light; dark: light;" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star themesberg/windster-tailwind-css-dashboard on GitHub">Star</a>
           </div>
-          <a href="{% url 'logout' %}" class="text-base font-normal text-gray-500 ml-5">Sair</a>
+          <form action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="text-base font-normal text-gray-500 ml-5">Sair</button>
+          </form>
         </div>
       </div>
     </div>
