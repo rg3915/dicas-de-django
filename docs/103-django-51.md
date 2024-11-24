@@ -1,5 +1,9 @@
 # Novidades do Django 5.1
 
+<a href="https://youtu.be/zQdjRQA4y6s?si=jU6fqaven5fcud2u">
+    <img src="../.gitbook/assets/youtube.png">
+</a>
+
 Doc: [https://docs.djangoproject.com/en/5.1/releases/5.1/](https://docs.djangoproject.com/en/5.1/releases/5.1/)
 
 Github: [https://github.com/rg3915/django51](https://github.com/rg3915/django51)
