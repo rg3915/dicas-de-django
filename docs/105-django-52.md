@@ -211,9 +211,106 @@ O novo decorador `simple_block_tag()` permite a criação de **block tags** simp
 ![simple_block_tag 08](../img/django52/08.png)
 
 - Arquivo: `card_tags.py`  
+
+```python
+from django import template
+from django.utils.html import format_html
+
+
+register = template.Library()
+
+
+@register.simple_block_tag(takes_context=True)
+def card(context, content, header, footer):
+    format_kwargs = {
+        "header": header,
+        "content": content,
+        "footer": footer,
+    }
+    result = """
+    <article>
+      <header>{header}</header>
+      {content}
+      <footer>{footer}</footer>
+    </article>
+    """
+    return format_html(result, **format_kwargs)
+```
+
   ![card_tags](../img/django52/10.png)
 
 - Template: `student_list.html`  
+
+```html
+{% extends "base.html" %}
+
+{% load msgbox_tags %}
+{% load card_tags %}
+
+{% block content %}
+  <div class="container">
+    <h1>Alunos</h1>
+
+    <div class="grid">
+      <a role="button" href="{% url 'school:student_create' %}">Cadastrar novo aluno</a>
+
+      <form action="" method="GET">
+        {{ form.search }}
+      </form>
+    </div>
+
+    {% msgbox level="error" %}
+      Please fix all errors. Further documentation can be found at
+      <a href="http://example.com">Docs</a>.
+    {% endmsgbox %}
+
+    {% msgbox level="info" %}
+      More information at: <a href="http://othersite.com">Other Site</a>/
+    {% endmsgbox %}}
+
+    {% card header="Cabeçalho" footer="Rodapé" %}
+      Este é um exemplo de um card feito com simple_block_tag.
+
+      <figure>
+        <img
+          src="https://picsum.photos/1800/400"
+          alt="picsum photos"
+        />
+      </figure>
+    {% endcard %}
+
+    <table>
+      <tbody>
+        {% for object in object_list %}
+          <tr>
+            <td>{{ object.pk }}</td>
+            <td>{{ object.name }}</td>
+            <td>{{ object.class_group }}</td>
+            <td>{{ object.color }}</td>
+            <td>
+              <div class="ball" style="background-color: {{ object.color }}"></div>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock content %}
+
+{% block js %}
+  <script>
+  const input = document.getElementById('id_search');
+
+  input.addEventListener('input', function () {
+    if (this.value === '') {
+      // Redirect to current URL with no parameters (e.g., ".")
+      window.location.href = '.';
+    }
+  });
+</script>
+{% endblock js %
+```
+
   ![student_list.html](../img/django52/11.png)
 
 
