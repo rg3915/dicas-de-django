@@ -12,11 +12,7 @@ Doc: [https://docs.djangoproject.com/en/5.2/releases/5.2/](https://docs.djangopr
 
 Github: [https://github.com/rg3915/django52](https://github.com/rg3915/django52)
 
-
-**Importante:** remova a `\` no meio das tags.
-
-![](../.gitbook/assets/tags.png)
-
+---
 
 E eu vou destacar aqui algumas das novidades:
 
