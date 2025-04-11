@@ -22,7 +22,7 @@ E eu vou destacar aqui algumas das novidades:
 
 ## Importação automática dos modelos no shell (Automatic models import in the shell)
 
-![01](img/django52/01.png)
+![01](../img/django52/01.png)
 
 Ou digite simplesmente `python manage.py shell`
 
@@ -35,7 +35,7 @@ Se quiser, você pode desabilitar isso. Leia mais em [How to customize the shell
 
 O novo [django.db.models.CompositePrimaryKey](https://docs.djangoproject.com/en/5.2/ref/models/fields/#django.db.models.CompositePrimaryKey) permite a criação de tabelas com uma chave primária composta por vários campos.
 
-![02](img/django52/02.png)
+![02](../img/django52/02.png)
 
 ### 🧳 Exemplo 1: Sistema de Reservas de Passagens
 
@@ -94,7 +94,7 @@ classDiagram
   note for Presenca "Chave composta: aluno_id + data_presenca + aula_id"
 ```
 
-![mermaid_school](img/django52/mermaid_school.png)
+![mermaid_school](../img/django52/mermaid_school.png)
 
 
 ### models.py
@@ -115,7 +115,7 @@ Resultado:
 django.core.exceptions.ImproperlyConfigured: The model Attendance has a composite primary key, so it cannot be registered with admin.
 ```
 
-![ImproperlyConfigured](img/django52/04.png)
+![ImproperlyConfigured](../img/django52/04.png)
 
 
 ### Observações:
@@ -132,7 +132,7 @@ Veja mais em:
 
 Veja aqui a chave composta via DBeaver.
 
-![DBeaver](img/django52/05.png)
+![DBeaver](../img/django52/05.png)
 
 **Observações:** O Django não oferece suporte para migração para, ou a partir de, uma chave primária composta após a criação da tabela. Também não é possível adicionar ou remover campos de uma chave primária composta por meio de migrações do Django.
 
@@ -159,7 +159,7 @@ class StudentForm(forms.ModelForm):
         }
 ```
 
-![forms.py](img/django52/09.png)
+![forms.py](../img/django52/09.png)
 
 Rodando: `localhost:8000/school/create`
 
@@ -195,7 +195,7 @@ Você também pode usar o [`django-phonenumber-field`](https://django-phonenumbe
 
 A nova função de banco de dados `JSONArray` aceita uma lista de nomes de campos ou expressões e retorna um array JSON contendo esses valores.
 
-![jsonarray](img/django52/03.png)
+![jsonarray](../img/django52/03.png)
 
 
 
@@ -208,17 +208,17 @@ A nova função de banco de dados `JSONArray` aceita uma lista de nomes de campo
 
 O novo decorador `simple_block_tag()` permite a criação de **block tags** simples, que podem aceitar e utilizar uma seção do template.
 
-![simple_block_tag 06](img/django52/06.png)
+![simple_block_tag 06](../img/django52/06.png)
 
-![simple_block_tag 07](img/django52/07.png)
+![simple_block_tag 07](../img/django52/07.png)
 
-![simple_block_tag 08](img/django52/08.png)
+![simple_block_tag 08](../img/django52/08.png)
 
 - Arquivo: `card_tags.py`  
-  ![card_tags](img/django52/10.png)
+  ![card_tags](../img/django52/10.png)
 
 - Template: `student_list.html`  
-  ![student_list.html](img/django52/11.png)
+  ![student_list.html](../img/django52/11.png)
 
 
 ## Alterações incompatíveis com versões anteriores na versão 5.2
