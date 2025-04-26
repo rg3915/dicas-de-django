@@ -12,6 +12,10 @@ Doc: [https://docs.djangoproject.com/en/5.2/releases/5.2/](https://docs.djangopr
 
 Github: [https://github.com/rg3915/django52](https://github.com/rg3915/django52)
 
+**Importante:** remova a `\` no meio das tags.
+
+![](../.gitbook/assets/tags.png)
+
 ---
 
 E eu vou destacar aqui algumas das novidades:
@@ -242,33 +246,33 @@ def card(context, content, header, footer):
 - Template: `student_list.html`  
 
 ```html
-{% extends "base.html" %}
+{\% extends "base.html" %}
 
-{% load msgbox_tags %}
-{% load card_tags %}
+{\% load msgbox_tags %}
+{\% load card_tags %}
 
-{% block content %}
+{\% block content %}
   <div class="container">
     <h1>Alunos</h1>
 
     <div class="grid">
-      <a role="button" href="{% url 'school:student_create' %}">Cadastrar novo aluno</a>
+      <a role="button" href="{\% url 'school:student_create' %}">Cadastrar novo aluno</a>
 
       <form action="" method="GET">
         {{ form.search }}
       </form>
     </div>
 
-    {% msgbox level="error" %}
+    {\% msgbox level="error" %}
       Please fix all errors. Further documentation can be found at
       <a href="http://example.com">Docs</a>.
-    {% endmsgbox %}
+    {\% endmsgbox %}
 
-    {% msgbox level="info" %}
+    {\% msgbox level="info" %}
       More information at: <a href="http://othersite.com">Other Site</a>/
-    {% endmsgbox %}}
+    {\% endmsgbox %}}
 
-    {% card header="Cabeçalho" footer="Rodapé" %}
+    {\% card header="Cabeçalho" footer="Rodapé" %}
       Este é um exemplo de um card feito com simple_block_tag.
 
       <figure>
@@ -277,11 +281,11 @@ def card(context, content, header, footer):
           alt="picsum photos"
         />
       </figure>
-    {% endcard %}
+    {\% endcard %}
 
     <table>
       <tbody>
-        {% for object in object_list %}
+        {\% for object in object_list %}
           <tr>
             <td>{{ object.pk }}</td>
             <td>{{ object.name }}</td>
@@ -291,13 +295,13 @@ def card(context, content, header, footer):
               <div class="ball" style="background-color: {{ object.color }}"></div>
             </td>
           </tr>
-        {% endfor %}
+        {\% endfor %}
       </tbody>
     </table>
   </div>
-{% endblock content %}
+{\% endblock content %}
 
-{% block js %}
+{\% block js %}
   <script>
   const input = document.getElementById('id_search');
 
@@ -308,7 +312,7 @@ def card(context, content, header, footer):
     }
   });
 </script>
-{% endblock js %
+{\% endblock js %
 ```
 
   ![student_list.html](../img/django52/11.png)
