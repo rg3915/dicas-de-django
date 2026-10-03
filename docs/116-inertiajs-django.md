@@ -2,6 +2,9 @@
 
 Publicado em 09/09/2026.
 
+**Testado com:** Django 6.1, Inertia v3, Vue 3 e Python 3.14.
+{: .versoes }
+
 <a href="https://youtu.be/b3GmwJQWLrs">
     <img src="../.gitbook/assets/youtube.png">
 </a>

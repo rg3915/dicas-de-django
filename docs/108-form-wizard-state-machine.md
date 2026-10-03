@@ -2,6 +2,9 @@
 
 Publicado em 23/12/2024.
 
+**Testado com:** JavaScript puro e AlpineJS (só front-end, sem Django); o fim do tutorial mostra como ligar numa view Django.
+{: .versoes }
+
 <a href="https://youtu.be/oqJxdjh6Iyk">
     <img src="../.gitbook/assets/youtube.png">
 </a>

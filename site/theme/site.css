@@ -154,3 +154,7 @@ code { font-family: inherit; font-variation-settings: "MONO" 1; font-size: .88em
 .capa:hover .capa-play, .capa:focus-visible .capa-play { background: #c4302b; }
 .capa-menor { max-width: 420px; margin: 10px 0 18px; }
 .capa-menor .capa-play { transform: scale(.75); }
+
+/* versões usadas nos exemplos */
+.versoes { display: inline-block; margin: 0 0 18px; padding: 6px 12px; border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: 6px; background: var(--accent-soft); color: var(--text); font-size: 15px; line-height: 1.5; }
+.versoes strong { color: var(--ink); }
