@@ -3,11 +3,26 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#F6F8F5" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0E1814" media="(prefers-color-scheme: dark)">
 <base href="{{base}}">
 <title>Dicas de Django | Regis do Python</title>
 <meta name="description" content="Tutoriais de Django em português, com o código completo de cada vídeo do canal Regis do Python.">
 <meta property="og:title" content="Dicas de Django">
 <meta property="og:description" content="Tutoriais de Django em português, com o código completo de cada vídeo do canal Regis do Python.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{url}}">
+<meta property="og:image" content="{{imagem}}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="Dicas de Django">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@rg3915">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Regis Santos">
+<link rel="canonical" href="{{url}}">
+{{jsonld}}
 <script>try{var q=new URLSearchParams(location.search).get('tema');var t=q||localStorage.getItem('tema');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,21 +33,22 @@
 <body>
 <a class="pular" href="#conteudo">Pular para o conteúdo</a>
 <header class="topo">
-  <button class="menu" type="button" aria-label="Abrir a lista de dicas" aria-expanded="false" data-menu>Dicas</button>
+  <button class="menu" type="button" aria-label="Abrir a lista de dicas" aria-expanded="false" aria-controls="lateral" data-menu>Dicas</button>
   <a class="marca" href="./"><b>dicas de django</b><span>por Regis do Python</span></a>
   <div class="busca" role="search">
-    <input type="search" placeholder="Buscar dicas" aria-label="Buscar dicas" data-busca data-raiz="">
-    <kbd>/</kbd>
-    <ol class="resultados" data-resultados hidden></ol>
+    <input type="search" placeholder="Buscar dicas" aria-label="Buscar dicas" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="resultados" autocomplete="off" data-busca data-raiz="">
+    <kbd aria-hidden="true">/</kbd>
+    <ul class="resultados" id="resultados" role="listbox" aria-label="Resultados da busca" data-resultados hidden></ul>
+    <p class="so-leitor" role="status" aria-live="polite" data-status></p>
   </div>
-  <nav class="links"><a href="{{youtube}}">YouTube</a><a href="{{repo}}">GitHub</a></nav>
-  <button class="tema" type="button" data-tema aria-label="Alternar tema claro e escuro">Tema</button>
+  <nav class="links" aria-label="Redes"><a href="{{youtube}}">YouTube</a><a href="{{repo}}">GitHub</a></nav>
+  <button class="tema" type="button" data-tema aria-label="Usar tema escuro" aria-pressed="false">Tema</button>
 </header>
 
 <div class="grade">
-  <aside class="lateral" aria-label="Todas as dicas" data-lateral>
+  <nav class="lateral" id="lateral" aria-label="Todas as dicas" data-lateral>
 {{lateral}}
-  </aside>
+  </nav>
 
   <main id="conteudo" class="inicio">
     <h1>Django em português, do jeito que se usa no trabalho.</h1>

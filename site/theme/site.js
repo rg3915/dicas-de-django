@@ -3,11 +3,20 @@
 
   // tema claro/escuro
   var botaoTema = document.querySelector('[data-tema]');
+  function temaEscuro() {
+    return raiz.dataset.theme ? raiz.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+  function rotularTema() {
+    var escuro = temaEscuro();
+    botaoTema.setAttribute('aria-pressed', escuro ? 'true' : 'false');
+    botaoTema.setAttribute('aria-label', escuro ? 'Usar tema claro' : 'Usar tema escuro');
+  }
   if (botaoTema) {
+    rotularTema();
     botaoTema.addEventListener('click', function () {
-      var escuro = raiz.dataset.theme ? raiz.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
-      raiz.dataset.theme = escuro ? 'light' : 'dark';
+      raiz.dataset.theme = temaEscuro() ? 'light' : 'dark';
       try { localStorage.setItem('tema', raiz.dataset.theme); } catch (e) {}
+      rotularTema();
     });
   }
 
@@ -21,7 +30,7 @@
     });
   }
   var atual = document.querySelector('.lateral [aria-current]');
-  if (atual && lateral) lateral.scrollTop = atual.offsetTop - lateral.clientHeight / 2;
+  if (atual && lateral && lateral.scrollHeight > lateral.clientHeight) lateral.scrollTop = atual.offsetTop - lateral.clientHeight / 2;
 
   // copiar código
   document.querySelectorAll('.hl, .corpo > pre').forEach(function (bloco) {
@@ -29,6 +38,7 @@
     b.type = 'button';
     b.className = 'copiar';
     b.textContent = 'Copiar';
+    b.setAttribute('aria-label', 'Copiar código');
     b.addEventListener('click', function () {
       var texto = bloco.querySelector('code') ? bloco.querySelector('code').innerText : bloco.innerText;
       navigator.clipboard.writeText(texto).then(function () {
@@ -59,6 +69,7 @@
   var campo = document.querySelector('[data-busca]');
   var lista = document.querySelector('[data-resultados]');
   if (!campo || !lista) return;
+  var status = document.querySelector('[data-status]');
   var base = campo.dataset.raiz || '';
   var indice = null;
   var sel = -1;
@@ -67,16 +78,27 @@
     return fetch(base + 'assets/busca.json').then(function (r) { return r.json(); }).then(function (d) { indice = d; return d; });
   }
   function norm(s) { return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, ''); }
+  function abrir(aberta) {
+    lista.hidden = !aberta;
+    campo.setAttribute('aria-expanded', aberta ? 'true' : 'false');
+    if (!aberta) campo.removeAttribute('aria-activedescendant');
+  }
   function mostrar(itens, termo) {
     lista.innerHTML = '';
     sel = -1;
-    if (!termo) { lista.hidden = true; return; }
+    campo.removeAttribute('aria-activedescendant');
+    if (!termo) { abrir(false); if (status) status.textContent = ''; return; }
     if (!itens.length) {
-      lista.innerHTML = '<li class="vazio">Nenhuma dica encontrada. Tente outra palavra.</li>';
+      lista.innerHTML = '<li class="vazio" role="presentation">Nenhuma dica encontrada. Tente outra palavra.</li>';
     }
-    itens.slice(0, 12).forEach(function (it) {
+    if (status) status.textContent = itens.length ? Math.min(itens.length, 12) + ' dicas encontradas' : 'Nenhuma dica encontrada';
+    itens.slice(0, 12).forEach(function (it, i) {
       var li = document.createElement('li');
+      li.setAttribute('role', 'none');
       var a = document.createElement('a');
+      a.setAttribute('role', 'option');
+      a.id = 'resultado-' + i;
+      a.tabIndex = -1;
       a.href = base + it.s + '/';
       a.textContent = (it.n ? 'Dica ' + it.n + ': ' : '') + it.t;
       var small = document.createElement('small');
@@ -85,7 +107,7 @@
       li.appendChild(a);
       lista.appendChild(li);
     });
-    lista.hidden = false;
+    abrir(true);
   }
   campo.addEventListener('input', function () {
     var termo = norm(campo.value.trim());
@@ -110,7 +132,11 @@
     if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
       e.preventDefault();
       sel = Math.max(0, Math.min(itens.length - 1, sel + (e.key === 'ArrowDown' ? 1 : -1)));
-      itens.forEach(function (a, i) { a.classList.toggle('ativo', i === sel); });
+      itens.forEach(function (a, i) {
+        a.classList.toggle('ativo', i === sel);
+        a.setAttribute('aria-selected', i === sel ? 'true' : 'false');
+      });
+      if (itens[sel]) campo.setAttribute('aria-activedescendant', itens[sel].id);
     } else if (e.key === 'Enter' && itens[sel >= 0 ? sel : 0]) {
       location.href = itens[sel >= 0 ? sel : 0].href;
     } else if (e.key === 'Escape') {
@@ -121,6 +147,6 @@
     if (e.key === '/' && document.activeElement !== campo) { e.preventDefault(); campo.focus(); }
   });
   document.addEventListener('click', function (e) {
-    if (!e.target.closest('.busca')) lista.hidden = true;
+    if (!e.target.closest('.busca')) abrir(false);
   });
 })();
