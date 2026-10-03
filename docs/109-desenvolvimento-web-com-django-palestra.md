@@ -8,8 +8,6 @@ Publicado em 14/07/2025.
 
 Palestra realizada em 26/06/2025 na Semana Tecnológica TADS 2025 no Instituto Federal do Pará, Campus Itajuba.
 
-Slides: [https://slides.com/regissantos/desenvolvimento-web-com-django](https://slides.com/regissantos/desenvolvimento-web-com-django)
-
 ## O que é visto
 
 Uma introdução completa ao Django: página simples, banco de dados, settings, migrate, ORM, models, admin, views, urls, templates e o padrão MTV.

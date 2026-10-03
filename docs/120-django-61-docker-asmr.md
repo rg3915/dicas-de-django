@@ -34,23 +34,23 @@ O vídeo também foi dividido em 21 shorts, publicados um a cada dois dias. Os q
 | Data | Short |
 |---|---|
 | 02/10/2026 | [01. Docker: Dockerfile, compose.yaml e .env](https://youtube.com/shorts/pfdNbMxj9XY) |
-| 04/10/2026 | [02. Django 6.1 com uv, dentro do Docker](https://youtube.com/shorts/RYgtFEu_mpo) |
-| 06/10/2026 | [03. settings.py: PostgreSQL 18 e MAILERS](https://youtube.com/shorts/m7VSO2c2XTs) |
-| 08/10/2026 | [04. App core: models abstratos, view e urls](https://youtube.com/shorts/DK0wBCVK3uU) |
-| 10/10/2026 | [05. base.html com Emmet](https://youtube.com/shorts/rmH2ryVtvJw) |
-| 12/10/2026 | [06. index.html, 403.html e urls do projeto](https://youtube.com/shorts/-Yam3-cLrLw) |
-| 14/10/2026 | [07. accounts: usuário com login por e-mail](https://youtube.com/shorts/63jfz3rk-wA) |
-| 16/10/2026 | [08. accounts: forms, admin e urls](https://youtube.com/shorts/7dF5xftjqpE) |
-| 18/10/2026 | [09. Templates de login e reset de senha](https://youtube.com/shorts/n9WEV05jwjE) |
-| 20/10/2026 | [10. Reset de senha: confirmar a nova senha](https://youtube.com/shorts/GfeXJXgsfh8) |
-| 22/10/2026 | [11. person: model Employee e form](https://youtube.com/shorts/36IzuFs9NoY) |
-| 24/10/2026 | [12. person: views com permissões](https://youtube.com/shorts/t6xov5ucwAc) |
-| 26/10/2026 | [13. person: urls e admin](https://youtube.com/shorts/PQPoX2Pj14I) |
-| 28/10/2026 | [14. Lista de funcionários com Emmet](https://youtube.com/shorts/7E86xgWd31I) |
-| 30/10/2026 | [15. Form e confirmação de exclusão](https://youtube.com/shorts/Lwnzy3fhyuM) |
-| 01/11/2026 | [16. Comando create_groups: Vendedor e Gerente](https://youtube.com/shorts/XcGmd8gh5v4) |
-| 03/11/2026 | [17. Subindo tudo: migrate, grupos e usuários](https://youtube.com/shorts/ydEBp9u2urE) |
-| 05/11/2026 | [18. Navegando: o vendedor cadastra, mas não exclui](https://youtube.com/shorts/W_8__T2Lxg4) |
-| 07/11/2026 | [19. Navegando: o gerente edita e exclui](https://youtube.com/shorts/d5As5VHoWlg) |
-| 09/11/2026 | [20. Navegando: reset de senha pelo Mailpit](https://youtube.com/shorts/56byLG5r9Zw) |
-| 11/11/2026 | [21. Navegando: grupos e permissões no admin](https://youtube.com/shorts/FF5NhPLtWSw) |
+| 04/10/2026 | <!--yt-pending RYgtFEu_mpo short-->02. Django 6.1 com uv, dentro do Docker<!--/yt-pending--> |
+| 06/10/2026 | <!--yt-pending m7VSO2c2XTs short-->03. settings.py: PostgreSQL 18 e MAILERS<!--/yt-pending--> |
+| 08/10/2026 | <!--yt-pending DK0wBCVK3uU short-->04. App core: models abstratos, view e urls<!--/yt-pending--> |
+| 10/10/2026 | <!--yt-pending rmH2ryVtvJw short-->05. base.html com Emmet<!--/yt-pending--> |
+| 12/10/2026 | <!--yt-pending -Yam3-cLrLw short-->06. index.html, 403.html e urls do projeto<!--/yt-pending--> |
+| 14/10/2026 | <!--yt-pending 63jfz3rk-wA short-->07. accounts: usuário com login por e-mail<!--/yt-pending--> |
+| 16/10/2026 | <!--yt-pending 7dF5xftjqpE short-->08. accounts: forms, admin e urls<!--/yt-pending--> |
+| 18/10/2026 | <!--yt-pending n9WEV05jwjE short-->09. Templates de login e reset de senha<!--/yt-pending--> |
+| 20/10/2026 | <!--yt-pending GfeXJXgsfh8 short-->10. Reset de senha: confirmar a nova senha<!--/yt-pending--> |
+| 22/10/2026 | <!--yt-pending 36IzuFs9NoY short-->11. person: model Employee e form<!--/yt-pending--> |
+| 24/10/2026 | <!--yt-pending t6xov5ucwAc short-->12. person: views com permissões<!--/yt-pending--> |
+| 26/10/2026 | <!--yt-pending PQPoX2Pj14I short-->13. person: urls e admin<!--/yt-pending--> |
+| 28/10/2026 | <!--yt-pending 7E86xgWd31I short-->14. Lista de funcionários com Emmet<!--/yt-pending--> |
+| 30/10/2026 | <!--yt-pending Lwnzy3fhyuM short-->15. Form e confirmação de exclusão<!--/yt-pending--> |
+| 01/11/2026 | <!--yt-pending XcGmd8gh5v4 short-->16. Comando create_groups: Vendedor e Gerente<!--/yt-pending--> |
+| 03/11/2026 | <!--yt-pending ydEBp9u2urE short-->17. Subindo tudo: migrate, grupos e usuários<!--/yt-pending--> |
+| 05/11/2026 | <!--yt-pending W_8__T2Lxg4 short-->18. Navegando: o vendedor cadastra, mas não exclui<!--/yt-pending--> |
+| 07/11/2026 | <!--yt-pending d5As5VHoWlg short-->19. Navegando: o gerente edita e exclui<!--/yt-pending--> |
+| 09/11/2026 | <!--yt-pending 56byLG5r9Zw short-->20. Navegando: reset de senha pelo Mailpit<!--/yt-pending--> |
+| 11/11/2026 | <!--yt-pending FF5NhPLtWSw short-->21. Navegando: grupos e permissões no admin<!--/yt-pending--> |
