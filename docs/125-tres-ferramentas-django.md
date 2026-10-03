@@ -6,6 +6,9 @@
 
 <!--/agendado-->
 
+**Testado com:** Django 6.1.1 e Python 3.14.
+{: .versoes }
+
 <!--yt-block JmpU-HeKBc4 short-->
 
 1. **Django Debug Toolbar**: mostra as consultas de cada página. No exemplo, a listagem fez 51 consultas; com `select_related`, caiu para 1.

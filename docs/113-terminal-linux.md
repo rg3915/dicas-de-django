@@ -2,6 +2,9 @@
 
 Publicado em 11/02/2026.
 
+**Testado com:** comandos de terminal que valem para qualquer versão do Django e do Python 3.
+{: .versoes }
+
 <a href="https://youtu.be/LKwDAQDrCRo">
     <img src="../.gitbook/assets/youtube.png">
 </a>

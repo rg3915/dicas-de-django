@@ -2,6 +2,9 @@
 
 Publicado em 14/07/2025.
 
+**Testado com:** Django 5.2.3 e Python 3.10 ou superior.
+{: .versoes }
+
 <a href="https://youtu.be/DGoSA9T-1Qc">
     <img src="../.gitbook/assets/youtube.png">
 </a>

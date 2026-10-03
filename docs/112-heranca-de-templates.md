@@ -2,6 +2,9 @@
 
 Publicado em 23/01/2026.
 
+**Testado com:** Python 3.7 ou superior e Jinja2 3.1.6 (a herança funciona igual nos templates do Django).
+{: .versoes }
+
 <a href="https://youtu.be/poGZ0IXKBEw">
     <img src="../.gitbook/assets/youtube.png">
 </a>

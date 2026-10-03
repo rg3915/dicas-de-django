@@ -6,6 +6,9 @@
 
 <!--/agendado-->
 
+**Testado com:** Django 6.1.1, Copier e Python 3.14.
+{: .versoes }
+
 <!--yt-block -TBGoqLYYxA video-->
 
 Documentação do Copier: [https://copier.readthedocs.io/](https://copier.readthedocs.io/)

@@ -2,6 +2,9 @@
 
 Publicado em 03/01/2026.
 
+**Testado com:** Django 6.0, HTMX 2 e Python 3.12.
+{: .versoes }
+
 <a href="https://youtu.be/tsoBSDNiX2c">
     <img src="../.gitbook/assets/youtube.png">
 </a>

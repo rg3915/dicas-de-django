@@ -2,6 +2,9 @@
 
 Publicado em 02/03/2026.
 
+**Testado com:** atualização do Django 4.0 com Python 3.10 para o Django 6.0 com Python 3.14.2.
+{: .versoes }
+
 <a href="https://youtu.be/R1IiagAoZio">
     <img src="../.gitbook/assets/youtube.png">
 </a>

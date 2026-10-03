@@ -1,5 +1,8 @@
 # Shorts Junior vs Senior - 19 dicas de Django
 
+**Testado com:** Django 6.1; cada dica diz em que versão o recurso apareceu.
+{: .versoes }
+
 Série de shorts no estilo "Junior vs Senior": o jeito do Junior em cima, o do Senior embaixo. Um short a cada três dias. Os que ainda não saíram já estão agendados para a data indicada.
 
 | Data | Short |

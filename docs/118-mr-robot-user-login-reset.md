@@ -2,6 +2,9 @@
 
 Publicado em 24/09/2026.
 
+**Testado com:** Django 6.0.8, Python 3.13 (no Docker) e PostgreSQL 17.
+{: .versoes }
+
 <a href="https://youtu.be/nq1uZju7IW8">
     <img src="../.gitbook/assets/youtube.png">
 </a>

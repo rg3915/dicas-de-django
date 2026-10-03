@@ -6,6 +6,9 @@
 
 <!--/agendado-->
 
+**Testado com:** Django 6.1.1, PostgreSQL 18 e Python 3.14.
+{: .versoes }
+
 <!--yt-block ikCqYsBHr6k short-->
 
 O SQLite ignora o `max_length`: um `CharField(max_length=10)` aceita 18 letras, calado. O PostgreSQL dá `DataError` na hora, e é esse erro que você quer ver na sua máquina, não no seu cliente.
