@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{titulo_pagina}}</title>
+<meta name="description" content="{{descricao}}">
+<meta property="og:title" content="{{titulo_pagina}}">
+<meta property="og:description" content="{{descricao}}">
+<meta property="og:type" content="article">
+<script>try{var q=new URLSearchParams(location.search).get('tema');var t=q||localStorage.getItem('tema');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Recursive:slnt,wght,CASL,MONO@-15..0,300..900,0..1,0..1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{raiz}}assets/site.css">
+<link rel="stylesheet" href="{{raiz}}assets/code.css">
+<link rel="icon" href="{{raiz}}assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+<header class="topo">
+  <button class="menu" type="button" aria-label="Abrir a lista de dicas" aria-expanded="false" data-menu>Dicas</button>
+  <a class="marca" href="{{raiz}}"><b>dicas de django</b><span>por Regis do Python</span></a>
+  <div class="busca" role="search">
+    <input type="search" placeholder="Buscar dicas" aria-label="Buscar dicas" data-busca data-raiz="{{raiz}}">
+    <kbd>/</kbd>
+    <ol class="resultados" data-resultados hidden></ol>
+  </div>
+  <nav class="links"><a href="{{youtube}}">YouTube</a><a href="{{repo}}">GitHub</a></nav>
+  <button class="tema" type="button" data-tema aria-label="Alternar tema claro e escuro">Tema</button>
+</header>
+
+<div class="grade">
+  <aside class="lateral" aria-label="Todas as dicas" data-lateral>
+{{lateral}}
+  </aside>
+
+  <main id="conteudo">
+    <article>
+      <div class="trilha"><a href="{{raiz}}">Dicas</a> / {{secao}}</div>
+      <div class="cabeca{{numero_classe}}">
+        <div class="numero" aria-hidden="true">{{numero}}</div>
+        <div>
+          <h1>{{titulo}}</h1>
+          <div class="meta">{{minutos}} min de leitura</div>
+        </div>
+      </div>
+      <div class="corpo">
+{{corpo}}
+      </div>
+      <p class="editar"><a href="{{editar}}">Sugerir uma correção nesta página</a></p>
+      {{vizinhos}}
+    </article>
+  </main>
+
+  {{toc}}
+</div>
+<script src="{{raiz}}assets/site.js" defer></script>
+</body>
+</html>

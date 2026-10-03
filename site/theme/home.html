@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<base href="{{base}}">
+<title>Dicas de Django | Regis do Python</title>
+<meta name="description" content="Tutoriais de Django em português, com o código completo de cada vídeo do canal Regis do Python.">
+<meta property="og:title" content="Dicas de Django">
+<meta property="og:description" content="Tutoriais de Django em português, com o código completo de cada vídeo do canal Regis do Python.">
+<script>try{var q=new URLSearchParams(location.search).get('tema');var t=q||localStorage.getItem('tema');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Recursive:slnt,wght,CASL,MONO@-15..0,300..900,0..1,0..1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+<header class="topo">
+  <button class="menu" type="button" aria-label="Abrir a lista de dicas" aria-expanded="false" data-menu>Dicas</button>
+  <a class="marca" href="./"><b>dicas de django</b><span>por Regis do Python</span></a>
+  <div class="busca" role="search">
+    <input type="search" placeholder="Buscar dicas" aria-label="Buscar dicas" data-busca data-raiz="">
+    <kbd>/</kbd>
+    <ol class="resultados" data-resultados hidden></ol>
+  </div>
+  <nav class="links"><a href="{{youtube}}">YouTube</a><a href="{{repo}}">GitHub</a></nav>
+  <button class="tema" type="button" data-tema aria-label="Alternar tema claro e escuro">Tema</button>
+</header>
+
+<div class="grade">
+  <aside class="lateral" aria-label="Todas as dicas" data-lateral>
+{{lateral}}
+  </aside>
+
+  <main id="conteudo" class="inicio">
+    <h1>Django em português, do jeito que se usa no trabalho.</h1>
+    <p class="lead">São {{total}} dicas com o código completo e a explicação de cada vídeo do canal Regis do Python. Copie, rode e adapte no seu projeto.</p>
+    <h2>Dicas mais recentes</h2>
+    <ol class="recentes">{{recentes}}</ol>
+    <p class="todas">As dicas mais antigas estão na lista ao lado, organizadas por série.</p>
+  </main>
+</div>
+<script src="assets/site.js" defer></script>
+</body>
+</html>
