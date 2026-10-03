@@ -145,3 +145,12 @@ code { font-family: inherit; font-variation-settings: "MONO" 1; font-size: .88em
   .vizinhos { grid-template-columns: 1fr; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+/* thumb do vídeo no começo da dica */
+.capa { position: relative; display: block; margin: 6px 0 28px; border-radius: 12px; overflow: hidden; border: 1px solid var(--line); background: var(--code-bg); }
+.capa img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+.capa-play { position: absolute; left: 50%; top: 50%; width: 68px; height: 48px; margin: -24px 0 0 -34px; border-radius: 12px; background: rgba(18, 58, 44, .82); transition: background .15s; }
+.capa-play::after { content: ""; position: absolute; left: 27px; top: 14px; border-style: solid; border-width: 10px 0 10px 17px; border-color: transparent transparent transparent #fff; }
+.capa:hover .capa-play, .capa:focus-visible .capa-play { background: #c4302b; }
+.capa-menor { max-width: 420px; margin: 10px 0 18px; }
+.capa-menor .capa-play { transform: scale(.75); }

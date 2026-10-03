@@ -138,6 +138,36 @@ def ajustar_titulos(corpo):
     return re.sub(r'<(/?)h([1-6])(\b[^>]*)>', troca, corpo)
 
 
+def miniatura(video, rotulo, classe='capa'):
+    return (
+        f'<a class="{classe}" href="https://www.youtube.com/watch?v={video}">'
+        f'<img src="https://i.ytimg.com/vi/{video}/maxresdefault.jpg" '
+        f'onerror="this.onerror=null;this.src=\'https://i.ytimg.com/vi/{video}/hqdefault.jpg\'" '
+        f'alt="Assistir ao vídeo no YouTube: {html.escape(rotulo)}" width="1280" height="720" decoding="async"'
+        + (' fetchpriority="high">' if classe == 'capa' else ' loading="lazy">')
+        + '<span class="capa-play" aria-hidden="true"></span></a>\n'
+    )
+
+
+def selos_viram_miniaturas(corpo, agendados):
+    # os outros selos "YouTube" (vídeos relacionados) também viram thumb
+    def troca(m):
+        video = youtube_id(m.group(0))
+        if not video or video in agendados:
+            return m.group(0)
+        return miniatura(video, 'vídeo relacionado', 'capa capa-menor')
+    return re.sub(r'<a\b[^>]*href="[^"]*"[^>]*>\s*<img\b[^>]*youtube\.png[^>]*>\s*</a>', troca, corpo, flags=re.S)
+
+
+def capa_do_video(corpo, video, titulo):
+    # tira o selo "YouTube" que aponta para o mesmo vídeo e põe a thumb no começo
+    selo = r'<a\b[^>]*href="[^"]*' + re.escape(video) + r'[^"]*"[^>]*>\s*<img\b[^>]*youtube\.png[^>]*>\s*</a>'
+    corpo = re.sub(r'<p>\s*' + selo + r'\s*</p>', '', corpo, count=1, flags=re.S)
+    corpo = re.sub(selo, '', corpo, count=1, flags=re.S)
+    capa = miniatura(video, titulo)
+    return capa + corpo
+
+
 def codigo_focavel(corpo):
     # blocos com rolagem horizontal precisam receber foco pelo teclado
     return re.sub(r'<pre(?![^>]*tabindex)', '<pre tabindex="0"', corpo)
@@ -146,6 +176,19 @@ def codigo_focavel(corpo):
 def youtube_id(texto):
     m = re.search(r'youtu(?:\.be/|be\.com/(?:watch\?v=|shorts/|embed/))([\w-]{11})', texto)
     return m.group(1) if m else None
+
+
+def videos_agendados(texto):
+    # ids marcados como ainda não publicados (o script diário tira o marcador quando o vídeo sai)
+    return set(re.findall(r'<!--\s*(?:yt-pending|yt-block)\s+([\w-]{11})', texto))
+
+
+def primeiro_video_publicado(texto):
+    agendados = videos_agendados(texto)
+    for m in re.finditer(r'youtu(?:\.be/|be\.com/(?:watch\?v=|shorts/|embed/))([\w-]{11})', texto):
+        if m.group(1) not in agendados:
+            return m.group(1)
+    return None
 
 
 def data_publicacao(texto):
@@ -264,6 +307,8 @@ def main():
     shutil.copytree(ROOT / '.gitbook' / 'assets', OUT / 'assets', dirs_exist_ok=True)
     if (ROOT / 'img').exists():
         shutil.copytree(ROOT / 'img', OUT / 'img')
+    if (ROOT / 'site' / 'capas').exists():
+        shutil.copytree(ROOT / 'site' / 'capas', OUT / 'capas')
     for f in THEME.iterdir():
         if f.suffix in ('.css', '.js', '.svg', '.png', '.ico'):
             shutil.copy(f, OUT / 'assets' / f.name)
@@ -286,10 +331,18 @@ def main():
         titulo = h1 or it['nome']
         url = f'{SITE_URL}/{it["slug"]}/'
         desc = descricao(corpo, titulo)
-        video = youtube_id(bruto)
-        pendente = 'yt-pending' in bruto or 'yt-block' in bruto or 'agendado' in bruto
+        video = primeiro_video_publicado(bruto)
+        pendente = video is None
         data = data_publicacao(bruto)
-        imagem = f'https://i.ytimg.com/vi/{video}/hqdefault.jpg' if video and not pendente else f'{SITE_URL}/assets/og.png'
+        imagem = f'https://i.ytimg.com/vi/{video}/hqdefault.jpg' if video else f'{SITE_URL}/assets/og.png'
+        if not video and (ROOT / 'site' / 'capas' / f'{it["slug"]}.jpg').exists():
+            imagem = f'{SITE_URL}/capas/{it["slug"]}.jpg'
+        if video:
+            corpo = selos_viram_miniaturas(capa_do_video(corpo, video, titulo), videos_agendados(bruto))
+        elif (ROOT / 'site' / 'capas' / f'{it["slug"]}.jpg').exists():
+            # vídeo agendado: thumb aprovada até a estreia, sem link
+            corpo = (f'<figure class="capa"><img src="../capas/{it["slug"]}.jpg" alt="Thumb do vídeo {html.escape(titulo)}, '
+                     f'que estreia em breve no canal" width="1280" height="720" fetchpriority="high"></figure>\n') + corpo
         artigo = {
             '@context': 'https://schema.org', '@type': 'TechArticle', 'headline': titulo[:110],
             'description': desc, 'url': url, 'mainEntityOfPage': url, 'inLanguage': 'pt-BR',
