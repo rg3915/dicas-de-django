@@ -14,6 +14,7 @@ import shutil
 import sys
 from pathlib import Path
 from urllib.parse import quote
+from urllib.request import Request, urlopen
 
 import markdown
 from pygments.formatters import HtmlFormatter
@@ -138,11 +139,33 @@ def ajustar_titulos(corpo):
     return re.sub(r'<(/?)h([1-6])(\b[^>]*)>', troca, corpo)
 
 
+_thumbs = {}
+
+
+def thumb_do_video(video):
+    # nem todo vídeo tem a thumb em alta (maxresdefault); quando falta, o YouTube
+    # devolve uma imagem cinza de 120x90 com status 404, então conferimos antes
+    if video not in _thumbs:
+        _thumbs[video] = f'https://i.ytimg.com/vi/{video}/hqdefault.jpg'
+        for nome in ('maxresdefault', 'sddefault'):
+            url = f'https://i.ytimg.com/vi/{video}/{nome}.jpg'
+            try:
+                with urlopen(Request(url, method='HEAD'), timeout=10) as r:
+                    if r.status == 200:
+                        _thumbs[video] = url
+                        break
+            except Exception:
+                continue
+    return _thumbs[video]
+
+
 def miniatura(video, rotulo, classe='capa'):
+    reserva = f'https://i.ytimg.com/vi/{video}/hqdefault.jpg'
     return (
         f'<a class="{classe}" href="https://www.youtube.com/watch?v={video}">'
-        f'<img src="https://i.ytimg.com/vi/{video}/maxresdefault.jpg" '
-        f'onerror="this.onerror=null;this.src=\'https://i.ytimg.com/vi/{video}/hqdefault.jpg\'" '
+        f'<img src="{thumb_do_video(video)}" data-reserva="{reserva}" '
+        f'onerror="this.onerror=null;this.src=this.dataset.reserva" '
+        f'onload="if(this.naturalWidth<=120&&this.src!==this.dataset.reserva)this.src=this.dataset.reserva" '
         f'alt="Assistir ao vídeo no YouTube: {html.escape(rotulo)}" width="1280" height="720" decoding="async"'
         + (' fetchpriority="high">' if classe == 'capa' else ' loading="lazy">')
         + '<span class="capa-play" aria-hidden="true"></span></a>\n'
