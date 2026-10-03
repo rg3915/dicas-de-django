@@ -2,9 +2,7 @@
 
 Em 02 de Abril de 2025 saiu o [Django 5.2](https://docs.djangoproject.com/en/5.2/releases/5.2/).
 
-Veja o video no YouTube em breve.
-
-<a href="">
+<a href="https://youtu.be/1ZYXecnJzOA">
     <img src="../.gitbook/assets/youtube.png">
 </a>
 
