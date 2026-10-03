@@ -23,8 +23,8 @@ jobs:
         with:
           python-version: '3.12'
       - run: pip install markdown pygments
-      # Com domínio próprio, troque SITE_BASE para "/" (Settings > Secrets and variables > Variables).
-      - run: python site/build.py --base "${{ vars.SITE_BASE || '/dicas-de-django/' }}"
+      # Sem domínio próprio, defina SITE_BASE como "/dicas-de-django/" (Settings > Secrets and variables > Variables).
+      - run: python site/build.py --base "${{ vars.SITE_BASE || '/' }}"
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
