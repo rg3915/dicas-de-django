@@ -1,24 +1,46 @@
 # Dica 13 - Dashboard com Django e Tailwind CSS
 
+**Versões usadas no vídeo:** Django 4.1.3, Python 3.10 e Tailwind CSS 3.2.4 (CSS já compilado do template Windster).
+{: .versoes }
+
 <a href="https://youtu.be/mTpJx4_rTJQ">
     <img src="../.gitbook/assets/youtube.png">
 </a>
 
-**Importante:** remova a `\` no meio das tags.
+**Importante:** nas versões antigas desta página as tags de template apareciam com uma `\` no meio (`{\%`), por causa do GitBook. Aqui elas já estão escritas do jeito certo, sem a barra.
 
 ![](../.gitbook/assets/tags.png)
 
+Código: [https://github.com/rg3915/dicas-de-django](https://github.com/rg3915/dicas-de-django) (branch `aula13`)
 
-Edite `index.html`
+Vamos criar o **dashboard** (a área interna) do *Projeto Dicas de Django*. Em vez de desenhar tudo do zero, usamos o **Windster**, um template de dashboard gratuito e de código aberto feito com Tailwind CSS pela Themesberg ([demo](https://demo.themesberg.com/windster/) e [código no GitHub](https://github.com/themesberg/tailwind-dashboard-windster)). Ele tem menu lateral, barra superior, gráfico, tabelas e cards, e nós vamos quebrá-lo em templates do Django: um `base.html` com a estrutura, três *includes* (barra superior, menu lateral e rodapé) e a página `dashboard.html`.
 
-```html
-<a href="{\% url 'core:dashboard' %}" class="text-gray-600 hover:text-purple-600 p-4 px-3 sm:px-4">Home</a>
+Esta dica continua a [Dica 12 - Fale conosco com formulário para enviar mensagem](072-012-fale-co-nosco-form-email.md). Até aqui o projeto só tinha a página inicial (`index.html`, a landpage da [Dica 11](071-11-landpage.md)), que é um template independente e não herda do `base.html`.
+
+## Pré-requisitos
+
+* O projeto das dicas anteriores, com a app `core` em `backend/core`.
+* Os dois arquivos estáticos do Windster já compilados (veja a seção *Arquivos estáticos*, mais abaixo).
+
+No vídeo, o Regis cria a branch da aula:
+
+```bash
+git checkout -b aula13
 ```
 
-Edite `core/urls.py`
+## A rota do dashboard
+
+No `index.html`, o link **Home** do menu passa a apontar para o dashboard:
+
+```html
+<!-- backend/core/templates/index.html -->
+<a href="{% url 'core:dashboard' %}" class="text-gray-600 hover:text-purple-600 p-4 px-3 sm:px-4">Home</a>
+```
+
+Em `core/urls.py`, copie a linha da `index` e crie a rota `dashboard/`:
 
 ```python
-# core/urls.py
+# backend/core/urls.py
 from django.urls import path
 
 from backend.core import views as v
@@ -32,20 +54,56 @@ urlpatterns = [
 ]
 ```
 
-Edite `core/views.py`
+E em `core/views.py`, a view `dashboard` é uma cópia da `index` que renderiza outro template:
 
 ```python
-# core/views.py
+# backend/core/views.py
+from django.shortcuts import render
+
+
+def index(request):
+    template_name = 'index.html'
+    return render(request, template_name)
+
+
 def dashboard(request):
     template_name = 'dashboard.html'
     return render(request, template_name)
 ```
 
-Edite `base.html`
+## Arquivos estáticos
+
+O Windster usa classes do Tailwind CSS 3 e um JavaScript próprio (que inclui o [ApexCharts](https://apexcharts.com/), usado no gráfico de vendas, e o abre e fecha do menu no celular). No vídeo, o Regis compilou o projeto do Windster e copiou os dois arquivos gerados para dentro da app `core`:
+
+```
+backend/core/static/
+├── css
+│   └── app.css          # Tailwind CSS 3.2.4 compilado, com as classes do Windster
+└── js
+    └── app.bundle.js    # JavaScript do Windster (com o ApexCharts)
+```
+
+Não precisa compilar nada: baixe os dois arquivos prontos do repositório (branch `aula13`) e salve nesses caminhos:
+
+* [backend/core/static/css/app.css](https://github.com/rg3915/dicas-de-django/blob/aula13/backend/core/static/css/app.css)
+* [backend/core/static/js/app.bundle.js](https://github.com/rg3915/dicas-de-django/blob/aula13/backend/core/static/js/app.bundle.js)
+
+Repare que o dashboard **não** usa o Tailwind pela CDN, como a landpage: ele usa o `app.css` compilado, que só tem as classes usadas pelo Windster.
+
+## O template base
+
+O `base.html` foi trocado pela estrutura do Windster. Os pontos importantes:
+
+* carrega a fonte Inter do Google Fonts, o `css/app.css` e, no fim do `<body>`, o `js/app.bundle.js`;
+* inclui a barra superior (`includes/nav.html`) e, dentro de um `div` flexível, o menu lateral (`includes/aside.html`);
+* o `div#sidebarBackdrop` é o fundo escuro que aparece atrás do menu quando ele é aberto no celular;
+* o `div#main-content` (com `lg:ml-64`, a largura do menu lateral) recebe o `{% block content %}` e o rodapé (`includes/footer.html`).
+
+As `<meta>` de Twitter e Facebook vieram junto com o template original e não fazem diferença para o funcionamento.
 
 ```html
-<!-- base.html -->
-{\% load static %}
+<!-- backend/core/templates/base.html -->
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -62,7 +120,7 @@ Edite `base.html`
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{\% static 'css/app.css' %}">
+    <link rel="stylesheet" href="{% static 'css/app.css' %}">
     <link rel="apple-touch-icon" sizes="180x180" href="https://demo.themesberg.com/windster/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="https://demo.themesberg.com/windster/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="https://demo.themesberg.com/windster/favicon-16x16.png">
@@ -89,31 +147,39 @@ Edite `base.html`
   </head>
   <body class="bg-gray-50">
 
-    {\% include "includes/nav.html" %}
+    {% include "includes/nav.html" %}
     <div class="flex overflow-hidden bg-white pt-16">
 
-      {\% include "includes/aside.html" %}
+      {% include "includes/aside.html" %}
 
       <div class="bg-gray-900 opacity-50 hidden fixed inset-0 z-10" id="sidebarBackdrop"></div>
 
       <div id="main-content" class="h-full w-full bg-gray-50 relative overflow-y-auto lg:ml-64">
-        {\% block content %}{\% endblock content %}
-        {\% include "includes/footer.html" %}
+        {% block content %}{% endblock content %}
+        {% include "includes/footer.html" %}
 
       </div>
 
     </div>
 
     <script async defer src="https://buttons.github.io/buttons.js"></script>
-    <script src="{\% static 'js/app.bundle.js' %}"></script>
+    <script src="{% static 'js/app.bundle.js' %}"></script>
   </body>
 </html>
 ```
 
-Edite `includes/aside.html`
+## O menu lateral
+
+Crie o arquivo do menu lateral:
+
+```bash
+touch backend/core/templates/includes/aside.html
+```
+
+Ele tem um campo de busca (visível só no celular), os itens do menu e links para a documentação do Flowbite. Por enquanto, só o item **Dashboard** aponta para uma URL do projeto (`core:dashboard`); **Usuários**, **Produtos**, **Login** e **Cadastre-se** ficam com `href=""` e serão ligados nas próximas dicas.
 
 ```html
-<!-- includes/aside.html -->
+<!-- backend/core/templates/includes/aside.html -->
 <aside id="sidebar" class="fixed hidden z-20 h-full top-0 left-0 pt-16 flex lg:flex flex-shrink-0 flex-col w-64 transition-width duration-75" aria-label="Sidebar">
   <div class="relative flex-1 flex flex-col min-h-0 border-r border-gray-200 bg-white pt-0">
     <div class="flex-1 flex flex-col pt-5 pb-4 overflow-y-auto">
@@ -131,7 +197,7 @@ Edite `includes/aside.html`
             </form>
           </li>
           <li>
-            <a href="{\% url 'core:dashboard' %}" class="text-base text-gray-900 font-normal rounded-lg flex items-center p-2 hover:bg-gray-100 group">
+            <a href="{% url 'core:dashboard' %}" class="text-base text-gray-900 font-normal rounded-lg flex items-center p-2 hover:bg-gray-100 group">
               <svg class="w-6 h-6 text-gray-500 group-hover:text-gray-900 transition duration-75" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path><path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path></svg>
               <span class="ml-3">Dashboard</span>
             </a>
@@ -181,10 +247,18 @@ Edite `includes/aside.html`
 </aside>
 ```
 
-Edite `includes/nav.html`
+## A barra superior
+
+Crie também o `nav.html`:
+
+```bash
+touch backend/core/templates/includes/nav.html
+```
+
+É a barra fixa no topo, com o botão que abre e fecha o menu lateral no celular (`#toggleSidebarMobile`, controlado pelo `app.bundle.js`), o nome **Dicas de Django**, o campo de busca e o botão de estrela do GitHub do Windster (o script `buttons.github.io/buttons.js` do `base.html` desenha esse botão).
 
 ```html
-<!-- includes/nav.html -->
+<!-- backend/core/templates/includes/nav.html -->
 <nav class="bg-white border-b border-gray-200 fixed z-30 w-full">
   <div class="px-3 py-3 lg:px-5 lg:pl-3">
     <div class="flex items-center justify-between">
@@ -226,17 +300,19 @@ Edite `includes/nav.html`
 </nav>
 ```
 
-Edite `includes/footer.html`
+## O rodapé
+
+O `includes/footer.html` já existia (era o rodapé do `base.html` antigo). Apague o conteúdo dele e coloque o rodapé do Windster, com os links institucionais, os ícones de redes sociais e o crédito:
 
 ```html
-<!-- includes/footer.html -->
+<!-- backend/core/templates/includes/footer.html -->
 <footer class="bg-white md:flex md:items-center md:justify-between shadow rounded-lg p-4 md:p-6 xl:p-8 my-6 mx-4">
   <ul class="flex items-center flex-wrap mb-6 md:mb-0">
     <li><a href="#" class="text-sm font-normal text-gray-500 hover:underline mr-4 md:mr-6">Terms and conditions</a></li>
     <li><a href="#" class="text-sm font-normal text-gray-500 hover:underline mr-4 md:mr-6">Privacy Policy</a></li>
     <li><a href="#" class="text-sm font-normal text-gray-500 hover:underline mr-4 md:mr-6">Licensing</a></li>
     <li><a href="#" class="text-sm font-normal text-gray-500 hover:underline mr-4 md:mr-6">Cookie Policy</a></li>
-    <li><a href="{\% url 'core:index' %}#contato" class="text-sm font-normal text-gray-500 hover:underline">Contact</a></li>
+    <li><a href="{% url 'core:index' %}#contato" class="text-sm font-normal text-gray-500 hover:underline">Contact</a></li>
   </ul>
   <div class="flex sm:justify-center space-x-6">
     <a href="#" class="text-gray-500 hover:text-gray-900">
@@ -271,13 +347,15 @@ Edite `includes/footer.html`
 </p>
 ```
 
-Edite `dashboard.html`
+## A página do dashboard
+
+Por fim, crie o `dashboard.html`. Ele herda do `base.html` e preenche o `{% block content %}` com o conteúdo de exemplo do Windster: o card de vendas da semana com o gráfico (o `div#main-chart`, desenhado pelo ApexCharts do `app.bundle.js`), a tabela de últimas transações, três cards de indicadores, a lista de últimos clientes e a tabela de origem dos acessos. Os dados são fixos no HTML; a ideia aqui é ter o layout pronto.
 
 ```html
-<!-- dashboard.html -->
-{\% extends "base.html" %}
+<!-- backend/core/templates/dashboard.html -->
+{% extends "base.html" %}
 
-{\% block content %}
+{% block content %}
   <main>
 
     <div class="pt-6 px-4">
@@ -694,14 +772,20 @@ Edite `dashboard.html`
       </div>
     </div>
   </main>
-{\% endblock content %}
+{% endblock content %}
 ```
 
-Baixar
+## Rodando
 
-[backend/core/static/css/app.css](https://github.com/rg3915/dicas-de-django/blob/main/backend/core/static/css/app.css)
+```bash
+python manage.py runserver
+```
 
-[backend/core/static/css/app.bundle.js](https://github.com/rg3915/dicas-de-django-2023/blob/main/backend/core/static/js/app.bundle.js)
+Abra [http://localhost:8000](http://localhost:8000) e clique em **Home** no menu da landpage: você vai para [http://localhost:8000/dashboard/](http://localhost:8000/dashboard/), com o menu lateral, a barra superior, o gráfico de vendas, as tabelas e o rodapé.
+
+Se aparecer `TemplateDoesNotExist` para algum dos *includes* (no vídeo aconteceu com o `nav.html`), confira se o arquivo foi salvo em `backend/core/templates/includes/`.
+
+O visual do dashboard (verde-água, do Windster) ficou diferente do da landpage (roxo). Fica como exercício trocar as cores para deixar os dois parecidos.
 
 ## Links
 
