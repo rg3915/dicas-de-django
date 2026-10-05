@@ -47,45 +47,7 @@ stateDiagram-v2
         EscolhaTipo --> PessoaFisica : Seleciona PF
         EscolhaTipo --> PessoaJuridica : Seleciona PJ
     }
-
-    state Identificacao {
-        [*] --> DadosBasicos
-        state DadosBasicos {
-            Nome
-            Email
-        }
-    }
-
-    state Documentos {
-        state DocumentosPF {
-            CPF
-            RG
-        }
-
-        state DocumentosPJ {
-            CNPJ
-            RazaoSocial
-        }
-    }
-
-    state Endereco {
-        [*] --> DadosEndereco
-        state DadosEndereco {
-            CEP
-            Logradouro
-            Complemento
-            Cidade
-            UF
-        }
-    }
-
-    state Confirmacao {
-        state ExibeDados {
-            DadosPessoais
-            DadosDocumentos
-            DadosEndereço
-        }
-    }
+    %% ... (veja o arquivo completo no GitHub)
 
     Inicio --> Identificacao : Após escolha do tipo
 
@@ -99,18 +61,9 @@ stateDiagram-v2
     Confirmacao --> Endereco : Anterior
 
     Confirmacao --> [*] : Finalizar Cadastro
-
-    note right of Documentos
-        Se PF: Mostra DocumentosPF
-        Se PJ: Mostra DocumentosPJ
-    end note
-
-    note right of Confirmacao
-        Exibe todos os dados
-        preenchidos para revisão
-        final
-    end note
 ```
+
+Código completo: [stateDiagram.mermaid](https://github.com/rg3915/form-wizard-state-machine/blob/af7542d8b730766440da42f10ef0029e5bc6d9c2/stateDiagram.mermaid)
 
 Cole esse conteúdo em [https://mermaid.live/](https://mermaid.live/) para ver o desenho. Desenhar o diagrama antes do código é a melhor parte do padrão: o código passa a ser uma tradução direta dele.
 
@@ -144,28 +97,7 @@ const formWizard = () => ({
   states: ['inicio', 'identificacao', 'documentos', 'endereco', 'confirmacao'],
   currentState: 'inicio',
   tipo: null,
-  // Adiciona estado para o toast
-  toast: {
-    message: '',
-    visible: false,
-    removing: false,
-    type: 'success',
-    timeoutId: null
-  },
-  form: {
-    nome: '',
-    email: '',
-    cpf: '',
-    rg: '',
-    cnpj: '',
-    razaoSocial: '',
-    cep: '',
-    logradouro: '',
-    complemento: '',
-    bairro: '',
-    cidade: '',
-    uf: ''
-  },
+  /* ... (toast e form: veja o arquivo completo no GitHub) */
 
   resetForm() {
     this.form = {
@@ -196,19 +128,7 @@ const formWizard = () => ({
     this.tipo = tipo
     this.setState('identificacao')
   },
-
-  // Verifica se já passou por determinado estado
-  hasPassedState(state) {
-    // Obtém o índice do estado atual no array
-    const currentIndex = this.states.indexOf(this.currentState)
-
-    // Obtém o índice do estado que queremos verificar
-    const stateIndex = this.states.indexOf(state)
-
-    // Retorna true se o estado verificado está antes do atual
-    return stateIndex < currentIndex
-
-  },
+  /* ... */
 
   // Avança para o próximo estado
   nextState() {
@@ -221,90 +141,11 @@ const formWizard = () => ({
       this.currentState = this.states[currentIndex + 1]
     }
   },
-
-  // Retorna ao estado anterior
-  prevState() {
-    // Obtém o índice do estado atual
-    const currentIndex = this.states.indexOf(this.currentState)
-
-    // Verifica se não é o primeiro estado
-    if (currentIndex > 0) {
-      // Volta para o estado anterior
-      this.currentState = this.states[currentIndex - 1]
-    }
-  },
-
-  // Manipula o envio do formulário
-  handleSubmit() {
-    console.log('Formulário enviado:', {
-      tipo: this.tipo,
-      dados: this.form
-    })
-    this.showToast('Cadastro realizado com sucesso!')
-    // Reset e retorno ao início
-    this.resetForm()
-    this.setState('inicio')
-  },
-
-  // Função para mostrar toast
-  showToast(message, type = 'success') {
-    // Limpa timeout anterior se existir
-    if (this.toast.timeoutId) {
-      clearTimeout(this.toast.timeoutId)
-    }
-
-    // Reset do estado do toast
-    this.toast.removing = false
-    this.toast.message = message
-    this.toast.type = type
-    this.toast.visible = true
-
-    // Auto-hide após 3 segundos
-    this.toast.timeoutId = setTimeout(() => {
-      this.hideToast()
-    }, 3000)
-  },
-
-  // Função para esconder toast com animação
-  hideToast() {
-    this.toast.removing = true
-
-    // Aguarda a animação terminar antes de esconder
-    setTimeout(() => {
-      this.toast.visible = false
-      this.toast.removing = false
-    }, 300)
-
-    // Limpa o timeout se existir
-    if (this.toast.timeoutId) {
-      clearTimeout(this.toast.timeoutId)
-    }
-  },
-
-  // Função para pesquisar o CEP no viacep
-  getAddressByCep(cep) {
-    if (cep.length !== 8 && cep.length !== 9) {
-      return Promise.reject(new Error('Invalid CEP length'))
-    }
-
-    return fetch(`https://viacep.com.br/ws/${cep}/json/`)
-      .then(response => response.json())
-      .then(data => {
-        // Update input fields
-        this.form.logradouro = data.logradouro
-        this.form.bairro = data.bairro
-        this.form.cidade = data.localidade
-        this.form.uf = data.uf
-
-        console.log('Address updated:', data)
-      })
-      .catch(error => {
-        console.error(error.message)
-      })
-  },
-
+  /* ... (veja o arquivo completo no GitHub) */
 })
 ```
+
+Código completo: [assets/js/main.js](https://github.com/rg3915/form-wizard-state-machine/blob/af7542d8b730766440da42f10ef0029e5bc6d9c2/assets/js/main.js)
 
 Vamos por partes.
 
@@ -338,58 +179,10 @@ Para acrescentar uma etapa nova, basta incluir o nome no array `states` na posi�
 
 ```html
 <!-- index.html -->
-<!DOCTYPE html>
-<html lang="pt-BR">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="https://picocss.com/favicon.svg" type="image/svg+xml">
-
-  <title>Form Wizard - Máquina de Estado</title>
-
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
-  <link rel="stylesheet" href="assets/css/style.css">
-
-  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.0/dist/cdn.min.js"></script>
-</head>
-
+<!-- ... -->
 <body>
   <div class="container" x-data="formWizard()">
-    <!-- START Toast container -->
-    <div class="toast-container">
-      <div
-        class="toast"
-        :class="{
-          'visible': toast.visible,
-          'removing': toast.removing,
-          'success': toast.type === 'success',
-          'error': toast.type === 'error'
-        }"
-        @click="hideToast"
-        x-show="toast.visible"
-      >
-        <span x-text="toast.message"></span>
-        <span class="toast-close">×</span>
-      </div>
-    </div>
-    <!-- END Toast container -->
-
-    <header>
-      <h1>Cadastro de Pessoa</h1>
-    </header>
-
-    <!-- START Seleção do tipo de cadastro -->
-    <section class="tipo-cadastro" x-show="currentState === 'inicio'">
-      <button @click="selectTipo('fisica')" :class="{ 'outline': tipo !== 'fisica' }">
-        Pessoa Física
-      </button>
-      <button @click="selectTipo('juridica')" :class="{ 'outline': tipo !== 'juridica' }">
-        Pessoa Jurídica
-      </button>
-    </section>
-    <!-- END Seleção do tipo de cadastro -->
-
+    <!-- ... -->
     <!-- START Navegação -->
     <nav x-show="currentState !== 'inicio'">
       <ul>
@@ -397,18 +190,7 @@ Para acrescentar uma etapa nova, basta incluir o nome no array `states` na posi�
           'active': currentState === 'identificacao',
           'completed': hasPassedState('identificacao')
         }">Identificação</li>
-        <li :class="{
-          'active': currentState === 'documentos',
-          'completed': hasPassedState('documentos')
-        }">Documentos</li>
-        <li :class="{
-          'active': currentState === 'endereco',
-          'completed': hasPassedState('endereco')
-        }">Endereço</li>
-        <li :class="{
-          'active': currentState === 'confirmacao',
-          'completed': hasPassedState('confirmacao')
-        }">Confirmação</li>
+        <!-- ... -->
       </ul>
     </nav>
     <!-- END Navegação -->
@@ -429,121 +211,13 @@ Para acrescentar uma etapa nova, basta incluir o nome no array `states` na posi�
         </fieldset>
       </section>
       <!-- END Estado: Identificação -->
-
-      <!-- START Estado: Documentos -->
-      <section x-show="currentState === 'documentos'">
-        <h2>Documentos</h2>
-        <template x-if="tipo === 'fisica'">
-          <fieldset>
-            <label>CPF:
-              <input type="text" x-model="form.cpf">
-            </label>
-            <label>
-              RG:
-              <input type="text" x-model="form.rg">
-            </label>
-          </fieldset>
-        </template>
-        <template x-if="tipo === 'juridica'">
-          <fieldset>
-            <label>
-              CNPJ:
-              <input type="text" x-model="form.cnpj">
-            </label>
-            <label>
-              Razão Social:
-              <input type="text" x-model="form.razaoSocial">
-            </label>
-          </fieldset>
-        </template>
-
-        <div class="buttons">
-          <button type="button" @click="prevState">Anterior</button>
-          <button type="button" @click="nextState">Próximo</button>
-        </div>
-      </section>
-      <!-- END Estado: Documentos -->
-
-      <!-- START Estado: Endereço -->
-      <section x-show="currentState === 'endereco'">
-        <fieldset>
-          <h2>Endereço</h2>
-          <label>
-            CEP:
-            <input type="text" x-model="form.cep" @change="getAddressByCep(form.cep)">
-          </label>
-          <label>
-            Logradouro:
-            <input type="text" x-model="form.logradouro">
-          </label>
-          <label>
-            Complemento:
-            <input type="text" x-model="form.complemento">
-          </label>
-          <label>
-            Bairro:
-            <input type="text" x-model="form.bairro">
-          </label>
-          <label>
-            Cidade:
-            <input type="text" x-model="form.cidade">
-          </label>
-          <label>
-            UF:
-            <input type="text" x-model="form.uf">
-          </label>
-          <div class="buttons">
-            <button type="button" @click="prevState">Anterior</button>
-            <button type="button" @click="nextState">Próximo</button>
-          </div>
-        </fieldset>
-      </section>
-      <!-- END Estado: Endereço -->
-
-      <!-- START Estado: Confirmação -->
-      <section x-show="currentState === 'confirmacao'">
-        <h2>Confirmação dos Dados</h2>
-        <div>
-          <h3>Dados Pessoais</h3>
-          <p><strong>Nome:</strong> <span x-text="form.nome"></span></p>
-          <p><strong>Email:</strong> <span x-text="form.email"></span></p>
-
-          <template x-if="tipo === 'fisica'">
-            <div>
-              <p><strong>CPF:</strong> <span x-text="form.cpf"></span></p>
-              <p><strong>RG:</strong> <span x-text="form.rg"></span></p>
-            </div>
-          </template>
-
-          <template x-if="tipo === 'juridica'">
-            <div>
-              <p><strong>CNPJ:</strong> <span x-text="form.cnpj"></span></p>
-              <p><strong>Razão Social:</strong> <span x-text="form.razaoSocial"></span></p>
-            </div>
-          </template>
-
-          <h3>Endereço</h3>
-          <p><strong>CEP:</strong> <span x-text="form.cep"></span></p>
-          <p><strong>Logradouro:</strong> <span x-text="form.logradouro"></span></p>
-          <p><strong>Complemento:</strong> <span x-text="form.complemento || '---'"></span></p>
-          <p><strong>Bairro:</strong> <span x-text="form.bairro"></span></p>
-          <p><strong>Cidade:</strong> <span x-text="form.cidade"></span></p>
-          <p><strong>UF:</strong> <span x-text="form.uf"></span></p>
-        </div>
-        <div class="buttons">
-          <button type="button" @click="prevState">Anterior</button>
-          <button type="submit">Finalizar Cadastro</button>
-        </div>
-      </section>
-      <!-- END Estado: Confirmação -->
+      <!-- ... (veja o arquivo completo no GitHub) -->
     </form>
   </div>
-
-  <script src="assets/js/main.js"></script>
-</body>
-
-</html>
+<!-- ... -->
 ```
+
+Código completo: [index.html](https://github.com/rg3915/form-wizard-state-machine/blob/af7542d8b730766440da42f10ef0029e5bc6d9c2/index.html)
 
 No repositório os atributos estão um por linha; aqui juntei alguns na mesma linha para encurtar, sem mudar nada.
 
@@ -562,53 +236,7 @@ O Pico CSS cuida da aparência geral. O `style.css` faz a barra de etapas (círc
 
 ```css
 /* assets/css/style.css */
-.required::after {
-  content: '*';
-  color: red;
-  margin-left: 4px;
-}
-
-.error-message {
-  color: #ff4444;
-  font-size: 0.875rem;
-  margin-top: 0.25rem;
-}
-
-nav {
-  padding: 2rem 0;
-}
-
-nav ul {
-  display: flex;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  position: relative;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-nav ul::before {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: #e0e0e0;
-  z-index: 1;
-}
-
-nav ul li {
-  position: relative;
-  z-index: 2;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-}
+/* ... */
 
 nav ul li::before {
   content: '';
@@ -633,80 +261,10 @@ nav ul li.completed::before {
   border-color: #1095c1;
   background: #1095c1;
 }
-
-nav ul li.active {
-  color: #1095c1;
-  font-weight: bold;
-}
-
-.buttons {
-  display: flex;
-  gap: 1rem;
-  justify-content: flex-end;
-  margin-top: 2rem;
-}
-
-.tipo-cadastro {
-  display: flex;
-  gap: 2rem;
-  justify-content: center;
-  margin-bottom: 2rem;
-}
-
-.toast-container {
-  position: fixed;
-  top: 1rem;
-  right: 1rem;
-  z-index: 9999;
-}
-
-.toast {
-  padding: 1rem 1.5rem;
-  margin-bottom: 0.5rem;
-  border-radius: 4px;
-  font-weight: 500;
-  cursor: pointer;
-  opacity: 0;
-  transform: translateX(100%);
-  transition: all 0.3s ease-in-out;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-/* Transição de entrada */
-.toast.visible {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-/* Transição de saída */
-.toast.removing {
-  opacity: 0;
-  transform: translateX(100%);
-}
-
-.toast.success {
-  background-color: #48bb78;
-  color: white;
-}
-
-.toast.error {
-  background-color: #f56565;
-  color: white;
-}
-
-/* Ícone de fechar */
-.toast-close {
-  margin-left: auto;
-  opacity: 0.7;
-  transition: opacity 0.2s;
-}
-
-.toast-close:hover {
-  opacity: 1;
-}
+/* ... (veja o arquivo completo no GitHub) */
 ```
+
+Código completo: [assets/css/style.css](https://github.com/rg3915/form-wizard-state-machine/blob/af7542d8b730766440da42f10ef0029e5bc6d9c2/assets/css/style.css)
 
 O truque da barra de etapas: cada `li::before` desenha um círculo cinza; as classes `active` e `completed` pintam o círculo de azul, e o `transition` anima a troca.
 

@@ -159,25 +159,7 @@ Até aqui a url de login usava a `LoginView` padrão. Vamos trocar por uma view 
 
 ```python
 # accounts/views.py
-from django.contrib.auth import login as auth_login
-from django.contrib.auth.views import (
-    LoginView,
-    PasswordResetCompleteView,
-    PasswordResetConfirmView,
-    PasswordResetDoneView,
-    PasswordResetView
-)
-from django.http import HttpResponseRedirect
-from django.shortcuts import get_object_or_404, redirect, render
-
-from backend.accounts.services import send_mail_to_user
-
-from .forms import CustomUserForm, MyAuthenticationForm
-from .models import AuditEntry, User
-from .services import send_mail_to_user_reset_password
-from .signals import user_login_password_failed
-
-...
+# ... (veja o arquivo completo no GitHub)
 
 
 class MyLoginView(LoginView):
@@ -223,6 +205,8 @@ class MyLoginView(LoginView):
         return HttpResponseRedirect(self.get_success_url())
 ```
 
+Código completo: [backend/accounts/views.py](https://github.com/rg3915/dicas-de-django/blob/646e636535c21b7ba51fd08cda31d6462d4142fa/backend/accounts/views.py)
+
 **form_invalid** (o formulário não validou):
 
 * O campo do formulário se chama `username`, mas no nosso projeto ele contém o **e-mail**. Por isso procuramos o usuário com `User.objects.get(email=email)`.
@@ -255,19 +239,7 @@ O formulário herda do `AuthenticationForm` do Django e reescreve as mensagens d
 
 ```python
 # accounts/forms.py
-from django import forms
-from django.contrib.auth import authenticate
-from django.contrib.auth.forms import AuthenticationForm
-from django.core.exceptions import ValidationError
-from django.utils.translation import gettext_lazy as _
-
-from backend.accounts.models import User
-
-from .models import AuditEntry
-
-
-class CustomUserForm(forms.ModelForm):
-    ...
+# ... (veja o arquivo completo no GitHub)
 
 
 class MyAuthenticationForm(AuthenticationForm):
@@ -334,37 +306,10 @@ class MyAuthenticationForm(AuthenticationForm):
             # Envia email para o usuário resetar a senha.
             # Envia pela views.
             raise self.get_max_attempts_error()
-
-    def get_invalid_password_error(self):
-        '''
-        Verifica se foi erro de senha inválida.
-        '''
-        return ValidationError(
-            self.error_messages['invalid_password'],
-            code='invalid_password',
-            params={'username': self.username_field.verbose_name},
-        )
-
-    def get_invalid_login_error(self):
-        '''
-        Verifica se foi erro de login.
-        '''
-        return ValidationError(
-            self.error_messages['invalid_login'],
-            code='invalid_login',
-            params={'username': self.username_field.verbose_name},
-        )
-
-    def get_max_attempts_error(self):
-        '''
-        Verifica se excedeu o número de tentativas de login.
-        '''
-        return ValidationError(
-            self.error_messages['max_attempt'],
-            code='max_attempt',
-            params={'username': self.username_field.verbose_name},
-        )
+    # ... (veja o arquivo completo no GitHub)
 ```
+
+Código completo: [backend/accounts/forms.py](https://github.com/rg3915/dicas-de-django/blob/646e636535c21b7ba51fd08cda31d6462d4142fa/backend/accounts/forms.py)
 
 **As mensagens de erro.** `invalid_login` e `inactive` são as do `AuthenticationForm` original (em inglês, mas como estão dentro de `_()`, aparecem traduzidas para o português). Acrescentamos `invalid_password` ("Senha inválida.") e `max_attempt`.
 

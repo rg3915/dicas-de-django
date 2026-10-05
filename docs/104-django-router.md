@@ -438,13 +438,9 @@ Crie o arquivo `apps/core/custom_router.py` com a classe `CustomRouter`, herdand
 
 ```python
 # apps/core/custom_router.py
-from django.urls import path
-from django.views.generic import CreateView
-from django.views.generic.detail import SingleObjectMixin
-
+# ... (outros imports: veja o arquivo completo no GitHub)
 from django_router import Router
-from django_router.settings import ROUTER_SETTINGS as settings
-from django_router.utils import DJANGO_ADMIN_LIKE_MAP, DJANGO_ROUTER_MAP, from_camel
+# ...
 
 
 class CustomRouter(Router):
@@ -479,73 +475,14 @@ class CustomRouter(Router):
             pattern_parts.append(_view)  # <---
 
             name_parts.append(from_camel(view.__name__))
-        else:
-            model = getattr(view, "model", None)
-            model_name = ""
-            object_name = model._meta.object_name if model else ""
-            if model:
-                if settings.MODEL_NAMES_MONOLITHIC:
-                    model_name = model._meta.model_name
-                else:
-                    model_name = from_camel(model._meta.object_name)
-
-                pattern_parts.append(model_name)
-                name_parts.append(model_name)
-
-            if issubclass(view, SingleObjectMixin) and not issubclass(view, CreateView):
-                pattern_parts.append("<int:pk>")
-
-            parameters = (
-                from_camel(view.__name__.replace(object_name, "")),
-                from_camel(view.__name__.replace(object_name, "")),
-            )
-            for key in parameter_map:
-                if issubclass(view, key):
-                    parameters = parameter_map[key]
-                    break
-
-            if parameters[1]:
-                pattern_parts.append(parameters[1])
-
-            name_parts.append(parameters[0].replace(model_name, ""))
-
-        pattern = "/".join(pattern_parts) + "/"
-        name = settings.WORDS_SEPARATOR.join(name_parts)
-
-        return pattern, name
+        # ... (o resto do método é igual ao da biblioteca)
 
     @property
     def urlpatterns(self):
-        if settings.ADMIN_LIKE_VERBS:
-            parameter_map = DJANGO_ADMIN_LIKE_MAP
-        else:
-            parameter_map = DJANGO_ROUTER_MAP
-        urlpatterns = []
-        for namespace, patterns in self._namespaces.items():
-            paths = []
-            for func, pattern, view, name, kwargs in patterns:
-                _pattern, _name = self._get_params(view, parameter_map)
-                if not name:
-                    name = _name
-                if pattern is None:
-                    pattern = _pattern
-                if settings.MODULE_PATH_MAP:
-                    path_map = view.__module__.split(".")[1:-1]
-                else:
-                    path_map = []
-                pattern = "/".join(path_map + [pattern])
-
+        # ...
                 # "slugify" url
                 pattern = pattern.replace("_", "-")
-
-                paths.append(
-                    func(
-                        pattern,
-                        view.as_view() if isinstance(view, type) else view,
-                        name=name,
-                        kwargs=kwargs,
-                    )
-                )
+                # ...
             # urlpatterns.append(path(f"{namespace}/", (paths, namespace, namespace)))
             urlpatterns.append(path("", (paths, namespace, namespace)))  # <---
 
@@ -554,6 +491,8 @@ class CustomRouter(Router):
 
 router = CustomRouter()
 ```
+
+Código completo: [apps/core/custom_router.py](https://github.com/rg3915/django-router-tutorial/blob/815cc7dcaf0d9a8ca73542834a0f83ee43c91db7/apps/core/custom_router.py)
 
 O que mudou:
 
@@ -624,88 +563,22 @@ E o `apps/crm/views.py`, que é onde mais mudou: o import do router agora vem do
 ```python
 # apps/crm/views.py
 from apps.core.custom_router import router
-from django.db.models import Q
-from django.http import HttpResponse
-from django.shortcuts import redirect, render
-from django.urls import reverse_lazy
-from django.views.generic import (
-    CreateView,
-    DeleteView,
-    DetailView,
-    ListView,
-    UpdateView
-)
-
-from .forms import PersonForm
-from .mixins import SearchMixin
-from .models import Person
+# ... (outros imports: veja o arquivo completo no GitHub)
 
 
 @router.path()
 def person_list(request):
     template_name = 'crm/person_list.html'
     object_list = Person.objects.all()
-
-    search = request.GET.get('search')
-    if search:
-        object_list = object_list.filter(
-            Q(first_name__icontains=search)
-            | Q(last_name__icontains=search)
-            | Q(email__icontains=search)
-        )
-
-    context = {'object_list': object_list}
-    return render(request, template_name, context)
+    # ...
 
 
 @router.path()
 def person_detail(request, pk):
-    template_name = 'crm/person_detail.html'
-    obj = Person.objects.get(pk=pk)
-    context = {'object': obj}
-    return render(request, template_name, context)
+    # ...
 
 
-@router.path()
-def person_create(request):
-    template_name = 'crm/person_form.html'
-    form = PersonForm(request.POST or None)
-
-    if request.method == 'POST':
-        if form.is_valid():
-            form.save()
-            return redirect('crm:person_list')
-
-    context = {'form': form}
-    return render(request, template_name, context)
-
-
-@router.path()
-def person_update(request, pk):
-    template_name = 'crm/person_form.html'
-    instance = Person.objects.get(pk=pk)
-    form = PersonForm(request.POST or None, instance=instance)
-
-    if request.method == 'POST':
-        if form.is_valid():
-            form.save()
-            return redirect('crm:person_list')
-
-    context = {'form': form}
-    return render(request, template_name, context)
-
-
-@router.path()
-def person_delete(request, pk):
-    template_name = 'crm/person_confirm_delete.html'
-    obj = Person.objects.get(pk=pk)
-
-    if request.method == 'POST':
-        obj.delete()
-        return redirect('crm:person_list')
-
-    context = {'object': obj}
-    return render(request, template_name, context)
+# ... (person_create, person_update e person_delete)
 
 
 @router.path()
@@ -718,23 +591,7 @@ class PersonListView(SearchMixin, ListView):
 class PersonDetailView(DetailView):
     model = Person
 
-
-@router.path()
-class PersonCreateView(CreateView):
-    model = Person
-    form_class = PersonForm
-
-
-@router.path()
-class PersonUpdateView(UpdateView):
-    model = Person
-    form_class = PersonForm
-
-
-@router.path()
-class PersonDeleteView(DeleteView):
-    model = Person
-    success_url = reverse_lazy('crm:person_list')
+# ... (PersonCreateView, PersonUpdateView e PersonDeleteView: veja o arquivo completo no GitHub)
 
 
 @router.path()
@@ -751,6 +608,8 @@ def person_export_csv2(request):
 def person_export_excel(request):
     return HttpResponse('export-person')
 ```
+
+Código completo: [apps/crm/views.py](https://github.com/rg3915/django-router-tutorial/blob/815cc7dcaf0d9a8ca73542834a0f83ee43c91db7/apps/crm/views.py)
 
 As views de exportação são só exemplos: `person_export_csv` mostra a rota automática (que não termina em nenhum dos sufixos do dicionário), e `person_export_csv2` e `person_export_excel` mostram a rota escrita à mão.
 

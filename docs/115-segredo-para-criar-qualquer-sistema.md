@@ -513,13 +513,7 @@ O `forms.py` (campos `sku`, `titulo`, `preco`, `categoria`) e o `admin.py` segue
 
 ```python
 # apps/pedido/models.py
-from django.core.validators import MinValueValidator
-from django.db import models
-from django.urls import reverse
-
-from apps.core.models import BaseModel
-from apps.pessoa.models import Cliente
-from apps.produto.models import Produto
+# ... (imports: veja o arquivo completo no GitHub)
 
 
 class Pedido(BaseModel):
@@ -548,11 +542,7 @@ class Pedido(BaseModel):
         verbose_name = 'pedido'
         verbose_name_plural = 'pedidos'
 
-    def __str__(self):
-        return f'Pedido {self.pk} - {self.cliente.nome}'
-
-    def get_absolute_url(self):
-        return reverse('pedido:pedido_detail', kwargs={'pk': self.pk})
+    # ... (__str__ e get_absolute_url)
 
     def get_total(self):
         """Calcula o total do pedido somando todos os itens"""
@@ -573,23 +563,10 @@ class PedidoItem(models.Model):
         verbose_name='produto',
         related_name='pedido_itens'
     )
-    quantidade = models.PositiveIntegerField(
-        'quantidade',
-        validators=[MinValueValidator(1)]
-    )
-    preco = models.DecimalField('preço', max_digits=10, decimal_places=2)
-
-    class Meta:
-        verbose_name = 'item do pedido'
-        verbose_name_plural = 'itens do pedido'
-
-    def __str__(self):
-        return f'{self.produto.titulo} - {self.quantidade}x'
-
-    def get_subtotal(self):
-        """Calcula o subtotal do item (quantidade * preço)"""
-        return self.quantidade * self.preco
+    # ... (veja o arquivo completo no GitHub)
 ```
+
+Código completo: [apps/pedido/models.py](https://github.com/rg3915/django-modelagem/blob/f8211bf005cf7ca723b12e7d007d76669a18f7f3/apps/pedido/models.py)
 
 Pontos de atenção:
 
@@ -654,19 +631,7 @@ Os itens chegam no `POST` com nomes numerados (`itens-0-produto`, `itens-0-quant
 # apps/pedido/views.py
 from django.db import transaction
 from django.views.generic import CreateView, DetailView, ListView, UpdateView
-
-from apps.pedido.forms import PedidoForm
-from apps.pedido.models import Pedido, PedidoItem
-from apps.produto.models import Produto
-
-
-class PedidoListView(ListView):
-    model = Pedido
-    paginate_by = 20
-
-
-class PedidoDetailView(DetailView):
-    model = Pedido
+# ...
 
 
 class PedidoCreateView(CreateView):
@@ -709,11 +674,7 @@ class PedidoCreateView(CreateView):
 class PedidoUpdateView(UpdateView):
     model = Pedido
     form_class = PedidoForm
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['produtos'] = Produto.objects.filter(ativo=True).order_by('titulo')
-        return context
+    # ... (get_context_data igual ao do PedidoCreateView)
 
     @transaction.atomic
     def form_valid(self, form):
@@ -722,29 +683,10 @@ class PedidoUpdateView(UpdateView):
 
         # Remove todos os itens existentes
         self.object.itens.all().delete()
-
-        # Processa os novos itens do pedido
-        post_data = self.request.POST
-        item_count = 0
-
-        # Identifica quantos itens foram enviados
-        while f'itens-{item_count}-produto' in post_data:
-            produto_id = post_data.get(f'itens-{item_count}-produto')
-            quantidade = post_data.get(f'itens-{item_count}-quantidade')
-            preco = post_data.get(f'itens-{item_count}-preco')
-
-            if produto_id and quantidade and preco:
-                PedidoItem.objects.create(
-                    pedido=self.object,
-                    produto_id=produto_id,
-                    quantidade=quantidade,
-                    preco=preco
-                )
-
-            item_count += 1
-
-        return super().form_valid(form)
+        # ... (mesmo laço do PedidoCreateView; veja o arquivo completo no GitHub)
 ```
+
+Código completo: [apps/pedido/views.py](https://github.com/rg3915/django-modelagem/blob/f8211bf005cf7ca723b12e7d007d76669a18f7f3/apps/pedido/views.py)
 
 * `get_context_data` envia a lista de produtos ativos para o template, que a transforma num objeto JavaScript.
 * `@transaction.atomic` garante tudo ou nada: se um item falhar, o pedido também não é gravado.
@@ -907,73 +849,20 @@ O `pedido_form.html` serve para criar e editar. Ele tem o cabeçalho, uma tabela
 {% block title %}{% if object %}Editar Pedido{% else %}Novo Pedido{% endif %}{% endblock %}
 
 {% block content %}
-<article>
-    <header>
-        <h1>{% if object %}Editar Pedido #{{ object.id }}{% else %}Novo Pedido{% endif %}</h1>
-    </header>
-
-    <form method="post" id="pedidoForm">
-        {% csrf_token %}
-
-        <label for="id_cliente">
-            Cliente
-            {{ form.cliente }}
-        </label>
-
-        <label for="id_status">
-            Status
-            {{ form.status }}
-        </label>
-
-        <label for="id_data">
-            Data
-            {{ form.data }}
-        </label>
-
+    <!-- ... (cabeçalho do pedido: cliente, status e data) -->
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
             <h2 style="margin: 0;">Itens do Pedido</h2>
             <button type="button" onclick="adicionarItem()">Adicionar Item</button>
         </div>
-
-        <table role="grid" id="itensTable">
-            <thead>
-                <tr>
-                    <th>Produto</th>
-                    <th>Quantidade</th>
-                    <th>Preço</th>
-                    <th>Subtotal</th>
-                    <th>Ações</th>
-                </tr>
-            </thead>
+        <!-- ... -->
             <tbody id="itensBody">
                 <!-- Itens serão adicionados dinamicamente aqui -->
             </tbody>
-        </table>
-
+        <!-- ... -->
         <div style="text-align: right; margin-top: 1rem;">
             <strong>Total Geral: <span id="totalGeral">R$ 0,00</span></strong>
         </div>
-
-        <div style="display: flex; gap: 1rem; margin-top: 1rem;">
-            <button type="submit">Salvar</button>
-            <a href="{% url 'pedido:pedido_list' %}" role="button" class="outline">Cancelar</a>
-        </div>
-    </form>
-</article>
-
-<!-- Modal de confirmação de exclusão -->
-<dialog id="confirmDialog">
-    <article>
-        <header>
-            <h2>Confirmar Exclusão</h2>
-        </header>
-        <p>Tem certeza que deseja remover este item?</p>
-        <footer>
-            <button onclick="cancelarExclusao()" class="outline">Cancelar</button>
-            <button onclick="confirmarExclusao()">Confirmar</button>
-        </footer>
-    </article>
-</dialog>
+<!-- ... (botões e o <dialog id="confirmDialog">: veja o arquivo completo no GitHub) -->
 
 <script>
 // Dados dos produtos vindos do backend
@@ -986,24 +875,13 @@ window.produtos = {
     {% endfor %}
 };
 
-// Dados dos itens existentes (para modo de edição)
-{% if object %}
-window.itensExistentes = [
-    {% for item in object.itens.all %}
-    {
-        produto_id: "{{ item.produto.pk }}",
-        quantidade: {{ item.quantidade }},
-        preco: parseFloat("{{ item.preco }}")
-    }{% if not forloop.last %},{% endif %}
-    {% endfor %}
-];
-{% else %}
-window.itensExistentes = [];
-{% endif %}
+// ... (itensExistentes, usado no modo de edição)
 </script>
 <script src="{% static 'js/pedido.js' %}"></script>
 {% endblock %}
 ```
+
+Código completo: [apps/pedido/templates/pedido/pedido_form.html](https://github.com/rg3915/django-modelagem/blob/f8211bf005cf7ca723b12e7d007d76669a18f7f3/apps/pedido/templates/pedido/pedido_form.html)
 
 (No repositório cada campo também exibe `form.<campo>.errors`, como no `cliente_form.html`.) Repare no `{% extends %}` na primeira linha: ele precisa ser a primeira tag do template, antes do `{% load static %}`.
 
@@ -1032,109 +910,17 @@ function adicionarItem() {
                     `<option value="${id}">${produto.titulo}</option>`
                 ).join('')}
             </select>
-        </td>
-        <td>
-            <input type="number" name="itens-${contadorItens}-quantidade" min="1" value="1"
-                   onchange="calcularSubtotal(${contadorItens})" required style="margin: 0;">
-        </td>
-        <td>
-            <input type="number" name="itens-${contadorItens}-preco" step="0.01" min="0"
-                   onchange="calcularSubtotal(${contadorItens})" required style="margin: 0;">
-        </td>
-        <td>
-            <span id="subtotal-${contadorItens}">R$ 0,00</span>
-        </td>
-        <td>
-            <button type="button" onclick="mostrarConfirmacao(${contadorItens})"
-                    class="outline" style="margin: 0;">Deletar</button>
-        </td>
+        <!-- ... (quantidade, preço, subtotal e botão Deletar) -->
     `;
 
     tbody.appendChild(row);
     contadorItens++;
 }
 
-function atualizarPreco(itemId) {
-    const select = document.querySelector(`select[name="itens-${itemId}-produto"]`);
-    const precoInput = document.querySelector(`input[name="itens-${itemId}-preco"]`);
-
-    const produtoId = select.value;
-    if (produtoId && window.produtos[produtoId]) {
-        precoInput.value = window.produtos[produtoId].preco;
-        calcularSubtotal(itemId);
-    } else {
-        precoInput.value = '';
-        document.getElementById(`subtotal-${itemId}`).textContent = 'R$ 0,00';
-    }
-}
-
-function calcularSubtotal(itemId) {
-    const quantidade = parseFloat(document.querySelector(`input[name="itens-${itemId}-quantidade"]`).value) || 0;
-    const preco = parseFloat(document.querySelector(`input[name="itens-${itemId}-preco"]`).value) || 0;
-
-    const subtotal = quantidade * preco;
-    document.getElementById(`subtotal-${itemId}`).textContent =
-        'R$ ' + subtotal.toFixed(2).replace('.', ',');
-
-    calcularTotalGeral();
-}
-
-function calcularTotalGeral() {
-    const rows = document.getElementById('itensBody').querySelectorAll('tr');
-    let total = 0;
-
-    rows.forEach(row => {
-        const quantidadeInput = row.querySelector('input[name*="-quantidade"]');
-        const precoInput = row.querySelector('input[name*="-preco"]');
-
-        if (quantidadeInput && precoInput) {
-            total += (parseFloat(quantidadeInput.value) || 0) * (parseFloat(precoInput.value) || 0);
-        }
-    });
-
-    document.getElementById('totalGeral').textContent = 'R$ ' + total.toFixed(2).replace('.', ',');
-}
-
-function mostrarConfirmacao(itemId) {
-    itemParaRemover = itemId;
-    document.getElementById('confirmDialog').showModal();
-}
-
-function confirmarExclusao() {
-    if (itemParaRemover !== null) {
-        const row = document.getElementById(`item-${itemParaRemover}`);
-        if (row) {
-            row.remove();
-            calcularTotalGeral();
-        }
-        itemParaRemover = null;
-    }
-    document.getElementById('confirmDialog').close();
-}
-
-function cancelarExclusao() {
-    itemParaRemover = null;
-    document.getElementById('confirmDialog').close();
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-    // Modo de edição: recria as linhas dos itens existentes
-    if (window.itensExistentes && window.itensExistentes.length > 0) {
-        window.itensExistentes.forEach(function(item) {
-            adicionarItem();
-            const itemId = contadorItens - 1;
-
-            document.querySelector(`select[name="itens-${itemId}-produto"]`).value = item.produto_id;
-            document.querySelector(`input[name="itens-${itemId}-quantidade"]`).value = item.quantidade;
-            document.querySelector(`input[name="itens-${itemId}-preco"]`).value = item.preco.toFixed(2);
-            calcularSubtotal(itemId);
-        });
-    } else {
-        // Modo de criação: começa com uma linha vazia
-        adicionarItem();
-    }
-});
+/* ... (atualizarPreco, calcularSubtotal, calcularTotalGeral, confirmação de exclusão e carga inicial: veja o arquivo completo no GitHub) */
 ```
+
+Código completo: [apps/core/static/js/pedido.js](https://github.com/rg3915/django-modelagem/blob/f8211bf005cf7ca723b12e7d007d76669a18f7f3/apps/core/static/js/pedido.js)
 
 Como funciona:
 

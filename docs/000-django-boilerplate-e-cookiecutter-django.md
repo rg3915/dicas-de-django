@@ -520,56 +520,17 @@ O app tem dois models abstratos (`TimeStampedModel` e `Address`), o `Person` e o
 
 ```python
 # myproject/core/models.py
-from django.db import models
-from django.shortcuts import resolve_url as r
-from localflavor.br.br_states import STATE_CHOICES
-
-PHONE_TYPE = (
-    ('pri', 'principal'),
-    ('com', 'comercial'),
-    ('res', 'residencial'),
-    ('cel', 'celular'),
-    ('cl', 'Claro'),
-    ('oi', 'Oi'),
-    ('t', 'Tim'),
-    ('v', 'Vivo'),
-    ('n', 'Nextel'),
-    ('fax', 'fax'),
-    ('o', 'outros'),
-)
+# ... (imports e PHONE_TYPE: veja o arquivo completo no gist)
 
 
 class TimeStampedModel(models.Model):
     created = models.DateTimeField(
-        'criado em',
-        auto_now_add=True,
-        auto_now=False
-    )
-    modified = models.DateTimeField(
-        'modificado em',
-        auto_now_add=False,
-        auto_now=True
-    )
-
+    # ...
     class Meta:
         abstract = True
 
 
-class Address(models.Model):
-    address = models.CharField(u'endereço', max_length=100, blank=True)
-    complement = models.CharField('complemento', max_length=100, blank=True)
-    district = models.CharField('bairro', max_length=100, blank=True)
-    city = models.CharField('cidade', max_length=100, blank=True)
-    uf = models.CharField(
-        'UF',
-        max_length=2,
-        choices=STATE_CHOICES,
-        blank=True
-    )
-    cep = models.CharField('CEP', max_length=9, blank=True)
-
-    class Meta:
-        abstract = True
+# ... (Address: endereço, bairro, cidade, UF e CEP; também abstrato)
 
 
 class Person(TimeStampedModel, Address):
@@ -597,19 +558,10 @@ class Person(TimeStampedModel, Address):
         return r('core:person_detail', pk=self.pk)
 
 
-class Phone(models.Model):
-    phone = models.CharField('telefone', max_length=20, blank=True)
-    person = models.ForeignKey('Person', on_delete=models.PROTECT)
-    phone_type = models.CharField(
-        'tipo',
-        max_length=3,
-        choices=PHONE_TYPE,
-        default='pri'
-    )
-
-    def __str__(self):
-        return self.phone
+# ... (Phone: veja o arquivo completo no gist)
 ```
+
+Código completo: [myproject/core/models.py, gerado pelo boilerplate2.sh](https://gist.github.com/rg3915/a264d0ade860d2f2b4bf/ac1cc2f36ba104b6b2cd38f050638f4c6f07fbe5#file-boilerplate2-sh-L1209)
 
 ### As views, o mixin de busca, o formulário e as URLs
 

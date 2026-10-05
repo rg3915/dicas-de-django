@@ -618,58 +618,10 @@ class VideoTest(TestCase):
         }
         self.assertEqual(esperado, resultado)
 
-    def test_video_detail(self):
-        Video.objects.create(**self.payload)
-
-        response = self.client.get(
-            '/api/v2/videos/1/',
-            content_type='application/json'
-        )
-        resultado = json.loads(response.content)
-        esperado = {
-            "data": {
-                "id": 1,
-                **self.payload
-            }
-        }
-        self.assertEqual(esperado, resultado)
-
-    def test_video_update(self):
-        Video.objects.create(**self.payload)
-
-        data = {
-            "title": "Dica #47 - DRF: djoser"
-        }
-
-        response = self.client.post(
-            '/api/v2/videos/1/',
-            data=data,
-            content_type='application/json'
-        )
-        resultado = json.loads(response.content)
-        esperado = {
-            "data":
-            {
-                "id": 1,
-                "title": "Dica #47 - DRF: djoser",
-                "link": "https://youtu.be/HUtG2Eg47Gw",
-                "view": 307
-            }
-        }
-        self.assertEqual(esperado, resultado)
-
-    def test_video_delete(self):
-        Video.objects.create(**self.payload)
-
-        response = self.client.delete(
-            '/api/v2/videos/1/',
-            content_type='application/json'
-        )
-        resultado = json.loads(response.content)
-        esperado = {"data": "Item deletado com sucesso."}
-
-        self.assertEqual(esperado, resultado)
+    # ... (veja o arquivo completo no GitHub)
 ```
+
+Código completo: [backend/core/tests.py](https://github.com/rg3915/django-api-without-drf/blob/47efbf4c59d1a6c6f000ac18ab9187d107f65cd0/backend/core/tests.py)
 
 No vídeo foram escritos ao vivo o `test_video_create` e o `test_video_list` (no de lista, o esperado é uma **lista** dentro de `data`, detalhe que deu erro na primeira tentativa); os demais já estavam no repositório. Para rodar:
 

@@ -305,7 +305,7 @@ class PublisherAdmin(admin.ModelAdmin):
     search_fields = ('name',)
 ```
 
-E adicione `publisher` no `list_display` de `BookAdmin`. Depois do `make lint`, o `admin.py` completo fica assim:
+E adicione `publisher` no `list_display` de `BookAdmin`. Depois do `make lint`, o `admin.py` fica assim (trecho; o arquivo completo está no link logo abaixo):
 
 ```python
 # backend/bookstore/admin.py
@@ -313,37 +313,7 @@ from django.contrib import admin
 
 from .models import Author, Book, Customer, Ordered, Publisher, Sale, Store
 
-
-@admin.register(Customer)
-class CustomerAdmin(admin.ModelAdmin):
-    list_display = ('__str__', 'email', 'active')
-    search_fields = ('first_name', 'last_name')
-    list_filter = ('active',)
-
-
-@admin.register(Ordered)
-class OrderedAdmin(admin.ModelAdmin):
-    list_display = ('__str__', 'customer', 'status')
-    search_fields = (
-        'customer__first_name',
-        'customer__last_name',
-        'customer__email',
-    )
-    list_filter = ('status',)
-    date_hierarchy = 'created'
-
-
-@admin.register(Sale)
-class SaleAdmin(admin.ModelAdmin):
-    list_display = ('__str__', 'paid', 'date_paid', 'method', 'deadline')
-    list_filter = ('paid', 'method')
-    date_hierarchy = 'created'
-
-
-@admin.register(Author)
-class AuthorAdmin(admin.ModelAdmin):
-    list_display = ('__str__',)
-    search_fields = ('first_name', 'last_name')
+# ... (veja o arquivo completo no GitHub)
 
 
 @admin.register(Book)
@@ -360,11 +330,7 @@ class BookAdmin(admin.ModelAdmin):
     list_display_links = ('__str__',)
     search_fields = ('isbn', 'title')
 
-
-@admin.register(Store)
-class StoreAdmin(admin.ModelAdmin):
-    list_display = ('__str__',)
-    search_fields = ('name',)
+# ... (veja o arquivo completo no GitHub)
 
 
 @admin.register(Publisher)
@@ -372,6 +338,8 @@ class PublisherAdmin(admin.ModelAdmin):
     list_display = ('__str__',)
     search_fields = ('name',)
 ```
+
+Código completo: [backend/bookstore/admin.py](https://github.com/rg3915/dicas-de-django/blob/307a89f949cf63b05b70192ba9068551fd13fdf8/backend/bookstore/admin.py)
 
 ```bash
 python manage.py makemigrations

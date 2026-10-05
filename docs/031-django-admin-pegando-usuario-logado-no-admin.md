@@ -26,40 +26,11 @@ from django.db import models
 from autoslug import AutoSlugField
 from hashid_field import HashidAutoField
 from django.contrib.auth.models import User
-
-
-class UuidModel(models.Model):
-    slug = models.UUIDField(unique=True, editable=False, default=uuid.uuid4)
-
-    class Meta:
-        abstract = True
-
-
-STATUS_CHOICES = (
-    ('d', 'Rascunho'),
-    ('p', 'Publicado'),
-    ('w', 'Retirado'),
-)
+# ... (veja o arquivo completo no GitHub)
 
 
 class Article(models.Model):
-    id = HashidAutoField(primary_key=True)
-    title = models.CharField('título', max_length=200)
-    subtitle = models.CharField('sub-título', max_length=200)
-    slug = AutoSlugField(populate_from='title')
-    category = models.ForeignKey(
-        'Category',
-        related_name='categories',
-        verbose_name='categoria',
-        on_delete=models.SET_NULL,
-        null=True,
-        blank=True
-    )
-    published_date = models.DateTimeField(
-        'criado em',
-        auto_now_add=True,
-        auto_now=False
-    )
+    # ... (veja o arquivo completo no GitHub)
     status = models.CharField(max_length=1, choices=STATUS_CHOICES)
     user = models.ForeignKey(
         User,
@@ -67,27 +38,10 @@ class Article(models.Model):
         null=True,
         blank=True
     )
-
-    class Meta:
-        ordering = ('title',)
-        verbose_name = 'artigo'
-        verbose_name_plural = 'artigos'
-
-    def __str__(self):
-        return self.title
-
-
-class Category(UuidModel):
-    title = models.CharField('título', max_length=50, unique=True)
-
-    class Meta:
-        ordering = ('title',)
-        verbose_name = 'categoria'
-        verbose_name_plural = 'categorias'
-
-    def __str__(self):
-        return self.title
+    # ... (veja o arquivo completo no GitHub)
 ```
+
+Código completo: [myproject/core/models.py](https://github.com/rg3915/dicas-de-django/blob/498f98da4410c3bc2922579c38cd4ad378356fa1/myproject/core/models.py)
 
 * `on_delete=models.SET_NULL`: se o usuário for apagado, o artigo continua existindo, só fica sem usuário.
 * `null=True, blank=True`: o campo é opcional, tanto no banco quanto no formulário. Isso é importante, porque vamos deixar o campo vazio no formulário e preenchê-lo no `save_model`.
@@ -147,75 +101,26 @@ O Admin chama `save_model(request, obj, form, change)` toda vez que você clica 
 
 Com `if not change`, o usuário só é preenchido na criação do artigo. Se outro usuário editar o artigo depois, o autor original continua o mesmo. No fim, chamamos o `save_model` da classe pai (`super`), que é quem salva o objeto de fato (`obj.save()`).
 
-O `admin.py` completo:
+O trecho principal do `admin.py` (o arquivo completo está no link logo abaixo):
 
 ```python
 # myproject/core/admin.py
-from django.conf import settings
-from django.contrib import admin
-from daterange_filter.filter import DateRangeFilter
-from .models import Article, Category
-# from .forms import ArticleAdminForm
+# ... (veja o arquivo completo no GitHub)
 
 
 @admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):
-    list_display = ('id', 'title', 'slug', 'get_published_date', 'get_category', 'status')
-    search_fields = ('title',)
-    list_filter = (
-        ('published_date', DateRangeFilter),
-        'category',
-        'status',
-    )
-    readonly_fields = ('slug',)
-    date_hierarchy = 'published_date'
-    # form = ArticleAdminForm
-    list_editable = ('title', 'status')
-    actions = ('make_published',)
+    # ... (veja o arquivo completo no GitHub)
 
     def save_model(self, request, obj, form, change):
         if not change:
             obj.user = request.user
             obj.save()
         super(ArticleAdmin, self).save_model(request, obj, form, change)
-
-    def make_published(self, request, queryset):
-        count = queryset.update(status='p')
-
-        if count == 1:
-            msg = '{} artigo foi publicado.'
-        else:
-            msg = '{} artigos foram publicados.'
-
-        self.message_user(request, msg.format(count))
-
-    make_published.short_description = "Publicar artigos"
-
-    def get_published_date(self, obj):
-        if obj.published_date:
-            return obj.published_date.strftime('%d/%m/%Y')
-
-    get_published_date.short_description = 'Data de Publicação'
-
-    def get_category(self, obj):
-        if obj.category:
-            return obj.category.title
-
-    get_category.short_description = 'Categoria'
-
-
-@admin.register(Category)
-class CategoryAdmin(admin.ModelAdmin):
-    list_display = ('title', 'slug')
-    actions = None
-
-    def has_add_permission(self, request, obj=None):
-        return False
-
-    if not settings.DEBUG:
-        def has_delete_permission(self, request, obj=None):
-            return False
+    # ... (veja o arquivo completo no GitHub)
 ```
+
+Código completo: [myproject/core/admin.py](https://github.com/rg3915/dicas-de-django/blob/a7f63650c6b80f462aae0a9c92daede5d2442ae0/myproject/core/admin.py)
 
 ## Testando
 

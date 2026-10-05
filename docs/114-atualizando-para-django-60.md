@@ -96,14 +96,7 @@ Eu deixo o arquivo completo, com as dependências secundárias também fixadas. 
 ```text
 # requirements.txt (depois)
 asgiref==3.11.0
-asttokens==3.0.1
-autopep8==2.3.2
-certifi==2025.11.12
-cffi==2.0.0
-charset-normalizer==3.4.4
-cryptography==46.0.3
-decorator==5.2.1
-defusedxml==0.7.1
+# ...
 Django==6.0
 django-extensions==4.1
 django-filter==25.2
@@ -114,49 +107,18 @@ djhtml==3.0.10
 djoser==2.3.3
 dr-scaffold==2.1.2
 drf-yasg==1.21.11
-executing==2.2.1
-Faker==39.0.0
-idna==3.11
-inflect==7.5.0
-inflection==0.5.1
-ipdb==0.13.13
-ipython==9.8.0
-ipython_pygments_lexers==1.1.1
-isort==7.0.0
-jedi==0.19.2
-matplotlib-inline==0.2.1
-more-itertools==10.8.0
-oauthlib==3.3.1
-packaging==25.0
-parso==0.8.5
-pexpect==4.9.0
-prompt_toolkit==3.0.52
+# ...
 psycopg2-binary==2.9.11
-ptyprocess==0.7.0
-pure_eval==0.2.3
-pycodestyle==2.14.0
-pycparser==2.23
-Pygments==2.19.2
-PyJWT==2.10.1
+# ...
 python-decouple==3.8
-python3-openid==3.2.0
-pytz==2025.2
-PyYAML==6.0.3
-requests==2.32.5
-requests-oauthlib==2.0.0
+# ...
 social-auth-app-django==5.7.0
 social-auth-core==4.8.3
 sqlparse==0.5.5
-stack-data==0.6.3
-toposort==1.10
-traitlets==5.14.3
-typeguard==4.4.4
-typing_extensions==4.15.0
-tzdata==2025.3
-uritemplate==4.2.0
-urllib3==2.6.2
-wcwidth==0.2.14
+# ... (veja o arquivo completo no GitHub)
 ```
+
+Código completo: [requirements.txt](https://github.com/rg3915/django-experience/blob/d06c4cf7d5d1a31ae31c266d082cad99f5144f8f/requirements.txt)
 
 Repare no `psycopg2-binary==2.9.11`: as notas do Django 6.0 pedem psycopg2 2.9.9 ou mais recente (ou psycopg 3.1.12 ou mais recente).
 

@@ -301,12 +301,7 @@ touch src/views/Login.vue
             </div>
           </div>
 
-          <div class="field">
-            <label>Senha</label>
-            <div class="control">
-              <input type="password" name="password" class="input" v-model="password">
-            </div>
-          </div>
+          <!-- ... (campo de senha, igual, com v-model="password") -->
 
           <div class="notification is-danger" v-if="errors.length">
             <p v-for="error in errors" :key="error">{{ error }}</p>
@@ -329,14 +324,7 @@ touch src/views/Login.vue
   import axios from 'axios'
 
   export default {
-    name: 'Login',
-    data() {
-      return {
-        username: '',
-        password: '',
-        errors: []
-      }
-    },
+    /* ... (name e data(): username, password e errors) */
     methods: {
       async submitForm() {
         axios.defaults.headers.common['Authorization'] = ''
@@ -366,6 +354,8 @@ touch src/views/Login.vue
   }
 </script>
 ```
+
+Código completo: [frontend/src/views/Login.vue](https://github.com/rg3915/drf-example/blob/a5130b6a8c9148489edc330e9ac34ea1f34c9222/frontend/src/views/Login.vue)
 
 Como funciona:
 

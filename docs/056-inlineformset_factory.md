@@ -697,59 +697,9 @@ Agora o template principal. Ele usa o `widget_tweaks` (`{% render_field %}`) par
 {% extends "base.html" %}
 {% load static %}
 {% load widget_tweaks %}
-
-{% block css %}
-
-  <style>
-    .form-control {
-      margin: 10px;
-    }
-    .legend {
-      border-bottom: 1px solid #e5e5e5;
-    }
-  </style>
-
-{% endblock css %}
-
-{% block content %}
-
-<div class="row">
-  <div class="cols">
-    <form method="POST" novalidate>
-      {% csrf_token %}
-
-      <legend class="legend">Ordem de compra</legend>
-
-      <div class="row">
-        <div class="col-sm-6">
-          {% for field in form.visible_fields %}
-            <div class="form-group">
-              <label for="{{ field.id_for_label }}">
-                {% if field.field.required %}
-                  <span class="required">{{ field.label }}</span>
-                {% else %}
-                  {{ field.label }}
-                {% endif %}
-              </label>
-
-              {% render_field field class="form-control" %}
-
-              {% for error in field.errors %}
-                <span class="text-muted">{{ error }}</span>
-              {% endfor %}
-            </div>
-          {% endfor %}
-
+<!-- ... -->
           {{ formset.management_form }}
-
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-sm-12">
-
-          <legend class="legend">Itens</legend>
-
+        <!-- ... -->
           <div id="order" class="form-inline">
 
             {% for order_item_form in formset %}
@@ -785,10 +735,7 @@ Agora o template principal. Ele usa o `widget_tweaks` (`{% render_field %}`) par
             {% endfor %}
 
           </div>
-
-        </div>
-      </div>
-
+        <!-- ... -->
       <span
         id="addItem"
         class="btn btn-info mt-2"
@@ -799,42 +746,7 @@ Agora o template principal. Ele usa o `widget_tweaks` (`{% render_field %}`) par
         <i class="fa fa-plus"></i>
         Adicionar
       </span>
-
-      <div class="row float-right">
-        <div class="col-sm-12 mt-2">
-          <div class="form-inline buttons">
-            <button class="btn btn-primary" type="submit">
-              <i class="fa fa-floppy-o"></i>
-              Salvar
-            </button>
-            <a
-              id="btn-close"
-              href="{% url 'ecommerce:order_list' %}"
-              class="btn btn-primary"
-              style="display: none"
-            >
-              <i class="fa fa-close"></i>
-              Fechar
-            </a>
-            <a
-              href="{% url 'ecommerce:order_list' %}"
-              class="btn btn-danger ml-2"
-            >
-              <i class="fa fa-times"></i>
-              Cancelar
-            </a>
-          </div>
-        </div>
-      </div>
-    </form>
-  </div>
-</div>
-
-{% endblock content %}
-
-{% block js %}
-
-<script src="{% static 'js/main.js' %}"></script>
+      <!-- ... -->
 
 <script>
 // Necessário por causa do delete
@@ -842,9 +754,10 @@ document.body.addEventListener('htmx:configRequest', (event) => {
   event.detail.headers['X-CSRFToken'] = '{{ csrf_token }}';
 });
 </script>
-
-{% endblock js %}
+<!-- ... -->
 ```
+
+Código completo: [backend/ecommerce/templates/ecommerce/order_form.html](https://github.com/rg3915/django-inlineformset-tutorial/blob/0387b97160d8505fe09e2ffc64251268a8149a12/backend/ecommerce/templates/ecommerce/order_form.html)
 
 Vamos por partes:
 

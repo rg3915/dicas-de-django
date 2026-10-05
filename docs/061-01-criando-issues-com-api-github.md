@@ -94,7 +94,7 @@ Troque `REPO_OWNER` e `REPO_NAME` pelo seu usuário e pelo seu repositório. Nun
 
 ## O script `create_issue.py`
 
-O conteúdo de `create_issue.py` é:
+Os trechos principais de `create_issue.py` (o arquivo completo está no link logo abaixo):
 
 ```python
 # create_issue.py
@@ -102,14 +102,7 @@ import click
 import requests
 from decouple import config
 
-'''
-https://docs.github.com/en/rest/reference/issues#create-an-issue
-
-python cli/create_issue.py \
---title='' \
---body='' \
---labels='feature'
-'''
+# ... (veja o arquivo completo no GitHub)
 
 # O repositório para adicionar a issue
 REPO_OWNER = config('REPO_OWNER')
@@ -117,17 +110,7 @@ REPO_NAME = config('REPO_NAME')
 TOKEN = config('TOKEN')
 
 
-def write_file(filename, number, title, description, labels):
-    labels = ', '.join(labels).strip()
-    with open(filename, 'a') as f:
-        f.write(f'\n---\n\n')
-        f.write(f'[ ] {number} - {title}\n')
-        f.write(f'    {labels}\n\n')
-
-        if description:
-            f.write(f'    {description}\n\n')
-
-        f.write(f"    make lint; g add . ; g co -m '{title}. close #{number}'; g push\n")
+# ... (write_file: veja o arquivo completo no GitHub)
 
 
 @click.command()
@@ -172,6 +155,8 @@ def make_github_issue(title, body=None, assignee=None, milestone=None, labels=No
 if __name__ == '__main__':
     make_github_issue()
 ```
+
+Código completo: [cli/create_issue.py](https://github.com/rg3915/dicas-de-django/blob/606e52221d13e7f61c6bc454d6340f35e27106c1/cli/create_issue.py)
 
 Explicando por partes:
 

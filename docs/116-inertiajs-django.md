@@ -115,25 +115,9 @@ Os trechos do `apps/settings.py` que importam:
 
 ```python
 # apps/settings.py
-from pathlib import Path
-
-from decouple import config
-
-BASE_DIR = Path(__file__).resolve().parent.parent
-
-SECRET_KEY = config('SECRET_KEY')
-
-DEBUG = True
-
-ALLOWED_HOSTS = []
-
+# ... (veja o arquivo completo no GitHub)
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
+    # ...
     'django_extensions',
     'django_vite',
     'inertia',
@@ -141,13 +125,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # ...
     'inertia.middleware.InertiaMiddleware',  # adicionar após SessionMiddleware
 ]
 
@@ -160,21 +138,7 @@ TEMPLATES = [
     },
 ]
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config('POSTGRES_DB', 'movies_db'),
-        'USER': config('POSTGRES_USER', 'postgresql'),
-        'PASSWORD': config('POSTGRES_PASSWORD', 'postgresql'),
-        'HOST': 'localhost',
-        'PORT': config('POSTGRES_PORT', default='5431'),
-    }
-}
-
-LANGUAGE_CODE = 'pt-br'
-
-TIME_ZONE = 'America/Sao_Paulo'
-
+# ...
 # Inertia
 INERTIA_LAYOUT = 'base.html'
 
@@ -189,13 +153,10 @@ DJANGO_VITE = {
         ),
     }
 }
-
-STATIC_URL = 'static/'
-
-STATICFILES_DIRS = [
-    BASE_DIR.joinpath('frontend', 'dist'),
-]
+# ... (veja o arquivo completo no GitHub)
 ```
+
+Código completo: [apps/settings.py](https://github.com/rg3915/django-inertia-vuejs/blob/4133ad4d607535b49e1e0d598aa6ab432c9b91bc/apps/settings.py)
 
 * `'inertia'` e o `InertiaMiddleware` são a instalação do Inertia. O middleware olha o cabeçalho `X-Inertia` e decide se devolve HTML ou JSON.
 * `INERTIA_LAYOUT` é obrigatório e não tem valor padrão: é o template que envolve todas as páginas. Isso mostra o tamanho do Inertia: ele substitui o sistema de templates, e só. Rotas, sessão e ORM continuam com o Django.
@@ -336,19 +297,7 @@ def _get_post_data(request):
     return request.POST
 
 
-def _index_props():
-    """Props comuns para a página Index."""
-    movies = Movie.objects.all()
-    data = [movie.serializable_values(exclude=['added_at']) for movie in movies]
-    return {
-        'movies': data,
-        'stats': {
-            'total': movies.count(),
-            'want': movies.filter(status='want').count(),
-            'watching': movies.filter(status='watching').count(),
-            'watched': movies.filter(status='watched').count(),
-        },
-    }
+# ... (_index_props: veja o arquivo completo no GitHub)
 
 
 def movie_list(request):
@@ -371,30 +320,10 @@ def movie_create(request):
     return render(request, 'Movies/Index', props=props)
 
 
-def movie_update(request, pk):
-    movie = get_object_or_404(Movie, pk=pk)
-    data = _get_post_data(request)
-    form = MovieForm(data, instance=movie)
-
-    if form.is_valid():
-        form.save()
-        messages.success(request, 'Filme atualizado com sucesso!')
-        return redirect('movie_list')
-
-    props = _index_props()
-    props['errors'] = form.errors
-    props['showDialog'] = 'edit'
-    props['editMovie'] = movie.serializable_values(exclude=['added_at'])
-    props['formData'] = dict(data)
-    return render(request, 'Movies/Index', props=props)
-
-
-def movie_delete(request, pk):
-    movie = get_object_or_404(Movie, pk=pk)
-    movie.delete()
-    messages.success(request, 'Filme excluído com sucesso!')
-    return redirect('movie_list')
+# ... (movie_update e movie_delete: veja o arquivo completo no GitHub)
 ```
+
+Código completo: [apps/core/views.py](https://github.com/rg3915/django-inertia-vuejs/blob/4133ad4d607535b49e1e0d598aa6ab432c9b91bc/apps/core/views.py)
 
 * O `render` agora vem de `inertia`, não de `django.shortcuts`. O segundo argumento, `'Movies/Index'`, é o nome do componente Vue; `props` é um dicionário que chega ao componente como props.
 * O Inertia envia os formulários como JSON. Como o `ModelForm` espera um `QueryDict`, o `_get_post_data` faz a conversão.
@@ -526,41 +455,20 @@ O `resolve` transforma o nome que a view passou (`'Movies/Index'`) no arquivo `.
 <script setup>
 import { ref, onMounted } from "vue"
 import { router, useForm } from "@inertiajs/vue3"
-import StatsBar from "../../Components/StatsBar.vue"
-import MovieTable from "../../Components/MovieTable.vue"
-import MovieFormDialog from "../../Components/MovieFormDialog.vue"
-import ConfirmDialog from "../../Components/ConfirmDialog.vue"
-import Toast from "../../Components/Toast.vue"
-import ThemeSwitch from "../../Components/ThemeSwitch.vue"
-
+// ... (imports dos componentes)
 // Quem passa esses dados é o Django:
 //   render(request, "Movies/Index", props={"movies": data, "stats": {...}})
 const props = defineProps([
     "movies", "stats",
     "errors", "showDialog", "editMovie", "formData",
 ])
-
-const showCreateDialog = ref(false)
-const showEditDialog = ref(false)
-const showDeleteDialog = ref(false)
-const movieToDelete = ref(null)
-const editingMovieId = ref(null)
+// ...
 
 // useForm: estado reativo do formulário + métodos post, put etc.
 const createForm = useForm({
     title: "",
-    director: "",
-    year: "",
-    genre: "",
-    rating: "",
-    status: "want",
-    notes: "",
+    // ...
 })
-
-function openCreate() {
-    createForm.reset()
-    showCreateDialog.value = true
-}
 
 // POST direto numa rota do Django. Não existe Vue Router.
 function submitCreate() {
@@ -572,90 +480,11 @@ function submitCreate() {
     })
 }
 
-const editForm = useForm({
-    title: "",
-    director: "",
-    year: "",
-    genre: "",
-    rating: "",
-    status: "want",
-    notes: "",
-})
-
-function openEdit(movie) {
-    editingMovieId.value = movie.id
-    editForm.title = movie.title
-    editForm.director = movie.director
-    editForm.year = movie.year || ""
-    editForm.genre = movie.genre
-    editForm.rating = movie.rating || ""
-    editForm.status = movie.status
-    editForm.notes = movie.notes
-    showEditDialog.value = true
-}
-
-function submitEdit() {
-    editForm.post(`/${editingMovieId.value}/update/`, {
-        onSuccess: () => { showEditDialog.value = false },
-    })
-}
-
-function confirmDelete(movie) {
-    movieToDelete.value = movie
-    showDeleteDialog.value = true
-}
-
-function executeDelete() {
-    router.post(`/${movieToDelete.value.id}/delete/`, {}, {
-        onSuccess: () => {
-            showDeleteDialog.value = false
-            movieToDelete.value = null
-        },
-    })
-}
-
-// Se o Django devolveu erros de validação, reabre o diálogo com os dados digitados.
-onMounted(() => {
-    if (props.showDialog === "create" && props.formData) {
-        createForm.title = props.formData.title || ""
-        createForm.director = props.formData.director || ""
-        createForm.year = props.formData.year || ""
-        createForm.genre = props.formData.genre || ""
-        createForm.rating = props.formData.rating || ""
-        createForm.status = props.formData.status || "want"
-        createForm.notes = props.formData.notes || ""
-        showCreateDialog.value = true
-    }
-
-    if (props.showDialog === "edit" && props.editMovie) {
-        editingMovieId.value = props.editMovie.id
-        editForm.title = props.formData?.title || props.editMovie.title
-        editForm.director = props.formData?.director || props.editMovie.director
-        editForm.year = props.formData?.year || props.editMovie.year || ""
-        editForm.genre = props.formData?.genre || props.editMovie.genre
-        editForm.rating = props.formData?.rating || props.editMovie.rating || ""
-        editForm.status = props.formData?.status || props.editMovie.status
-        editForm.notes = props.formData?.notes || props.editMovie.notes
-        showEditDialog.value = true
-    }
-})
+// ... (edição, exclusão e reabertura do diálogo com erros: veja o arquivo completo no GitHub)
 </script>
 
 <template>
-    <Toast />
-
-    <main class="container">
-        <div class="page-header">
-            <StatsBar :stats="stats" />
-            <ThemeSwitch />
-        </div>
-
-        <MovieTable :movies="movies" @edit="openEdit" @delete="confirmDelete">
-            <template #actions>
-                <button @click="openCreate">Novo filme</button>
-            </template>
-        </MovieTable>
-
+    <!-- ... -->
         <MovieFormDialog
             v-model:open="showCreateDialog"
             :form="createForm"
@@ -663,37 +492,12 @@ onMounted(() => {
             title="Novo Filme"
             @submit="submitCreate"
         />
-
-        <MovieFormDialog
-            v-model:open="showEditDialog"
-            :form="editForm"
-            :errors="showEditDialog ? errors : {}"
-            title="Editar Filme"
-            @submit="submitEdit"
-        />
-
-        <ConfirmDialog
-            v-model:open="showDeleteDialog"
-            title="Confirmar exclusão"
-            :message="`Tem certeza que deseja excluir <strong>${movieToDelete?.title}</strong>?`"
-            @confirm="executeDelete"
-        />
-    </main>
+    <!-- ... -->
 </template>
-
-<style scoped>
-main.container {
-    padding-top: 2rem;
-}
-
-.page-header {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 1rem;
-}
-</style>
+<!-- ... -->
 ```
+
+Código completo: [frontend/src/Pages/Movies/Index.vue](https://github.com/rg3915/django-inertia-vuejs/blob/4133ad4d607535b49e1e0d598aa6ab432c9b91bc/frontend/src/Pages/Movies/Index.vue)
 
 Fluxo do formulário: `createForm.post("/create/")` envia JSON para a view `movie_create`. Se ela responde com `redirect` (sucesso), o Inertia busca a lista atualizada e troca as props sem recarregar a página. Se ela responde renderizando a página com `errors`, o diálogo continua aberto mostrando os erros. O `form.processing` fica `true` enquanto a requisição está em andamento.
 
@@ -725,9 +529,7 @@ const filteredMovies = computed(() => {
 </script>
 
 <template>
-    <div class="toolbar">
-        <slot name="actions" />
-
+    <!-- ... -->
         <div role="search">
             <input
                 v-model="search"
@@ -736,48 +538,18 @@ const filteredMovies = computed(() => {
                 aria-label="Buscar filmes"
             >
         </div>
-    </div>
-
-    <small v-if="search" class="search-count">
-        {{ filteredMovies.length }} de {{ movies.length }} filme(s)
-    </small>
-
-    <figure>
-        <table>
-            <thead>
-                <tr>
-                    <th>Título</th>
-                    <th>Diretor</th>
-                    <th>Ano</th>
-                    <th>Nota</th>
-                    <th>Status</th>
-                    <th>Ações</th>
-                </tr>
-            </thead>
-            <tbody>
+    <!-- ... -->
                 <tr v-for="movie in filteredMovies" :key="movie.id">
                     <td>{{ movie.title }}</td>
                     <td>{{ movie.director }}</td>
                     <td>{{ movie.year }}</td>
                     <td class="stars">{{ movie.stars }}</td>
                     <td>{{ movie.status_label }}</td>
-                    <td>
-                        <a href="#" role="button" class="outline" @click.prevent="$emit('edit', movie)">Editar</a>
-                        &nbsp;
-                        <a href="#" role="button" class="outline secondary" @click.prevent="$emit('delete', movie)">Excluir</a>
-                    </td>
-                </tr>
-                <tr v-if="!filteredMovies.length">
-                    <td colspan="6">
-                        <em v-if="search">Nenhum filme encontrado para "{{ search }}".</em>
-                        <em v-else>Nenhum filme cadastrado ainda.</em>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </figure>
+                    <!-- ... (veja o arquivo completo no GitHub) -->
 </template>
 ```
+
+Código completo: [frontend/src/Components/MovieTable.vue](https://github.com/rg3915/django-inertia-vuejs/blob/4133ad4d607535b49e1e0d598aa6ab432c9b91bc/frontend/src/Components/MovieTable.vue)
 
 `stars` e `status_label` vêm prontos do model. No repositório o componente tem ainda um bloco `<style scoped>` para alinhar a barra de busca.
 
@@ -791,19 +563,7 @@ import { useModal } from "../composables/useModal"
 
 const props = defineProps(["form", "errors", "title", "open"])
 const emit = defineEmits(["update:open", "submit"])
-
-const dialogRef = ref(null)
-const { isOpen, open, close } = useModal(dialogRef)
-
-watch(() => props.open, (val) => {
-    if (val && !isOpen.value) open()
-    if (!val && isOpen.value) close()
-})
-
-function handleClose() {
-    close()
-    emit("update:open", false)
-}
+// ... (abre e fecha o <dialog> conforme o v-model:open)
 </script>
 
 <template>
@@ -819,49 +579,7 @@ function handleClose() {
                     <input v-model="form.title" :aria-invalid="!!errors?.title" />
                     <small v-if="errors?.title" style="color: red">{{ errors.title[0] }}</small>
                 </label>
-
-                <label>
-                    Diretor
-                    <input v-model="form.director" :aria-invalid="!!errors?.director" />
-                    <small v-if="errors?.director" style="color: red">{{ errors.director[0] }}</small>
-                </label>
-
-                <div class="grid">
-                    <label>
-                        Ano
-                        <input v-model="form.year" type="number" min="0" :aria-invalid="!!errors?.year" />
-                        <small v-if="errors?.year" style="color: red">{{ errors.year[0] }}</small>
-                    </label>
-                    <label>
-                        Gênero
-                        <input v-model="form.genre" :aria-invalid="!!errors?.genre" />
-                        <small v-if="errors?.genre" style="color: red">{{ errors.genre[0] }}</small>
-                    </label>
-                </div>
-
-                <div class="grid">
-                    <label>
-                        Nota (0-5)
-                        <input v-model="form.rating" type="number" min="0" max="5" :aria-invalid="!!errors?.rating" />
-                        <small v-if="errors?.rating" style="color: red">{{ errors.rating[0] }}</small>
-                    </label>
-                    <label>
-                        Status
-                        <select v-model="form.status" :aria-invalid="!!errors?.status">
-                            <option value="want">Quero Ver</option>
-                            <option value="watching">Assistindo</option>
-                            <option value="watched">Assistido</option>
-                        </select>
-                        <small v-if="errors?.status" style="color: red">{{ errors.status[0] }}</small>
-                    </label>
-                </div>
-
-                <label>
-                    Notas
-                    <textarea v-model="form.notes" :aria-invalid="!!errors?.notes"></textarea>
-                    <small v-if="errors?.notes" style="color: red">{{ errors.notes[0] }}</small>
-                </label>
-
+                <!-- ... (os outros campos seguem o mesmo padrão) -->
                 <footer>
                     <div class="grid">
                         <button type="button" class="outline secondary" @click="handleClose">Cancelar</button>
@@ -873,6 +591,8 @@ function handleClose() {
     </dialog>
 </template>
 ```
+
+Código completo: [frontend/src/Components/MovieFormDialog.vue](https://github.com/rg3915/django-inertia-vuejs/blob/4133ad4d607535b49e1e0d598aa6ab432c9b91bc/frontend/src/Components/MovieFormDialog.vue)
 
 Os `errors` são o `form.errors` do Django, no formato `{"title": ["Este campo é obrigatório."]}`.
 

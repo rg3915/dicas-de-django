@@ -21,18 +21,7 @@ Primeiro, o artigo precisa de um status. Em `models.py` considere
 
 ```python
 # myproject/core/models.py
-import uuid
-from django.db import models
-from autoslug import AutoSlugField
-from hashid_field import HashidAutoField
-
-
-class UuidModel(models.Model):
-    slug = models.UUIDField(unique=True, editable=False, default=uuid.uuid4)
-
-    class Meta:
-        abstract = True
-
+# ... (veja o arquivo completo no GitHub)
 
 STATUS_CHOICES = (
     ('d', 'Rascunho'),
@@ -46,19 +35,7 @@ class Article(models.Model):
     title = models.CharField('título', max_length=200)
     subtitle = models.CharField('sub-título', max_length=200)
     slug = AutoSlugField(populate_from='title')
-    category = models.ForeignKey(
-        'Category',
-        related_name='categories',
-        verbose_name='categoria',
-        on_delete=models.SET_NULL,
-        null=True,
-        blank=True
-    )
-    published_date = models.DateTimeField(
-        'criado em',
-        auto_now_add=True,
-        auto_now=False
-    )
+    # ... (category e published_date, veja o arquivo completo no GitHub)
     status = models.CharField(max_length=1, choices=STATUS_CHOICES)
 
     class Meta:
@@ -69,18 +46,10 @@ class Article(models.Model):
     def __str__(self):
         return self.title
 
-
-class Category(UuidModel):
-    title = models.CharField('título', max_length=50, unique=True)
-
-    class Meta:
-        ordering = ('title',)
-        verbose_name = 'categoria'
-        verbose_name_plural = 'categorias'
-
-    def __str__(self):
-        return self.title
+# ... (veja o arquivo completo no GitHub)
 ```
+
+Código completo: [myproject/core/models.py](https://github.com/rg3915/dicas-de-django/blob/8c9763e178dbe8bf5f7d6ade8125bb1b335b999d/myproject/core/models.py)
 
 * `STATUS_CHOICES` é uma tupla de pares `(valor gravado no banco, texto exibido)`: `d` de *draft* (Rascunho), `p` de *published* (Publicado) e `w` de *withdrawn* (Retirado).
 * `status` é um `CharField` de um caractere com `choices=STATUS_CHOICES`. No banco fica gravada só a letra; no Admin aparece o texto, e o formulário vira uma caixa de seleção.

@@ -106,15 +106,7 @@ INSTALLED_APPS = [
 
 ```python
 # backend/accounts/models.py
-from __future__ import unicode_literals
-
-from django.contrib.auth.base_user import AbstractBaseUser
-from django.contrib.auth.models import PermissionsMixin
-from django.core.mail import send_mail
-from django.db import models
-from django.utils.translation import gettext_lazy as _
-
-from .managers import UserManager
+# ... (veja o arquivo completo no GitHub)
 
 
 class User(AbstractBaseUser, PermissionsMixin):
@@ -152,24 +144,7 @@ class User(AbstractBaseUser, PermissionsMixin):
         # Simplest possible answer: Yes, always
         return True
 
-    def get_full_name(self):
-        '''
-        Returns the first_name plus the last_name, with a space in between.
-        '''
-        full_name = '%s %s' % (self.first_name, self.last_name)
-        return full_name.strip()
-
-    def get_short_name(self):
-        '''
-        Returns the short name for the user.
-        '''
-        return self.first_name
-
-    def email_user(self, subject, message, from_email=None, **kwargs):
-        '''
-        Sends an email to this User.
-        '''
-        send_mail(subject, message, from_email, [self.email], **kwargs)
+    # ... (veja o arquivo completo no GitHub)
 
     @property
     def is_staff(self):
@@ -177,6 +152,8 @@ class User(AbstractBaseUser, PermissionsMixin):
         # Simplest possible answer: All admins are staff
         return self.is_admin
 ```
+
+Código completo: [backend/accounts/models.py](https://github.com/rg3915/dicas-de-django/blob/29bf30bb743170b39350e1c0283046f44b470f3c/backend/accounts/models.py)
 
 O que importa aqui:
 
@@ -312,52 +289,10 @@ class TestUser(TestCase):
 
     def test_str(self):
         self.assertEqual(self.user.email, 'admin@email.com')
-
-    def test_return_attributes(self):
-        fields = (
-            'id',
-            'email',
-            'first_name',
-            'last_name',
-            'password',
-            'is_active',
-            'is_admin',
-            'is_superuser',
-            'date_joined',
-            'last_login',
-        )
-
-        for field in fields:
-            with self.subTest():
-                self.assertTrue(hasattr(User, field))
-
-    def test_user_is_authenticated(self):
-        self.assertTrue(self.user.is_authenticated)
-
-    def test_user_is_active(self):
-        self.assertTrue(self.user.is_active)
-
-    def test_user_is_staff(self):
-        self.assertFalse(self.user.is_staff)
-
-    def test_user_is_superuser(self):
-        self.assertFalse(self.user.is_superuser)
-
-    def test_superuser_is_superuser(self):
-        self.assertTrue(self.superuser.is_superuser)
-
-    def test_user_has_perm(self):
-        self.assertTrue(self.user.has_perm)
-
-    def test_user_has_module_perms(self):
-        self.assertTrue(self.user.has_module_perms)
-
-    def test_user_get_full_name(self):
-        self.assertEqual(self.user.get_full_name(), 'Admin Admin')
-
-    def test_user_get_short_name(self):
-        self.assertEqual(self.user.get_short_name(), 'Admin')
+    # ... (veja o arquivo completo no GitHub)
 ```
+
+Código completo: [backend/accounts/tests.py](https://github.com/rg3915/dicas-de-django/blob/29bf30bb743170b39350e1c0283046f44b470f3c/backend/accounts/tests.py)
 
 ## Migrations: o erro InconsistentMigrationHistory
 

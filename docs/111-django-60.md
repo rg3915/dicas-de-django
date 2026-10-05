@@ -338,21 +338,7 @@ from .models import Produto
 
 @task
 def gerar_pdf_produtos(categoria=None):
-    """
-    Task em background para gerar PDF com lista de produtos.
-    Django 6.0 - Background Tasks Framework
-    """
-    # Gerar timestamp no formato YYMMDD_HHMMSS
-    timestamp = datetime.now().strftime('%y%m%d_%H%M%S')
-
-    # Filtrar produtos
-    if categoria:
-        produtos = Produto.objects.filter(categoria=categoria, ativo=True)
-        filename = f'produtos_{categoria}_{timestamp}.pdf'
-    else:
-        produtos = Produto.objects.filter(ativo=True)
-        filename = f'produtos_todos_{timestamp}.pdf'
-
+    # ... (veja o arquivo completo no GitHub)
     # Renderizar template HTML
     html_content = render_to_string(
         'produto/pdf_template.html',
@@ -362,11 +348,7 @@ def gerar_pdf_produtos(categoria=None):
             'total': produtos.count(),
         },
     )
-
-    # Criar diretório media/pdfs se não existir
-    pdf_dir = Path(settings.MEDIA_ROOT) / 'pdfs'
-    pdf_dir.mkdir(parents=True, exist_ok=True)
-
+    # ... (veja o arquivo completo no GitHub)
     # Gerar PDF com Weasyprint
     pdf_path = pdf_dir / filename
     HTML(string=html_content).write_pdf(pdf_path)
@@ -379,77 +361,10 @@ def gerar_pdf_produtos(categoria=None):
     }
 
 
-@task
-def gerar_e_enviar_pdf_por_email(email_destinatario, categoria=None):
-    """
-    Task em background para gerar PDF e enviar por email.
-    Django 6.0 - Modern Email API + Background Tasks
-    """
-    # Gerar timestamp no formato YYMMDD_HHMMSS
-    timestamp = datetime.now().strftime('%y%m%d_%H%M%S')
-
-    # Filtrar produtos
-    if categoria:
-        produtos = Produto.objects.filter(categoria=categoria, ativo=True)
-        filename = f'produtos_{categoria}_{timestamp}.pdf'
-        categoria_nome = dict(Produto.Categoria.choices)[categoria]
-        assunto = f'Catálogo de Produtos - {categoria_nome}'
-    else:
-        produtos = Produto.objects.filter(ativo=True)
-        filename = f'produtos_todos_{timestamp}.pdf'
-        assunto = 'Catálogo Completo de Produtos'
-
-    # Renderizar template HTML para PDF
-    html_content = render_to_string(
-        'produto/pdf_template.html',
-        {
-            'produtos': produtos,
-            'categoria': categoria,
-            'total': produtos.count(),
-        },
-    )
-
-    # Criar diretório media/pdfs se não existir
-    pdf_dir = Path(settings.MEDIA_ROOT) / 'pdfs'
-    pdf_dir.mkdir(parents=True, exist_ok=True)
-
-    # Gerar PDF com Weasyprint
-    pdf_path = pdf_dir / filename
-    HTML(string=html_content).write_pdf(pdf_path)
-
-    # Django 6.0 - Modern Email API
-    # Criar email com PDF anexo
-    email = EmailMessage(
-        subject=assunto,
-        body=f"""Olá!
-
-Segue em anexo o catálogo de produtos solicitado.
-
-Total de produtos: {produtos.count()}
-{f'Categoria: {categoria_nome}' if categoria else 'Todas as categorias'}
-
-Atenciosamente,
-Equipe Django 6.0
-""",
-        from_email=settings.DEFAULT_FROM_EMAIL,
-        to=[email_destinatario],
-    )
-
-    # Anexar PDF ao email
-    with open(pdf_path, 'rb') as pdf_file:
-        email.attach(filename, pdf_file.read(), 'application/pdf')
-
-    # Enviar email
-    email.send()
-
-    return {
-        'success': True,
-        'email_enviado': email_destinatario,
-        'filename': filename,
-        'path': str(pdf_path),
-        'total_produtos': produtos.count(),
-    }
+# ... (veja o arquivo completo no GitHub)
 ```
+
+Código completo: [apps/produto/tasks.py](https://github.com/rg3915/django60/blob/a62d09aba947197195c3a3f66d9060549f20931e/apps/produto/tasks.py)
 
 * `@task` (de `django.tasks`) transforma a função numa task. Ela continua sendo uma função comum no código, mas ganha o método `.enqueue()`.
 * Os argumentos e o valor de retorno precisam ser serializáveis em JSON, porque vão para a fila e para a tabela de resultados. Por isso a task recebe a **categoria** (uma string) e não um queryset, e devolve um dicionário simples.
@@ -460,13 +375,7 @@ Equipe Django 6.0
 
 ```python
 # apps/produto/views.py (trecho)
-from django.contrib import messages
-from django.http import JsonResponse
-from django.shortcuts import redirect
-from django_tasks.backends.database.models import DBTaskResult
-
-from .models import Produto
-from .tasks import gerar_e_enviar_pdf_por_email, gerar_pdf_produtos
+# ... (veja o arquivo completo no GitHub)
 
 
 def gerar_pdf(request):
@@ -503,26 +412,10 @@ def task_status(request, task_id):
             'FAILED': 'error',
         }
         status = status_map.get(task.status, 'pending')
-        response_data = {'status': status}
-
-        if status == 'completed' and task.return_value:
-            result = task.return_value
-            response_data.update(
-                {
-                    'filename': result.get('filename'),
-                    'download_url': f'/media/pdfs/{result.get("filename")}',
-                    'total_produtos': result.get('total_produtos'),
-                }
-            )
-
-        if status == 'error' and task.exception_class_path:
-            response_data['error_message'] = task.exception_class_path
-
-        return JsonResponse(response_data)
-
-    except DBTaskResult.DoesNotExist:
-        return JsonResponse({'error': 'Task não encontrada'}, status=404)
+        # ... (veja o arquivo completo no GitHub)
 ```
+
+Código completo: [apps/produto/views.py](https://github.com/rg3915/django60/blob/a62d09aba947197195c3a3f66d9060549f20931e/apps/produto/views.py)
 
 Simplifiquei a mensagem de sucesso de `gerar_pdf` (no repositório ela muda quando há categoria). O fluxo:
 

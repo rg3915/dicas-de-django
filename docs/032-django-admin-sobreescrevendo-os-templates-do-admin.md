@@ -188,48 +188,7 @@ from .models import Article, Category
 
 @admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):
-    list_display = ('id', 'title', 'slug', 'get_published_date', 'get_category', 'status')
-    search_fields = ('title',)
-    list_filter = (
-        ('published_date', DateRangeFilter),
-        'category',
-        'status',
-    )
-    readonly_fields = ('slug',)
-    date_hierarchy = 'published_date'
-    # form = ArticleAdminForm
-    list_editable = ('title', 'status')
-    actions = ('make_published',)
-
-    def save_model(self, request, obj, form, change):
-        if not change:
-            obj.user = request.user
-            obj.save()
-        super(ArticleAdmin, self).save_model(request, obj, form, change)
-
-    def make_published(self, request, queryset):
-        count = queryset.update(status='p')
-
-        if count == 1:
-            msg = '{} artigo foi publicado.'
-        else:
-            msg = '{} artigos foram publicados.'
-
-        self.message_user(request, msg.format(count))
-
-    make_published.short_description = "Publicar artigos"
-
-    def get_published_date(self, obj):
-        if obj.published_date:
-            return obj.published_date.strftime('%d/%m/%Y')
-
-    get_published_date.short_description = 'Data de Publicação'
-
-    def get_category(self, obj):
-        if obj.category:
-            return obj.category.title
-
-    get_category.short_description = 'Categoria'
+    # ... (veja o arquivo completo no GitHub)
 
     def get_urls(self):
         urls = super().get_urls()
@@ -253,15 +212,7 @@ class ArticleAdmin(admin.ModelAdmin):
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ('title', 'slug')
-    actions = None
-
-    def has_add_permission(self, request, obj=None):
-        return False
-
-    if not settings.DEBUG:
-        def has_delete_permission(self, request, obj=None):
-            return False
+    # ... (veja o arquivo completo no GitHub)
 
     def get_urls(self):
         urls = super().get_urls()
@@ -282,6 +233,8 @@ class CategoryAdmin(admin.ModelAdmin):
         )
         return redirect('admin:core_category_changelist')
 ```
+
+Código completo: [myproject/core/admin.py](https://github.com/rg3915/dicas-de-django/blob/95ba6df7d0bda1289b5d9d1a4ae4424bd0d6f350/myproject/core/admin.py)
 
 O que cada parte faz:
 
