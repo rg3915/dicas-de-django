@@ -211,19 +211,7 @@ class TimeStampedModel(models.Model):
     class Meta:
         abstract = True
 
-
-class UuidModel(models.Model):
-    slug = models.UUIDField(unique=True, editable=False, default=uuid.uuid4)
-
-    class Meta:
-        abstract = True
-
-
-STATUS_CHOICES = (
-    ('d', 'Rascunho'),
-    ('p', 'Publicado'),
-    ('w', 'Retirado'),
-)
+# ... (veja o arquivo completo no GitHub)
 
 
 class Article(TimeStampedModel):
@@ -231,35 +219,10 @@ class Article(TimeStampedModel):
     title = models.CharField('título', max_length=200)
     subtitle = models.CharField('sub-título', max_length=200)
     # slug = AutoSlugField(populate_from='title')
-    category = models.ForeignKey(
-        'Category',
-        related_name='categories',
-        verbose_name='categoria',
-        on_delete=models.SET_NULL,
-        null=True,
-        blank=True
-    )
-    published_date = models.DateTimeField(
-        'criado em',
-        auto_now_add=True,
-        auto_now=False
-    )
-    status = models.CharField(max_length=1, choices=STATUS_CHOICES)
-    user = models.ForeignKey(
-        User,
-        on_delete=models.SET_NULL,
-        null=True,
-        blank=True
-    )
-
-    class Meta:
-        ordering = ('title',)
-        verbose_name = 'artigo'
-        verbose_name_plural = 'artigos'
-
-    def __str__(self):
-        return self.title
+    # ... (veja o arquivo completo no GitHub)
 ```
+
+Código completo: [myproject/core/models.py](https://github.com/rg3915/dicas-de-django/blob/9f7edc791f3ebe2b18443883941eae14ba9d88c5/myproject/core/models.py)
 
 Os demais models do arquivo (`Category`, `Person`) continuam iguais.
 

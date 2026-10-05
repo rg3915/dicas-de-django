@@ -198,37 +198,11 @@ A versão final do formulário:
 
 ```python
 # accounts/forms.py
-from django import forms
-from django.contrib.auth import authenticate
-from django.contrib.auth.forms import AuthenticationForm
-from django.core.exceptions import ValidationError
-from django.utils.translation import gettext_lazy as _
-
-from backend.accounts.models import User
-
-from .models import AuditEntry
+# ... (veja o arquivo completo no GitHub)
 
 
 class CustomUserForm(forms.ModelForm):
-    first_name = forms.CharField(
-        label='Nome',
-        max_length=150,
-    )
-    last_name = forms.CharField(
-        label='Sobrenome',
-        max_length=150,
-    )
-    email = forms.EmailField(
-        label='E-mail',
-    )
-
-    class Meta:
-        model = User
-        fields = (
-            'first_name',
-            'last_name',
-            'email',
-        )
+    # ... (campos e Meta, veja o arquivo completo no GitHub)
 
     error_messages = {
         'invalid_first_character': _('O primeiro caractere deve ser uma letra.'),
@@ -255,19 +229,10 @@ class CustomUserForm(forms.ModelForm):
 
         return data
 
-    def get_invalid_first_character_error(self):
-        '''
-        O primeiro caractere deve ser uma letra.
-        '''
-        return ValidationError(
-            self.error_messages['invalid_first_character'],
-            code='invalid_first_character'
-        )
-
-
-class MyAuthenticationForm(AuthenticationForm):
-    ...
+    # ... (veja o arquivo completo no GitHub)
 ```
+
+Código completo: [backend/accounts/forms.py](https://github.com/rg3915/dicas-de-django/blob/bc253f4b05d112f56a7973166347f354a89e24b0/backend/accounts/forms.py)
 
 ## Testando
 

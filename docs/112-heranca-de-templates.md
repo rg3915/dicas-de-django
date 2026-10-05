@@ -90,18 +90,7 @@ class MyHandler(BaseHTTPRequestHandler):
                         'link': 'https://youtu.be/mlaCLGItR7Q?si=7AFw4dJVkmoK7vCR',
                         'thumbnail': 'https://img.youtube.com/vi/mlaCLGItR7Q/maxresdefault.jpg'
                     },
-                    {
-                        'titulo': 'A Essência do Django parte 2',
-                        'descricao': 'Entenda como trabalhar com models e o ORM do Django.',
-                        'link': 'https://youtu.be/Qu2QTxdYfZ4?si=NsloJHNAzlF58p9b',
-                        'thumbnail': 'https://img.youtube.com/vi/Qu2QTxdYfZ4/maxresdefault.jpg'
-                    },
-                    {
-                        'titulo': 'Introdução ao Django | Review',
-                        'descricao': 'Reveja os principais assuntos do Django de forma rápida e simples.',
-                        'link': 'https://youtu.be/MzlznUJeP4U?si=0M55RxKPqYFAtBnq',
-                        'thumbnail': 'https://img.youtube.com/vi/MzlznUJeP4U/maxresdefault.jpg'
-                    },
+                    # ... (mais vídeos, veja o arquivo completo no GitHub)
                 ]
             )
 
@@ -110,23 +99,7 @@ class MyHandler(BaseHTTPRequestHandler):
             self.end_headers()
             self.wfile.write(html.encode('utf-8'))
 
-        elif self.path == '/templates':
-            template = env.get_template('templates.html')
-            html = template.render()
-
-            self.send_response(200)
-            self.send_header('Content-type', 'text/html; charset=utf-8')
-            self.end_headers()
-            self.wfile.write(html.encode('utf-8'))
-
-        elif self.path == '/sobre':
-            template = env.get_template('about.html')
-            html = template.render()
-
-            self.send_response(200)
-            self.send_header('Content-type', 'text/html; charset=utf-8')
-            self.end_headers()
-            self.wfile.write(html.encode('utf-8'))
+        # ... (rotas /templates e /sobre, iguais à de cima; veja o arquivo completo no GitHub)
 
         else:
             self.send_response(404)
@@ -140,6 +113,8 @@ if __name__ == '__main__':
     print('Servidor rodando em http://localhost:8000')
     server.serve_forever()
 ```
+
+Código completo: [app.py](https://github.com/rg3915/heranca-templates-python/blob/0acaf6581e5b77269defacfecb31245366cbec57/app.py)
 
 O que acontece aqui:
 

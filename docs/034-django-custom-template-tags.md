@@ -278,7 +278,7 @@ Atenção a dois erros que aparecem no vídeo:
 
 Com tudo certo, o título fica "Lista de Artigos". Trocando por `{% model_name model %}`, fica no singular: "Lista de Artigo".
 
-## O template completo
+## O template
 
 ```html
 <!-- myproject/core/templates/core/article_list.html -->
@@ -291,31 +291,7 @@ Com tudo certo, o título fica "Lista de Artigos". Trocando por `{% model_name m
     <div class="col-md-4">
       <h1>Lista de {% model_name_plural model %}</h1>
     </div>
-    <div class="col-md-8">
-      <form class="form-inline my-2 my-lg-0 pull-right">
-        <label>Data Inicial</label>
-        <input class="form-control ml-sm-2 mr-sm-2" name="start_date" type="date"/>
-        <label>Data Final</label>
-        <input class="form-control ml-sm-2 mr-sm-2" name="end_date" type="date"/>
-        <button class="btn btn-primary my-2 my-sm-0" type="submit">OK</button>
-      </form>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-12">
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Item</th>
-            <th>Título</th>
-            <th>Título</th>
-            <th>Sub-título</th>
-            <th>Data de publicação</th>
-            <th>Categoria</th>
-            <th>Grupo</th>
-          </tr>
-        </thead>
+    <!-- ... (formulário de datas e cabeçalho da tabela, veja o arquivo completo no GitHub) -->
         <tbody>
           {% for obj in object_list %}
             <tr>
@@ -337,11 +313,11 @@ Com tudo certo, o título fica "Lista de Artigos". Trocando por `{% model_name m
             </tr>
           {% endfor %}
         </tbody>
-      </table>
-    </div>
-  </div>
+    <!-- ... -->
 {% endblock content %}
 ```
+
+Código completo: [myproject/core/templates/core/article_list.html](https://github.com/rg3915/dicas-de-django/blob/5a1d7b1788e76359851a063315a110f1fb645f7b/myproject/core/templates/core/article_list.html)
 
 Rodando o servidor e abrindo `http://localhost:8000/articles/`, a tabela mostra, para cada artigo: o número da linha, o título em forma de slug, o título cortado em 13 caracteres, o subtítulo (com HTML renderizado ou `---`), a data em `dd/mm/aaaa`, a categoria (ou `---`) e o grupo do autor.
 

@@ -97,70 +97,18 @@ Na primeira tentativa do vídeo, a página carregou mas não ficou em duas colun
 * **Formulário** (segunda coluna): o [Complete form example](https://bulma.io/documentation/form/general/#complete-form-example), com campos de texto, um campo válido (`is-success`), um inválido (`is-danger`), select, textarea, checkbox, radio e os botões Submit e Cancel.
 * **Botões** (fora das colunas): as [cores de botão](https://bulma.io/documentation/elements/button/#colors), agrupadas em `div.buttons`.
 
-## O código completo
+## O código
 
 ```html
 <!-- src/pages/bulma/index.html -->
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-  <link rel="shortcut icon" href="https://bulma.io/favicons/favicon-32x32.png?v=201701041855">
-  <title>Bulma CSS</title>
-
+<!-- ... -->
   <!-- Bulma -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 </head>
 <body>
   <div class="container">
-    <div class="notification is-primary">
-      <p>Esta página está usando <a href="https://bulma.io/">Bulma CSS</a>.</p>
-    </div>
-
-    <div class="columns">
-      <div class="column">
-        <!-- card -->
-        <div class="card">
-          <div class="card-image">
-            <figure class="image is-4by3">
-              <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-            </figure>
-          </div>
-          <div class="card-content">
-            <div class="media">
-              <div class="media-left">
-                <figure class="image is-48x48">
-                  <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-                </figure>
-              </div>
-              <div class="media-content">
-                <p class="title is-4">John Smith</p>
-                <p class="subtitle is-6">@johnsmith</p>
-              </div>
-            </div>
-
-            <div class="content">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-              <a href="#">#css</a> <a href="#">#responsive</a>
-              <br>
-              <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="column">
-        <!-- form -->
-        <div class="field">
-          <label class="label">Name</label>
-          <div class="control">
-            <input class="input" type="text" placeholder="Text input">
-          </div>
-        </div>
-
+    <!-- ... -->
         <div class="field">
           <label class="label">Username</label>
           <div class="control has-icons-left has-icons-right">
@@ -174,90 +122,19 @@ Na primeira tentativa do vídeo, a página carregou mas não ficou em duas colun
           </div>
           <p class="help is-success">This username is available</p>
         </div>
-
-        <div class="field">
-          <label class="label">Email</label>
-          <div class="control has-icons-left has-icons-right">
-            <input class="input is-danger" type="email" placeholder="Email input" value="hello@">
-            <span class="icon is-small is-left">
-              <i class="fas fa-envelope"></i>
-            </span>
-            <span class="icon is-small is-right">
-              <i class="fas fa-exclamation-triangle"></i>
-            </span>
-          </div>
-          <p class="help is-danger">This email is invalid</p>
-        </div>
-
-        <div class="field">
-          <label class="label">Subject</label>
-          <div class="control">
-            <div class="select">
-              <select>
-                <option>Select dropdown</option>
-                <option>With options</option>
-              </select>
-            </div>
-          </div>
-        </div>
-
-        <div class="field">
-          <label class="label">Message</label>
-          <div class="control">
-            <textarea class="textarea" placeholder="Textarea"></textarea>
-          </div>
-        </div>
-
-        <div class="field">
-          <div class="control">
-            <label class="checkbox">
-              <input type="checkbox">
-              I agree to the <a href="#">terms and conditions</a>
-            </label>
-          </div>
-        </div>
-
-        <div class="field">
-          <div class="control">
-            <label class="radio">
-              <input type="radio" name="question">
-              Yes
-            </label>
-            <label class="radio">
-              <input type="radio" name="question">
-              No
-            </label>
-          </div>
-        </div>
-
-        <div class="field is-grouped">
-          <div class="control">
-            <button class="button is-link">Submit</button>
-          </div>
-          <div class="control">
-            <button class="button is-link is-light">Cancel</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
+        <!-- ... -->
     <!-- buttons -->
     <div class="buttons">
       <button class="button is-primary">Primary</button>
       <button class="button is-link">Link</button>
     </div>
-
-    <div class="buttons">
-      <button class="button is-info">Info</button>
-      <button class="button is-success">Success</button>
-      <button class="button is-warning">Warning</button>
-      <button class="button is-danger">Danger</button>
-    </div>
-
+    <!-- ... -->
   </div>
 </body>
 </html>
 ```
+
+Código completo: [src/pages/bulma/index.html](https://github.com/rg3915/dicas-de-django/blob/861af5586d322a16785fb8df522d1e612c8b1ffe/src/pages/bulma/index.html)
 
 Os ícones do formulário (`<i class="fas fa-user"></i>` etc.) são do Font Awesome, que não foi carregado nesta página; por isso eles não aparecem. Se quiser os ícones, acrescente o CSS do Font Awesome no `head`.
 

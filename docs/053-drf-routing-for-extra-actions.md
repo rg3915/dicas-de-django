@@ -187,28 +187,13 @@ Agora uma ação sobre a lista, com `detail=False` e só o método `get`: ela re
 * `self.get_queryset()` devolve o `queryset` da view, e filtramos por `created_by=user`, como na dica anterior.
 * Se a paginação estiver configurada, `self.paginate_queryset` devolve a página, e a resposta sai paginada com `self.get_paginated_response`. Senão, serializamos tudo com `many=True` e devolvemos com `Response`.
 
-## views.py completo
+## views.py
 
 ```python
 # blog/views.py
 from rest_framework import viewsets
 from rest_framework.decorators import action
-from rest_framework.filters import SearchFilter
-from rest_framework.permissions import AllowAny, IsAuthenticated
-from rest_framework.response import Response
-
-from blog.filters import PostFilter
-from blog.models import Author, Post
-from blog.pagination import CustomBlogResultsSetPagination
-from blog.serializers import AuthorSerializer, PostSerializer
-
-
-class AuthorViewSet(viewsets.ModelViewSet):
-    queryset = Author.objects.all()
-    serializer_class = AuthorSerializer
-    permission_classes = (AllowAny,)
-    filter_backends = (SearchFilter,)
-    search_fields = ('first_name', 'last_name')
+# ... (veja o arquivo completo no GitHub)
 
 
 class PostViewSet(viewsets.ModelViewSet):
@@ -230,32 +215,14 @@ class PostViewSet(viewsets.ModelViewSet):
 
     @action(detail=True, methods=['put'])
     def unlike(self, request, pk=None):
-        '''
-        Marca Like = False
-        '''
-        post_obj = self.get_object()
-        post_obj.like = False
-        post_obj.save()
-        serializer = self.get_serializer(post_obj)
-        return Response(serializer.data)
+        # ... (igual ao like, com post_obj.like = False)
 
     @action(detail=False, methods=['get'])
     def my_posts(self, request, pk=None):
-        '''
-        Retorna somente os meus posts.
-        '''
-        user = self.request.user
-        # posts = Post.objects.filter(created_by=user)
-        posts = self.get_queryset().filter(created_by=user)
-
-        page = self.paginate_queryset(posts)
-        if page is not None:
-            serializer = self.get_serializer(page, many=True)
-            return self.get_paginated_response(serializer.data)
-
-        serializer = self.get_serializer(posts, many=True)
-        return Response(serializer.data)
+        # ... (veja o arquivo completo no GitHub)
 ```
+
+Código completo: [blog/views.py](https://github.com/rg3915/drf-example/blob/536a79114ab4f6971a786aced8c69ef9ab85e996/blog/views.py)
 
 ## As novas rotas
 

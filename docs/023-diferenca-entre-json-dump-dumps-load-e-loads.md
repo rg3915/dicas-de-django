@@ -180,53 +180,10 @@ def file_to_json_with_load_open_file(filename):
 
 
 if __name__ == '__main__':
-    # Serialize (encode)
-
-    my_dict = {
-        "name": "Elliot",
-        "age": 25
-    }
-    print(json_to_string_with_dumps(my_dict))
-    print(type(json_to_string_with_dumps(my_dict)))
-
-    my_dict = {
-        "name": "Elliot",
-        "full_name": {"first_name": "Elliot", "last_name": "Alderson"},
-        "items": [1, 2.5, "a"],
-        "pi": 3.14,
-        "active": True,
-        "nulo": None
-    }
-    print(json_to_string_with_dump_stringio(my_dict))
-    print(type(json_to_string_with_dump_stringio(my_dict)))
-
-    filename = '/tmp/file.txt'
-    my_dict = {
-        "name": "Elliot",
-        "full_name": {"first_name": "Elliot", "last_name": "Alderson"},
-        "items": [1, 2.5, "a"],
-        "pi": 3.14,
-        "active": True,
-        "nulo": None
-    }
-    json_to_file_with_dump_open_file(filename, my_dict)
-
-    # Deserialize (decode)
-
-    text = """
-    {
-        "name": "Darlene",
-        "age": 27
-    }
-    """
-    pprint(string_to_json_with_load_stringio(text))
-    print(type(string_to_json_with_load_stringio(text)))
-
-    pprint(string_to_json_with_loads(text))
-    print(type(string_to_json_with_loads(text)))
-
-    pprint(file_to_json_with_load_open_file(filename))
+    # ... (veja o arquivo completo no GitHub)
 ```
+
+Código completo: [json_example.py](https://github.com/rg3915/dicas-de-django/blob/07630cc876c41c7d16d7c8a898db9f0977650bfe/json_example.py)
 
 Rodando com `python json_example.py`:
 

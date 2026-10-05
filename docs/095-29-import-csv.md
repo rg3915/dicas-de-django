@@ -356,42 +356,14 @@ class Command(BaseCommand):
 
 O argumento `--slow_motion` é um booleano: com `action='store_true'`, ele não recebe valor; basta passar `-slow` para ele valer `True`.
 
-O arquivo completo ficou assim:
+O arquivo ficou assim (trecho; o arquivo completo está no link logo abaixo):
 
 ```python
 # backend/core/management/commands/import_data.py
 import csv
 import sys
 from time import sleep
-
-from django.core.management.base import BaseCommand
-
-from backend.product.models import Product
-
-
-def csv_to_list(filename: str) -> list:
-    '''
-    Lê um csv e retorna um OrderedDict.
-    '''
-    with open(filename) as csv_file:
-        reader = csv.DictReader(csv_file, delimiter=',')
-        csv_data = [line for line in reader]
-    return csv_data
-
-
-def progressbar(it, prefix="", size=60, file=sys.stdout):
-    count = len(it)
-
-    def show(j):
-        x = int(size * j / count)
-        file.write("%s[%s%s] %i/%i\r" % (prefix, "#" * x, "." * (size - x), j, count))  # noqa E501
-        file.flush()
-    show(0)
-    for i, item in enumerate(it):
-        yield item
-        show(i + 1)
-    file.write("\n")
-    file.flush()
+# ... (veja o arquivo completo no GitHub)
 
 
 def save_data(data, slow_motion=None):
@@ -419,32 +391,10 @@ def save_data(data, slow_motion=None):
 def import_csv(filename, slow_motion=None):
     data = csv_to_list(filename)
     save_data(data, slow_motion)
-
-
-class Command(BaseCommand):
-    help = 'Importa dados de um CSV.'
-
-    def add_arguments(self, parser):
-        parser.add_argument(
-            '--filename_csv',
-            '-fcsv',
-            dest='filename_csv',
-            help='Importa arquivo CSV.'
-        )
-        parser.add_argument(
-            '--slow_motion',
-            '-slow',
-            action='store_true',
-            help='Simula camera lenta.'
-        )
-
-    def handle(self, *args, **options):
-        filename_csv = options['filename_csv']
-        slow_motion = options['slow_motion']
-
-        Product.objects.all().delete()
-        import_csv(filename_csv, slow_motion)
+# ... (veja o arquivo completo no GitHub)
 ```
+
+Código completo: [backend/core/management/commands/import_data.py](https://github.com/rg3915/dicas-de-django/blob/b012ee20ea5df69b8125d1fada509931d20876cd/backend/core/management/commands/import_data.py)
 
 A ajuda do comando agora mostra as duas opções:
 

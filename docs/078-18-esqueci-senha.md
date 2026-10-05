@@ -93,7 +93,7 @@ Os nomes `password_reset` e `password_reset_done` são importantes: a `PasswordR
 
 ## As views
 
-Em `backend/accounts/views.py`, importe `PasswordResetDoneView` e `PasswordResetView` junto com as views que já estavam lá e crie as duas classes. Elas só herdam das views do Django; a docstring lembra quais templates cada uma precisa. O arquivo completo:
+Em `backend/accounts/views.py`, importe `PasswordResetDoneView` e `PasswordResetView` junto com as views que já estavam lá e crie as duas classes. Elas só herdam das views do Django; a docstring lembra quais templates cada uma precisa. O trecho principal (o arquivo completo está no link logo abaixo):
 
 ```python
 # backend/accounts/views.py
@@ -103,45 +103,7 @@ from django.contrib.auth.views import (
     PasswordResetDoneView,
     PasswordResetView
 )
-from django.shortcuts import redirect, render
-
-from backend.accounts.services import send_mail_to_user
-
-from .forms import CustomUserForm
-
-
-def signup(request):
-    '''
-    Cadastra Usuário.
-    '''
-    template_name = 'registration/registration_form.html'
-    form = CustomUserForm(request.POST or None)
-
-    if request.method == 'POST':
-        if form.is_valid():
-            user = form.save()
-            send_mail_to_user(request=request, user=user)
-            return redirect('login')
-
-    return render(request, template_name)
-
-
-class MyPasswordResetConfirm(PasswordResetConfirmView):
-    '''
-    Requer password_reset_confirm.html
-    '''
-
-    def form_valid(self, form):
-        self.user.is_active = True
-        self.user.save()
-        return super(MyPasswordResetConfirm, self).form_valid(form)
-
-
-class MyPasswordResetComplete(PasswordResetCompleteView):
-    '''
-    Requer password_reset_complete.html
-    '''
-    ...
+# ... (veja o arquivo completo no GitHub)
 
 
 class MyPasswordReset(PasswordResetView):
@@ -161,6 +123,8 @@ class MyPasswordResetDone(PasswordResetDoneView):
     '''
     ...
 ```
+
+Código completo: [backend/accounts/views.py](https://github.com/rg3915/dicas-de-django/blob/8197c1e6d380c69a4295e614bcfcfc0041e3b8bc/backend/accounts/views.py)
 
 Os templates padrão dessas views ficam em `registration/`, com os nomes da docstring. Basta criar arquivos com esses nomes em `backend/accounts/templates/registration/` para que os nossos, com o visual do projeto, sejam usados no lugar dos templates do admin do Django. O `password_reset_subject.txt` é opcional: sem ele, o Django usa o assunto padrão traduzido, "Redefinição de senha em localhost:8000".
 

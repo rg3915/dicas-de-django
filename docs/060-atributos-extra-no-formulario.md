@@ -70,35 +70,7 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.urls import reverse_lazy
 
-
-class Patient(models.Model):
-    registration = models.CharField('matrícula', max_length=7, unique=True)
-    user = models.ForeignKey(
-        User,
-        on_delete=models.CASCADE,
-        verbose_name='paciente',
-        related_name='patients'
-    )
-
-    class Meta:
-        ordering = ('user__first_name',)
-        verbose_name = 'paciente'
-        verbose_name_plural = 'pacientes'
-
-    def __str__(self):
-        return f'{self.user.first_name}'
-
-
-class Exam(models.Model):
-    title = models.CharField('título', max_length=50, unique=True)
-
-    class Meta:
-        ordering = ('title',)
-        verbose_name = 'exame'
-        verbose_name_plural = 'exames'
-
-    def __str__(self):
-        return f'{self.title}'
+# ... (Patient e Exam: veja o arquivo completo no GitLab)
 
 
 class Care(models.Model):
@@ -111,16 +83,7 @@ class Care(models.Model):
     )
     created = models.DateTimeField('data', auto_now_add=True)
 
-    class Meta:
-        ordering = ('doctor',)
-        verbose_name = 'atendimento'
-        verbose_name_plural = 'atendimentos'
-
-    def __str__(self):
-        return f'{self.doctor}'
-
-    def get_absolute_url(self):
-        return reverse_lazy('exam:care_detail', kwargs={'pk': self.pk})
+    # ... (veja o arquivo completo no GitLab)
 
 
 class CareItems(models.Model):
@@ -138,14 +101,10 @@ class CareItems(models.Model):
     )
     is_done = models.BooleanField('feito?', default=False)
 
-    class Meta:
-        ordering = ('pk',)
-        verbose_name = 'atendimento item'
-        verbose_name_plural = 'atendimento itens'
-
-    def __str__(self):
-        return f'{self.pk}'
+    # ... (veja o arquivo completo no GitLab)
 ```
+
+Código completo: [backend/exam/models.py](https://gitlab.com/rg3915/exame-inline/-/blob/f3be08ea95ad7098edac57610aabf2910ff7e9b3/backend/exam/models.py)
 
 ## A URL que o checkbox vai chamar
 
