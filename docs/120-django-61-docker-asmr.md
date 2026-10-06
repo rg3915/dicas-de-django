@@ -950,8 +950,8 @@ O vídeo também foi dividido em 21 shorts, publicados um a cada dois dias. Os q
 | Data | Short |
 |---|---|
 | 02/10/2026 | [01. Docker: Dockerfile, compose.yaml e .env](https://youtube.com/shorts/pfdNbMxj9XY) |
-| 04/10/2026 | <!--yt-pending RYgtFEu_mpo short-->02. Django 6.1 com uv, dentro do Docker<!--/yt-pending--> |
-| 06/10/2026 | <!--yt-pending 1mDSPAMFarw short-->03. settings.py: PostgreSQL 18 e MAILERS<!--/yt-pending--> |
+| 04/10/2026 | [02. Django 6.1 com uv, dentro do Docker](https://youtube.com/shorts/RYgtFEu_mpo) |
+| 06/10/2026 | [03. settings.py: PostgreSQL 18 e MAILERS](https://youtube.com/shorts/1mDSPAMFarw) |
 | 08/10/2026 | <!--yt-pending 07mSiBY6YgU short-->04. App core: models abstratos, view e urls<!--/yt-pending--> |
 | 10/10/2026 | <!--yt-pending 8FonYYjIzOA short-->05. base.html com Emmet<!--/yt-pending--> |
 | 12/10/2026 | <!--yt-pending 27vPuaMqwo4 short-->06. index.html, 403.html e urls do projeto<!--/yt-pending--> |
