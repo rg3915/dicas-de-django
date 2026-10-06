@@ -8,7 +8,7 @@ Série de shorts no estilo "Junior vs Senior": o jeito do Junior em cima, o do S
 | Data | Short |
 |---|---|
 | 01/10/2026 | [01. select_related vs prefetch_related](https://youtube.com/shorts/_VV1Odkk0Wo) |
-| 04/10/2026 | <!--yt-pending 9mgc049vlbY short-->02. only() e defer()<!--/yt-pending--> |
+| 04/10/2026 | [02. only() e defer()](https://youtube.com/shorts/9mgc049vlbY) |
 | 07/10/2026 | <!--yt-pending hmPagVcXk-4 short-->03. F() e condição de corrida<!--/yt-pending--> |
 | 10/10/2026 | <!--yt-pending FFqBYyK2EiQ short-->04. bulk_create: de 1000 queries para 1<!--/yt-pending--> |
 | 13/10/2026 | <!--yt-pending aZ2U4ir4FVs short-->05. exists() em vez de count()<!--/yt-pending--> |
