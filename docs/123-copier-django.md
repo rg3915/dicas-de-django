@@ -1,17 +1,17 @@
 # Copier + Django: login por e-mail em um comando
 
-<!--agendado-->
-
-> 📅 **Vídeo agendado:** será publicado no YouTube em **10/10/2026, às 10:00**.
-
-<!--/agendado-->
+Publicado em 10/10/2026.
 
 **Testado com:** Django 6.1.1, Copier e Python 3.14.
 {: .versoes }
 
-<!--yt-block -TBGoqLYYxA video-->
+<a href="https://youtu.be/-TBGoqLYYxA">
+    <img src="../.gitbook/assets/youtube.png">
+</a>
 
 Documentação do Copier: [https://copier.readthedocs.io/](https://copier.readthedocs.io/)
+
+Template completo no GitHub: [https://github.com/rg3915/django-auth-template](https://github.com/rg3915/django-auth-template)
 
 Todo projeto Django começa igual: trocar o username pelo e-mail, fazer login, cadastro, "esqueci minha senha"... e copiar tudo do projeto anterior, esquecendo um pedaço.
 
@@ -45,6 +45,7 @@ O `uv tool install` instala o Copier isolado, como um programa de linha de coman
 ```
 django-auth-template/
 ├── .gitignore
+├── README.md
 ├── copier.yml
 └── template/
     ├── {{ _copier_conf.answers_file }}.jinja
@@ -1445,4 +1446,4 @@ copier update --trust
 
 ## Short
 
-* <!--yt-pending 6jqsywJzYG4 short-->Todo projeto Django começa igual? Conheça o Copier<!--/yt-pending--> — 09/10/2026, às 10:00.
+* [Todo projeto Django começa igual? Conheça o Copier](https://youtube.com/shorts/6jqsywJzYG4) — 09/10/2026, às 10:00.
