@@ -127,3 +127,4 @@
 * [Dica 57 - Copier + Django: login por e-mail em um comando](docs/123-copier-django.md)
 * [Dica 58 - Postgres em vez de SQLite, até no dev](docs/124-postgres-em-vez-de-sqlite.md)
 * [Dica 59 - 3 ferramentas que todo projeto Django devia ter](docs/125-tres-ferramentas-django.md)
+* [Dica 60 - 10 pacotes do Awesome Django num projeto real](docs/126-awesome-django-pacotes.md)
