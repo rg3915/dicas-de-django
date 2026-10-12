@@ -14,7 +14,7 @@ six==1.16.0
 openpyxl==3.0.*
 rich==12.6.0
 django-seed==0.3.1
-Pillow==9.3.0
+Pillow==9.4.0
 ipdb
 ruff==0.0.254
 faker-commerce==1.0.3
