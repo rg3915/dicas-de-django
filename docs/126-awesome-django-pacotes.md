@@ -2,7 +2,7 @@
 
 <!--agendado-->
 
-> 📅 **Vídeos agendados:** a parte 1 sai no YouTube em **17/10/2026, às 09:00**, e a parte 2 em **24/10/2026, às 10:00** (vídeo completo + short de cada uma).
+> 📅 **Parte 2 agendada:** sai no YouTube em **24/10/2026, às 10:00** (vídeo completo + short).
 
 <!--/agendado-->
 
@@ -19,9 +19,11 @@ O [awesomedjango.org](https://awesomedjango.org/) reúne centenas de pacotes par
 
 Somados, eles passam de 60 milhões de downloads por mês.
 
-<!--yt-block DgAovvO3BkA video-->
+<a href="https://youtu.be/DgAovvO3BkA">
+    <img src="../.gitbook/assets/youtube.png">
+</a>
 
-Versão curta: <!--yt-pending ZV-wHV1W9E8 short-->short da parte 1 (17/10)<!--/yt-pending-->
+Versão curta: [short da parte 1 (17/10)](https://youtube.com/shorts/ZV-wHV1W9E8)
 
 | Pacote | Downloads/mês | Para quê |
 |---|---|---|

@@ -954,9 +954,9 @@ O vídeo também foi dividido em 21 shorts, publicados um a cada dois dias. Os q
 | 06/10/2026 | [03. settings.py: PostgreSQL 18 e MAILERS](https://youtube.com/shorts/1mDSPAMFarw) |
 | 08/10/2026 | [04. App core: models abstratos, view e urls](https://youtube.com/shorts/07mSiBY6YgU) |
 | 10/10/2026 | [05. base.html com Emmet](https://youtube.com/shorts/8FonYYjIzOA) |
-| 12/10/2026 | <!--yt-pending 27vPuaMqwo4 short-->06. index.html, 403.html e urls do projeto<!--/yt-pending--> |
-| 14/10/2026 | <!--yt-pending R4gD0FR7L-c short-->07. accounts: usuário com login por e-mail<!--/yt-pending--> |
-| 16/10/2026 | <!--yt-pending p6e6NPglvNI short-->08. accounts: forms, admin e urls<!--/yt-pending--> |
+| 12/10/2026 | [06. index.html, 403.html e urls do projeto](https://youtube.com/shorts/27vPuaMqwo4) |
+| 14/10/2026 | [07. accounts: usuário com login por e-mail](https://youtube.com/shorts/R4gD0FR7L-c) |
+| 16/10/2026 | [08. accounts: forms, admin e urls](https://youtube.com/shorts/p6e6NPglvNI) |
 | 18/10/2026 | <!--yt-pending MzjSrSGfjGw short-->09. Templates de login e reset de senha<!--/yt-pending--> |
 | 20/10/2026 | <!--yt-pending csNgB84b0lI short-->10. Reset de senha: confirmar a nova senha<!--/yt-pending--> |
 | 22/10/2026 | <!--yt-pending Xa0IUR2KJ2I short-->11. person: model Employee e form<!--/yt-pending--> |
