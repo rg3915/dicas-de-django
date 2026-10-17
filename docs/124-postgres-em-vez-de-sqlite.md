@@ -1,15 +1,13 @@
 # Postgres em vez de SQLite, até no dev
 
-<!--agendado-->
-
-> 📅 **Vídeo agendado:** será publicado no YouTube em **14/10/2026, às 10:00**.
-
-<!--/agendado-->
+Publicado em 14/10/2026.
 
 **Testado com:** Django 6.1.1, PostgreSQL 18 e Python 3.14.
 {: .versoes }
 
-<!--yt-block ikCqYsBHr6k short-->
+<a href="https://youtube.com/shorts/ikCqYsBHr6k">
+    <img src="../.gitbook/assets/youtube.png">
+</a>
 
 O SQLite ignora o `max_length`: um `CharField(max_length=10)` aceita 18 letras, calado. O PostgreSQL dá `DataError` na hora, e é esse erro que você quer ver na sua máquina, não no seu cliente.
 

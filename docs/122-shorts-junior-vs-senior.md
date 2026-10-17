@@ -11,8 +11,8 @@ Série de shorts no estilo "Junior vs Senior": o jeito do Junior em cima, o do S
 | 04/10/2026 | [02. only() e defer()](https://youtube.com/shorts/9mgc049vlbY) |
 | 07/10/2026 | [03. F() e condição de corrida](https://youtube.com/shorts/hmPagVcXk-4) |
 | 10/10/2026 | [04. bulk_create: de 1000 queries para 1](https://youtube.com/shorts/FFqBYyK2EiQ) |
-| 13/10/2026 | <!--yt-pending aZ2U4ir4FVs short-->05. exists() em vez de count()<!--/yt-pending--> |
-| 16/10/2026 | <!--yt-pending dGgjRYBGLPo short-->06. get_or_create e update_or_create<!--/yt-pending--> |
+| 13/10/2026 | [05. exists() em vez de count()](https://youtube.com/shorts/aZ2U4ir4FVs) |
+| 16/10/2026 | [06. get_or_create e update_or_create](https://youtube.com/shorts/dGgjRYBGLPo) |
 | 19/10/2026 | <!--yt-pending SK7MsM1WNL0 short-->07. annotate: relatório sem loop<!--/yt-pending--> |
 | 22/10/2026 | <!--yt-pending tBEB4qiYEtE short-->08. iterator(): milhões de linhas sem estourar a memória<!--/yt-pending--> |
 | 25/10/2026 | <!--yt-pending D2oYs7dRmAA short-->09. TextChoices com enum<!--/yt-pending--> |
