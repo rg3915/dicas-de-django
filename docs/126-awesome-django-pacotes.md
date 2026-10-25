@@ -1,11 +1,5 @@
 # 10 pacotes do Awesome Django num projeto real
 
-<!--agendado-->
-
-> 📅 **Parte 2 agendada:** sai no YouTube em **24/10/2026, às 10:00** (vídeo completo + short).
-
-<!--/agendado-->
-
 **Testado com:** Django 6.1.1 e Python 3.12.
 {: .versoes }
 
@@ -146,9 +140,11 @@ STORAGES = {
 
 ## Parte 2: 5 pacotes que parecem mágica
 
-<!--yt-block Qw3HjPzrcm8 video-->
+<a href="https://youtu.be/Qw3HjPzrcm8">
+    <img src="../.gitbook/assets/youtube.png">
+</a>
 
-Versão curta: <!--yt-pending PJY4A8yyA7c short-->short da parte 2 (24/10)<!--/yt-pending-->
+Versão curta: [short da parte 2 (24/10)](https://youtube.com/shorts/PJY4A8yyA7c)
 
 ### django-simple-history
 
