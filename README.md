@@ -3,6 +3,50 @@
 https://www.dicas-de-django.com.br/
 
 
+## Qual branch usar?
+
+Você está na `main`, que tem **só o código do projeto Django**. O [site](https://www.dicas-de-django.com.br/) é estático, não usa este Django e fica na branch `site`.
+
+| O que você quer fazer | Branch |
+|---|---|
+| Rodar o projeto Django ou criar um recurso nele | `main` (esta) |
+| Ler ou corrigir uma dica, ou mudar o site | [`site`](https://github.com/rg3915/dicas-de-django/tree/site) (antiga `master`) |
+| Acompanhar uma aula em vídeo | `aula01` a `aula23` (tabela abaixo) |
+| Acompanhar os vídeos das dicas 1 a 60 | [`main_old`](https://github.com/rg3915/dicas-de-django/tree/main_old) |
+| Ver o código de importação e exportação de dados | [`import`](https://github.com/rg3915/dicas-de-django/tree/import) |
+| Ver os exemplos de 2021 | [`signals`](https://github.com/rg3915/dicas-de-django/tree/signals) e [`inlineformset-htmx`](https://github.com/rg3915/dicas-de-django/tree/inlineformset-htmx) |
+
+Só `main` e `site` recebem commits novos. As outras branches são o arquivo dos vídeos e ficam congeladas.
+
+<details>
+<summary>Branch de cada aula</summary>
+
+| Branch | Assunto | Branch | Assunto |
+|---|---|---|---|
+| `aula01` | Criando issues com a API do GitHub | `aula13` | Dashboard com Django e Tailwind CSS |
+| `aula02` | Usando http.server | `aula14` | Custom User com e-mail |
+| `aula03` | Template com Bulma CSS | `aula15` | Login com e-mail |
+| `aula04` | Template com Tailwind CSS | `aula16` | Logout |
+| `aula05` | htmx simples | `aula17` | Cadastro de usuários |
+| `aula06` | Criando o projeto Django | `aula18` | Esqueci a senha |
+| `aula07` | PostgreSQL, pgAdmin e MailHog com docker-compose | `aula19` | OneToMany |
+| `aula08` | isort e autopep8 | `aula20` | OneToOne |
+| `aula09` | djhtml | `aula21` | ManyToMany |
+| `aula10` | Makefile | `aula22` | Abstract |
+| `aula11` | Landpage de produtos | `aula23` | Proxy model |
+| `aula12` | Fale conosco com formulário | | |
+
+</details>
+
+### Como contribuir sem quebrar os vídeos
+
+* **Código Django:** crie sua branch a partir da `main` e abra o pull request para a `main`.
+* **Dicas e site:** crie sua branch a partir da `site` e abra o pull request para a `site`. Ao entrar na `site`, a mudança é publicada no site.
+* **Não faça merge entre `main` e `site`:** os históricos são diferentes.
+* **Não altere as branches congeladas:** nada de novos commits, rebase, force push ou exclusão, porque vídeos e dicas apontam para elas.
+* **A branch padrão continua sendo a `main`:** os vídeos que apontam para a raiz do repositório abrem nela.
+
+
 ## Este projeto foi feito com:
 
 * [Python 3.10.6](https://www.python.org/)
@@ -56,16 +100,7 @@ Para verifcar os comando disponiveis no Makefile no terminal, basta informar `ma
 **Obs:** Deve ter o `rich` instalado (`pip install rich`). Ele já está contido no `requirements.txt` instalado na venv, basta ativa-la `source .venv/bin/activate`
 
 
-## branch antiga
-
-branch: `main_old`
-
-[Dicas 1 a 60](https://github.com/rg3915/dicas-de-django/tree/main_old)
-
-
 ## Leia o passo a passo
 
-[Dicas de Django antigas](https://github.com/rg3915/dicas-de-django/tree/master/docs)
-
-[Dicas de Django novas](doc/)
+Todas as dicas estão no [site](https://www.dicas-de-django.com.br/).
 
