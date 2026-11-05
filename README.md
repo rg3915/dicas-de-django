@@ -20,12 +20,35 @@ Você está na `main`, que tem **só o código do projeto Django**. O [site](htt
 
 Ela virou uma tag com o mesmo nome e o mesmo código. No GitHub, procure na aba **Tags** do seletor de branches. Os links antigos continuam funcionando.
 
-Para acompanhar uma aula no seu computador:
+### Como reproduzir um vídeo
+
+Cada tag guarda o código como ele estava naquele vídeo. Ela não muda, então você pode voltar a ela quando quiser. Seus commits ficam na sua própria branch.
+
+Use o **Python 3.10** e o `requirements.txt` da própria tag. Com o Python 3.14, as tags `aula23`, `import` e `main_old` não funcionam.
+
+**1. Baixe o código da tag e instale as dependências.** Troque `aula23` pela tag do seu vídeo:
 
 ```
 git clone https://github.com/rg3915/dicas-de-django.git
 cd dicas-de-django
-git switch -c minha-aula06 aula06
+git switch -c minha-aula23 aula23
+python3.10 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
+
+**2. Rode o projeto.** Os comandos dependem da tag:
+
+| Tag | Banco | Comandos |
+|---|---|---|
+| `aula01` a `aula05` | Nenhum | Ainda não existe projeto Django: basta seguir o vídeo. |
+| `aula06`, `main_old`, `signals`, `inlineformset-htmx` | SQLite | `python contrib/env_gen.py`<br>`python manage.py migrate`<br>`python manage.py runserver` |
+| `aula07` a `aula23`, `import` | PostgreSQL no Docker | `python contrib/env_gen.py`<br>`docker compose up -d db`<br>`python manage.py migrate`<br>`python manage.py runserver` |
+
+A tag `import` precisa de mais dois pacotes, que não estão no `requirements.txt` dela. Instale-os antes de rodar o projeto:
+
+```
+pip install django-import-export==3.1.0 pyexcelerate
 ```
 
 <details>
